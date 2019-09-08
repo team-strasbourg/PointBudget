@@ -78,6 +78,12 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+staging:
+  <<: *default
+  database: PointBudget_staging
+  username: PointBudget
+  password: <%= ENV['POINTBUDGET_DATABASE_PASSWORD'] %>
+
 production:
   <<: *default
   database: PointBudget_production
