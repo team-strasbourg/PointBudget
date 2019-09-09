@@ -14,6 +14,9 @@ FactoryBot.define do
       end
     factory :user_empty_phone do
       phone_number {""}
+      end
+    factory :user_bad_phone do
+      phone_number {"0606"}
     end
   end
 end

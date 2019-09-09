@@ -18,6 +18,13 @@ RSpec.describe User, type: :model do
         expect(bad_user).not_to be_valid
         expect(bad_user.errors.include?(:email)).to eq(true)
       end
+
+      it 'should not be valid if email is already taken' do
+        user = create(:user, email: 'to@to.com')
+        bad_user = build(:user, email: 'to@to.com')
+        expect(bad_user).not_to be_valid
+        expect(bad_user.errors.include?(:email)).to eq(true)
+      end
     end
 
     describe '#password' do
@@ -26,7 +33,7 @@ RSpec.describe User, type: :model do
         expect(bad_user).not_to be_valid
         expect(bad_user.errors.include?(:password)).to eq(true)
       end
-      end
+    end
 
     describe '#phone_number' do
       it 'can be blank' do
