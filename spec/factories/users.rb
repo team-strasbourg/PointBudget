@@ -7,10 +7,10 @@ FactoryBot.define do
     phone_number { '0606060606'}
 
     factory :user_empty_email do
-      first_name {""}
+      email {""}
     end
     factory :user_empty_password do
-      first_name {""}
+      password {""}
     end
   end
 end
