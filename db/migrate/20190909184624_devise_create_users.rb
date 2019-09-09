@@ -36,7 +36,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name
       t.string :phone_number
       t.boolean :is_admin, default: false
-
+      t.belongs_to :city, index: true
       t.timestamps null: false
     end
 

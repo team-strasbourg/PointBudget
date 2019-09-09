@@ -8,5 +8,5 @@ class User < ApplicationRecord
             allow_blank: true
 
   # belongs_to :city
-  # has_many :full_simulations
+  # has_many :full_simulations, dependent: :destroy
 end
