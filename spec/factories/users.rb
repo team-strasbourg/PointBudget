@@ -9,12 +9,18 @@ FactoryBot.define do
     factory :user_empty_email do
       email {""}
     end
+    factory :user_bad_email do
+      email {"sdf"}
+    end
     factory :user_empty_password do
       password {""}
-      end
+    end
+    factory :user_bad_password do
+      password {"sdf"}
+    end
     factory :user_empty_phone do
       phone_number {""}
-      end
+    end
     factory :user_bad_phone do
       phone_number {"0606"}
     end

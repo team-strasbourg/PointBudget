@@ -6,4 +6,7 @@ class User < ApplicationRecord
   validates :phone_number,
             format: { with: /\A((\+)33|0)[1-9](\d{2}){4}\Z/ },
             allow_blank: true
+
+  # belongs_to :city
+  # has_many :full_simulations
 end

@@ -19,6 +19,12 @@ RSpec.describe User, type: :model do
         expect(bad_user.errors.include?(:email)).to eq(true)
       end
 
+      it 'should not be valid without a valid email' do
+        bad_user = build(:user_bad_email)
+        expect(bad_user).not_to be_valid
+        expect(bad_user.errors.include?(:email)).to eq(true)
+      end
+
       it 'should not be valid if email is already taken' do
         user = create(:user, email: 'to@to.com')
         bad_user = build(:user, email: 'to@to.com')
@@ -33,13 +39,19 @@ RSpec.describe User, type: :model do
         expect(bad_user).not_to be_valid
         expect(bad_user.errors.include?(:password)).to eq(true)
       end
+
+      it 'should not be valid with an bad password' do
+        bad_user = build(:user_bad_password)
+        expect(bad_user).not_to be_valid
+        expect(bad_user.errors.include?(:password)).to eq(true)
+      end
     end
 
     describe '#phone_number' do
       it 'can be blank' do
         user = build(:user_empty_phone)
         expect(user).to be_valid
-        end
+      end
       it 'should be a valid french number' do
         expect(@user.phone_number).to match /^((\+)33|0)[1-9](\d{2}){4}$/
       end
@@ -49,8 +61,17 @@ RSpec.describe User, type: :model do
 
   context 'associations' do
 
-    describe 'some association' do
-    end
+    # describe 'city association' do
+    #   it 'should belongs_to a city' do
+    #     expect(@user).to belong_to(:city)
+    #   end
+    # end
+
+    # describe 'full_simulations association' do
+    #   it 'should have many full_simulations' do
+    #     expect(@user).to have_many(:full_simulations)
+    #   end
+    # end
 
   end
 
