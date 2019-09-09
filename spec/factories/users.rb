@@ -4,13 +4,16 @@ FactoryBot.define do
     password { Faker::Internet.password}
     first_name { Faker::Name.first_name}
     last_name { Faker::Name.last_name}
-    phone_number { '0606060606'}
+    phone_number { %w(0606060606 +33606060606).sample}
 
     factory :user_empty_email do
       email {""}
     end
     factory :user_empty_password do
       password {""}
+      end
+    factory :user_empty_phone do
+      phone_number {""}
     end
   end
 end

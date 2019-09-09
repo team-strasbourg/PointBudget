@@ -5,8 +5,6 @@ RSpec.describe User, type: :model do
     @user = create(:user)
   end
 
-
-
   context 'validations' do
 
     it 'is valid with valid attributes' do
@@ -16,9 +14,27 @@ RSpec.describe User, type: :model do
 
     describe '#email' do
       it 'should not be valid without an email' do
-        bad_user = create(:user_empty_email)
+        bad_user = build(:user_empty_email)
         expect(bad_user).not_to be_valid
         expect(bad_user.errors.include?(:email)).to eq(true)
+      end
+    end
+
+    describe '#password' do
+      it 'should not be valid without an password' do
+        bad_user = build(:user_empty_password)
+        expect(bad_user).not_to be_valid
+        expect(bad_user.errors.include?(:password)).to eq(true)
+      end
+      end
+
+    describe '#phone_number' do
+      it 'can be blank' do
+        user = build(:user_empty_phone)
+        expect(user).to be_valid
+        end
+      it 'should be a valid french number' do
+        expect(@user.phone_number).to match /^((\+)33|0)[1-9](\d{2}){4}$/
       end
     end
 
@@ -27,7 +43,6 @@ RSpec.describe User, type: :model do
   context 'associations' do
 
     describe 'some association' do
-      # teste cette association
     end
 
   end
@@ -35,7 +50,6 @@ RSpec.describe User, type: :model do
   context 'callbacks' do
 
     describe 'some callbacks' do
-      # teste ce callback
     end
 
   end
@@ -43,7 +57,6 @@ RSpec.describe User, type: :model do
   context 'public instance methods' do
 
     describe '#some_method' do
-      # teste cette méthode
     end
 
   end
@@ -51,7 +64,6 @@ RSpec.describe User, type: :model do
   context 'public class methods' do
 
     describe 'self.some_method' do
-      # teste cette méthode
     end
 
   end
