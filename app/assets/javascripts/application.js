@@ -17,7 +17,7 @@
 // require jquery3
 // require jquery_ujs
 
-// require js/pixel
+//= require js/pixel
 
 // require vendor/jquery/jquery.min
 // require vendor/popper/popper.min
