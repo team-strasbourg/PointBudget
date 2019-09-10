@@ -21,7 +21,14 @@
 # end
 #
 
+City.destroy_all
+
 User.destroy_all
+
+20.times do
+  City.create(name: Faker::Address.city, zip_code: '12345', insee_code: "12345")
+end
+puts 'City created'
 20.times do
   User.create(email: Faker::Internet.email,
               password: Faker::Internet.password,
@@ -29,9 +36,10 @@ User.destroy_all
               last_name: Faker::Name.last_name,
               phone_number: %w[0606060606 +33606060606].sample,
               city: City.all.sample)
-  print "#"
+  print '#'
 end
-puts ""
-puts "Users created"
+puts ''
+puts 'Users created'
 User.create(email: 'admin123@admin.com', password: 'admin123', city: City.first, is_admin: true)
-puts "admin created"
+puts 'admin created'
+
