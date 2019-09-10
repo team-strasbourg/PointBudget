@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe GazContract, type: :model do
+RSpec.describe GasContract, type: :model do
   before(:each) do
     @gas_contract = create(:gas_contract)
   end
@@ -26,45 +26,36 @@ RSpec.describe GazContract, type: :model do
       end
     end
 
-    describe '#password' do
-      it 'should not be valid without a password' do
-        bad@gas_contract = build(@gas_contract_empty_password)
-        expect(bad@gas_contract).not_to be_valid
-        expect(bad@gas_contract.errors.include?(:password)).to eq(true)
+    describe '#subscription_base_price_month' do
+      it 'should not be valid with a too high subscription_base_price_month' do
+        bad_gas_contract = build(:gas_contract_more_subscription)
+        expect(bad_gas_contract).not_to be_valid
+        expect(bad_gas_contract.errors.include?(:subscription_base_price_month)).to eq(true)
+      end
+      it 'should not be valid with a too low subscription_base_price_month' do
+        bad_gas_contract = build(:gas_contract_less_subscription)
+        expect(bad_gas_contract).not_to be_valid
+        expect(bad_gas_contract.errors.include?(:subscription_base_price_month)).to eq(true)
       end
 
-      it 'should not be valid with a bad password' do
-        bad@gas_contract = build(@gas_contract_bad_password)
-        expect(bad@gas_contract).not_to be_valid
-        expect(bad@gas_contract.errors.include?(:password)).to eq(true)
-      end
     end
 
-    describe '#phone_number' do
-      it 'can be blank' do
-       @gas_contract = build(@gas_contract_empty_phone)
-        expect@gas_contract).to be_valid
-      end
-      it 'should be a valid french number' do
-        expect(@gas_contract.phone_number).to match /^((\+)33|0)[1-9](\d{2}){4}$/
-      end
-    end
 
   end
 
   context 'associations' do
 
-    describe 'city association' do
-      it 'should belongs_to a city' do
-        expect(@gas_contract).to belong_to(:city)
-      end
-    end
-
-    describe 'full_simulations association' do
-      it 'should have many full_simulations' do
-        expect(@gas_contract).to have_many(:full_simulations)
-      end
-    end
+    # describe 'city association' do
+    #   it 'should belongs_to a city' do
+    #     expect(@gas_contract).to belong_to(:city)
+    #   end
+    # end
+    #
+    # describe 'full_simulations association' do
+    #   it 'should have many full_simulations' do
+    #     expect(@gas_contract).to have_many(:full_simulations)
+    #   end
+    # end
 
   end
 

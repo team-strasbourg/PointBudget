@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :gaz_contract do
+  factory :gas_contract do
     supplier { 'MyString' }
     offer_name { 'MyString' }
     kw_consumption_per_year { [1, 6, 30].sample }

@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_09_10_084000) do
     t.index ["user_id"], name: "index_full_simulations_on_user_id"
   end
 
-  create_table "gaz_contracts", force: :cascade do |t|
+  create_table "gas_contracts", force: :cascade do |t|
     t.string "supplier"
     t.string "offer_name"
     t.integer "kw_consumption_per_year"

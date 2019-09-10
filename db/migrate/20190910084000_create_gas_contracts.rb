@@ -1,6 +1,6 @@
-class CreateGazContracts < ActiveRecord::Migration[5.2]
+class CreateGasContracts < ActiveRecord::Migration[5.2]
   def change
-    create_table :gaz_contracts do |t|
+    create_table :gas_contracts do |t|
       t.string :supplier
       t.string :offer_name
       t.integer :kw_consumption_per_year
