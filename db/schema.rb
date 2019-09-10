@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2019_09_10_115142) do
 
   create_table "full_simulations", force: :cascade do |t|
     t.float "total_cost_saved"
-    t.boolean "validated", default: false
+    t.boolean "validated"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
