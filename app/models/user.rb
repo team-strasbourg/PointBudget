@@ -8,6 +8,6 @@ class User < ApplicationRecord
             allow_blank: true
 
 
-  belongs_to :city
+  belongs_to :city, optional: true
   has_many :full_simulations, dependent: :destroy
 end
