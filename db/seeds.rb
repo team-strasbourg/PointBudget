@@ -20,3 +20,18 @@
 #   end
 # end
 #
+
+User.destroy_all
+20.times do
+  User.create(email: Faker::Internet.email,
+              password: Faker::Internet.password,
+              first_name: Faker::Name.first_name,
+              last_name: Faker::Name.last_name,
+              phone_number: %w[0606060606 +33606060606].sample,
+              city: City.all.sample)
+  print "#"
+end
+puts ""
+puts "Users created"
+User.create(email: 'admin123@admin.com', password: 'admin123', city: City.first, is_admin: true)
+puts "admin created"

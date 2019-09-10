@@ -1,5 +1,5 @@
 module Admin
-  class ApplicationController < ::ActionController
+  class ApplicationController < ::ApplicationController
 
     before_action :only_admin
 
@@ -8,7 +8,7 @@ module Admin
     def only_admin
       unless user_signed_in? && current_user.is_admin == true
         flash[:danger] = 'You\'re not allowed on this page'
-        redirect_to items_path
+        redirect_to users_path
       end
     end
   end
