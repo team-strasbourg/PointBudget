@@ -63,7 +63,7 @@
 
       <% end %>
 
-      <%if ['edit_password',"new_password",'new_registration','new_session'].include?(action)%>
+      <%if ["new_password",'new_registration','new_session'].include?(action)%>
         <%= render "devise/shared/links" %>
       <%end%>
     </div>
