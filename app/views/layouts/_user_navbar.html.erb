@@ -4,23 +4,23 @@
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-              <a class="nav-link active" href="#">Mon profile</a>
+            <%= link_to("Mon profil", class: "nav-link")%>
           </li>
           <li class="nav-item">
-               <a class="nav-link" href="#">Mes simulations validées</a>
+            <%= link_to("Mes simulations non validées", class: "nav-link")%>
           </li>
           <li class="nav-item">
-               <a class="nav-link" href="#">Mes simulations non validées</a>
+            <%= link_to("Mes simulations validées", class: "nav-link")%>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#">Nouvelle simulation</a>
+            <%= link_to("Nouvelle simulation", class: "nav-link")%>
           </li>
         </ul>
       </div>
     </nav>
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-        <h1 class="h2">Dashboard</h1>
+        <h1 class="h2">Mon Dashboard</h1>
       </div>
       <%=yield%>
     </main>

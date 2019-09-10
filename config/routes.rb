@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     resources :full_simulations
   end
 
+  resources :users do
+     resources :full_simulations
+    end
+
 
 
 
