@@ -16,13 +16,13 @@ RSpec.describe JoinTableGasSimulationContract, type: :model do
   context "associations" do
     describe "gas_simulation" do
       it "belongs to one gas_simulation" do
-        expect(@join_table_gas_simulation_contract).to have_one(:gas_simulation)
+        expect(@join_table_gas_simulation_contract).to belong_to(:gas_simulation)
       end
     end
 
     describe "gas_contract" do
       it "belongs to one gas_contract" do
-        expect(@join_table_gas_simulation_contract).to have_one(:gas_contract)
+        expect(@join_table_gas_simulation_contract).to belong_to(:gas_contract)
       end
     end
   end
