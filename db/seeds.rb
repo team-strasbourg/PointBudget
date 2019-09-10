@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# DON'T UNCOMMENTE THE CITIES SEED
+# DON'T UNCOMMENT THE CITIES SEED
 # require 'rest-client'
 # City.destroy_all
 # cities_url = "https://geo.api.gouv.fr/communes"
