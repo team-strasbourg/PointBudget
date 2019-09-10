@@ -3,61 +3,60 @@ require 'rails_helper'
 RSpec.describe FullSimulation, type: :model do
   before(:each) do
     @full_simulation = create(:full_simulation)
-    # en général, tu as envie de créer une nouvelle instance
     end
 
 
 
-    context "validations" do
+  context "validations" do
 
-      it "is valid with valid attributes" do
-          expect(@full_simulation).to be_a(FullSimulation)
-          expect(@full_simulation).to be_valid
-      end
-
-      describe "" do
-      end
-
+    it "is valid with valid attributes" do
+        expect(@full_simulation).to be_a(FullSimulation)
+        expect(@full_simulation).to be_valid
     end
 
-    context "associations" do
-
-      describe "user" do
-        it "belongs to one user" do
-          expect(@full_simulation).to belong_to(:user)
-        end
-      end
-
-      # describe "gas_simulation" do
-      #   it "has one associated gas_simulation" do
-      #     expect(@full_simulation).to have_one(:gas_simulation)
-      #   end
-      # end
-
+    describe "" do
     end
 
-    context "callbacks" do
+  end
 
-      describe "some callbacks" do
-        # teste ce callback
+  context "associations" do
+
+    describe "user" do
+      it "belongs to one user" do
+        expect(@full_simulation).to belong_to(:user)
       end
-
     end
 
-    context "public instance methods" do
+    # describe "gas_simulation" do
+    #   it "has one associated gas_simulation" do
+    #     expect(@full_simulation).to have_one(:gas_simulation)
+    #   end
+    # end
 
-      describe "#some_method" do
-        # teste cette méthode
-      end
+  end
 
+  context "callbacks" do
+
+    describe "some callbacks" do
+      # teste ce callback
     end
 
-    context "public class methods" do
+  end
 
-      describe "self.some_method" do
-        # teste cette méthode
-      end
+  context "public instance methods" do
 
+    describe "#some_method" do
+      # teste cette méthode
     end
+
+  end
+
+  context "public class methods" do
+
+    describe "self.some_method" do
+      # teste cette méthode
+    end
+
+  end
 
 end
