@@ -23,7 +23,7 @@ Rails.application.routes.draw do
      resources :full_simulations
     end
 
-  namespace :user do
+  namespace :users do
     root :to => "users#show"
   end
 
