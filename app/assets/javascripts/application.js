@@ -26,3 +26,4 @@
 //= require vendor/bootstrap-tagsinput/bootstrap-tagsinput.min
 //= require vendor/waypoints/jquery.waypoints.min
 //= require vendor/smooth-scroll/smooth-scroll.polyfills.min
+//= require vendor/prism/prism
