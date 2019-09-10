@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_10_084000) do
+
+ActiveRecord::Schema.define(version: 2019_09_10_084915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 2019_09_10_084000) do
     t.index ["user_id"], name: "index_full_simulations_on_user_id"
   end
 
+
   create_table "gas_contracts", force: :cascade do |t|
     t.string "supplier"
     t.string "offer_name"
@@ -40,6 +42,21 @@ ActiveRecord::Schema.define(version: 2019_09_10_084000) do
     t.float "kwh_price_base"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
+  create_table "gas_simulations", force: :cascade do |t|
+    t.float "actual_price_paid"
+    t.float "gas_cost_saved"
+    t.integer "floor_space"
+    t.string "heat_type"
+    t.string "string"
+    t.string "water_cooking_type"
+    t.integer "residents_number"
+    t.integer "gas_use"
+    t.bigint "full_simulation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["full_simulation_id"], name: "index_gas_simulations_on_full_simulation_id"
+
   end
 
   create_table "users", force: :cascade do |t|
