@@ -1,4 +1,3 @@
-
 <div class="container d-flex justify-content-center align-items-center">
   <div class="row", style="margin-top:50px">
     <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
@@ -40,10 +39,6 @@
           </div>
 
           <div class="form-group">
-            <%#= f.label :password %>
-            <%# if @minimum_password_length %>
-  <!--          <em>(<%#= @minimum_password_length %> characters minimum)</em>-->
-  <!--          <%# end %><br />-->
             <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "form-control" %>
           </div>
 
