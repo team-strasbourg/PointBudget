@@ -57,6 +57,8 @@ end
 
 group :test do
   gem 'database_cleaner'
+  gem 'nyan-cat-formatter'
+  gem 'shoulda-matchers'
   gem 'webdrivers', '~> 3.0'
 end
 
