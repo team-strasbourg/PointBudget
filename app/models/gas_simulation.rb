@@ -1,0 +1,2 @@
+class GasSimulation < ApplicationRecord
+end
