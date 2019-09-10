@@ -1,0 +1,2 @@
+class FullSimulation < ApplicationRecord
+end
