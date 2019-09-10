@@ -7,6 +7,7 @@ FactoryBot.define do
       total_cost_saved {1.5}
     end
 
+    
 
   end
 end
