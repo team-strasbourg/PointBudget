@@ -19,6 +19,19 @@
               
           </ul>
           <ul class="navbar-nav navbar-nav-hover align-items-lg-end ml-auto">
+            <% if user_signed_in? %>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link" data-toggle="dropdown" role="button">
+                    <i class="fas fa-angle-down nav-link-arrow"></i>
+                    <span class="nav-link-inner-text">Connecté</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="../../html/sections/about.html">Mon dashboard</a></li>
+                    <li><%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item"%></li>
+                    <li><a class="dropdown-item" href="../../html/sections/clients.html">Action 3</a></li>
+                </ul>
+            </li>
+            <% else %>
             <li class="nav-item dropdown">
                   <a class="nav-link" data-toggle="dropdown" role="button">
                       <i class="fas fa-angle-down nav-link-arrow"></i>
@@ -31,17 +44,7 @@
                       <li><a class="dropdown-item" href="../../html/sections/clients.html">Action 3</a></li>
                   </ul>
               </li>
-              <li class="nav-item dropdown">
-                  <a href="#" class="nav-link" data-toggle="dropdown" role="button">
-                      <i class="fas fa-angle-down nav-link-arrow"></i>
-                      <span class="nav-link-inner-text">Connecté</span>
-                  </a>
-                  <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="../../html/sections/about.html">Mon dashboard</a></li>
-                      <li><%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item"%></li>
-                      <li><a class="dropdown-item" href="../../html/sections/clients.html">Action 3</a></li>
-                  </ul>
-              </li>
+            <% end %>
           </ul>
 
       </div>
