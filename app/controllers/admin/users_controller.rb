@@ -54,7 +54,7 @@ module Admin
     private
 
     def user_params
-      params[:user].permit(:first_name, :last_name, :phone_number, :is_admin)
+      params[:user].permit(:first_name, :last_name, :phone_number, :is_admin, :city_id)
     end
   end
 end
