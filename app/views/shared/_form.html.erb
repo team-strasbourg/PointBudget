@@ -72,7 +72,20 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
 
+<!--        GAS SIMULATION FORM-->
+
+        <%when 'new_gas_simulation'%>
+          <div class="form-group">
+            <p>Connaissez vous votre consommation de gaz ?
+            <%= radio_button_tag(:answer, "yes") %>
+            <%= label_tag(:answer_yes, "Oui") %>
+            <%= radio_button_tag(:answer, "no") %>
+            <%= label_tag(:answer_no, "Non") %>
+            </p>
+          </div>
+
         <%end%>
+
 
 <!--        FOR ALL FORMS-->
         <div class="form-group">
