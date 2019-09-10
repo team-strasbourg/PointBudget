@@ -1,24 +1,15 @@
-<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-  <h4 class="navbar-brand col-sm-3 col-md-2 mr-0">Mon dashboard</h4>
-</nav>
-
 <div class="container-fluid">
   <div class="row">
     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-              <a class="nav-link active" href="#">Mon profile</a>
+            <%= link_to("Users", admin_users_path, class: "nav-link")%>
           </li>
           <li class="nav-item">
-               <a class="nav-link" href="#">Mes simulations validées</a>
+            <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete%>
           </li>
-          <li class="nav-item">
-               <a class="nav-link" href="#">Mes simulations non validées</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#">Nouvelle simulation</a>
-          </li>
+
         </ul>
       </div>
     </nav>
@@ -30,5 +21,3 @@
     </main>
   </div>
 </div>
-
-

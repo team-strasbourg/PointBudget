@@ -1,0 +1,7 @@
+<%= render partial: "shared/form",
+           locals:{resource: @user,
+                   action: 'edit_user',
+                   path: admin_user_path,
+                   method: :put,
+                   title: 'Edit your profil',
+                   button: "Update"}%>

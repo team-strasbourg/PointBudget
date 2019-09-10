@@ -1,0 +1,35 @@
+<!--FOR THIS PARTIAL YOU NEED TO LOOK AT app/views/admin/users/index.html TO UNDERSTAND WHERE VARIABLES COME FROM-->
+<h1><%=title%></h1> <!--VARIABLE FROM PARTIAL-->
+<%if edition %>
+  <%= link_to button_new, path_new, class: 'btn btn-primary' %> <!--VARIABLE FROM PARTIAL-->
+<%end %>
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <% titles.each do |title| %> <!--VARIABLE FROM PARTIAL-->
+        <th><%=title %></th>
+      <%end %>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% resources.each do |resource| %> <!--VARIABLE FROM PARTIAL-->
+      <tr>
+        <td><%= resource.id %></td>
+        <% values.each do |value| %> <!--VARIABLE FROM PARTIAL-->
+          <td><%=resource.public_send(value)%></td> <!--TRANSFORM A STRING INTO A METHOD -->
+        <%end %>
+        <%if edition %>
+          <td><%= link_to 'Edit', "#{path}#{resource.id}/edit" %></td> <!--VARIABLE FROM PARTIAL-->
+        <%end %>
+        <!--VARIABLE FROM PARTIAL-->
+        <td><%= link_to 'Show',"#{path}#{resource.id}" %></td>
+        <td><%= link_to 'Destroy',"#{path}#{resource.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<br>
