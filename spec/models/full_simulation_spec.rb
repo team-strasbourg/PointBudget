@@ -5,8 +5,6 @@ RSpec.describe FullSimulation, type: :model do
     @full_simulation = create(:full_simulation)
     end
 
-
-
     context "validations" do
 
       it "is valid with valid attributes" do
@@ -16,41 +14,59 @@ RSpec.describe FullSimulation, type: :model do
 
     end
 
-    context "associations" do
+    describe "" do
+    end
 
-      describe "user" do
-        it "belongs to one user" do
-          expect(@full_simulation).to belong_to(:user)
-        end
-      end
+  end
 
+
+  context "associations" do
       describe "gas_simulation" do
         it "has one associated gas_simulation" do
           expect(@full_simulation).to have_one(:gas_simulation)
         end
       end
 
-    end
 
-    context "callbacks" do
-
-      describe "some callbacks" do
+    describe "user" do
+      it "belongs to one user" do
+        expect(@full_simulation).to belong_to(:user)
       end
-
     end
 
-    context "public instance methods" do
+    describe "gas_simulation" do
+      it "has one associated gas_simulation" do
+        expect(@full_simulation).to have_one(:gas_simulation)
+      end
+    end
+  end
+
+  context "callbacks" do
+
+    describe "some callbacks" do
+    end
+
+    describe "some callbacks" do
+    end
+  end
+
+
+  context "public instance methods" do
 
       describe "#some_method" do
       end
 
+
+    describe "#some_method" do
     end
+  end
 
-    context "public class methods" do
 
+  context "public class methods" do
       describe "self.some_method" do
       end
 
+    describe "self.some_method" do
     end
-
+  end
 end

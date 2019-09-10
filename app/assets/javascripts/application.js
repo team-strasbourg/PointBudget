@@ -12,11 +12,10 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+// require turbolinks
 //= require_tree .
-//= require jquery3
-//= require jquery_ujs
-//= require_tree .
+// require jquery3
+// require jquery_ujs
 
 //= require js/pixel
 
@@ -27,3 +26,4 @@
 //= require vendor/bootstrap-tagsinput/bootstrap-tagsinput.min
 //= require vendor/waypoints/jquery.waypoints.min
 //= require vendor/smooth-scroll/smooth-scroll.polyfills.min
+//= require vendor/prism/prism

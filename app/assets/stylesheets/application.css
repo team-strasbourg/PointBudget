@@ -12,9 +12,17 @@
  *
  *= require_tree .
  *= require_self
-
  *= require font-awesome
-
  *= require css/pixel
  
  */
+
+ .point-budget-title{
+ 	 font-size: 30px;
+ 	 margin-right: 50px;
+ }
+
+ .contact-title{
+ 	 margin-right: 600px;
+ }
+
