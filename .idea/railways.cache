@@ -1,0 +1,79 @@
+do /home/carsano/Documents/Programmation/THP/final_project/PointBudget/bin/bundle exec /home/carsano/.rvm/rubies/ruby-2.5.1/bin/ruby /home/carsano/Documents/Programmation/THP/final_project/PointBudget/bin/rake routes --trace 
+Ruby enVironment Manager 1.29.8 (latest) (c) 2009-2017 Michal Papis, Piotr Kuczynski, Wayne E. Seguin
+
+                    Prefix Verb   URI Pattern                                                                              Controller#Action
+          new_user_session GET    /users/sign_in(.:format)                                                                 devise/sessions#new
+              user_session POST   /users/sign_in(.:format)                                                                 devise/sessions#create
+      destroy_user_session DELETE /users/sign_out(.:format)                                                                devise/sessions#destroy
+         new_user_password GET    /users/password/new(.:format)                                                            devise/passwords#new
+        edit_user_password GET    /users/password/edit(.:format)                                                           devise/passwords#edit
+             user_password PATCH  /users/password(.:format)                                                                devise/passwords#update
+                           PUT    /users/password(.:format)                                                                devise/passwords#update
+                           POST   /users/password(.:format)                                                                devise/passwords#create
+  cancel_user_registration GET    /users/cancel(.:format)                                                                  devise/registrations#cancel
+     new_user_registration GET    /users/sign_up(.:format)                                                                 devise/registrations#new
+    edit_user_registration GET    /users/edit(.:format)                                                                    devise/registrations#edit
+         user_registration PATCH  /users(.:format)                                                                         devise/registrations#update
+                           PUT    /users(.:format)                                                                         devise/registrations#update
+                           DELETE /users(.:format)                                                                         devise/registrations#destroy
+                           POST   /users(.:format)                                                                         devise/registrations#create
+                      root GET    /                                                                                        static_pages#landing_page
+        static_pages_about GET    /static_pages/about(.:format)                                                            static_pages#about
+      static_pages_contact GET    /static_pages/contact(.:format)                                                          static_pages#contact
+                new_energy GET    /energies/new(.:format)                                                                  energies#new
+                    energy GET    /energies/:id(.:format)                                                                  energies#show
+           gas_simulations GET    /gas_simulations(.:format)                                                               gas_simulations#index
+                           POST   /gas_simulations(.:format)                                                               gas_simulations#create
+        new_gas_simulation GET    /gas_simulations/new(.:format)                                                           gas_simulations#new
+       edit_gas_simulation GET    /gas_simulations/:id/edit(.:format)                                                      gas_simulations#edit
+            gas_simulation GET    /gas_simulations/:id(.:format)                                                           gas_simulations#show
+                           PATCH  /gas_simulations/:id(.:format)                                                           gas_simulations#update
+                           PUT    /gas_simulations/:id(.:format)                                                           gas_simulations#update
+                           DELETE /gas_simulations/:id(.:format)                                                           gas_simulations#destroy
+                     users GET    /users(.:format)                                                                         users#index
+                           POST   /users(.:format)                                                                         users#create
+                  new_user GET    /users/new(.:format)                                                                     users#new
+                 edit_user GET    /users/:id/edit(.:format)                                                                users#edit
+                      user GET    /users/:id(.:format)                                                                     users#show
+                           PATCH  /users/:id(.:format)                                                                     users#update
+                           PUT    /users/:id(.:format)                                                                     users#update
+                           DELETE /users/:id(.:format)                                                                     users#destroy
+          full_simulations GET    /full_simulations(.:format)                                                              full_simulations#index
+                           POST   /full_simulations(.:format)                                                              full_simulations#create
+       new_full_simulation GET    /full_simulations/new(.:format)                                                          full_simulations#new
+      edit_full_simulation GET    /full_simulations/:id/edit(.:format)                                                     full_simulations#edit
+           full_simulation GET    /full_simulations/:id(.:format)                                                          full_simulations#show
+                           PATCH  /full_simulations/:id(.:format)                                                          full_simulations#update
+                           PUT    /full_simulations/:id(.:format)                                                          full_simulations#update
+                           DELETE /full_simulations/:id(.:format)                                                          full_simulations#destroy
+                admin_root GET    /admin(.:format)                                                                         admin/users#index
+               admin_users GET    /admin/users(.:format)                                                                   admin/users#index
+                           POST   /admin/users(.:format)                                                                   admin/users#create
+            new_admin_user GET    /admin/users/new(.:format)                                                               admin/users#new
+           edit_admin_user GET    /admin/users/:id/edit(.:format)                                                          admin/users#edit
+                admin_user GET    /admin/users/:id(.:format)                                                               admin/users#show
+                           PATCH  /admin/users/:id(.:format)                                                               admin/users#update
+                           PUT    /admin/users/:id(.:format)                                                               admin/users#update
+                           DELETE /admin/users/:id(.:format)                                                               admin/users#destroy
+              admin_energy GET    /admin/energies/:id(.:format)                                                            admin/energies#show
+     admin_gas_simulations GET    /admin/gas_simulations(.:format)                                                         admin/gas_simulations#index
+                           POST   /admin/gas_simulations(.:format)                                                         admin/gas_simulations#create
+  new_admin_gas_simulation GET    /admin/gas_simulations/new(.:format)                                                     admin/gas_simulations#new
+ edit_admin_gas_simulation GET    /admin/gas_simulations/:id/edit(.:format)                                                admin/gas_simulations#edit
+      admin_gas_simulation GET    /admin/gas_simulations/:id(.:format)                                                     admin/gas_simulations#show
+                           PATCH  /admin/gas_simulations/:id(.:format)                                                     admin/gas_simulations#update
+                           PUT    /admin/gas_simulations/:id(.:format)                                                     admin/gas_simulations#update
+                           DELETE /admin/gas_simulations/:id(.:format)                                                     admin/gas_simulations#destroy
+    admin_full_simulations GET    /admin/full_simulations(.:format)                                                        admin/full_simulations#index
+                           POST   /admin/full_simulations(.:format)                                                        admin/full_simulations#create
+ new_admin_full_simulation GET    /admin/full_simulations/new(.:format)                                                    admin/full_simulations#new
+edit_admin_full_simulation GET    /admin/full_simulations/:id/edit(.:format)                                               admin/full_simulations#edit
+     admin_full_simulation GET    /admin/full_simulations/:id(.:format)                                                    admin/full_simulations#show
+                           PATCH  /admin/full_simulations/:id(.:format)                                                    admin/full_simulations#update
+                           PUT    /admin/full_simulations/:id(.:format)                                                    admin/full_simulations#update
+                           DELETE /admin/full_simulations/:id(.:format)                                                    admin/full_simulations#destroy
+        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
+ rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
+        rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
+ update_rails_disk_service PUT    /rails/active_storage/disk/:encoded_token(.:format)                                      active_storage/disk#update
+      rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
