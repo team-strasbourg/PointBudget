@@ -45,15 +45,15 @@ RSpec.describe GasContract, type: :model do
 
   context 'associations' do
 
-    # describe 'city association' do
-    #   it 'should belongs_to a city' do
-    #     expect(@gas_contract).to belong_to(:city)
+    # describe 'join_table_gases association' do
+    #   it 'should have any join_table_gases' do
+    #     expect(@gas_contract).to has_many(::join_table_gases)
     #   end
     # end
     #
-    # describe 'full_simulations association' do
-    #   it 'should have many full_simulations' do
-    #     expect(@gas_contract).to have_many(:full_simulations)
+    # describe 'gas_simulations association' do
+    #   it 'should have many gas_simulations' do
+    #     expect(@gas_contract).to have_many(:gas_simulations)
     #   end
     # end
 
