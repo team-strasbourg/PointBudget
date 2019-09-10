@@ -9,6 +9,7 @@ class CreateGasSimulations < ActiveRecord::Migration[5.2]
       t.string :water_cooking_type
       t.integer :residents_number
       t.integer :gas_use
+      t.belongs_to :full_simulation, index: true
 
       t.timestamps
     end

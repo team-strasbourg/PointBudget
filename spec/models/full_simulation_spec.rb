@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe FullSimulation, type: :model do
   before(:each) do
     @full_simulation = create(:full_simulation)
-    # en général, tu as envie de créer une nouvelle instance
     end
 
 
@@ -13,9 +12,6 @@ RSpec.describe FullSimulation, type: :model do
       it "is valid with valid attributes" do
           expect(@full_simulation).to be_a(FullSimulation)
           expect(@full_simulation).to be_valid
-      end
-
-      describe "" do
       end
 
     end
@@ -39,7 +35,6 @@ RSpec.describe FullSimulation, type: :model do
     context "callbacks" do
 
       describe "some callbacks" do
-        # teste ce callback
       end
 
     end
@@ -47,7 +42,6 @@ RSpec.describe FullSimulation, type: :model do
     context "public instance methods" do
 
       describe "#some_method" do
-        # teste cette méthode
       end
 
     end
@@ -55,7 +49,6 @@ RSpec.describe FullSimulation, type: :model do
     context "public class methods" do
 
       describe "self.some_method" do
-        # teste cette méthode
       end
 
     end

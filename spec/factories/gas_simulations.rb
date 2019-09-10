@@ -8,5 +8,6 @@ FactoryBot.define do
     water_cooking_type { "MyString" }
     residents_number { 1 }
     gas_use { 1 }
+    full_simulation {create(:full_simulation)}
   end
 end
