@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2019_09_10_084915) do
 
   # These are extensions that must be enabled in order to support this database
@@ -33,7 +32,6 @@ ActiveRecord::Schema.define(version: 2019_09_10_084915) do
     t.index ["user_id"], name: "index_full_simulations_on_user_id"
   end
 
-
   create_table "gas_contracts", force: :cascade do |t|
     t.string "supplier"
     t.string "offer_name"
@@ -42,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_09_10_084915) do
     t.float "kwh_price_base"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
 
   create_table "gas_simulations", force: :cascade do |t|
     t.float "actual_price_paid"
@@ -56,7 +55,6 @@ ActiveRecord::Schema.define(version: 2019_09_10_084915) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["full_simulation_id"], name: "index_gas_simulations_on_full_simulation_id"
-
   end
 
   create_table "users", force: :cascade do |t|
