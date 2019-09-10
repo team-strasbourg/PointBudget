@@ -26,6 +26,7 @@ module Admin
 
     def edit
       @user = User.find(params[:id])
+      @cities = City.all
     end
 
     def update
