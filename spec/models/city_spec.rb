@@ -6,7 +6,6 @@ RSpec.describe City, type: :model do
   end
 
 
-
   context 'validations' do
 
     it 'is valid with valid attributes' do
