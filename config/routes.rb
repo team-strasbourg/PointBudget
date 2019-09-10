@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'full_simulations/new'
+  get 'full_simulations/create'
+  get 'full_simulations/update'
+  get 'full_simulations/edit'
+  get 'full_simulations/destroy'
+  get 'full_simulations/index'
+  get 'full_simulations/show'
   devise_for :users
 
   root :to => "static_pages#landing_page"
