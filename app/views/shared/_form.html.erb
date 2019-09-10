@@ -1,0 +1,89 @@
+
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="row", style="margin-top:50px">
+    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
+
+      <%= form_for(resource, url: path, method: method) do |f| %>
+      <h2><%=title %></h2>
+
+<!--        IF DEVISE ERRORS-->
+        <%begin%>
+          <%if devise_error_messages!%>
+            <%= devise_error_messages! %>
+          <%end%>
+        <%rescue%>
+        <%end%>
+
+        <%case action %>
+        <%when 'new_session' %>
+          <div class="form-group">
+            <!--   <%= f.label :email %><br /> -->
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Email", class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <!--  <%= f.label :password %><br /> -->
+            <%= f.password_field :password, autocomplete: "current-password", placeholder:"Password", class: "form-control" %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="form-group">
+              <%= f.check_box :remember_me%><br>
+              <%= f.label :remember_me%>
+            </div>
+          <% end %>
+
+<!--          NEW REGISTRATION FORM-->
+        <%when 'new_registration' %>
+          <div class="form-group">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%#= f.label :password %>
+            <%# if @minimum_password_length %>
+  <!--          <em>(<%#= @minimum_password_length %> characters minimum)</em>-->
+  <!--          <%# end %><br />-->
+            <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm your password", class: "form-control" %>
+          </div>
+
+
+<!--          NEW USER-->
+          <%when 'new_user' %>
+            <div class="form-group">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class:"form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class:"form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm your password", class:"form-control" %>
+            </div>
+
+            <% if is_admin? %>
+              <div class="form-group">
+                <%= f.radio_button(:admin, true,autocomplete: :admin)  %>
+                <%= f.label(:admin, "True") %>
+                <%= f.radio_button(:admin, false,autocomplete: :admin) %>
+                <%= f.label(:admin, "False") %>
+              </div>
+            <%end %>
+
+<!--        FOR ALL FORMS-->
+        <div class="form-group">
+          <%= f.submit button, class: "btn btn-primary btn-block" %>
+        </div>
+
+
+      <% end %>
+
+      <%if ['edit_password',"new_password",'new_registration','new_session'].include?(action)%>
+        <%= render "devise/shared/links" %>
+      <%end%>
+    </div>
+  </div>
+</div>
