@@ -5,6 +5,7 @@ FactoryBot.define do
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
     phone_number { %w[0606060606 +33606060606].sample }
+    city { create(:city)}
 
     factory :user_empty_email do
       email { '' }
