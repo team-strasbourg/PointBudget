@@ -22,11 +22,17 @@ RSpec.describe FullSimulation, type: :model do
 
     context "associations" do
 
-      describe "#full_simulation" do
-        it "has an associated user" do
+      describe "user" do
+        it "belongs to one user" do
           expect(@full_simulation).to belong_to(:user)
         end
       end
+
+      # describe "gas_simulation" do
+      #   it "has one associated gas_simulation" do
+      #     expect(@full_simulation).to have_one(:gas_simulation)
+      #   end
+      # end
 
     end
 
