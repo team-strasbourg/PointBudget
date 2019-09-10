@@ -1,4 +1,4 @@
-class GasSimulationController < ApplicationController
+class GasSimulationsController < ApplicationController
 
   def index
 
@@ -15,5 +15,5 @@ class GasSimulationController < ApplicationController
   def destroy
 
   end
-  
+
 end
