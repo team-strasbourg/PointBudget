@@ -24,11 +24,11 @@ RSpec.describe FullSimulation, type: :model do
         end
       end
 
-      # describe "gas_simulation" do
-      #   it "has one associated gas_simulation" do
-      #     expect(@full_simulation).to have_one(:gas_simulation)
-      #   end
-      # end
+      describe "gas_simulation" do
+        it "has one associated gas_simulation" do
+          expect(@full_simulation).to have_one(:gas_simulation)
+        end
+      end
 
     end
 

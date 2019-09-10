@@ -13,4 +13,15 @@ RSpec.describe GasSimulation, type: :model do
     end
 
   end
+
+  context "associations" do
+
+    describe "gas_simulation" do
+      it "belongs to one full_simulation" do
+        expect(@gas_simulation).to belong_to(:full_simulation)
+      end
+    end
+
+  end
+
 end
