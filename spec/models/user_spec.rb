@@ -67,11 +67,11 @@ RSpec.describe User, type: :model do
       end
     end
 
-    # describe 'full_simulations association' do
-    #   it 'should have many full_simulations' do
-    #     expect(@user).to have_many(:full_simulations)
-    #   end
-    # end
+    describe 'full_simulations association' do
+      it 'should have many full_simulations' do
+        expect(@user).to have_many(:full_simulations)
+      end
+    end
 
   end
 

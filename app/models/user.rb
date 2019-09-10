@@ -7,6 +7,7 @@ class User < ApplicationRecord
             format: { with: /\A((\+)33|0)[1-9](\d{2}){4}\Z/ },
             allow_blank: true
 
+
   belongs_to :city
-  # has_many :full_simulations, dependent: :destroy
+  has_many :full_simulations, dependent: :destroy
 end
