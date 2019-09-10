@@ -19,10 +19,10 @@
 
 //= require js/pixel
 
-// require vendor/jquery/jquery.min
-// require vendor/popper/popper.min
-// require vendor/bootstrap/bootstrap.min
-// require vendor/headroom/headroom.min
-// require vendor/bootstrap-tagsinput/bootstrap-tagsinput.min
-// require vendor/waypoints/jquery.waypoints.min
-// require vendor/smooth-scroll/smooth-scroll.polyfills.min
+//= require vendor/jquery/jquery.min
+//= require vendor/popper/popper.min
+//= require vendor/bootstrap/bootstrap.min
+//= require vendor/headroom/headroom.min
+//= require vendor/bootstrap-tagsinput/bootstrap-tagsinput.min
+//= require vendor/waypoints/jquery.waypoints.min
+//= require vendor/smooth-scroll/smooth-scroll.polyfills.min
