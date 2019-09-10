@@ -1,17 +1,12 @@
 <header> 
   <nav class="navbar navbar-expand-lg navbar-transparent navbar-dark navbar-theme-primary mb-4">
     <div class="container position-relative">
-      <a class="navbar-brand mr-lg-5" href="../../index.html">
-          <img class="navbar-brand-dark" src="../../img/brand/light.svg" alt="menuimage">
-          <img class="navbar-brand-light" src="../../img/brand/dark.svg" alt="menuimage">
-      </a>
+      <%= link_to "Point Budget", root_path, class: "nav-item text-white"%>
       <div class="navbar-collapse collapse" id="navbar-primary">
           <div class="navbar-collapse-header">
               <div class="row">
                   <div class="col-6 collapse-brand">
-                      <a href="../../index.html">
-                          <img src="../../img/brand/secondary.svg" alt="menuimage">
-                      </a>
+                    <%= link_to "Point Budget", root_path, class: "nav-item"%>
                   </div>
                   <div class="col-6 collapse-close">
                       <i class="fas fa-times" data-toggle="collapse" role="button" data-target="#navbar-primary" aria-controls="navbar-primary" aria-expanded="false" aria-label="Toggle navigation"></i>
@@ -27,8 +22,8 @@
                       <span class="nav-link-inner-text">S'inscrire/Se connecter</span>
                   </a>
                   <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="../../html/sections/about.html">S'inscrire</a></li>
-                      <li><a class="dropdown-item" href="../../html/sections/blog.html">Se connecter</a></li>
+                      <li><%= link_to "S'inscrire", new_user_registration_path, class: "dropdown-item"%></li>
+                      <li><%= link_to "Se connecter", new_user_session_path, class: "dropdown-item"%></li>
                       <li><a class="dropdown-item" href="../../html/sections/clients.html">Action 3</a></li>
                   </ul>
               </li>
@@ -39,14 +34,16 @@
                   </a>
                   <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="../../html/sections/about.html">Mon dashboard</a></li>
-                      <li><a class="dropdown-item" href="../../html/sections/blog.html">Se déconnecter</a></li>
+                      <li><%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item"%></li>
                       <li><a class="dropdown-item" href="../../html/sections/clients.html">Action 3</a></li>
                   </ul>
               </li>
           </ul>
       </div>
+
+<!-- Hamburger Menu -->
+
       <div class="d-flex align-items-center">
-          <p class="text-white mb-0">Primary navbar</p>
           <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbar-primary" aria-controls="navbar-primary" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
