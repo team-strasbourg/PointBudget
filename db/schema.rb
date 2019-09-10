@@ -38,10 +38,8 @@ ActiveRecord::Schema.define(version: 2019_09_10_084000) do
     t.integer "kw_consumption_per_year"
     t.float "subscription_base_price_month"
     t.float "kwh_price_base"
-    t.bigint "full_simulation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["full_simulation_id"], name: "index_gaz_contracts_on_full_simulation_id"
   end
 
   create_table "users", force: :cascade do |t|
