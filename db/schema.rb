@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_09_10_115142) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +57,7 @@ ActiveRecord::Schema.define(version: 2019_09_10_115142) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["full_simulation_id"], name: "index_gas_simulations_on_full_simulation_id"
+
   end
 
   create_table "join_table_gas_simulation_contracts", force: :cascade do |t|
@@ -64,6 +67,7 @@ ActiveRecord::Schema.define(version: 2019_09_10_115142) do
     t.datetime "updated_at", null: false
     t.index ["gas_contract_id"], name: "index_join_table_gas_simulation_contracts_on_gas_contract_id"
     t.index ["gas_simulation_id"], name: "index_join_table_gas_simulation_contracts_on_gas_simulation_id"
+
   end
 
   create_table "users", force: :cascade do |t|
