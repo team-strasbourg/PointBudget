@@ -61,11 +61,11 @@ RSpec.describe User, type: :model do
 
   context 'associations' do
 
-    # describe 'city association' do
-    #   it 'should belongs_to a city' do
-    #     expect(@user).to belong_to(:city)
-    #   end
-    # end
+    describe 'city association' do
+      it 'should belongs_to a city' do
+        expect(@user).to belong_to(:city)
+      end
+    end
 
     # describe 'full_simulations association' do
     #   it 'should have many full_simulations' do
