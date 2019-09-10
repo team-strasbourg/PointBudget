@@ -15,16 +15,17 @@ RSpec.describe FullSimulation, type: :model do
           expect(@full_simulation).to be_valid
       end
 
-      describe "#some_attribute" do
-        # teste cet attribut, en fonction de la validation que tu lui as donnée
+      describe "" do
       end
 
     end
 
     context "associations" do
 
-      describe "some association" do
-        # teste cette association
+      describe "#full_simulation" do
+        it "has an associated user" do
+          expect(@full_simulation).to belong_to(:user)
+        end
       end
 
     end
