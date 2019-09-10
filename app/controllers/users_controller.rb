@@ -24,10 +24,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update(user_params)
-      flash.now[:success] = "Votre profil vient d'être édité avec succès!"
+      flash[:success] = "Votre profil vient d'être édité avec succès!"
       redirect_to user_path(@user.id)
     else
-      flash.now[:error] = "Votre profil n'a pas pu être édité..."
+      flash[:error] = "Votre profil n'a pas pu être édité..."
       render :edit
     end
   end
