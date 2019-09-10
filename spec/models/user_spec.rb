@@ -34,13 +34,13 @@ RSpec.describe User, type: :model do
     end
 
     describe '#password' do
-      it 'should not be valid without an password' do
+      it 'should not be valid without a password' do
         bad_user = build(:user_empty_password)
         expect(bad_user).not_to be_valid
         expect(bad_user.errors.include?(:password)).to eq(true)
       end
 
-      it 'should not be valid with an bad password' do
+      it 'should not be valid with a bad password' do
         bad_user = build(:user_bad_password)
         expect(bad_user).not_to be_valid
         expect(bad_user.errors.include?(:password)).to eq(true)
