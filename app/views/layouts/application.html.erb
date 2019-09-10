@@ -8,13 +8,21 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  
-  <%= render 'layouts/navbar' %>
+  <header>
+    <%unless is_admin? %>
+      <%= render 'layouts/navbar' %>
+    <%end %>
+    <%= render 'layouts/flash'%>
+  </header>
 
-  <%= render 'layouts/flash'%>
-  <body>
-
-    <%= yield %>
-  </body>
-   <%= render 'layouts/footer' %>
+    <%if is_admin? %>
+    <body>
+      <%= render 'layouts/admin_navbar' %>
+    </body>
+    <%else %>
+    <body>
+      <%= yield %>
+    </body>
+     <%= render 'layouts/footer' %>
+    <%end %>
 </html>
