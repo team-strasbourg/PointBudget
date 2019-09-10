@@ -27,3 +27,4 @@
 //= require vendor/waypoints/jquery.waypoints.min
 //= require vendor/smooth-scroll/smooth-scroll.polyfills.min
 //= require vendor/prism/prism
+//= require js/all
