@@ -13,7 +13,9 @@ class GasSimulationsController < ApplicationController
   end
 
   def create
-
+    50.times do
+      puts "#"
+    end
   end
 
   def destroy
