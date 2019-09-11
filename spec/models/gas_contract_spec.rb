@@ -12,20 +12,6 @@ RSpec.describe GasContract, type: :model do
       expect(@gas_contract).to be_valid
     end
 
-    describe '#kw_consumption_per_year' do
-      it 'should not be valid with a to high valid kw_consumption email' do
-        bad_gas_contract = build(:gas_contract_more_year_consumption)
-        expect(bad_gas_contract).not_to be_valid
-        expect(bad_gas_contract.errors.include?(:kw_consumption_per_year)).to eq(true)
-      end
-
-      it 'should not be valid with a to low valid kw_consumption email' do
-        bad_gas_contract = build(:gas_contract_less_year_consumption)
-        expect(bad_gas_contract).not_to be_valid
-        expect(bad_gas_contract.errors.include?(:kw_consumption_per_year)).to eq(true)
-      end
-    end
-
     describe '#subscription_base_price_month' do
       it 'should not be valid with a too high subscription_base_price_month' do
         bad_gas_contract = build(:gas_contract_more_subscription)

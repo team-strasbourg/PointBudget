@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_10_115142) do
+ActiveRecord::Schema.define(version: 2019_09_11_100705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,11 +35,12 @@ ActiveRecord::Schema.define(version: 2019_09_10_115142) do
   create_table "gas_contracts", force: :cascade do |t|
     t.string "supplier"
     t.string "offer_name"
-    t.integer "kw_consumption_per_year"
     t.float "subscription_base_price_month"
     t.float "kwh_price_base"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "low_kw_consumption_per_year"
+    t.integer "high_kw_consumption_per_year"
   end
 
   create_table "gas_simulations", force: :cascade do |t|

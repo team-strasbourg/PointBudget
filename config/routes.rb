@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :users
     resources :energies, only: [:show]
     resources :gas_simulations
+    resources :gas_contracts
     resources :full_simulations
   end
 
