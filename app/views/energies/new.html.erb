@@ -2,6 +2,10 @@
 <p>Find me in app/views/energies/show.html.erb</p>
 
 <div>
+
+	<button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Gaz</button>
+	
   <%=link_to "Gas", new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: "btn btn-primary"%>
   <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Electricité</button>
+
 </div>
