@@ -46,6 +46,16 @@
  	 margin-right: 50px;
  }
 
+
+/* CONTEXT */
+
+#context{
+	margin-bottom: 100px;
+}
+
+.title-context{
+	padding: 60px 0 20px 0;
+}
 /* BENEFITS */
 
  #benefits{
