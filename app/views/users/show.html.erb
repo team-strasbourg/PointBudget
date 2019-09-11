@@ -45,8 +45,11 @@
               </li>
               <li>
                <%= link_to "Editer mon profil", edit_user_path(current_user), class: "btn btn-success"%>
-              </div>
-            </li>
+              </li>
+              <li>
+               <%= link_to "Changer mon mot de passe", edit_user_password_path(current_user), class: "btn btn-success"%>
+              </li>
+            </div>
           </div>
         </ul>
       </div>
