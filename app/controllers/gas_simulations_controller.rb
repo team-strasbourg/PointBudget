@@ -9,7 +9,7 @@ class GasSimulationsController < ApplicationController
   end
 
   def new
-
+    @gas_simulation = GasSimulation.new
   end
 
   def create
