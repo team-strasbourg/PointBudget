@@ -141,6 +141,38 @@
             </div>
           <%end %>
 
+<!--          NEW GAS CONTRACT-->
+
+        <%when 'new_gas_contract' %>
+          <div class="form-group">
+            <%= f.label :supplier %><br />
+            <%= f.text_field :supplier, autofocus: true, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :offer_name %><br />
+            <%= f.text_field :offer_name, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :subscription_base_price_month %><br />
+            <%= f.number_field :subscription_base_price_month, in: 0.00..100.00, step: 0.01, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :kwh_price_base %><br />
+            <%= f.number_field :kwh_price_base, in: 0.00001..0.1, step: 0.00001, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :low_kw_consumption_per_year %><br />
+            <%= f.number_field :low_kw_consumption_per_year, in: 0..6 , step: 1,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :high_kw_consumption_per_year %><br />
+            <%= f.number_field :high_kw_consumption_per_year, in: 1..30 ,step: 1,class: "form-control"  %>
+          </div>
         <%end%>
 
 
