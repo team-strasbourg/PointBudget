@@ -13,7 +13,10 @@ class GasSimulation < ApplicationRecord
             numericality: { greater_than_or_equal_to: 9 }
   validates :heat_type,
             allow_blank: true,
-            format: { in: ["Gaz" "Electricite"] }
+            format: { with: /\A(Gaz|Electricite)\Z/}
+  validates :water_cooking_type,
+            allow_blank: true,
+            format: { with: /\A(Gaz|Electricite)\Z/}
 
 
   def assign_params_from_controller(params)

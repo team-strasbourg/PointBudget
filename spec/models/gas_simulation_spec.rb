@@ -53,7 +53,17 @@ RSpec.describe GasSimulation, type: :model do
       end
       it 'can be either Gaz or Electricite' do
         expect(build(:gas_simulation)).to be_valid
-        expect(build(:gas_simulation, heat_type: 'other')).to be_valid
+        expect(build(:gas_simulation, heat_type: 'other')).not_to be_valid
+      end
+    end
+
+    describe '#water_cooking_type' do
+      it 'can be blank' do
+        expect(build(:gas_simulation, water_cooking_type: nil)).to be_valid
+      end
+      it 'can be either Gaz or Electricite' do
+        expect(build(:gas_simulation)).to be_valid
+        expect(build(:gas_simulation, water_cooking_type: 'other')).not_to be_valid
       end
     end
 

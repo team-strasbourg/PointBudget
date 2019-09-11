@@ -3,8 +3,8 @@ FactoryBot.define do
     actual_price_paid { 1.5 }
     gas_cost_saved { 1.5 }
     floor_space { 10 }
-    heat_type { ["Gaz", "Electricite"] }
-    water_cooking_type { "MyString" }
+    heat_type { ["Gaz", "Electricite"].sample}
+    water_cooking_type { ["Gaz", "Electricite"].sample}
     residents_number { 1 }
     gas_use { 1 }
     full_simulation {create(:full_simulation)}
