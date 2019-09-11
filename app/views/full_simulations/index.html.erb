@@ -36,6 +36,7 @@
       </div>
     </div>
   </div>
+</div>
 
 <div class="row">
   <div class="col-md-12">
@@ -57,9 +58,9 @@
               </tr>
             </thead>
             <tbody>
-              <% unless @simulations != nil %>
+              <% unless @simulations.nil? %>
                 <% @simulations.each do |simu| %>
-                  <% unless simu.validated == true %>
+                  <% if simu.validated == true %>
                     <tr>
                       <th scope="row"><%= simu.id %></th>
                       <td><%= simu.created_at %></td>
