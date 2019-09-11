@@ -1,12 +1,7 @@
 class GasSimulationsController < ApplicationController
+  def index; end
 
-  def index
-
-  end
-
-  def show
-
-  end
+  def show; end
 
   def new
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
@@ -19,11 +14,16 @@ class GasSimulationsController < ApplicationController
   end
 
   def create
+
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
     @gas_simulation = GasSimulation.new
     @gas_simulation.assign_params_from_controller(params)
     estimation = @gas_simulation.estimation
-    comparison = @gas_simulation.comparison(estimation[0], estimation[1])
+    comparison = if estimation[0] == false
+                   [-1, false]
+                 else
+                   @gas_simulation.comparison(estimation[0], estimation[1])
+                 end
     @gas_simulation = GasSimulation.new(actual_price_paid: params[:yearly_cost],
                                         gas_cost_saved: comparison[0],
                                         floor_space: params[:floor_space],
@@ -33,7 +33,8 @@ class GasSimulationsController < ApplicationController
                                         gas_use: estimation[1],
                                         full_simulation: @full_simulation
                                         )
-    if @gas_simulation.save 
+
+    if  @gas_simulation.save
       @gas_simulation.create_join_table_gas(comparison[1])
       @full_simulation.update(total_cost_saved: (@full_simulation.total_cost_saved + @gas_simulation.gas_cost_saved))
       redirect_to user_full_simulation_path(current_user, @full_simulation)
@@ -43,8 +44,6 @@ class GasSimulationsController < ApplicationController
     end
   end
 
-  def destroy
-
-  end
+  def destroy; end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_11_144250) do
+ActiveRecord::Schema.define(version: 2019_09_11_170923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2019_09_11_144250) do
     t.float "gas_cost_saved"
     t.integer "floor_space"
     t.string "heat_type"
-    t.string "string"
     t.string "water_cooking_type"
     t.integer "residents_number"
     t.integer "gas_use"
