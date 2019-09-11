@@ -1,11 +1,7 @@
 class GasSimulationsController < ApplicationController
-  def index
+  def index; end
 
-  end
-
-  def show
-
-  end
+  def show; end
 
   def new
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
@@ -13,8 +9,7 @@ class GasSimulationsController < ApplicationController
   end
 
   def create
-    puts "#"
-    puts params
+
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
     @gas_simulation = GasSimulation.new
     @gas_simulation.assign_params_from_controller(params)
@@ -43,7 +38,6 @@ class GasSimulationsController < ApplicationController
     end
   end
 
-  def destroy
-  end
+  def destroy; end
 
 end
