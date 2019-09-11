@@ -41,7 +41,7 @@ module Admin
     def destroy
       @user = User.find(params[:id])
 
-      if @user.admin != true
+      if @user.is_admin != true
         @user.destroy
         flash[:success] = 'User successfully deleted'
       else
