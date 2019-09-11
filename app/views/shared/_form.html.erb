@@ -171,7 +171,10 @@
 
           <div class="form-group">
             <%= f.label :city_id %><br />
-            <%= f.collection_select :city_id, City.order(:name), :id, :name, include_blank: true, class: "form-control" %>
+            <%= f.text_field :city_id, list: 'all_cities', id:'cities_search' %>
+
+            <%= f.collection_select :city_id, @cities, :id, :name, include_blank: true, class: "form-control" %>
+            <%#= f.collection_select :city_id, City.order(:name), :id, :name, include_blank: true, class: "form-control" %>
           <!-- JEAN: i had to delete the placeholder: resource.city.name because user is created without a city when none using seeds.rb -->
           </div>
 

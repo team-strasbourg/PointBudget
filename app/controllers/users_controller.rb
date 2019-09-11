@@ -20,7 +20,8 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @cities = City.all
+    @cities = City.limit(5)
+
   end
 
   def update
