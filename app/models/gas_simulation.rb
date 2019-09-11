@@ -4,9 +4,10 @@ class GasSimulation < ApplicationRecord
   has_many :gas_contracts, through: :join_table_gases
   validates :actual_price_paid,
             presence: true,
-            numericality: { greater_than_or_equal_to: 0}
+            numericality: { greater_than_or_equal_to: 0 }
   validates :gas_cost_saved,
-            presence: true
+            presence: true,
+            numericality: { greater_than_or_equal_to: 0 }
 
 
   def assign_params_from_controller(params)

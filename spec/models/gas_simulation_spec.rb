@@ -30,6 +30,10 @@ RSpec.describe GasSimulation, type: :model do
       it 'can be 0' do
         expect(build(:gas_zero_cost_saved)).to be_valid
       end
+
+      it 'should be positive' do
+        expect(build(:gas_simulation, actual_price_paid: -1)).not_to be_valid
+      end
     end
 
   end
