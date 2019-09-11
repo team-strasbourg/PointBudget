@@ -46,8 +46,9 @@
 
 }
 
-#steps i.fa{
+#steps .icon{
 	font-size: 38px;
+	text-align: center;
 	margin-bottom: 20px;
 	color: #fff;
 	width: 100px;

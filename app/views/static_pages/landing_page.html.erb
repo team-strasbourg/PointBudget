@@ -87,7 +87,7 @@
         <h3>Lorem ipsum</h3>
         <p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam.</p>
       </div>
-      <div class="col-xs-6 col-md-3"> <i class="fa fa-bullhorn"></i>
+      <div class="col-xs-6 col-md-3"><span class="icon text-primary icon"><i class="fa fa-bullhorn"></i></span>
         <h3>Dolor sit amet</h3>
         <p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque.</p>
       </div>
@@ -109,21 +109,66 @@
 <div class="timeline timeline-one">
     <!-- Timeline Item 1 -->
     <div class="timeline-item">
-        <span class="icon text-info"><i class="fab fa-react"></i></span>
-        <h5 class="my-3">S'inscrire/Se connecter</h5>
-        <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum.</p>
+        <span class="icon text-secondary"><i class="fas fa-sign-in-alt"></i></i>
+        </span>
+        <h5 class="my-3">S'inscrire</h5>
+        <p>Rien de plus simple!<br> Vous trouverez un espace de connexion dans la barre de navigation, à droite.<br><br>Ou suivre tout simplement ces liens!</p>
+        <%= link_to "Je crée mon compte", new_user_registration_path, class: "btn mr-2 mb-2 btn-pill btn-primary" %>
+        <%= link_to "Je me connecte", new_user_session_path, class: "btn mr-2 mb-2 btn-pill btn-primary" %>
     </div>
     <!-- Timeline Item 2 -->
     <div class="timeline-item">
-            <span class="icon text-secondary"><i class="fab fa-vuejs"></i></span>
+            <span class="icon text-primary"><i class="fas fa-chalkboard"></i></span>
             <h5 class="my-3">Accès à votre Dashboard personnel</h5>
-        <p>Bootstrap. Build responsive, mobile-first projects on the web with the world's most popular front-end component library. Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas.</p>
+        <p>Afin de vous accompagner au mieux et vous donner un maximum d'autonomie de gestion, vous aurez directement accès à votre espace personnel après votre connexion.</p>
+        <p>Vous aurez la possibilité:</p>
+        <ul>
+          <li>
+            <p>De modifier votre profil.</p>
+          </li>
+          <li>
+            <p>D'accéder à vos simulations en cours ou terminées.</p>
+          </li>
+          <li>
+            <p>Et surtout de lancer une nouvelle simulation afin de faire le point sur vos dépenses mensuelles.</p>
+          </li>
+        </ul>
     </div>
     <!-- Timeline Item 3 -->
     <div class="timeline-item">
-            <span class="icon text-danger"><i class="fab fa-angular"></i></span>
+            <span class="icon text-secondary"><i class="fas fa-calculator"></i></span>
         <h5 class="my-3">Lancer une simulation</h5>
-        <p>AngularJS is a JavaScript-based open-source front-end web application framework mainly maintained by Google and by a community of individuals and corporations to address many of the challenges encountered in developing single-page applications.</p>
+        <p>La partie la plus facile.</p>
+        <p>Selon vos besoins, il suffira de remplir nos formulaires concernant les domaines: </p>
+        <div class="container" style="text-align: left;">
+          <div class="row">
+            <div class="col-md-8">
+            </div>
+            <div class="col-md-4">
+              <ul>
+                <li>
+                  <p>De l'assurance.</p>
+                </li>
+                <li>
+                  <p>Banquaire.</p>
+                </li>
+                <li>
+                  <p>Energetique.</p>
+                </li>
+                <li>
+                  <p>Numérique.</p>
+                </li>
+                <li>
+                  <p>Des mutuelles.</p>
+                </li> 
+              </ul>
+            </div>
+          </div>
+        </div>
+        <p>Afin de gagner du temps, munissez-vous d'un maximum de vos contrats ou factures</p>
+        <p>Prêt... Feu.... Simuler!</p>
+        <%= link_to "Je crée mon compte", new_user_registration_path, class: "btn mr-2 mb-2 btn-pill btn-primary" %>
+        <%= link_to "Je me connecte", new_user_session_path, class: "btn mr-2 mb-2 btn-pill btn-primary" %>
     </div>
 </div>
                                                         
