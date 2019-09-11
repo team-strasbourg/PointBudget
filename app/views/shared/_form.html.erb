@@ -83,11 +83,11 @@
             <%= label_tag(:answer_no, "Non") %>
             </p>
           <div id="consumption" style="display:none;">
-            <p>Coût annuel
-            <%= number_field_tag "yearly_cost", nil, step: 0.01 , class: 'd-flex justify-content-end' %>
+            <p>Coût annuel <br>
+            <%= number_field_tag "yearly_cost", nil, step: 1 , within: 1...10000, class: 'd-flex justify-content-end' %>
             </p>
-            <p>Consommation annuelle
-            <%= number_field_tag "yearly_consumption", nil, step: 0.01 , class: 'd-flex justify-content-end'%>
+            <p>Consommation annuelle en kWh
+            <%= number_field_tag "yearly_consumption", nil, step: 0.01, class: 'd-flex justify-content-end' %>
             </p>
           </div>
           <div id="estimation" style="display:none;">
