@@ -25,7 +25,7 @@ class GasSimulation < ApplicationRecord
   end
 
   def comparison(yearly_cost, yearly_consumption)
-    first_filter = GazContract.all.select{ |contract| yearly_consumption.between?(contract.low_kw_consumption_per_year*1000 contract.high_kw_consumption_per_year*1000)}
+    first_filter = GasContract.all.select{ |contract| yearly_consumption.between?(contract.low_kw_consumption_per_year*1000 contract.high_kw_consumption_per_year*1000)}
 
   end
 end
