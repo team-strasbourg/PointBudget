@@ -19,7 +19,7 @@
               </tr>
             </thead>
             <tbody>
-              <% unless @simulations != nil %>
+              <% unless @simulations.nil? %>
                 <% @simulations.each do |simu| %>
                   <% if simu.validated == false %>
                     <tr>

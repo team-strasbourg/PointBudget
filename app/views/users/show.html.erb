@@ -39,7 +39,9 @@
                 <label>Votre ville</label>
                 <div class="card">
 	                <div class="form-control">
+                    <% if @user.has_city %>
 	                  <%= current_user.city.name %>
+                    <%end %>
 	                </div>
                 </div>
               </li>

@@ -10,4 +10,8 @@ class User < ApplicationRecord
 
   belongs_to :city, optional: true
   has_many :full_simulations, dependent: :destroy
+
+  def has_city
+    city_id ? true : false
+  end
 end
