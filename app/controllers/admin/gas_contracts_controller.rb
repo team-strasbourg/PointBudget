@@ -10,13 +10,14 @@ module Admin
     end
 
     def create
+      my_params=params[:gas_contract]
       @contract = GasContract.new(
-          params[:supplier],
-          params[:offer_name],
-          params[:subscription_base_price_month],
-          params[:kwh_price_base],
-          params[:low_kw_consumption_per_year],
-          params[:high_kw_consumption_per_year]
+          supplier: my_params[:supplier],
+          offer_name: my_params[:offer_name],
+          subscription_base_price_month: my_params[:subscription_base_price_month],
+          kwh_price_base: my_params[:kwh_price_base],
+          low_kw_consumption_per_year: my_params[:low_kw_consumption_per_year],
+          high_kw_consumption_per_year: my_params[:high_kw_consumption_per_year]
       )
       if @contract.save
         flash[:success]='Contract created'
