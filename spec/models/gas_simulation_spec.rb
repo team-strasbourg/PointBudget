@@ -77,6 +77,20 @@ RSpec.describe GasSimulation, type: :model do
         expect(build(:gas_simulation, residents_number: 0)).not_to be_valid
       end
     end
+
+    describe '#gas_use' do
+      it 'should not be blank' do
+        expect(build(:gas_simulation, gas_use: nil)).not_to be_valid
+      end
+
+      it 'should be greater than 0' do
+        expect(build(:gas_simulation, gas_use: -1)).not_to be_valid
+      end
+
+      it 'should be an integer' do
+        expect(build(:gas_simulation, gas_use: 1.02)).not_to be_valid
+      end
+    end
   end
 
   context "associations" do

@@ -6,7 +6,7 @@ FactoryBot.define do
     heat_type { ["Gaz", "Electricite"].sample}
     water_cooking_type { ["Gaz", "Electricite"].sample}
     residents_number { 1 }
-    gas_use { 1 }
+    gas_use { 1000 }
     full_simulation {create(:full_simulation)}
     factory :gas_empty_price_paid do
       actual_price_paid { }

@@ -20,6 +20,9 @@ class GasSimulation < ApplicationRecord
   validates :residents_number,
             allow_blank: true,
             numericality: { greater_than_or_equal_to: 1 }
+  validates :gas_use,
+            presence: true,
+            numericality: { greater_than_or_equal_to: 0, only_integer: true }
 
 
   def assign_params_from_controller(params)
