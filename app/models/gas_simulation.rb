@@ -1,13 +1,23 @@
 class GasSimulation < ApplicationRecord
-  belongs_to :full_simulation
+  belongs_to :full_simulation, optional: true
   has_many :join_table_gases
   has_many :gas_contracts, through: :join_table_gases
 
-  # before_create :estimation
 
-  private
 
-  def estimation(yearly_cost, yearly_consumption, floor_space, heat_type,water_cooking_type, nb_residents)
+
+  def assign_params_from_controller(params)
+    @params = params
+  end
+
+  def estimation
+    yearly_cost = @params[:yearly_cost].to_i
+    yearly_consumption= @params[:yearly_consumption].to_i
+    floor_space = @params[:floor_space].to_i
+    heat_type = @params[:heat_type]
+    water_cooking_type = @params[:water_cooking_type]
+    nb_residents = @params[:nb_residents].to_i
+
     if yearly_consumption.nil?
       first_factor = if heat_type == 'Gaz'
                        1
@@ -19,9 +29,10 @@ class GasSimulation < ApplicationRecord
                       else
                         0
                       end
-      yearly_consumption = *100*first_factor + nb_residents*second_factor
+      yearly_consumption = floor_space*100*first_factor + nb_residents*second_factor
     end
-    comparison(yearly_cost, yearly_consumption)
+    [yearly_cost, yearly_consumption]
+
   end
 
   def comparison(yearly_cost, yearly_consumption)
@@ -31,8 +42,13 @@ class GasSimulation < ApplicationRecord
     second_filter = first_filter.select{ |contract|
       yearly_cost > (contract.kwh_price_base * yearly_consumption + contract.subscription_base_price_month * 12)
     }
-    create_join_table_gas(second_filter)
-
+    max_save = 0
+    second_filter.each do |contract|
+      if contract.kwh_price_base * yearly_consumption + contract.subscription_base_price_month*12 > max_save
+        max_save = contract.kwh_price_base * yearly_consumption + contract.subscription_base_price_month*12
+      end
+    end
+    [max_save, second_filter]
   end
 
   def create_join_table_gas(filter)
