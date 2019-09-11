@@ -51,7 +51,8 @@
             <thead>
               <tr>
                 <th scope="col" style="width: 20%;">Numéro de simulation</th>
-                <th scope="col" style="width: 60%;">Créée le</th>
+                <th scope="col" style="width: 40%;">Créée le</th>
+                <th scope="col" style="width: 20%;">Etat</th>
                 <th scope="col" style="width: 20%;">Etat</th>
               </tr>
             </thead>
@@ -62,6 +63,7 @@
                     <tr>
                       <th scope="row"><%= simu.id %></th>
                       <td><%= simu.created_at %></td>
+                      <td><%= simu.validated %></td>
                       <td><%= simu.validated %></td>
                     </tr>
                   <% end %>

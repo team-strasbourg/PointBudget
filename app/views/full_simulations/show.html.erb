@@ -16,3 +16,7 @@
 	  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Mutuelle</button>
   <% end %>
 </div>
+
+<div>
+	<%=link_to "Valider ma simulation", user_full_simulation_path(current_user, @full_simulation), class: "btn btn-success"%>
+</div>
