@@ -36,20 +36,15 @@ class GasSimulation < ApplicationRecord
     heat_type = @params[:heat_type]
     water_cooking_type = @params[:water_cooking_type]
     nb_residents = @params[:nb_residents].to_i
-    if yearly_consumption.nil?
-      first_factor = if heat_type == 'Gaz'
-                       1
-                     else
-                       0
-                     end
-      second_factor = if water_cooking_type == 'Gaz'
-                        1
-                      else
-                        0
-                      end
+
+    if verify_nilness_params
+      first_factor = heat_type == 'Gaz' ? 1 : 0
+      second_factor = water_cooking_type == 'Gaz' ? 1 : 0
       yearly_consumption = floor_space*100*first_factor + nb_residents*second_factor
+      [yearly_cost, yearly_consumption]
+    else
+      false
     end
-    [yearly_cost, yearly_consumption]
 
   end
 
@@ -77,6 +72,18 @@ class GasSimulation < ApplicationRecord
   def create_join_table_gas(filter)
     filter.each do |contract|
       JoinTableGasSimulationContract.create(gas_simulation: self, gas_contract: contract)
+    end
+  end
+
+  def verify_nilness_params
+    if @params[:yearly_cost].nil?
+      return false
+    elsif @params[:yearly_consumption].nil?
+      if [@params[:floor_space], @params[:heat_type], @params[:water_cooking_type], @params[:nb_residents]].include?(nil)
+        return false
+      else
+        return true
+      end
     end
   end
 end

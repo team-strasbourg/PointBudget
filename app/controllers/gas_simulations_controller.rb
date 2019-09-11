@@ -17,7 +17,9 @@ class GasSimulationsController < ApplicationController
     @gas_simulation = GasSimulation.new
     @gas_simulation.assign_params_from_controller(params)
     estimation = @gas_simulation.estimation
-    comparison = @gas_simulation.comparison(estimation[0], estimation[1])
+    unless estimation == false
+      comparison = @gas_simulation.comparison(estimation[0], estimation[1])
+    end
     @gas_simulation = GasSimulation.new(actual_price_paid: params[:yearly_cost],
                                         gas_cost_saved: comparison[0],
                                         floor_space: params[:floor_space],
@@ -38,7 +40,6 @@ class GasSimulationsController < ApplicationController
   end
 
   def destroy
-
   end
 
 end
