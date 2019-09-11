@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: {
+      registration: 'users/registrations'
+  }
 
   root :to => 'static_pages#landing_page'
   get 'static_pages/about'
