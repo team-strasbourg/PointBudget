@@ -11,6 +11,9 @@ class GasSimulation < ApplicationRecord
   validates :floor_space,
             allow_blank: true,
             numericality: { greater_than_or_equal_to: 9 }
+  validates :heat_type,
+            allow_blank: true,
+            format: { in: ["Gaz" "Electricite"] }
 
 
   def assign_params_from_controller(params)

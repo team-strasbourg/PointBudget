@@ -47,6 +47,16 @@ RSpec.describe GasSimulation, type: :model do
       end
     end
 
+    describe '#heat_type' do
+      it 'can be blank' do
+        expect(build(:gas_simulation, heat_type: nil)).to be_valid
+      end
+      it 'can be either Gaz or Electricite' do
+        expect(build(:gas_simulation)).to be_valid
+        expect(build(:gas_simulation, heat_type: 'other')).to be_valid
+      end
+    end
+
   end
 
   context "associations" do
