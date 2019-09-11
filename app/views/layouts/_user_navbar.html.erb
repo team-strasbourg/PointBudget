@@ -1,7 +1,8 @@
 <div class="container-fluid">
   <div class="row">
-    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar" id="sidenav">
       <div class="sidebar-sticky">
+        <button class="fas fa-angle-left nav-link-arrow" id="nav-user-collapse"></button>
         <ul class="nav flex-column">
           <li class="nav-item">
             <%= link_to("Mon profil", user_path(current_user), class: "nav-link")%>
@@ -11,9 +12,6 @@
           </li>
           <li class="nav-item">
             <%= link_to("Nouvelle simulation", new_user_full_simulation_path(current_user), class: "nav-link")%>
-          </li>
-          <li class="nav-item">
-            <%= link_to("Se déconnecter", destroy_user_session_path, method: :delete, class: "nav-link")%>
           </li>
         </ul>
       </div>

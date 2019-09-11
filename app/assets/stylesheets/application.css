@@ -15,7 +15,7 @@
  *= require_tree .
  *= require_self
 
- 
+
  */
 
  .point-budget-title{
@@ -35,3 +35,9 @@
  body{
      min-height: 100vh;
  }
+
+#nav-user-collapse {
+  position:absolute;
+  top:50%;
+  left:95%;
+}

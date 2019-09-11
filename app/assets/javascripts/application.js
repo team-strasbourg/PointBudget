@@ -32,7 +32,7 @@
 
 $(document).ready(function () {
 
-
+  navCollapse = document.getElementById("sidenav")
   radioYes = document.getElementById("answer_yes")
   radioNo = document.getElementById("answer_no")
 
@@ -50,6 +50,11 @@ $(document).ready(function () {
       document.getElementById('consumption').style.display = "none"
 
   });
+
+
+  navCollapse.addEventListener('click', function() {
+    document.getElementById("sidenav").style.width = "0";
+  }
 
 
 });
