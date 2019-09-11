@@ -17,6 +17,7 @@
           </tr>
         </thead>
         <tbody>
+          <% unless @simulations != nil %>
           <% @simulations.each do |simu| %>
             <% if simu.validated == false %>
               <tr>
@@ -25,6 +26,7 @@
                 <td><%= simu.validated %></td>
               </tr>
             <%end%>
+          <% end %>
           <% end %>
         </tbody>
       </table>
@@ -47,6 +49,7 @@
           </tr>
         </thead>
         <tbody>
+          <% unless @simulations != nil %>
           <% @simulations.each do |simu| %>
             <% unless simu.validated == true %>
               <tr>
@@ -55,6 +58,7 @@
                 <td><%= simu.validated %></td>
               </tr>
             <% end %>
+          <% end %>
           <% end %>
         </tbody>
       </table>
