@@ -2,6 +2,7 @@ class FullSimulationsController < ApplicationController
 
   def index
     @full_simulations = FullSimulation.all
+    @simulations = current_user.full_simulations
   end
 
   def show
@@ -33,6 +34,7 @@ class FullSimulationsController < ApplicationController
     else
       flash[:error] = "Votre simulation n'a été validée"
       render :edit
+    end
   end
 
   def destroy
