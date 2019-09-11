@@ -12,6 +12,26 @@ RSpec.describe GasSimulation, type: :model do
         expect(@gas_simulation).to be_valid
     end
 
+    describe "#actual_price_paid" do
+      it 'should have an actual paid price' do
+        expect(build(:gas_empty_price_paid)).not_to be_valid
+      end
+
+      it 'should be positive' do
+        expect(build(:gas_simulation, actual_price_paid: -1)).not_to be_valid
+      end
+    end
+
+    describe "#gas_cost_saved" do
+      it 'should have an gas_cost_saved' do
+        expect(build(:gas_empty_cost_saved)).not_to be_valid
+      end
+
+      it 'can be 0' do
+        expect(build(:gas_zero_cost_saved)).to be_valid
+      end
+    end
+
   end
 
   context "associations" do

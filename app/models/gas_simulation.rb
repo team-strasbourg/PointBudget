@@ -1,9 +1,12 @@
 class GasSimulation < ApplicationRecord
-  belongs_to :full_simulation, optional: true
+  belongs_to :full_simulation
   has_many :join_table_gases
   has_many :gas_contracts, through: :join_table_gases
-
-
+  validates :actual_price_paid,
+            presence: true,
+            numericality: { greater_than_or_equal_to: 0}
+  validates :gas_cost_saved,
+            presence: true
 
 
   def assign_params_from_controller(params)
@@ -12,17 +15,16 @@ class GasSimulation < ApplicationRecord
 
   def estimation
     yearly_cost = @params[:yearly_cost].to_i
-    yearly_consumption= @params[:yearly_consumption].to_i
+    yearly_consumption = @params[:yearly_consumption].to_i
     floor_space = @params[:floor_space].to_i
     heat_type = @params[:heat_type]
     water_cooking_type = @params[:water_cooking_type]
     nb_residents = @params[:nb_residents].to_i
-
     if yearly_consumption.nil?
       first_factor = if heat_type == 'Gaz'
                        1
-                    else
-                      0
+                     else
+                       0
                      end
       second_factor = if water_cooking_type == 'Gaz'
                         1

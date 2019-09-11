@@ -9,5 +9,14 @@ FactoryBot.define do
     residents_number { 1 }
     gas_use { 1 }
     full_simulation {create(:full_simulation)}
+    factory :gas_empty_price_paid do
+      actual_price_paid { }
+    end
+    factory :gas_empty_cost_saved do
+      gas_cost_saved { }
+    end
+    factory :gas_zero_cost_saved do
+      gas_cost_saved { 0 }
+    end
   end
 end
