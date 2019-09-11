@@ -14,8 +14,8 @@
 //= require activestorage
 // require turbolinks
 //= require_tree .
-// require jquery3
-// require jquery_ujs
+//= require jquery3
+//= require jquery_ujs
 
 //= require js/pixel
 
@@ -28,3 +28,20 @@
 //= require vendor/smooth-scroll/smooth-scroll.polyfills.min
 //= require vendor/prism/prism
 //= require js/all
+//= require_self
+
+$(document).ready(function () {
+
+  radioYes = document.getElementById("answer_yes")
+  radioNo = document.getElementById("answer_no")
+
+  radioYes.addEventListener('click', function(){
+    document.getElementById('consumption').style.display = "block"
+  });
+
+
+  radioNo.addEventListener('click', function(){
+    document.getElementById('estimation').style.display = "block"
+  });
+
+});
