@@ -1,19 +1,4 @@
-<<<<<<< HEAD
-
-<%= render partial: "shared/form", locals:{resource: resource, action: 'edit_registration', path: registration_path(resource), method: :put, title: 'Edit', button: "Update"}%>
-
-<div class="container d-flex justify-content-center align-items-center">
-  <div class="row", style="margin-top:50px">
-    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
-      
-      <p class="pt-5">Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn-danger" %></p>
-
-    </div>
-  </div>
-</div>
-=======
 <%= render partial: "shared/form", locals:{resource: resource, action: 'edit_registration', path: registration_path(resource), method: :put, title: "Edit your password", button: "Update"}%>
 
 <%= render partial: "shared/form", locals:{resource: resource, action: 'cancel_my_account', path: registration_path(resource), method: :delete, title: "Delete my account", button: "Delete"}%>
 
->>>>>>> staging
