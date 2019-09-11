@@ -17,6 +17,7 @@
         <dl><%=@user.is_admin %></dl>
         <br>
         <%= link_to "Edit the profile", edit_admin_user_path(@user), class: "btn btn-success"%>
+        <td><%= link_to 'Destroy',admin_user_path(@user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </dl>
     </div>
   </div>

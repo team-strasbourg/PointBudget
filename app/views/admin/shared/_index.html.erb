@@ -22,11 +22,11 @@
           <td><%=resource.public_send(value)%></td> <!--TRANSFORM A STRING INTO A METHOD -->
         <%end %>
         <%if edition %>
-          <td><%= link_to 'Edit', "#{path}#{resource.id}/edit" %></td> <!--VARIABLE FROM PARTIAL-->
+          <td><%= link_to 'Edit', "#{path}#{resource.id}/edit", class:'btn btn-primary' %></td> <!--VARIABLE FROM PARTIAL-->
         <%end %>
         <!--VARIABLE FROM PARTIAL-->
-        <td><%= link_to 'Show',"#{path}#{resource.id}" %></td>
-        <td><%= link_to 'Destroy',"#{path}#{resource.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show',"#{path}#{resource.id}", class:'btn btn-secondary'%></td>
+        <td><%= link_to 'Destroy',"#{path}#{resource.id}", method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %></td>
       </tr>
     <% end %>
     </tbody>
