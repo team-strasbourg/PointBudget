@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @simulations = @user.full_simulations
     unless current_user.id == @user.id
       flash[:error] = "Vous n'avez pas le droit d'accéder au profil d'autres utilisateurs!!"
       redirect_to user_path(current_user)
