@@ -92,6 +92,9 @@
             <p>Superficie en m²
             <%= number_field_tag "Floor space", nil, step: 0.01 , class: 'd-flex justify-content-end'%>
             </p>
+            <p> Type de chauffage
+            <%= select_tag "Heat type", options_for_select([ "Gaz", "Electricité" ], "Gaz"), class: 'd-flex justify-content-end'%>
+            </p>
           </div>
           </div>
 
