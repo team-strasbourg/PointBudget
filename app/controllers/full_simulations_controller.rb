@@ -6,6 +6,7 @@ class FullSimulationsController < ApplicationController
   end
 
   def show
+    @full_simulation = FullSimulation.find(params[:id])
   end
 
   def new
@@ -13,12 +14,13 @@ class FullSimulationsController < ApplicationController
   end
 
   def create
-    @full_simulation = FullSimulation.new
+    @full_simulation = FullSimulation.new(user: current_user)
     if @full_simulation.save
       flash[:success] = "Vous venez de commencer une simulation"
-      redirect_to 
+      redirect_to user_full_simulation_path(current_user, @full_simulation)
     else
-      render :new
+      flash[:error] = @full_simulation.errors.messages
+      render 'new'
     end
   end
 

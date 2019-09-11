@@ -48,7 +48,8 @@ class GasSimulation < ApplicationRecord
         max_save = contract.kwh_price_base * yearly_consumption + contract.subscription_base_price_month*12
       end
     end
-    [max_save, second_filter]
+    cost_saved = yearly_cost - max_save
+    [cost_saved, second_filter]
   end
 
   def create_join_table_gas(filter)

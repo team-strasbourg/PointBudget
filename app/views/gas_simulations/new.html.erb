@@ -1,2 +1,2 @@
 
-<%= render partial: "shared/form", locals:{resource: @gas_simulation, action: 'new_gas_simulation', path: gas_simulations_path, method: :post, title: 'Simulation gaz', button: "Terminer"}%>
+<%= render partial: "shared/form", locals:{resource: @gas_simulation, action: 'new_gas_simulation', path: user_full_simulation_gas_simulations_path(current_user, @full_simulation), method: :post, title: 'Simulation gaz', button: "Terminer"}%>
