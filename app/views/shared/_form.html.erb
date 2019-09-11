@@ -106,7 +106,7 @@
 
       <%= link_to "Back", :back %>
 
-      
+
 <!-- UNLOCKS NEW FORM-->
         <%when 'new_unlocks'%>
           <div class="form-group">
@@ -201,7 +201,7 @@
 
       <% end %>
 
-      <%if ["edit_password", "new_password",'new_registration','new_session', 'new_unlocks'].include?(action)%>
+      <%if ["edit_password", "new_password",'new_registration','new_session', 'new_unlocks', 'new_confirmation'].include?(action)%>
         <%= render "devise/shared/links" %>
       <%end%>
     </div>
