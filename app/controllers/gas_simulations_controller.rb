@@ -1,5 +1,4 @@
 class GasSimulationsController < ApplicationController
-
   def index
 
   end

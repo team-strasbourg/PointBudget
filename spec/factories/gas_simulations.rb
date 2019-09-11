@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :gas_simulation do
     actual_price_paid { 1.5 }
     gas_cost_saved { 1.5 }
-    floor_space { 1 }
+    floor_space { 10 }
     heat_type { "MyString" }
     string { "MyString" }
     water_cooking_type { "MyString" }

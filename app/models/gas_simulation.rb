@@ -8,6 +8,9 @@ class GasSimulation < ApplicationRecord
   validates :gas_cost_saved,
             presence: true,
             numericality: { greater_than_or_equal_to: 0 }
+  validates :floor_space,
+            allow_blank: true,
+            numericality: { greater_than_or_equal_to: 9 }
 
 
   def assign_params_from_controller(params)
@@ -51,7 +54,11 @@ class GasSimulation < ApplicationRecord
         max_save = contract.kwh_price_base * yearly_consumption + contract.subscription_base_price_month*12
       end
     end
-    cost_saved = yearly_cost - max_save
+    cost_saved = if max_save == 0
+                   0
+                 else
+                   yearly_cost - max_save
+                 end
     [cost_saved, second_filter]
   end
 

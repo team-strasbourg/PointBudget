@@ -36,6 +36,17 @@ RSpec.describe GasSimulation, type: :model do
       end
     end
 
+    describe'#floor_space' do
+      it 'can be empty' do
+        expect(build(:gas_simulation, floor_space: nil)).to be_valid
+      end
+
+      it 'can not be under 9' do
+        expect(build(:gas_simulation, floor_space: 8)).not_to be_valid
+        expect(build(:gas_simulation, floor_space: 9)).to be_valid
+      end
+    end
+
   end
 
   context "associations" do
