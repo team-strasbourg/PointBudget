@@ -47,6 +47,17 @@
  }
 
 
+/* JUMBOTRON */
+
+.jumbotron
+{
+    background-image: url("baniere.jpg");
+    background-position: center 75%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 800px;
+}
+
 /* CONTEXT */
 
 #context{
