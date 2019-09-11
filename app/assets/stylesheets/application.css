@@ -18,48 +18,60 @@
  
  */
 
- .point-budget-title{
- 	 font-size: 30px;
- 	 margin-right: 50px;
+ body{
+     min-height: 100vh;
  }
 
- .contact-title{
- 	 margin-right: 600px;
- }
 
+.title{
+	text-align: center;
+	padding: 60px 0 70px 0;
+}
+
+.title-color{
+	color: white;
+}
+
+/* DASHBOARD ADMIN */
 
  .table-admin th, .table-admin td {
          padding: 1rem 0;
  }
 
- body{
-     min-height: 100vh;
+
+/* NAVBAR */
+
+ .point-budget-title{
+ 	 font-size: 30px;
+ 	 margin-right: 50px;
  }
 
- /* SECTION STEPS */
+/* BENEFITS */
 
- #steps{
-
+ #benefits{
+	color: white;
+	height: 500px;
  }
-
-.title{
-	text-align: center;
-}
 
 #benefits .icon{
 	font-size: 38px;
-	text-align: center;
 	margin-bottom: 20px;
-	color: #fff;
 	width: 100px;
-	height: 100px;
+	/*height: 100px;*/
 	padding: 30px 0;
 	border-radius: 50%;
-	background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
+	background: white;
+	/*background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);*/
 	box-shadow: 10px 10px 10px rgba(0,0,0,.05);
+}
+
+#benefits .icon-position{
+	text-align: center;
 }
 
 /* TIMELINE */
 
-
+#steps{
+	margin-top: 40px;
+}
 
