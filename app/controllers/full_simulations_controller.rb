@@ -4,7 +4,7 @@ class FullSimulationsController < ApplicationController
 
   def create
   end
-
+  
   def update
   end
 
