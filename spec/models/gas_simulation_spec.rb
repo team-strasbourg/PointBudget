@@ -67,14 +67,14 @@ RSpec.describe GasSimulation, type: :model do
       end
     end
 
-    describe "#number_residents" do
-      it 'can be blanck' do
-        expect(build(:gas_simulation, number_residents: nil).to be_valid
+    describe "#residents_number" do
+      it 'can be blank' do
+        expect(build(:gas_simulation, residents_number: nil)).to be_valid
       end
 
       it 'should be greater than 1 ' do
-        expect(build(:gas_simulation, number_residents: -1)).not_to be_valid
-        expect(build(:gas_simulation, number_residents: 0)).not_to be_valid
+        expect(build(:gas_simulation, residents_number: -1)).not_to be_valid
+        expect(build(:gas_simulation, residents_number: 0)).not_to be_valid
       end
     end
   end
