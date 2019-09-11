@@ -5,6 +5,10 @@ module Admin
       @contracts = GasContract.all
     end
 
+    def show
+      @contract = GasContract.find(params[:id])
+    end
+
     def new
       @contract = GasContract.new
     end
@@ -20,7 +24,7 @@ module Admin
       )
       if @contract.save
         flash[:success]='Contract created'
-        redirect_to admin_root_path
+        redirect_to admin_gas_contracts_path
       else
         render 'new'
       end
@@ -33,10 +37,18 @@ module Admin
     def update
       @contract = GasContract.find(params[:id])
       if @contract.update(contract_params)
-        redirect_to admin_root_path
+        redirect_to admin_gas_contract_path
       else
         render 'edit'
       end
+    end
+
+    def destroy
+      @contract = GasContract.find(params[:id])
+
+        @contract.destroy
+        flash[:success] = 'User successfully deleted'
+      redirect_to admin_gas_contracts_path
     end
     private
 
