@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @cities = City.all
   end
 
   def update
@@ -37,6 +38,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params[:user].permit(:first_name, :last_name, :phone_number)
+    params[:user].permit(:first_name, :last_name, :phone_number, :city_id)
   end
 end
