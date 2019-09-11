@@ -1,2 +1,63 @@
 <h1>FullSimulations#index</h1>
 <p>Find me in app/views/full_simulations/index.html.erb</p>
+
+
+<div class="profile-section">
+  <div class="row">
+    <div class="col-md-4">
+     <h2 class="profile-title"><strong>Vos simulations en cours</strong></h2>
+    </div>
+    <div class="col-md-8">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col" style="width: 20%;">Numéro de simulation</th>
+            <th scope="col" style="width: 60%;">Créée le</th>
+            <th scope="col" style="width: 20%;">Etat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @simulations.each do |simu| %>
+            <% if simu.validated == false %>
+              <tr>
+                <th scope="row"><%= simu.id %></th>
+                <td><%= simu.created_at %></td>
+                <td><%= simu.validated %></td>
+              </tr>
+            <%end%>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="profile-section">
+  <div class="row">
+    <div class="col-md-4">
+      <h2 class="profile-title"><strong>Simulations validées</strong></h2>
+    </div>
+    <div class="col-md-8">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col" style="width: 20%;">Numéro de simulation</th>
+            <th scope="col" style="width: 60%;">Créée le</th>
+            <th scope="col" style="width: 20%;">Etat</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @simulations.each do |simu| %>
+            <% unless simu.validated == true %>
+              <tr>
+                <th scope="row"><%= simu.id %></th>
+                <td><%= simu.created_at %></td>
+                <td><%= simu.validated %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
