@@ -33,7 +33,7 @@
           <% end %>
 
 <!--          EDIT REGISTRATION FORM (CHANGE PASSWORD/EMAIL) -->
-        
+
         <%when 'edit_registration' %>
 
           <div class="field">
@@ -65,6 +65,7 @@
           </div>
 
 
+
 <!--          NEW REGISTRATION FORM-->
         <%when 'new_registration' %>
           <div class="form-group">
@@ -80,13 +81,14 @@
           </div>
 
 <!--          CANCEL MY ACCOUNT-->
-        
+
         <% when 'cancel_my_account' %>
           <div class="form-group">
           </div>
           <div class="form-group">
             <p>Pas content? </p>
           </div>
+
 
 <!--        NEW PASSWORD FORM -->
         <%when 'new_password' %>
@@ -118,34 +120,35 @@
 
         <%when 'new_gas_simulation'%>
           <div class="form-group">
+            <p>Coût annuel du gaz en €
+            <%= number_field_tag "yearly_cost", nil, step: 1 , within: 1...10000, class: 'd-flex justify-content-end' %>
+            </p>
             <p>Connaissez vous votre consommation de gaz ?
             <%= radio_button_tag(:answer, "yes")%>
             <%= label_tag(:answer_yes, "Oui")%>
             <%= radio_button_tag(:answer, "no") %>
             <%= label_tag(:answer_no, "Non") %>
             </p>
-          <div id="consumption" style="display:none;">
-            <p>Coût annuel
-            <%= number_field_tag "yearly_cost", nil, step: 1 , within: 1...10000, class: 'd-flex justify-content-end' %>
-            </p>
-            <p>Consommation annuelle en kWh
-            <%= number_field_tag "yearly_consumption", nil, step: 0.01, class: 'd-flex justify-content-end' %>
-            </p>
-          </div>
-          <div id="estimation" style="display:none;">
-            <p>Superficie en m²
-            <%= number_field_tag "floor_space", nil, step: 0.01 , class: 'd-flex justify-content-end'%>
-            </p>
-            <p> Type de chauffage
-            <%= select_tag "heat_type", options_for_select([ "Gaz", "Electricité" ], "Gaz"), class: 'd-flex justify-content-end'%>
-            </p>
-            <p> Energie utilisée pour l'eau chaude et la cuisson
-            <%= select_tag "water_cooking_type", options_for_select([ "Gaz", "Electricité" ], "Gaz"), class: 'd-flex justify-content-end'%>
-            </p>
-            <p>Nombres de personnes dans le logement
-            <%= number_field_tag "nb_residents", nil, step: 1 , class: 'd-flex justify-content-end'%>
-            </p>
-          </div>
+            <div id="consumption" style="display:none;">
+              <p>Consommation annuelle en Wh
+              <%= number_field_tag "yearly_consumption", nil, step: 1, class: 'd-flex justify-content-end' %>
+              </p>
+            </div>
+            <div id="estimation" style="display:none;">
+              <h3>Estimation de votre consommation :</h3>
+              <p>Superficie en m²
+              <%= number_field_tag "floor_space", nil, step: 1 , class: 'd-flex justify-content-end'%>
+              </p>
+              <p> Type de chauffage
+              <%= select_tag "heat_type", options_for_select([ "Gaz", "Electricite" ], "Gaz"), class: 'd-flex justify-content-end'%>
+              </p>
+              <p> Energie utilisée pour l'eau chaude et la cuisson
+              <%= select_tag "water_cooking_type", options_for_select([ "Gaz", "Electricite" ], "Gaz"), class: 'd-flex justify-content-end'%>
+              </p>
+              <p>Nombres de personnes dans le logement
+              <%= number_field_tag "nb_residents", nil, step: 1 , class: 'd-flex justify-content-end'%>
+              </p>
+            </div>
           </div>
 
 <!--        EDIT USER FORM -->
@@ -168,14 +171,8 @@
 
           <div class="form-group">
             <%= f.label :city_id %><br />
-
-      <!-- Had to do this loop to assign the place holder: resource.city.name if the user add his city -->
-
-            <% if current_user.city == nil %>
-              <%= f.collection_select :city_id, City.order(:name), :id, :name,include_blank: true, class: "form-control" %>
-            <% else %>
-              <%= f.collection_select :city_id, City.order(:name), :id, :name, placeholder: resource.city.name,include_blank: true, class: "form-control" %>
-            <% end %>
+            <%= f.collection_select :city_id, City.order(:name), :id, :name, include_blank: true, class: "form-control" %>
+          <!-- JEAN: i had to delete the placeholder: resource.city.name because user is created without a city when none using seeds.rb -->
           </div>
 
 
@@ -191,6 +188,70 @@
             </div>
           <%end %>
 
+<!--          NEW GAS CONTRACT-->
+
+        <%when 'new_gas_contract' %>
+          <div class="form-group">
+            <%= f.label :supplier %><br />
+            <%= f.text_field :supplier, autofocus: true, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :offer_name %><br />
+            <%= f.text_field :offer_name, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :subscription_base_price_month %><br />
+            <%= f.number_field :subscription_base_price_month, in: 0.00..100.00, step: 0.01, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :kwh_price_base %><br />
+            <%= f.number_field :kwh_price_base, in: 0.00001..0.1, step: 0.00001, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :low_kw_consumption_per_year %><br />
+            <%= f.number_field :low_kw_consumption_per_year, in: 0..6 , step: 1,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :high_kw_consumption_per_year %><br />
+            <%= f.number_field :high_kw_consumption_per_year, in: 1..30 ,step: 1,class: "form-control"  %>
+          </div>
+
+<!--          EDIT GAS CONTRACT-->
+        <%when 'edit_gas_contract' %>
+          <div class="form-group">
+            <%= f.label :supplier %><br />
+            <%= f.text_field :supplier, autofocus: true, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :offer_name %><br />
+            <%= f.text_field :offer_name, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :subscription_base_price_month %><br />
+            <%= f.number_field :subscription_base_price_month, in: 0.00..100.00, step: 0.01, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :kwh_price_base %><br />
+            <%= f.number_field :kwh_price_base, in: 0.00001..0.1, step: 0.00001, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :low_kw_consumption_per_year %><br />
+            <%= f.number_field :low_kw_consumption_per_year, in: 0..6 , step: 1,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :high_kw_consumption_per_year %><br />
+            <%= f.number_field :high_kw_consumption_per_year, in: 1..30 ,step: 1,class: "form-control"  %>
+          </div>
         <%end%>
 
 

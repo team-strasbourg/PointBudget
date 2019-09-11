@@ -14,15 +14,13 @@
     <%end %>
     <%= render 'layouts/flash'%>
   </header>
-
+  <body class="d-flex flex-column justify-content-between">
     <%if is_admin? %>
-    <body>
       <%= render 'layouts/admin_navbar' %>
     <% elsif user_signed_in? %>
-      <body class="d-flex flex-column justify-content-between">
+
       <%= render 'layouts/user_navbar' %>
     <%else %>
-    <body class="d-flex flex-column justify-content-between">
       <%= yield %>
       <%end %>
       <%= render 'layouts/footer' %>
