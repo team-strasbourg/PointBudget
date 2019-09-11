@@ -6,6 +6,8 @@ module Admin
 
     def show
       @user = User.find(params[:id])
+      @full_sim_non_valid = @user.full_simulations.select { |full_sim| full_sim.validated == false}
+      @full_sim_valid = @user.full_simulations.select { |full_sim| full_sim.validated == true}
     end
 
     def new
@@ -41,7 +43,7 @@ module Admin
     def destroy
       @user = User.find(params[:id])
 
-      if @user.admin != true
+      if @user.is_admin != true
         @user.destroy
         flash[:success] = 'User successfully deleted'
       else

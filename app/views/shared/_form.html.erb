@@ -119,14 +119,33 @@
         <%when 'new_gas_simulation'%>
           <div class="form-group">
             <p>Connaissez vous votre consommation de gaz ?
-            <%= radio_button_tag(:answer, "yes") %>
-            <%= label_tag(:answer_yes, "Oui") %>
+            <%= radio_button_tag(:answer, "yes")%>
+            <%= label_tag(:answer_yes, "Oui")%>
             <%= radio_button_tag(:answer, "no") %>
             <%= label_tag(:answer_no, "Non") %>
             </p>
-            <p>Coût à l'année
-            <%= number_field_tag "Yearly cost", nil, step: 0.01%>
+          <div id="consumption" style="display:none;">
+            <p>Coût annuel
+            <%= number_field_tag "Yearly cost", nil, step: 0.01 , class: 'd-flex justify-content-end' %>
             </p>
+            <p>Consommation annuelle
+            <%= number_field_tag "Yearly consumption", nil, step: 0.01 , class: 'd-flex justify-content-end'%>
+            </p>
+          </div>
+          <div id="estimation" style="display:none;">
+            <p>Superficie en m²
+            <%= number_field_tag "Floor space", nil, step: 0.01 , class: 'd-flex justify-content-end'%>
+            </p>
+            <p> Type de chauffage
+            <%= select_tag "Heat type", options_for_select([ "Gaz", "Electricité" ], "Gaz"), class: 'd-flex justify-content-end'%>
+            </p>
+            <p> Energie utilisée pour l'eau chaude et la cuisson
+            <%= select_tag "Energy used to heat water & cooking", options_for_select([ "Gaz", "Electricité" ], "Gaz"), class: 'd-flex justify-content-end'%>
+            </p>
+            <p>Nombres de personnes dans le logement
+            <%= number_field_tag "Number of people living", nil, step: 1 , class: 'd-flex justify-content-end'%>
+            </p>
+          </div>
           </div>
 
 <!--        EDIT USER FORM -->

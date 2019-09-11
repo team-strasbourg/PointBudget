@@ -18,15 +18,13 @@
     <%if is_admin? %>
     <body>
       <%= render 'layouts/admin_navbar' %>
-    </body>
     <% elsif user_signed_in? %>
-      <body>
+      <body class="d-flex flex-column justify-content-between">
       <%= render 'layouts/user_navbar' %>
-    </body>
     <%else %>
-    <body>
+    <body class="d-flex flex-column justify-content-between">
       <%= yield %>
-    </body>
-     <%= render 'layouts/footer' %>
-    <%end %>
+      <%end %>
+      <%= render 'layouts/footer' %>
+      </body>
 </html>
