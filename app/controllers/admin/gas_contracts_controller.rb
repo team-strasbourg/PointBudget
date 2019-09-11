@@ -2,7 +2,7 @@ module Admin
   class GasContractsController < ApplicationController
 
     def index
-      @contracts = GasContract.all
+      @contracts = GasContract.all.sort_by {|contract| contract.supplier}
     end
 
     def show
