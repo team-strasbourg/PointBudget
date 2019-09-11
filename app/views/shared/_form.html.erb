@@ -191,7 +191,7 @@
 
       <% end %>
 
-      <%if ["edit_password", "new_password",'new_registration','new_session'].include?(action)%>
+      <%if ["edit_password", "new_password",'new_registration','new_session', 'new_unlocks'].include?(action)%>
         <%= render "devise/shared/links" %>
       <%end%>
     </div>
