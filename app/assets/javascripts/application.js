@@ -33,8 +33,6 @@
 $(document).ready(function () {
 
 
-  let knowConsumptionStatus = true
-
   radioYes = document.getElementById("answer_yes")
   radioNo = document.getElementById("answer_no")
 
