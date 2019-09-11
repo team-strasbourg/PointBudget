@@ -17,6 +17,9 @@ class GasSimulation < ApplicationRecord
   validates :water_cooking_type,
             allow_blank: true,
             format: { with: /\A(Gaz|Electricite)\Z/}
+  validates :residents_number,
+            allow_blank: true,
+            numericality: { greater_than_or_equal_to: 1 }
 
 
   def assign_params_from_controller(params)
