@@ -30,6 +30,7 @@ class FullSimulationsController < ApplicationController
   def update
     @full_simulation = FullSimulation.find(params[:id])
     if @full_simulation.update(full_simulation_params)
+
       flash[:success] = "Votre simulation a été validée"
       redirect_to user_path(current_user)
     else
