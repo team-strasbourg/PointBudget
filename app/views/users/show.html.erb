@@ -39,14 +39,19 @@
                 <label>Votre ville</label>
                 <div class="card">
 	                <div class="form-control">
-	                 
+                    <% if @user.has_city %>
+	                  <%= current_user.city.name %>
+                    <%end %>
 	                </div>
                 </div>
               </li>
               <li>
                <%= link_to "Editer mon profil", edit_user_path(current_user), class: "btn btn-success"%>
-              </div>
-            </li>
+              </li>
+              <li>
+               <%= link_to "Editer mon compte", edit_user_registration_path(current_user), class: "btn btn-success"%>
+              </li>
+            </div>
           </div>
         </ul>
       </div>

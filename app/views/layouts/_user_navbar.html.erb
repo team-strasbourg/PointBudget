@@ -7,10 +7,7 @@
             <%= link_to("Mon profil", user_path(current_user), class: "nav-link")%>
           </li>
           <li class="nav-item">
-            <%= link_to("Mes simulations non validées",user_full_simulations_path(current_user), class: "nav-link")%>
-          </li>
-          <li class="nav-item">
-            <%= link_to("Mes simulations validées", user_full_simulations_path(current_user), class: "nav-link")%>
+            <%= link_to("Mes simulations", user_full_simulations_path(current_user), class: "nav-link")%>
           </li>
           <li class="nav-item">
             <%= link_to("Nouvelle simulation", new_user_full_simulation_path(current_user), class: "nav-link")%>

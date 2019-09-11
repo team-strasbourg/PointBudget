@@ -18,7 +18,6 @@ module Admin
       @user = User.new(email: params[:user][:email],
                        password: params[:user][:password])
       if @user.save
-        Cart.create(user: @user)
         flash[:success]='User created'
         redirect_to admin_root_path
       else
