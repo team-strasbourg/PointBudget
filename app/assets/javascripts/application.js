@@ -52,3 +52,14 @@ $(document).ready(function () {
   });
 
 });
+
+/* MODAL VALIDATION FULL_SIMULATION */
+
+                                     
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+                                        
+                                    
+
+

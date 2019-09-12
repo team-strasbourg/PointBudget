@@ -210,11 +210,8 @@
 <!--      EDIT FULL SIMULATION TO VALIDATE -->
 
           <% when 'validate_full_simulation' %>
-            <div class="form-group">
-              <%= f.radio_button(:validated, true) %>
-              <%= f.label(:validated, "True")%>
-              <%= f.radio_button(:validated, false) %>
-              <%= f.label(:validated, "False")%>
+            <div class="form-group hide">
+              <%= f.radio_button(:validated, true, checked: 'checked', hidden: true) %>
             </div>
       
         

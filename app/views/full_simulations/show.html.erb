@@ -17,9 +17,37 @@
 		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Mutuelle</button>
 	  <% end %>
 	</div>
-	<div>
-		<%=link_to "Valider ma simulation", edit_user_full_simulation_path(current_user, @full_simulation), class: "btn btn-success"%>
-	</div>
+
+
+	<%= render partial: "shared/form",
+           locals:{resource: @full_simulation,
+                   action: 'validate_full_simulation',
+                   path: user_full_simulation_path(current_user, @full_simulation),
+                   method: :put,
+                   title: '',
+                   button: "Valider ma simulation"}%>
+
+	<!-- Modal -->
+<div class="modal static-example" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- End of modal -->
 
 <% else %>
 	<div>
@@ -44,8 +72,22 @@
 		<p>Regardons de près:</p>
 		<p>
 			<% if @full_simulation.only_one_gas_simulation %>
-	     <%= @full_simulation.gas_simulation.name %>: vous pouvez économiser <%= @full_simulation.gas_simulation.gas_cost_saved %>€
+				<div class="accordion container">
+			    <div class="card card-sm card-body shadow-sm border-soft border">
+			        <div data-target="#panel-4" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
+			            <span class="icon-title h6 mb-0 font-weight-bold"><i class="fas fa-burn"></i><%= @full_simulation.gas_simulation.name %></span>
+			            <span class="icon"><i class="fas fa-plus"></i></span>
+			        </div>
+			        <div class="collapse" id="panel-4">
+			            <div class="pt-3">
+			                <p class="mb-0">
+			                    Vous pouvez économiser <%= @full_simulation.gas_simulation.gas_cost_saved %>€
+			                </p>
+			            </div>
+			        </div>
+			    </div>
 	    <% end %>
 		</p>
 	</div>
+
 <% end %>
