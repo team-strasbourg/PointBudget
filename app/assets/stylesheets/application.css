@@ -139,7 +139,12 @@ li.button-group{
   position:absolute;
   top:5vh;
   left:95%;
+  font-size: 30px;
   cursor: pointer;
+}
+
+#nav-user-collapse:hover {
+  transform: scale(2)
 }
 
 
@@ -155,7 +160,7 @@ li.button-group{
 	color: white;
 	/*background: white;*/
 	box-shadow: 10px 10px 10px rgba(0,0,0,.05);
-} 
+}
 
 .price-position{
 	text-align: center;
@@ -168,5 +173,3 @@ li.button-group{
 	margin-top: -50px;
 	margin-bottom: 200px;
 }
-
-
