@@ -49,6 +49,10 @@ if($("body").data("controller") == "gas_simulations" && $("body").data("action")
       document.getElementById('consumption').style.display = "none"
 
   });
+} else if($("body").data("controller") == "full_simulations" && $("body").data("action") == "show"){
+  $('.btn-block')[0].on('click', function () {
+    $('#myModal').trigger('focus')
+})
 }
 
 
@@ -76,3 +80,12 @@ if (document.cookie != "username=guest"){
 };
 
 });
+
+/* MODAL VALIDATION FULL_SIMULATION */
+
+                                     
+
+                                        
+                                    
+
+

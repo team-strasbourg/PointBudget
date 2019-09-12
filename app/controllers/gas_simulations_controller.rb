@@ -8,7 +8,7 @@ class GasSimulationsController < ApplicationController
     if @full_simulation.only_one_gas_simulation
       flash[:error] = "Vous avez déjà comparé le gaz dans cette simulation"
       redirect_to user_full_simulation_path(current_user, @full_simulation)
-      else
+    else
       @gas_simulation = GasSimulation.new
     end
   end
