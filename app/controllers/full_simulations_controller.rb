@@ -31,7 +31,7 @@ class FullSimulationsController < ApplicationController
     @full_simulation = FullSimulation.find(params[:id])
     if @full_simulation.update(full_simulation_params)
       flash[:success] = "Votre simulation a été validée"
-      redirect_to user_path(current_user)
+      redirect_to user_full_simulation_path(current_user, @full_simulation)
     else
       flash[:error] = "Votre simulation n'a été validée"
       render :edit
@@ -43,6 +43,6 @@ class FullSimulationsController < ApplicationController
 
   private
   def full_simulation_params
-    params.require(:full_simulation).permit(:total_cost_saved)
+    params.require(:full_simulation).permit(:total_cost_saved, :validated)
   end
 end
