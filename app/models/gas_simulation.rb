@@ -64,11 +64,6 @@ class GasSimulation < ApplicationRecord
         max_save = savings
       end
     end
-    # cost_saved = if max_save.zero?
-    #                0
-    #              else
-    #                yearly_cost - max_save
-    #              end
     [(max_save).round(2), second_filter]
   end
 

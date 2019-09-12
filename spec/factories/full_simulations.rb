@@ -4,9 +4,6 @@ FactoryBot.define do
     user { create(:user) }
     validated { false }
 
-    factory :full_simulation_bad_cost do
-      total_cost_saved {1.5}
-    end
 
 
 
