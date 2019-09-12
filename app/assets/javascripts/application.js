@@ -67,7 +67,6 @@ if (document.cookie != "username=guest"){
       document.getElementById("body_content_user").classList.add("col-md-11")
       document.getElementById("nav-arrow").classList.remove("fa-angle-left")
       document.getElementById("nav-arrow").classList.add("fa-angle-right")
-      console.log("Clicked");
       userNavStatus = false
     }
     else if (userNavStatus == false) {
@@ -75,7 +74,6 @@ if (document.cookie != "username=guest"){
       document.getElementById("nav-arrow").classList.remove("fa-angle-right");
       document.getElementById("nav-arrow").classList.add("fa-angle-left");
       document.getElementById("body_content_user").classList.add("col-md-9", "ml-sm-auto", "col-lg-10")
-      console.log("Clicked");
       userNavStatus = true
     }
   });
