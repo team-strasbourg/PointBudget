@@ -13,8 +13,15 @@ RSpec.describe FullSimulation, type: :model do
     end
     
     describe 'total_cost_saved' do
-      it 'should be positive' do
+      it 'should not be negative' do
+        expect(build(:full_simulation, total_cost_saved: -1.00)).not_to be_valid
+        end
+      it 'can be 0' do
+        expect(build(:full_simulation, total_cost_saved: 0.00)).to be_valid
+      end
 
+      it 'should be positive' do
+        expect(build(:full_simulation, total_cost_saved: 12.3)).to be_valid
       end
     end
 
