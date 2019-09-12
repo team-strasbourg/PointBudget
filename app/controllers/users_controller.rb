@@ -1,22 +1,13 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only:[:show, :edit, :update]
+  before_action :set_user
   before_action :authenticate_user!
-
-  def index
-  end
 
   def show
     unless current_user.id == @user.id
       flash[:error] = "Vous n'avez pas le droit d'accéder au profil d'autres utilisateurs!!"
       redirect_to user_path(current_user)
     end
-  end
-
-  def new
-  end
-
-  def create
   end
 
   def edit
@@ -33,9 +24,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-  end
-
   private
 
   def user_params
@@ -44,7 +32,11 @@ class UsersController < ApplicationController
   end
 
   def set_user
-      @user = User.find(params[:id]) rescue @user = User.all.sample
+    @user = begin
+              User.find(params[:id])
+            rescue
+              User.all.sample
+            end
   end
 
   def change_city
@@ -55,6 +47,4 @@ class UsersController < ApplicationController
       params[:user][:city_id] = the_city.id unless the_city.nil?
     end
   end
-
-
 end
