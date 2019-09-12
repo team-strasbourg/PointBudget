@@ -2,7 +2,9 @@
   <div class="row">
     <nav class="col-md-2 d-none d-md-block bg-light sidebar" id="sidenav">
       <div class="sidebar-sticky">
-        <button class="fas fa-angle-left nav-link-arrow" id="nav-user-collapse"></button>
+        <div id="nav-user-collapse">
+        <i class="fas fa-angle-left nav-link-arrow"></i>
+        </div>
         <ul class="nav flex-column">
           <li class="nav-item">
             <%= link_to("Mon profil", user_path(current_user), class: "nav-link")%>

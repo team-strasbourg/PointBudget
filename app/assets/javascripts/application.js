@@ -32,7 +32,7 @@
 
 $(document).ready(function () {
 
-  navCollapse = document.getElementById("sidenav")
+  navCollapse = document.getElementById("nav-user-collapse")
   radioYes = document.getElementById("answer_yes")
   radioNo = document.getElementById("answer_no")
 
@@ -53,8 +53,9 @@ $(document).ready(function () {
 
 
   navCollapse.addEventListener('click', function() {
-    document.getElementById("sidenav").style.width = "0";
-  }
+    console.log("This has been clicked")
+    document.getElementById("sidenav").style.width = "5"
+  });
 
 
 });
