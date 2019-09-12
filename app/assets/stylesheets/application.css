@@ -134,3 +134,32 @@
   left:95%;
   cursor: pointer;
 }
+
+
+/* MODAL PRICE FULL SIMULATION */
+
+.price-simu{
+	font-size: 38px;
+	/*margin-bottom: 20px;*/
+	height: 150px;
+	width: 150px;
+	padding: 50px 0;
+	border-radius: 50%;
+	color: white;
+	/*background: white;*/
+	box-shadow: 10px 10px 10px rgba(0,0,0,.05);
+} 
+
+.price-position{
+	text-align: center;
+	margin: 50px 0;
+}
+
+/*  SIMULATION SHOW */
+
+#simulation-list{
+	margin-top: -50px;
+	margin-bottom: 200px;
+}
+
+
