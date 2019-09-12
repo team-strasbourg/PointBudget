@@ -51,7 +51,7 @@ class GasSimulation < ApplicationRecord
   end
 
   def comparison(yearly_cost, yearly_consumption)
-    first_filter = GasContract.all.select{ |contract|
+    first_filter = GasContract.all.select { |contract|
       yearly_consumption.between?(contract.low_kw_consumption_per_year * 1000, contract.high_kw_consumption_per_year * 1000)
     }
     second_filter = first_filter.select{ |contract|
@@ -59,16 +59,17 @@ class GasSimulation < ApplicationRecord
     }
     max_save = 0
     second_filter.each do |contract|
-      if contract.kwh_price_base * yearly_consumption + contract.subscription_base_price_month*12 > max_save
-        max_save = contract.kwh_price_base * yearly_consumption + contract.subscription_base_price_month*12
+      savings = yearly_cost - (contract.kwh_price_base * yearly_consumption + contract.subscription_base_price_month * 12)
+      if savings > max_save
+        max_save = savings
       end
     end
-    cost_saved = if max_save.zero?
-                   0
-                 else
-                   yearly_cost - max_save
-                 end
-    [cost_saved, second_filter]
+    # cost_saved = if max_save.zero?
+    #                0
+    #              else
+    #                yearly_cost - max_save
+    #              end
+    [(max_save).round(2), second_filter]
   end
 
   def create_join_table_gas(filter)
