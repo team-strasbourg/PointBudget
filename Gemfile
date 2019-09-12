@@ -44,6 +44,7 @@ group :development, :test do
   gem 'guard-rspec', require: false
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'letter_opener'
 end
 
 group :development do
