@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @cities = City.limit(5)
+    @cities = City.all
 
   end
 
@@ -40,6 +40,13 @@ class UsersController < ApplicationController
   private
 
   def user_params
+    city = params[:user][:city_id]
+    puts "#"*60
+    puts city
+    binding.pry
+    table = city.split(' - ')
+    the_city = City.find_by(name: table[1])
+    params[:user][:city_id] = the_city.id
     params.require(:user).permit(:first_name, :last_name, :phone_number, :city_id)
   end
 

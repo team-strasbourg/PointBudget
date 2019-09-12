@@ -222,13 +222,17 @@
 
           <div class="form-group">
             <%= f.label :city_id %><br />
-            <%= f.text_field :city_id, list: 'all_cities', id:'cities_search' %>
+            <%if @user.city %>
+              <%= f.text_field @user.city.zip_code, placeholder: "#{@user.city.zip_code}-#{@user.city.name}", list: 'all_cities', id:'cities_search' %>
+            <%else %>
+              <%= f.text_field :city_id, list: 'all_cities', id:'cities_search' %>
+            <%end %>
             <datalist id="all_cities">
-
+              <%@cities.each do |city| %>
+                <option value="<%=city.zip_code %> - <%=city.name %>" id="<%=city.zip_code %> - <%=city.name %>">
+              <%end %>
             </datalist>
-            <%= f.collection_select :city_id, @cities, :id, :name, include_blank: true, class: "form-control" %>
-            <%#= f.collection_select :city_id, City.order(:name), :id, :name, include_blank: true, class: "form-control" %>
-          <!-- JEAN: i had to delete the placeholder: resource.city.name because user is created without a city when none using seeds.rb -->
+            <%#= f.collection_select :city_id, @cities, :id, :name, include_blank: true, class: "form-control" %>
           </div>
 
           <% if is_admin? %>

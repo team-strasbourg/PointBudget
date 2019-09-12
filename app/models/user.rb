@@ -14,4 +14,8 @@ class User < ApplicationRecord
   def has_city
     city_id ? true : false
   end
+
+  def zip_code
+    city.zip_code
+  end
 end
