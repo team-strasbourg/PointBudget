@@ -135,6 +135,16 @@
   cursor: pointer;
 }
 
+.txt-user-nav{
+	font-size: 20px;
+	margin: 5px 0;
+}
+
+.txt-user-nav-prem{
+	font-size: 20px;
+	margin: 30px 0 5px 0;
+}
+
 
 /* MODAL PRICE FULL SIMULATION */
 
