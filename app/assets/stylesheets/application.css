@@ -31,6 +31,13 @@
 	color: white;
 }
 
+li.form-group{
+  list-style: none;
+}
+
+li.button-group{
+  list-style: none;
+}
 
 /* NAVBAR */
 
