@@ -32,38 +32,44 @@
 
 $(document).ready(function () {
 
-  navCollapse = document.getElementById("nav-user-collapse")
-  // radioYes = document.getElementById("answer_yes")
-  // radioNo = document.getElementById("answer_no")
-  //
-  // radioYes.addEventListener('click', function(){
-  //
-  //     document.getElementById('consumption').style.display = "block"
-  //     document.getElementById('estimation').style.display = "none"
-  //
-  // });
-  //
-  //
-  // radioNo.addEventListener('click', function(){
-  //
-  //     document.getElementById('estimation').style.display = "block"
-  //     document.getElementById('consumption').style.display = "none"
-  //
-  // });
+if($("body").data("controller") == "gas_simulations" && $("body").data("action") == "new") {
+  radioYes = document.getElementById("answer_yes")
+  radioNo = document.getElementById("answer_no")
 
+  radioYes.addEventListener('click', function(){
+
+      document.getElementById('consumption').style.display = "block"
+      document.getElementById('estimation').style.display = "none"
+
+  });
+
+  radioNo.addEventListener('click', function(){
+
+      document.getElementById('estimation').style.display = "block"
+      document.getElementById('consumption').style.display = "none"
+
+  });
+}
+
+
+if (document.cookie != "username=guest"){
+  navCollapse = document.getElementById("nav-user-collapse")
   userNavStatus = true ;
 
   navCollapse.addEventListener('click', function() {
     if (userNavStatus == true) {
-      console.log("This has been clicked");
-      document.getElementById("sidenav").style.marginLeft = "-190px";
+      document.getElementById("sidenav").style.marginLeft = "-15%";
+      document.getElementById("nav-arrow").classList.remove("fa-angle-left")
+      document.getElementById("nav-arrow").classList.add("fa-angle-right")
       userNavStatus = false
     }
     else if (userNavStatus == false) {
-      document.getElementById("sidenav").style.marginLeft = "0px";
+      document.getElementById("sidenav").style.marginLeft = "0";
+      document.getElementById("nav-arrow").classList.remove("fa-angle-right");
+      document.getElementById("nav-arrow").classList.add("fa-angle-left");
       userNavStatus = true
     }
   });
-
+};
 
 });
