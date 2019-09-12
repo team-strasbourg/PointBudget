@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :full_simulations, dependent: :destroy
 
   def has_city
-    city_id.zero? ? false : true
+    city_id.nil? || city_id.zero? ? false : true
   end
 
   def zip_code
