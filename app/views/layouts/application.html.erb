@@ -18,11 +18,11 @@
     <%if is_admin? %>
       <%= render 'layouts/admin_navbar' %>
     <% elsif user_signed_in? %>
-
       <%= render 'layouts/user_navbar' %>
     <%else %>
       <%= yield %>
       <%end %>
-      <%= render 'layouts/footer' %>
-      </body>
+    <%= render 'layouts/footer' %>
+  </body>
+
 </html>
