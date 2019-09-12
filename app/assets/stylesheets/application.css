@@ -99,3 +99,13 @@
  .table-admin th, .table-admin td {
          padding: 1rem 0;
  }
+
+
+ /* ABOUT */
+
+#about{
+	margin-bottom: 100px;
+	padding-left: 50px;
+	padding-right: 50px;
+
+}
