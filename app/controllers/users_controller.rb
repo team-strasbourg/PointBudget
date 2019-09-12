@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
   def edit
     @cities = City.all
-
+    @city = @user.city
   end
 
   def update
