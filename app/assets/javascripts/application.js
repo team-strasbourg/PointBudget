@@ -51,10 +51,18 @@ $(document).ready(function () {
   //
   // });
 
+  userNavStatus = true ;
 
   navCollapse.addEventListener('click', function() {
-    console.log("This has been clicked");
-    document.getElementById("sidenav").style.marginLeft = "-190px";
+    if (userNavStatus == true) {
+      console.log("This has been clicked");
+      document.getElementById("sidenav").style.marginLeft = "-190px";
+      userNavStatus = false
+    }
+    else if (userNavStatus == false) {
+      document.getElementById("sidenav").style.marginLeft = "0px";
+      userNavStatus = true
+    }
   });
 
 
