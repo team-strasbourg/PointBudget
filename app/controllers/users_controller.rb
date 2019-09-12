@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :set_user, only:[:show, :edit, :update]
+  before_action :authenticate_user!
 
   def index
     @users = User.all
@@ -44,7 +45,11 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    begin
+      @user = User.find(params[:id])
+    rescue
+      @user = User.all.sample
+    end
   end
 
   def change_city
