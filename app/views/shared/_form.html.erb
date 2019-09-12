@@ -166,42 +166,6 @@
             <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class:"form-control" %>
           </div>
 
-
-<!--        GAS SIMULATION FORM-->
-
-        <%when 'new_gas_simulation'%>
-          <div class="form-group">
-            <p>Coût annuel du gaz en €
-            <%= number_field_tag "yearly_cost", nil, step: 1 , within: 1...10000, class: 'd-flex justify-content-end' %>
-            </p>
-            <p>Connaissez vous votre consommation de gaz ?
-            <%= radio_button_tag(:answer, "yes")%>
-            <%= label_tag(:answer_yes, "Oui")%>
-            <%= radio_button_tag(:answer, "no") %>
-            <%= label_tag(:answer_no, "Non") %>
-            </p>
-            <div id="consumption" style="display:none;">
-              <p>Consommation annuelle en Wh
-              <%= number_field_tag "yearly_consumption", nil, step: 1, class: 'd-flex justify-content-end' %>
-              </p>
-            </div>
-            <div id="estimation" style="display:none;">
-              <h3>Estimation de votre consommation :</h3>
-              <p>Superficie en m²
-              <%= number_field_tag "floor_space", nil, step: 1 , class: 'd-flex justify-content-end'%>
-              </p>
-              <p> Type de chauffage
-              <%= select_tag "heat_type", options_for_select([ "Gaz", "Electricite" ], "Gaz"), class: 'd-flex justify-content-end'%>
-              </p>
-              <p> Energie utilisée pour l'eau chaude et la cuisson
-              <%= select_tag "water_cooking_type", options_for_select([ "Gaz", "Electricite" ], "Gaz"), class: 'd-flex justify-content-end'%>
-              </p>
-              <p>Nombres de personnes dans le logement
-              <%= number_field_tag "nb_residents", nil, step: 1 , class: 'd-flex justify-content-end'%>
-              </p>
-            </div>
-          </div>
-
 <!--        EDIT USER FORM -->
 
         <%when 'edit_user'%>
@@ -243,6 +207,55 @@
             </div>
           <%end %>
 
+<!--      EDIT FULL SIMULATION TO VALIDATE -->
+
+          <% when 'validate_full_simulation' %>
+            <div class="form-group">
+              <%= f.radio_button(:validated, true) %>
+              <%= f.label(:validated, "True")%>
+              <%= f.radio_button(:validated, false) %>
+              <%= f.label(:validated, "False")%>
+            </div>
+      
+        
+
+
+<!--        GAS SIMULATION FORM-->
+
+        <%when 'new_gas_simulation'%>
+          <div class="form-group">
+            <p>Coût annuel du gaz en €
+            <%= number_field_tag "yearly_cost", nil, step: 1 , within: 1...10000, class: 'd-flex justify-content-end' %>
+            </p>
+            <p>Connaissez vous votre consommation de gaz ?
+            <%= radio_button_tag(:answer, "yes")%>
+            <%= label_tag(:answer_yes, "Oui")%>
+            <%= radio_button_tag(:answer, "no") %>
+            <%= label_tag(:answer_no, "Non") %>
+            </p>
+            <div id="consumption" style="display:none;">
+              <p>Consommation annuelle en Wh
+              <%= number_field_tag "yearly_consumption", nil, step: 1, class: 'd-flex justify-content-end' %>
+              </p>
+            </div>
+            <div id="estimation" style="display:none;">
+              <h3>Estimation de votre consommation :</h3>
+              <p>Superficie en m²
+              <%= number_field_tag "floor_space", nil, step: 1 , class: 'd-flex justify-content-end'%>
+              </p>
+              <p> Type de chauffage
+              <%= select_tag "heat_type", options_for_select([ "Gaz", "Electricite" ], "Gaz"), class: 'd-flex justify-content-end'%>
+              </p>
+              <p> Energie utilisée pour l'eau chaude et la cuisson
+              <%= select_tag "water_cooking_type", options_for_select([ "Gaz", "Electricite" ], "Gaz"), class: 'd-flex justify-content-end'%>
+              </p>
+              <p>Nombres de personnes dans le logement
+              <%= number_field_tag "nb_residents", nil, step: 1 , class: 'd-flex justify-content-end'%>
+              </p>
+            </div>
+          </div>
+
+
 <!--          NEW GAS CONTRACT-->
 
         <%when 'new_gas_contract' %>
@@ -257,7 +270,7 @@
           </div>
 
           <div class="form-group">
-            <%= f.label :subscription_base_price_month %><br />
+            <%= f.label :subscription_baseedit_user_full_simulation_price_month %><br />
             <%= f.number_field :subscription_base_price_month, in: 0.00..100.00, step: 0.01, class: "form-control"  %>
           </div>
 

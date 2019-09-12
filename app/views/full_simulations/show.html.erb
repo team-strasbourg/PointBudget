@@ -1,10 +1,51 @@
 <h1>FullSimulations#show</h1>
 <p>Find me in app/views/full_simulations/show.html.erb</p>
 
-<div>
-  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Assurance</button>
-  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Banquaire</button>
-  <%=link_to "Energie", new_user_full_simulation_energy_path(current_user, @full_simulation), class: "btn btn-primary"%>
-  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Numérique</button>
-  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Mutuelle</button>
-</div>
+<% unless @full_simulation.validated == true %>
+	<div>
+		<% if @full_simulation.only_one_gas_simulation %>
+		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Assurance</button>
+		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Banquaire</button>
+		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Energie</button>
+		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Numérique</button>
+		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Mutuelle</button>
+	  <% else %>
+		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Assurance</button>
+		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Banquaire</button>
+		  <%=link_to "Energie", new_user_full_simulation_energy_path(current_user, @full_simulation), class: "btn btn-primary"%>
+		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Numérique</button>
+		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Mutuelle</button>
+	  <% end %>
+	</div>
+	<div>
+		<%=link_to "Valider ma simulation", edit_user_full_simulation_path(current_user, @full_simulation), class: "btn btn-success"%>
+	</div>
+
+<% else %>
+	<div>
+		<h1>Résultat de votre simulation</h1>
+	</div>
+	<div>
+		<p>Vous venez de valider votre simulation n°<%= @full_simulation.id %>!</p>
+		<p>Vous avez remplis le ou les catégoties suivantes:</p>
+		<ul>
+			<li>
+				<% if @full_simulation.only_one_gas_simulation %>
+		     <%= @full_simulation.gas_simulation.name %>
+		    <% end %>
+		  </li>
+  </ul>
+	</div>
+	<div>
+		<p>D'après notre comparateur, vous pouvez économiser:</p>
+		<h1><%= @full_simulation.total_cost_saved %>€ !!!!</h1>
+	</div>
+	<div>
+		<p>Regardons de près:</p>
+		<p>
+			<% if @full_simulation.only_one_gas_simulation %>
+	     <%= @full_simulation.gas_simulation.name %>: vous pouvez économiser <%= @full_simulation.gas_simulation.gas_cost_saved %>€
+	    <% end %>
+		</p>
+	</div>
+<% end %>
