@@ -3,12 +3,17 @@
 <main>
 <!-- CONTEXT -->
   <div id="context" class="container">
+    <div class="icon-position">
+      <span class="text-white icon bg-secondary"><i class="fas fa-lightbulb"></i></span>
+    </div>
     <div class="title-context">
-      <h2>Contexte</h2>
+      <h2>Notre constat</h2>
     </div>
     <div class="content">
-      <p>Contrairement à une opinion répandue, le Lorem Ipsum n'est pas simplement du texte aléatoire. Il trouve ses racines dans une oeuvre de la littérature latine classique datant de 45 av. J.-C., le rendant vieux de 2000 ans. Un professeur du Hampden-Sydney College, en Virginie, s'est intéressé à un des mots latins les plus obscurs, consectetur, extrait d'un passage du Lorem Ipsum, et en étudiant tous les usages de ce mot dans la littérature classique, découvrit la source incontestable du Lorem Ipsum. Il provient en fait des sections 1.10.32 et 1.10.33 du "De Finibus Bonorum et Malorum" (Des Suprêmes Biens et des Suprêmes Maux) de Cicéron. Cet ouvrage, très populaire pendant la Renaissance, est un traité sur la théorie de l'éthique. Les premières lignes du Lorem Ipsum, "Lorem ipsum dolor sit amet...", proviennent de la section 1.10.32.<br>
-      L'extrait standard de Lorem Ipsum utilisé depuis le XVIè siècle est reproduit ci-dessous pour les curieux. Les sections 1.10.32 et 1.10.33 du "De Finibus Bonorum et Malorum" de Cicéron sont aussi reproduites dans leur version originale, accompagnée de la traduction anglaise de H. Rackham (1914).</p>
+      <p>Notre expérience dans le milieu bancaire nous a permis de nous rendre compte que beaucoup de particuliers pourraient faire des économies sur leurs contrats mensuels de gaz, d'électricité, de téléphonie, d'assurances...<br><br>
+      Cependant, faute de temps ou par crainte, ces contrats restent inchangés mais ne correspondent plus aux besoins ni au prix du marché.</p><br>
+      <h4>Aimeriez-vous vous décharger de la corvée qu’est de comparer l’ensemble des contrats que vous payez tous les mois?</h3><br>
+      <h4>Aimeriez-vous changer de contrats, mais vous n’avez pas le temps de le faire?</h3><br>
     </div>
   </div>
 
@@ -17,25 +22,24 @@
   <div class="container-fluid bg-primary">
     <div id="benefits">
       <div class="title">
-          <h2 class="title-color">Avantages de PointBudget</h2>
+          <h2 class="title-color">PointBudget vous promet</h2>
       </div>
       <div class="content">
         <div class="row d-flex justify-content-around">
           <div class="col-xs-4 col-md-3 icon-position">
-            <div class="icon-position"></div>
             <span class="icon text-secondary icon"><i class="fas fa-balance-scale"></i></span>
-            <h3 class="title-color">Un vrai comparateur</h3>
-            <p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam.</p>
+            <h3 class="title-color">Fiabilité</h3>
+            <p>Tous nos partenaires sont soigneusement sélectionnés pour la qualité de leur contrat et leur sérieux.</p>
           </div>
           <div class="col-xs-4 col-md-3 icon-position">
-            <span class="icon text-secondary icon"><i class="fas fa-clipboard-list"></i></span>
-            <h3 class="title-color">Des propositions</h3>
-            <p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque.</p>
+            <span class="icon text-secondary icon"><i class="fas fa-euro-sign"></i></span>
+            <h3 class="title-color">Gratuité</h3>
+            <p>Service 100% gratuit, vous ne payez rien ! Ce sont nos partenaires qui nous versent une commission.</p>
           </div>
           <div class="col-xs-4 col-md-3 icon-position">
             <span class="icon text-secondary icon"><i class="fas fa-info-circle"></i></span>
-            <h3 class="title-color">Un accompagnement</h3>
-            <p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque.</p>
+            <h3 class="title-color">Simplicité</h3>
+            <p>Faites vos simulations, envoyer-nous les documents nécessaires. <br>Nous nous occupons du reste!</p>
           </div>
         </div>
       </div>
@@ -47,7 +51,7 @@
   <div id="steps" class="container">   
 
     <div class="title">
-        <h2>PointBudget en 3 étapes</h2>
+        <h2>PointBudget en 4 étapes</h2>
     </div>                                                     
     <div class="timeline timeline-one">
 
@@ -66,7 +70,7 @@
 
       <div class="timeline-item">
         <span class="icon text-primary"><i class="fas fa-chalkboard"></i></span>
-        <h5 class="my-3">Accès à votre Dashboard personnel</h5>
+        <h5 class="my-3">Accès à votre dashboard personnel</h5>
         <p>Afin de vous accompagner au mieux et vous donner un maximum d'autonomie de gestion, vous aurez directement accès à votre espace personnel après votre connexion.</p>
         <p>Vous aurez la possibilité:</p>
         <ul>
@@ -116,8 +120,16 @@
         </div>
         <p>Afin de gagner du temps, munissez-vous d'un maximum de vos contrats ou factures</p>
         <p>Prêt... Feu.... Simuler!</p>
-        <%= link_to "Je crée mon compte", new_user_registration_path, class: "btn mr-2 mb-2 btn-pill btn-primary" %>
-        <%= link_to "Je me connecte", new_user_session_path, class: "btn mr-2 mb-2 btn-pill btn-primary" %>
+      </div>
+
+
+ <!-- Timeline Item 4 -->
+
+        <div class="timeline-item">
+        <span class="icon text-primary"><i class="fas fa-comments"></i></span>
+        <h5 class="my-3">Vous êtes décidé à faire des économies?</h5>
+        <p>C'est maintenant que nous intervenons et prenons le relais!</p>
+        <p>Votre dernier effort sera de contacter votre conseiller personnel, de lui transmettre vos souhaits et il les exaucera!
       </div>
 
     </div>
