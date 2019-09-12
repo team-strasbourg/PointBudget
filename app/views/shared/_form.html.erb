@@ -223,7 +223,7 @@
           <div class="form-group">
             <%= f.label :city_id %><br />
             <%if @user.city %>
-              <%= f.text_field zip_code, placeholder: "#{@user.city.zip_code}-#{@user.city.name}", list: 'all_cities', id:'cities_search' %>
+              <%= f.text_field :city_id, placeholder: "#{@user.city.zip_code}-#{@user.city.name}", value: "#{@user.city.zip_code}-#{@user.city.name}", list: 'all_cities', id:'cities_search' %>
             <%else %>
               <%= f.text_field :city_id, list: 'all_cities', id:'cities_search' %>
             <%end %>
@@ -232,7 +232,6 @@
                 <option value="<%=city.zip_code %> - <%=city.name %>" id="<%=city.zip_code %> - <%=city.name %>">
               <%end %>
             </datalist>
-            <%#= f.collection_select :city_id, @cities, :id, :name, include_blank: true, class: "form-control" %>
           </div>
 
           <% if is_admin? %>

@@ -51,10 +51,4 @@ $(document).ready(function () {
   //
   // });
 
-// CITIES SEARCH
-
-    let searchCity = document.getElementById('cities_search')
-    searchCity.addEventListener('keypress', function(e){
-        console.log('test')
-    });
 });
