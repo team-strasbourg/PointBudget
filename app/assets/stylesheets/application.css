@@ -18,20 +18,84 @@
  
  */
 
+ body{
+     min-height: 100vh;
+ }
+
+/*footer{
+	position: absolute;
+	bottom: 0;
+
+}*/
+.title{
+	text-align: center;
+	padding: 60px 0 70px 0;
+}
+
+.title-color{
+	color: white;
+}
+
+
+/* NAVBAR */
+
  .point-budget-title{
  	 font-size: 30px;
  	 margin-right: 50px;
  }
 
- .contact-title{
- 	 margin-right: 600px;
+
+/* JUMBOTRON */
+
+.jumbotron
+{
+    background-image: url("baniere.jpg");
+    background-position: center 75%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 800px;
+}
+
+/* CONTEXT */
+
+#context{
+	margin-bottom: 100px;
+}
+
+.title-context{
+	padding: 60px 0 20px 0;
+}
+/* BENEFITS */
+
+#benefits{
+	color: white;
+	height: 500px;
  }
 
+#benefits .icon{
+	font-size: 38px;
+	margin-bottom: 20px;
+	width: 100px;
+	padding: 30px 0;
+	border-radius: 50%;
+	background: white;
+	box-shadow: 10px 10px 10px rgba(0,0,0,.05);
+}
+
+#benefits .icon-position{
+	text-align: center;
+}
+
+/* TIMELINE */
+
+#steps{
+	margin-top: 40px;
+	margin-bottom: 150px;
+}
+
+
+/* DASHBOARD ADMIN */
 
  .table-admin th, .table-admin td {
          padding: 1rem 0;
- }
-
- body{
-     min-height: 100vh;
  }
