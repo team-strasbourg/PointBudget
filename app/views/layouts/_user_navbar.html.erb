@@ -1,10 +1,10 @@
 <div class="container-fluid">
   <div class="row">
     <nav class="col-md-2 d-none d-md-block bg-light sidebar" id="sidenav">
-      <div class="sidebar-sticky">
-        <div id="nav-user-collapse">
-        <i class="fas fa-angle-left nav-link-arrow"></i>
-        </div>
+      <span id="nav-user-collapse">
+      <i class="fas fa-angle-left nav-link-arrow"></i>
+      </span>
+      <div class="sidebar h-100" >
         <ul class="nav flex-column">
           <li class="nav-item">
             <%= link_to("Mon profil", user_path(current_user), class: "nav-link")%>

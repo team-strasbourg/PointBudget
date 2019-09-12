@@ -33,28 +33,28 @@
 $(document).ready(function () {
 
   navCollapse = document.getElementById("nav-user-collapse")
-  radioYes = document.getElementById("answer_yes")
-  radioNo = document.getElementById("answer_no")
-
-  radioYes.addEventListener('click', function(){
-
-      document.getElementById('consumption').style.display = "block"
-      document.getElementById('estimation').style.display = "none"
-
-  });
-
-
-  radioNo.addEventListener('click', function(){
-
-      document.getElementById('estimation').style.display = "block"
-      document.getElementById('consumption').style.display = "none"
-
-  });
+  // radioYes = document.getElementById("answer_yes")
+  // radioNo = document.getElementById("answer_no")
+  //
+  // radioYes.addEventListener('click', function(){
+  //
+  //     document.getElementById('consumption').style.display = "block"
+  //     document.getElementById('estimation').style.display = "none"
+  //
+  // });
+  //
+  //
+  // radioNo.addEventListener('click', function(){
+  //
+  //     document.getElementById('estimation').style.display = "block"
+  //     document.getElementById('consumption').style.display = "none"
+  //
+  // });
 
 
   navCollapse.addEventListener('click', function() {
-    console.log("This has been clicked")
-    document.getElementById("sidenav").style.width = "5"
+    console.log("This has been clicked");
+    document.getElementById("sidenav").style.marginLeft = "-190px";
   });
 
 
