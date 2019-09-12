@@ -22,9 +22,3 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-
-
-
-<!-- 	<div>
-		<%=#link_to "Valider ma simulation", edit_user_full_simulation_path(current_user, @full_simulation), class: "btn btn-success", '#myModal' 'data-toggle' => 'modal' %>
-	</div> -->
