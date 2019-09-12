@@ -31,6 +31,13 @@
 	color: white;
 }
 
+li.form-group{
+  list-style: none;
+}
+
+li.button-group{
+  list-style: none;
+}
 
 /* NAVBAR */
 
@@ -132,7 +139,12 @@
   position:absolute;
   top:5vh;
   left:95%;
+  font-size: 30px;
   cursor: pointer;
+}
+
+#nav-user-collapse:hover {
+  transform: scale(2)
 }
 
 
@@ -148,7 +160,7 @@
 	color: white;
 	/*background: white;*/
 	box-shadow: 10px 10px 10px rgba(0,0,0,.05);
-} 
+}
 
 .price-position{
 	text-align: center;
@@ -161,5 +173,3 @@
 	margin-top: -50px;
 	margin-bottom: 200px;
 }
-
-
