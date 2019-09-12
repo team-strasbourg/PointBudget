@@ -45,11 +45,7 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    begin
-      @user = User.find(params[:id])
-    rescue
-      @user = User.all.sample
-    end
+      @user = User.find(params[:id]) rescue @user = User.all.sample
   end
 
   def change_city
