@@ -86,10 +86,3 @@ if (document.cookie != "username=guest"){
 });
 
 /* MODAL VALIDATION FULL_SIMULATION */
-
-                                     
-
-                                        
-                                    
-
-
