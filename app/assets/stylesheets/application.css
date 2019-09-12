@@ -15,7 +15,7 @@
  *= require_tree .
  *= require_self
 
- 
+
  */
 
  body{
@@ -111,3 +111,12 @@
  .table-admin th, .table-admin td {
          padding: 1rem 0;
  }
+
+/* NAVBAR USER*/
+
+#nav-user-collapse {
+  position:absolute;
+  top:5vh;
+  left:95%;
+  cursor: pointer;
+}

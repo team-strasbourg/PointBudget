@@ -32,7 +32,7 @@
 
 $(document).ready(function () {
 
-
+if($("body").data("controller") == "gas_simulations" && $("body").data("action") == "new") {
   radioYes = document.getElementById("answer_yes")
   radioNo = document.getElementById("answer_no")
 
@@ -43,12 +43,36 @@ $(document).ready(function () {
 
   });
 
-
   radioNo.addEventListener('click', function(){
 
       document.getElementById('estimation').style.display = "block"
       document.getElementById('consumption').style.display = "none"
 
   });
+}
+
+
+if (document.cookie != "username=guest"){
+  navCollapse = document.getElementById("nav-user-collapse")
+  userNavStatus = true ;
+
+  navCollapse.addEventListener('click', function() {
+    if (userNavStatus == true) {
+      document.getElementById("sidenav").style.marginLeft = "-15%";
+      document.getElementById("body_content_user").classList.remove("col-md-9", "col-lg-10")
+      document.getElementById("body_content_user").classList.add("col-md-11")
+      document.getElementById("nav-arrow").classList.remove("fa-angle-left")
+      document.getElementById("nav-arrow").classList.add("fa-angle-right")
+      userNavStatus = false
+    }
+    else if (userNavStatus == false) {
+      document.getElementById("sidenav").style.marginLeft = "0";
+      document.getElementById("nav-arrow").classList.remove("fa-angle-right");
+      document.getElementById("nav-arrow").classList.add("fa-angle-left");
+      document.getElementById("body_content_user").classList.add("col-md-9", "ml-sm-auto", "col-lg-10")
+      userNavStatus = true
+    }
+  });
+};
 
 });
