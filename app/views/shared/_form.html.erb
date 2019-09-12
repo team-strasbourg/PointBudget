@@ -108,13 +108,117 @@
           <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em><br />
           <% end %>
-          <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+          <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class:"form-control" %>
         </div>
 
         <div class="form-group">
           <%= f.label :password_confirmation, "Confirm new password" %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
         </div>
+
+<!-- EDIT REGISTRATION FORM-->
+
+        <%when 'edit_registration'%>
+        <div class="form-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="form-group">
+          <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+          <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+          <% if @minimum_password_length %>
+            <br />
+            <em><%= @minimum_password_length %> characters minimum</em>
+          <% end %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :current_password %> <i>(to confirm your changes)</i><br />
+          <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control" %>
+        </div>
+
+
+      <%= link_to "Back", :back %>
+
+
+<!-- UNLOCKS NEW FORM-->
+        <%when 'new_unlocks'%>
+          <div class="form-group">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+          </div>
+
+
+<!-- CONFIRMATION INSTRUCTIONS -->
+        <%when 'new_confirmation'%>
+          <div class="form-group">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class:"form-control" %>
+          </div>
+
+<!--        EDIT USER FORM -->
+
+        <%when 'edit_user'%>
+          <div class="form-group">
+            <%= f.label :first_name %><br />
+            <%= f.text_field :first_name, autofocus: true, placeholder: resource.first_name, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :last_name %><br />
+            <%= f.text_field :last_name, autofocus: true, placeholder: resource.last_name, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :phone_number %><br />
+            <%= f.text_field :phone_number, autofocus: true, placeholder: resource.phone_number, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :city_id %><br />
+            <%if @user.city %>
+              <%= f.text_field :city_id, placeholder: "#{@user.city.zip_code} - #{@user.city.name}", value: "#{@user.city.zip_code} - #{@user.city.name}", list: 'all_cities', id:'cities_search' %>
+            <%else %>
+              <%= f.text_field :city_id, value: '', list: 'all_cities', id:'cities_search' %>
+            <%end %>
+            <datalist id="all_cities">
+              <%@cities.each do |city| %>
+                <option value="<%=city.zip_code %> - <%=city.name %>" id="<%=city.zip_code %> - <%=city.name %>">
+              <%end %>
+            </datalist>
+          </div>
+
+          <% if is_admin? %>
+            <div class="form-group">
+              <%= f.radio_button(:is_admin, true,autocomplete: :is_admin) %>
+              <%= f.label(:is_admin, "True")%>
+              <%= f.radio_button(:is_admin, false,autocomplete: :is_admin) %>
+              <%= f.label(:is_admin, "False")%>
+            </div>
+          <%end %>
+
+<!--      EDIT FULL SIMULATION TO VALIDATE -->
+
+          <% when 'validate_full_simulation' %>
+            <div class="form-group">
+              <%= f.radio_button(:validated, true) %>
+              <%= f.label(:validated, "True")%>
+              <%= f.radio_button(:validated, false) %>
+              <%= f.label(:validated, "False")%>
+            </div>
+      
+        
+
 
 <!--        GAS SIMULATION FORM-->
 
@@ -151,42 +255,6 @@
             </div>
           </div>
 
-<!--        EDIT USER FORM -->
-
-        <%when 'edit_user'%>
-          <div class="form-group">
-            <%= f.label :first_name %><br />
-            <%= f.text_field :first_name, autofocus: true, placeholder: resource.first_name, class: "form-control"  %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :last_name %><br />
-            <%= f.text_field :last_name, autofocus: true, placeholder: resource.last_name, class: "form-control" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :phone_number %><br />
-            <%= f.text_field :phone_number, autofocus: true, placeholder: resource.phone_number, class: "form-control"  %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :city_id %><br />
-            <%= f.collection_select :city_id, City.order(:name), :id, :name, include_blank: true, class: "form-control" %>
-          <!-- JEAN: i had to delete the placeholder: resource.city.name because user is created without a city when none using seeds.rb -->
-          </div>
-
-
-
-
-
-          <% if is_admin? %>
-            <div class="form-group">
-              <%= f.radio_button(:is_admin, true,autocomplete: :is_admin) %>
-              <%= f.label(:is_admin, "True")%>
-              <%= f.radio_button(:is_admin, false,autocomplete: :is_admin) %>
-              <%= f.label(:is_admin, "False")%>
-            </div>
-          <%end %>
 
 <!--          NEW GAS CONTRACT-->
 
@@ -202,7 +270,7 @@
           </div>
 
           <div class="form-group">
-            <%= f.label :subscription_base_price_month %><br />
+            <%= f.label :subscription_baseedit_user_full_simulation_price_month %><br />
             <%= f.number_field :subscription_base_price_month, in: 0.00..100.00, step: 0.01, class: "form-control"  %>
           </div>
 
@@ -263,7 +331,7 @@
 
       <% end %>
 
-      <%if ["edit_password", "new_password",'new_registration','new_session'].include?(action)%>
+      <%if ["edit_password", "new_password",'new_registration','new_session', 'new_unlocks', 'new_confirmation'].include?(action)%>
         <%= render "devise/shared/links" %>
       <%end%>
     </div>

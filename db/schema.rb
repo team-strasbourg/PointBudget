@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(version: 2019_09_12_092438) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +22,9 @@ ActiveRecord::Schema.define(version: 2019_09_12_092438) do
     t.string "insee_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["insee_code"], name: "index_cities_on_insee_code"
+    t.index ["name"], name: "index_cities_on_name"
+    t.index ["zip_code"], name: "index_cities_on_zip_code"
   end
 
   create_table "full_simulations", force: :cascade do |t|
@@ -56,6 +58,7 @@ ActiveRecord::Schema.define(version: 2019_09_12_092438) do
     t.bigint "full_simulation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name", default: "Gaz"
     t.index ["full_simulation_id"], name: "index_gas_simulations_on_full_simulation_id"
   end
 
