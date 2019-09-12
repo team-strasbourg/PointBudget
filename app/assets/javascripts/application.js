@@ -50,9 +50,13 @@ if($("body").data("controller") == "gas_simulations" && $("body").data("action")
 
   });
 } else if($("body").data("controller") == "full_simulations" && $("body").data("action") == "show"){
-  $('.btn-block')[0].on('click', function () {
-    $('#myModal').trigger('focus')
-})
+  try {
+    $('.btn-block')[0].on('click', function () {
+      $('#myModal').trigger('focus')
+    })
+  }
+  catch{
+  }
 }
 
 
