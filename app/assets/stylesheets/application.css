@@ -103,9 +103,14 @@
 
  /* ABOUT */
 
-#about{
-	margin-bottom: 100px;
-	padding-left: 50px;
-	padding-right: 50px;
+.about{
+	/* margin-bottom: 100px; */
+	padding-left: 7em;
+	padding-right: 7em;
+	
 
+}
+
+#last-about{
+	margin-bottom: 100px;
 }
