@@ -25,5 +25,9 @@ FactoryBot.define do
     factory :user_bad_phone do
       phone_number { '0606' }
     end
+
+    factory :user_empty_city do
+      city {}
+    end
   end
 end
