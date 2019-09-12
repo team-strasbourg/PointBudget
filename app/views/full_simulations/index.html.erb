@@ -13,7 +13,7 @@
               <tr>
                 <th scope="col" style="width: 15%;">Simulation</th>
                 <th scope="col" style="width: 25%;">Créée le</th>
-                <th scope="col" style="width: 20%;">Etat</th>
+                <th scope="col" style="width: 20%;">Domaines remplis</th>
                 <th scope="col" style="width: 40%;">Action</th>
               </tr>
             </thead>
@@ -24,7 +24,11 @@
                     <tr>
                       <th scope="row"><%= simu.id %></th>
                       <td><%= simu.created_at %></td>
-                      <td><%= simu.validated %></td>
+                      <td>
+                        <% if simu.only_one_gas_simulation %>
+                         Gaz
+                        <% end %>
+                      </td>
                       <td><%= link_to "Compléter cette simulation", user_full_simulation_path(current_user, simu), class: "btn btn-success" %></td> 
                     </tr>
                   <%end%>
@@ -52,8 +56,8 @@
             <thead>
               <tr>
                 <th scope="col" style="width: 15%;">Simulation</th>
-                <th scope="col" style="width: 25%;">Créée le</th>
-                <th scope="col" style="width: 20%;">Etat</th>
+                <th scope="col" style="width: 25%;">Validée le</th>
+                <th scope="col" style="width: 20%;">Domaines remplis</th>
                 <th scope="col" style="width: 40%;">Etat</th>
               </tr>
             </thead>
@@ -63,9 +67,13 @@
                   <% if simu.validated == true %>
                     <tr>
                       <th scope="row"><%= simu.id %></th>
-                      <td><%= simu.created_at %></td>
-                      <td><%= simu.validated %></td>
-                      <td><%= simu.validated %></td>
+                      <td><%= simu.updated_at %></td>
+                      <td>
+                        <% if simu.only_one_gas_simulation %>
+                         Gaz
+                        <% end %>
+                      </td>
+                      <td><%= link_to "Voir cette simulation", user_full_simulation_path(current_user, simu), class: "btn btn-success" %></td>
                     </tr>
                   <% end %>
                 <% end %>
