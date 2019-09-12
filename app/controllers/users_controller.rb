@@ -49,11 +49,11 @@ class UsersController < ApplicationController
   end
 
   def change_city
-    unless params[:user][:city_id] == ""
+    unless params[:user][:city_id].empty?
       city = params[:user][:city_id]
       table = city.split(' - ')
       the_city = City.find_by(name: table[1])
-      params[:user][:city_id] = the_city.id
+      params[:user][:city_id] = the_city.id unless the_city.nil?
     end
   end
 
