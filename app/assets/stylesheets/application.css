@@ -22,7 +22,11 @@
      min-height: 100vh;
  }
 
+/*footer{
+	position: absolute;
+	bottom: 0;
 
+}*/
 .title{
 	text-align: center;
 	padding: 60px 0 70px 0;
@@ -31,12 +35,6 @@
 .title-color{
 	color: white;
 }
-
-/* DASHBOARD ADMIN */
-
- .table-admin th, .table-admin td {
-         padding: 1rem 0;
- }
 
 
 /* NAVBAR */
@@ -69,7 +67,7 @@
 }
 /* BENEFITS */
 
- #benefits{
+#benefits{
 	color: white;
 	height: 500px;
  }
@@ -78,11 +76,9 @@
 	font-size: 38px;
 	margin-bottom: 20px;
 	width: 100px;
-	/*height: 100px;*/
 	padding: 30px 0;
 	border-radius: 50%;
 	background: white;
-	/*background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);*/
 	box-shadow: 10px 10px 10px rgba(0,0,0,.05);
 }
 
@@ -94,5 +90,12 @@
 
 #steps{
 	margin-top: 40px;
+	margin-bottom: 150px;
 }
 
+
+/* DASHBOARD ADMIN */
+
+ .table-admin th, .table-admin td {
+         padding: 1rem 0;
+ }
