@@ -15,7 +15,7 @@
         </div>
         <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
           <li class="nav-item"><%= link_to "About", static_pages_about_path, class: "nav-link" %></li>
-          <li class="nav-item contact-title"><%= link_to "Contact", static_pages_contact_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Contact", {:anchor => "footer"}, class: "nav-link" %></li>
         </ul>
         <ul class="navbar-nav navbar-nav-hover align-items-lg-end ml-auto">
           <% if user_signed_in? %>
