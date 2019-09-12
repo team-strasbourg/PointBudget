@@ -59,6 +59,8 @@ if (document.cookie != "username=guest"){
   navCollapse.addEventListener('click', function() {
     if (userNavStatus == true) {
       document.getElementById("sidenav").style.marginLeft = "-15%";
+      document.getElementById("body_content_user").classList.remove("col-md-9", "col-lg-10")
+      document.getElementById("body_content_user").classList.add("col-md-11")
       document.getElementById("nav-arrow").classList.remove("fa-angle-left")
       document.getElementById("nav-arrow").classList.add("fa-angle-right")
       userNavStatus = false
@@ -67,6 +69,7 @@ if (document.cookie != "username=guest"){
       document.getElementById("sidenav").style.marginLeft = "0";
       document.getElementById("nav-arrow").classList.remove("fa-angle-right");
       document.getElementById("nav-arrow").classList.add("fa-angle-left");
+      document.getElementById("body_content_user").classList.add("col-md-9", "ml-sm-auto", "col-lg-10")
       userNavStatus = true
     }
   });
