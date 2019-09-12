@@ -19,7 +19,7 @@
 #     City.create(name: city["nom"], insee_code: city["code"], zip_code: city["codesPostaux"][0])
 #   end
 # end
-#
+
 
 City.destroy_all
 
