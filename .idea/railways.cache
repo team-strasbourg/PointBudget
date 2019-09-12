@@ -10,13 +10,13 @@ Ruby enVironment Manager 1.29.8 (latest) (c) 2009-2017 Michal Papis, Piotr Kuczy
                            user_password PATCH  /users/password(.:format)                                                                devise/passwords#update
                                          PUT    /users/password(.:format)                                                                devise/passwords#update
                                          POST   /users/password(.:format)                                                                devise/passwords#create
-                cancel_user_registration GET    /users/cancel(.:format)                                                                  devise/registrations#cancel
-                   new_user_registration GET    /users/sign_up(.:format)                                                                 devise/registrations#new
-                  edit_user_registration GET    /users/edit(.:format)                                                                    devise/registrations#edit
-                       user_registration PATCH  /users(.:format)                                                                         devise/registrations#update
-                                         PUT    /users(.:format)                                                                         devise/registrations#update
-                                         DELETE /users(.:format)                                                                         devise/registrations#destroy
-                                         POST   /users(.:format)                                                                         devise/registrations#create
+                cancel_user_registration GET    /users/cancel(.:format)                                                                  registrations#cancel
+                   new_user_registration GET    /users/sign_up(.:format)                                                                 registrations#new
+                  edit_user_registration GET    /users/edit(.:format)                                                                    registrations#edit
+                       user_registration PATCH  /users(.:format)                                                                         registrations#update
+                                         PUT    /users(.:format)                                                                         registrations#update
+                                         DELETE /users(.:format)                                                                         registrations#destroy
+                                         POST   /users(.:format)                                                                         registrations#create
                                     root GET    /                                                                                        static_pages#landing_page
                       static_pages_about GET    /static_pages/about(.:format)                                                            static_pages#about
                     static_pages_contact GET    /static_pages/contact(.:format)                                                          static_pages#contact
@@ -54,6 +54,7 @@ Ruby enVironment Manager 1.29.8 (latest) (c) 2009-2017 Michal Papis, Piotr Kuczy
                                          PATCH  /admin/full_simulations/:id(.:format)                                                    admin/full_simulations#update
                                          PUT    /admin/full_simulations/:id(.:format)                                                    admin/full_simulations#update
                                          DELETE /admin/full_simulations/:id(.:format)                                                    admin/full_simulations#destroy
+                              users_root GET    /users(.:format)                                                                         users#show
          new_user_full_simulation_energy GET    /users/:user_id/full_simulations/:full_simulation_id/energies/new(.:format)              energies#new
              user_full_simulation_energy GET    /users/:user_id/full_simulations/:full_simulation_id/energies/:id(.:format)              energies#show
     user_full_simulation_gas_simulations GET    /users/:user_id/full_simulations/:full_simulation_id/gas_simulations(.:format)           gas_simulations#index
@@ -72,15 +73,10 @@ edit_user_full_simulation_gas_simulation GET    /users/:user_id/full_simulations
                                          PATCH  /users/:user_id/full_simulations/:id(.:format)                                           full_simulations#update
                                          PUT    /users/:user_id/full_simulations/:id(.:format)                                           full_simulations#update
                                          DELETE /users/:user_id/full_simulations/:id(.:format)                                           full_simulations#destroy
-                                   users GET    /users(.:format)                                                                         users#index
-                                         POST   /users(.:format)                                                                         users#create
-                                new_user GET    /users/new(.:format)                                                                     users#new
                                edit_user GET    /users/:id/edit(.:format)                                                                users#edit
                                     user GET    /users/:id(.:format)                                                                     users#show
                                          PATCH  /users/:id(.:format)                                                                     users#update
                                          PUT    /users/:id(.:format)                                                                     users#update
-                                         DELETE /users/:id(.:format)                                                                     users#destroy
-                              users_root GET    /users(.:format)                                                                         users/users#show
                       rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
                rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
                       rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
