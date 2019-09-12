@@ -15,7 +15,7 @@
         </div>
         <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
           <li class="nav-item"><%= link_to "About", static_pages_about_path, class: "nav-link" %></li>
-          <li class="nav-item contact-title"><%= link_to "Contact", static_pages_contact_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Contact", {:anchor => "footer"}, class: "nav-link" %></li>
         </ul>
         <ul class="navbar-nav navbar-nav-hover align-items-lg-end ml-auto">
           <% if user_signed_in? %>
@@ -25,7 +25,7 @@
                 <span class="nav-link-inner-text">Connecté</span>
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="../../html/sections/about.html">Mon dashboard</a></li>
+                <li><%= link_to "Mon dashboard", users_root_path, class: "dropdown-item"%></li>
                 <li><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item"%></li>
               </ul>
             </li>

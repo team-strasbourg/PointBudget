@@ -40,6 +40,7 @@
  }
 
 
+
 /* JUMBOTRON */
 
 .jumbotron
@@ -112,7 +113,20 @@
          padding: 1rem 0;
  }
 
-/* NAVBAR USER*/
+
+ /* ABOUT */
+
+
+#last-about{
+	margin-bottom: 10em;
+}
+
+.indent {
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+	/* NAVBAR USER*/
 
 #nav-user-collapse {
   position:absolute;
