@@ -70,7 +70,7 @@
                       <td><%= simu.updated_at %></td>
                       <td>
                         <% if simu.only_one_gas_simulation %>
-                         Gaz
+                         <%= simu.gas_simulation.name %>
                         <% end %>
                       </td>
                       <td><%= link_to "Voir cette simulation", user_full_simulation_path(current_user, simu), class: "btn btn-success" %></td>
