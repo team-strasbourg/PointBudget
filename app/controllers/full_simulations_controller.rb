@@ -15,7 +15,7 @@ class FullSimulationsController < ApplicationController
   def create
     @full_simulation = FullSimulation.new(user: current_user)
     if @full_simulation.save
-      flash[:success] = "Vous venez de commencer une simulation"
+      flash[:success] = 'Vous venez de commencer une simulation'
       redirect_to user_full_simulation_path(current_user, @full_simulation)
     else
       flash[:error] = @full_simulation.errors.messages
@@ -30,19 +30,18 @@ class FullSimulationsController < ApplicationController
   def update
     @full_simulation = FullSimulation.find(params[:id])
     if @full_simulation.update(full_simulation_params)
-      flash[:success] = "Votre simulation a été validée"
+      flash[:success] = 'Votre simulation a été validée'
       redirect_to user_full_simulation_path(current_user, @full_simulation)
     else
-      flash[:error] = "Votre simulation n'a été validée"
+      flash[:error] = "Votre simulation n'a pas été validée"
       render :edit
     end
   end
 
   def destroy
     @full_simulation = FullSimulation.find(params[:id])
-
     if @full_simulation.destroy
-      flash[:success] = "La simulation a bien été supprimée"
+      flash[:success] = 'La simulation a bien été supprimée'
     else
       flash[:error] = "La simulation n'a pa pu être supprimée"
     end
@@ -50,6 +49,7 @@ class FullSimulationsController < ApplicationController
   end
 
   private
+
   def full_simulation_params
     params.require(:full_simulation).permit(:total_cost_saved, :validated)
   end
