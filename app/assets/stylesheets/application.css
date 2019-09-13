@@ -249,3 +249,25 @@ li.button-group{
 .icon-section{
 	margin: 0 -80px;
 }
+
+/* SIMULATION CATEGORY */
+
+#simu-category{
+	width: 120px;
+	height: 120px;
+	display: flex;
+	flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.icon-category{
+	padding-top: 17px;
+}
+
+.link-category{
+	font-size: 30px;
+	padding-bottom: 11px;
+}
+

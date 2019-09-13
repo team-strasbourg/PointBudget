@@ -6,7 +6,7 @@
 		<button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Gaz</button>
 	  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Electricité</button>
 	<% else %>
-		<%=link_to "Gas", new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: "btn btn-primary"%> 
+		<%=link_to "Gas", new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: "btn btn-primary"%>
 		<button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Electricité</button>
 	<% end %>
 </div>
@@ -14,3 +14,28 @@
 <div>
 	<%= link_to "Back", :back %>
 </div>
+
+
+
+<button id="simu-category" class="btn btn-secondary">
+  <div class="icon-category">
+  	<span class="icon text-white icon"><i class="fas fa-burn"></i>
+  	</i>
+  	</span>
+  </div>
+  <div class="link-category">
+  	<%=link_to "Gas", new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: "text-white" %>
+	</div>
+</button>
+
+<button id="simu-category" class="btn btn-secondary disabled" style="cursor:not-allowed">
+  <div class="icon-category">
+  	<span class="icon text-white icon"><i class="fas fa-bolt"></i>
+  	</i>
+  	</span>
+  </div>
+  <div class="link-category">
+  	<%=link_to "Gas", new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: "text-white" %>
+	</div>
+</button>
+
