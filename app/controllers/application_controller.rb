@@ -27,11 +27,15 @@ class ApplicationController < ActionController::Base
     cookies[:username] = current_user.nil? ? "guest" : current_user.email
   end
 
+
   def not_other_user
-    if current_user.id != User.find(params[:user_id])
+    puts params
+    puts "5" * 50
+    if current_user != User.find(params[:user_id])
       flash[:error] = "Vous n'avez pas le droit d'accéder à cette page"
       redirect_to users_root_url
     end
   end
+
 
 end
