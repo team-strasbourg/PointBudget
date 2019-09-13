@@ -1,6 +1,7 @@
 class GasSimulationsController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :user_signed_in?
   def index; end
 
   def show; end
