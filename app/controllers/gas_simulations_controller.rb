@@ -1,6 +1,10 @@
 class GasSimulationsController < ApplicationController
 
   before_action :authenticate_user!
+
+  before_action :user_signed_in?
+  before_action :not_other_users_simulations
+
   def index; end
 
   def show
@@ -10,7 +14,7 @@ class GasSimulationsController < ApplicationController
   def new
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
     if @full_simulation.only_one_gas_simulation
-      flash[:error] = "Vous avez déjà comparé le gaz dans cette simulation"
+      flash[:error] = 'Vous avez déjà comparé le gaz dans cette simulation'
       redirect_to user_full_simulation_path(current_user, @full_simulation)
     else
       @gas_simulation = GasSimulation.new
@@ -40,17 +44,16 @@ class GasSimulationsController < ApplicationController
                                         full_simulation: @full_simulation
                                         )
 
-    if  @gas_simulation.save
+    if @gas_simulation.save
       @gas_simulation.create_join_table_gas(comparison[1])
       @full_simulation.update(total_cost_saved: (@full_simulation.total_cost_saved + @gas_simulation.gas_cost_saved))
+      flash[:success] = 'Votre simulation de gaz a bien été enregistrée'
       redirect_to user_full_simulation_path(current_user, @full_simulation)
       #redirect_to user_full_simulation_gas_simulation_path(current_user, @full_simulation, @gas_simulation)
     else
       flash[:error] = @gas_simulation.errors.messages
-      render 'new'
+      redirect_to new_user_full_simulation_gas_simulation_path(current_user, @full_simulation)
     end
   end
-
-  def destroy; end
 
 end
