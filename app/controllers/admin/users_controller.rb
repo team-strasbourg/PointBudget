@@ -33,7 +33,12 @@ module Admin
     def update
       @user = User.find(params[:id])
       if @user.update(user_params)
-        redirect_to admin_root_path
+        if @user == current_user
+          sign_out current_user
+          redirect_to root_path
+        else
+          redirect_to admin_root_path
+        end
       else
         render 'edit'
       end
