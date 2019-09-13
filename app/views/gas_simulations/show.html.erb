@@ -1,4 +1,3 @@
-<h2>Ma simulation de gaz</h2>
 
 <!--users/1/full_simulations/7/gas_simulations/5-->
 
@@ -15,14 +14,14 @@
         <thead>
           <tr>
             <th scope="col" style="width: 5%;">Simulation</th>
-            <th scope="col" style="width: 25%;">Créée le</th>
-            <th scope="col" style="width: 15%;">Superficie</th>
-            <th scope="col" style="width: 15%;">Type de chauffage (maison)</th>
-            <th scope="col" style="width: 15%;">Type de chauffage (eau)</th>
-            <th scope="col" style="width: 15%;">Nombre d'habitants</th>
-            <th scope="col" style="width: 15%;">Utilisation de gaz</th>
-            <th scope="col" style="width: 25%;">Prix payé</th>
-            <th scope="col" style="width: 30%;">Montant gagné</th>
+            <th scope="col" style="width: 10%;">Créée le</th>
+            <th scope="col" style="width: 10%;">Superficie</th>
+            <th scope="col" style="width: 10%;">Type de chauffage (eau)</th>
+            <th scope="col" style="width: 10%;">Type de chauffage (maison)</th>
+            <th scope="col" style="width: 10%;">Nombre d'habitants</th>
+            <th scope="col" style="width: 10%;">Utilisation de gaz</th>
+            <th scope="col" style="width: 10%;">Prix payé</th>
+            <th scope="col" style="width: 15%;">Montant gagné</th>
           </tr>
         </thead>
         <tbody>
@@ -43,17 +42,35 @@
   </div>
 </div>
 
-<!--create_table "gas_simulations", force: :cascade do |t|
-    t.float "actual_price_paid"
-    t.float "gas_cost_saved"
-    t.integer "floor_space"
-    t.string "heat_type"
-    t.string "water_cooking_type"
-    t.integer "residents_number"
-    t.integer "gas_use"
-    t.bigint "full_simulation_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name", default: "Gaz"
-    t.index ["full_simulation_id"], name: "index_gas_simulations_on_full_simulation_id"
-  end-->
+<!-- Card -->
+<div class="pricing-card">
+  <div class="card shadow-soft border-light p-4">
+    <!-- Header -->
+    <header class="card-header border-bottom bg-white text-center">
+        <span class="d-block">
+            <span class="display-1 text-secondary font-weight-bold">
+                <span class="align-top font-medium">$</span>19
+            </span>
+            <span class="text-light font-small">/ month</span>
+        </span>
+    </header>
+    <!-- End Header -->
+    <!-- Content -->
+    <div class="card-body">
+        <p>Faster sites deliver better business results for
+            your clients.</p>
+        <ul class="list-group mb-4">
+            <li class="list-group-item"><strong>Full Support</strong>
+                No</li>
+            <li class="list-group-item"><strong>Storage</strong>
+                50 GB</li>
+            <li class="list-group-item"><strong>Monthly
+                    Visitors</strong> 400k</li>
+        </ul>
+        <button type="button" class="btn btn-outline-secondary btn-block"
+            tabindex="0"><span class="fas fa-cart-plus mr-3"></span>Add to Cart</button>
+    </div>
+    <!-- End Content -->
+  </div>
+</div>
+<!-- End of Pricing Card -->
