@@ -32,12 +32,10 @@ class GasSimulation < ApplicationRecord
   end
 
   def estimation(yearly_cost, yearly_consumption, floor_space, heat_type, water_cooking_type, nb_residents )
-    yearly_cost = @params[:yearly_cost].to_i
-    yearly_consumption = @params[:yearly_consumption].to_i
-    floor_space = @params[:floor_space].to_i
-    heat_type = @params[:heat_type]
-    water_cooking_type = @params[:water_cooking_type]
-    nb_residents = @params[:nb_residents].to_i
+    yearly_cost = yearly_cost.to_i
+    yearly_consumption = yearly_consumption.to_i
+    floor_space = floor_space.to_i
+    nb_residents = nb_residents.to_i
     if verify_nilness_params(yearly_cost,yearly_consumption,floor_space,heat_type,water_cooking_type,nb_residents)
       first_factor = heat_type == 'Gaz' ? 1 : 0
       second_factor = water_cooking_type == 'Gaz' ? 1 : 0
@@ -46,7 +44,6 @@ class GasSimulation < ApplicationRecord
     else
       return [false, -1]
     end
-
   end
 
   def comparison(yearly_cost, yearly_consumption)

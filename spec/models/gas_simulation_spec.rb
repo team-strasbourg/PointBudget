@@ -158,7 +158,22 @@ RSpec.describe GasSimulation, type: :model do
       it 'should return true if yearly consumption 0 but evrything else is not empty' do
         expect(@gas_simulation.verify_nilness_params(100, 0,50, 'Gaz', 'Gaz', 1)).to eq(true)
       end
+    end
 
+    describe 'estimation' do
+      it 'should return [false, -1] if yearly cost is empty' do
+        expect(@gas_simulation.estimation('', '', '', '', '', '')).to eq([false, -1])
+      end
+
+      it 'should return yearly cost and yearly consumption if they exist' do
+        expect(@gas_simulation.estimation('500', '5000', '', '', '', '')).to eq([500, 5000])
+      end
+
+      it 'should return yearly cost and yearly consumption calculated' do
+        expect(@gas_simulation.estimation('500', '', '50', 'Gaz', 'Gaz', '1')).to eq([500, 6630])
+        expect(@gas_simulation.estimation('500', '', '50', 'Electricite', 'Gaz', '1')).to eq([500, 1630])
+        expect(@gas_simulation.estimation('500', '', '50', 'Gaz', 'Electricite', '1')).to eq([500, 5000])
+      end
     end
 
   end

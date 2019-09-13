@@ -20,7 +20,7 @@ class GasSimulationsController < ApplicationController
     @gas_simulation.assign_params_from_controller(params)
     estimation = @gas_simulation.estimation(
                                     params[:yearly_cost],
-                                    params[:yearly_consumtion],
+                                    params[:yearly_consumption],
                                     params[:floor_space],
                                     params[:heat_type],
                                     params[:water_cooking_type],
