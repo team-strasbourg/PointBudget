@@ -266,8 +266,12 @@ li.button-group{
 	padding-top: 17px;
 }
 
-.link-category{
-	font-size: 30px;
+.gas-category{
+	font-size: 25px;
 	padding-bottom: 11px;
 }
 
+.elec-category{
+	font-size: 15px;
+	padding-bottom: 11px;
+}
