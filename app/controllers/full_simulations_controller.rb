@@ -1,5 +1,6 @@
 class FullSimulationsController < ApplicationController
   before_action :authenticate_user!
+  before_action :user_signed_in?
   def index
     @simulations = current_user.full_simulations
   end
