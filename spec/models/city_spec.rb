@@ -30,9 +30,7 @@ RSpec.describe City, type: :model do
         expect(bad_zip).not_to be_valid
         expect(bad_zip.errors.include?(:zip_code)).to eq(true)
       end
-
     end
-
   end
 
   context 'associations' do
@@ -42,30 +40,5 @@ RSpec.describe City, type: :model do
         expect(@city).to have_many(:users)
       end
     end
-
-  end
-
-  context 'callbacks' do
-
-    describe 'some callbacks' do
-
-    end
-
-  end
-
-  context 'public instance methods' do
-
-    describe '#some_method' do
-
-    end
-
-  end
-
-  context 'public class methods' do
-
-    describe 'self.some_method' do
-
-    end
-
   end
 end
