@@ -2,7 +2,7 @@ class GasSimulationsController < ApplicationController
 
   before_action :authenticate_user!
   before_action :user_signed_in?
-  before_action :not_other_user
+  before_action :not_other_users_simulations
 
   def index; end
 

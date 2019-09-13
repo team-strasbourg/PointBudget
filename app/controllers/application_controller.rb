@@ -30,12 +30,24 @@ class ApplicationController < ActionController::Base
 
   def not_other_user
     puts params
+    puts "4" * 50
+    # This method prevents users from going to another user's show and edit pages
+    if current_user != User.find(params[:id])
+      flash[:error] = "Vous n'avez pas le droit d'accéder à cette page"
+      redirect_to users_root_url
+    end
+  end
+
+  def not_other_users_simulations
+    puts params
     puts "5" * 50
+    # This method prevents users from going to pages associated with another user, namely the simulations
     if current_user != User.find(params[:user_id])
       flash[:error] = "Vous n'avez pas le droit d'accéder à cette page"
       redirect_to users_root_url
     end
   end
+
 
 
 end
