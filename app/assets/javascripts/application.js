@@ -37,17 +37,13 @@ if($("body").data("controller") == "gas_simulations" && $("body").data("action")
   radioNo = document.getElementById("answer_no")
 
   radioYes.addEventListener('click', function(){
-
-      document.getElementById('consumption').style.display = "block"
-      document.getElementById('estimation').style.display = "none"
-
+      $('#consumption').show(600);
+      $('#estimation').hide(600);
   });
 
   radioNo.addEventListener('click', function(){
-
-      document.getElementById('estimation').style.display = "block"
-      document.getElementById('consumption').style.display = "none"
-
+      $('#consumption').hide(600);
+      $('#estimation').show(600);
   });
 } else if($("body").data("controller") == "full_simulations" && $("body").data("action") == "show"){
   try {
@@ -60,24 +56,31 @@ if($("body").data("controller") == "gas_simulations" && $("body").data("action")
 }
 
 
-if (document.cookie != "username=guest"){
+if (document.cookie !== "username=guest"){
   navCollapse = document.getElementById("nav-user-collapse")
   userNavStatus = true ;
 
   navCollapse.addEventListener('click', function() {
     if (userNavStatus == true) {
-      document.getElementById("sidenav").style.marginLeft = "-15%";
-      document.getElementById("body_content_user").classList.remove("col-md-9", "col-lg-10")
-      document.getElementById("body_content_user").classList.add("col-md-11")
-      document.getElementById("nav-arrow").classList.remove("fa-angle-left")
-      document.getElementById("nav-arrow").classList.add("fa-angle-right")
+        $('#sidenav').animate({
+            right: '200px'
+        });
+        $('#body_content_user').animate({
+            right: '200px'
+        });
+      document.getElementById("nav-arrow").classList.remove("fa-angle-left");
+      document.getElementById("nav-arrow").classList.add("fa-angle-right");
       userNavStatus = false
     }
     else if (userNavStatus == false) {
-      document.getElementById("sidenav").style.marginLeft = "0";
+        $('#sidenav').animate({
+            right: '0px'
+        });
+        $('#body_content_user').animate({
+            right: '0px'
+        });
       document.getElementById("nav-arrow").classList.remove("fa-angle-right");
       document.getElementById("nav-arrow").classList.add("fa-angle-left");
-      document.getElementById("body_content_user").classList.add("col-md-9", "ml-sm-auto", "col-lg-10")
       userNavStatus = true
     }
   });
@@ -85,4 +88,3 @@ if (document.cookie != "username=guest"){
 
 });
 
-/* MODAL VALIDATION FULL_SIMULATION */
