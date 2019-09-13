@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     unless current_user.id == @user.id
-      flash[:error] = "Vous n'avez pas le droit d'accéder au profil d'autres utilisateurs!!"
+      flash[:error] = "Vous n'avez pas le droit d'accéder à cette page"
       redirect_to user_path(current_user)
     end
   end
