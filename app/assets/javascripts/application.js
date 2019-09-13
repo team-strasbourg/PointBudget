@@ -37,17 +37,13 @@ if($("body").data("controller") == "gas_simulations" && $("body").data("action")
   radioNo = document.getElementById("answer_no")
 
   radioYes.addEventListener('click', function(){
-
-      document.getElementById('consumption').style.display = "block"
-      document.getElementById('estimation').style.display = "none"
-
+      $('#consumption').show(600);
+      $('#estimation').hide(600);
   });
 
   radioNo.addEventListener('click', function(){
-
-      document.getElementById('estimation').style.display = "block"
-      document.getElementById('consumption').style.display = "none"
-
+      $('#consumption').hide(600);
+      $('#estimation').show(600);
   });
 } else if($("body").data("controller") == "full_simulations" && $("body").data("action") == "show"){
   try {
