@@ -39,6 +39,15 @@ class FullSimulationsController < ApplicationController
   end
 
   def destroy
+    @full_simulation = FullSimulation.find(params[:id])
+
+    if @full_simulation.destroy
+      flash[:success] = "La simulation a bien été supprimée"
+      redirect_to user_full_simulations_path(current_user)
+    else
+      flash[:error] = "La simulation n'a pa pu être supprimée"
+      redirect_to user_full_simulations_path(current_user)
+    end
   end
 
   private
