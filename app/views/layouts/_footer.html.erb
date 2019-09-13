@@ -1,7 +1,7 @@
 <footer class="page-footer font-small text-white bg-primary pt-4">
   <div id="footer" class="container-fluid text-center text-md-left">
     <div class="row">
-      <div class="col-md-4 mt-md-0 mt-3 contact-section">
+      <div class="col-md-3 mt-md-0 mt-3 contact-section">
         <h3 class="text-uppercase contact-title">Contact</h3>
         <div class="contact-info">
           <p>Email: point@pointbudget.fr <br> Tel: +33 3 33 33 33 33
@@ -9,7 +9,7 @@
         </div>
       </div>
       <hr class="clearfix w-100 d-md-none pb-3">
-      <div class="col-md-4 mb-md-0 mb-3 d-flex align-items-center icon-section">
+      <div class="col-md-3 mb-md-0 mb-3 d-flex align-items-center icon-section">
         <div class="contact-icons">
           <a class="fb-ic">
             <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
@@ -20,15 +20,15 @@
           <a class="fb-ic">
             <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
           </a>
+          <a class="fb-ic">
+            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+          </a>
         </div>
       </div>
 
-      <div class="col-md-4 mb-md-0 mb-3 link-section">
+      <div class="col-md-3 mb-md-0 mb-3 link-section">
         <h5 class="text-uppercase">Liens</h5>
         <ul class="list-unstyled">
-          <li>
-            <%= link_to "A propos", static_pages_about_path %>
-          </li>
           <li>
             <%= link_to "Se connecter", new_user_session_path %>
           </li>
@@ -36,14 +36,30 @@
             <%= link_to "S'inscrire", new_user_session_path %>
           </li>
           <li>
-            <%= link_to "Mentions légales" %>
+            <%= link_to "Espace Presse" %>
           </li>
         </ul>
       </div>
+
+      <div class="col-md-3 mb-md-0 mb-3 link-section">
+        <h5 class="text-uppercase">Liens</h5>
+        <ul class="list-unstyled">
+          <li>
+            <%= link_to "Nos partenaires" %>
+          </li>
+          <li>
+            <%= link_to "Conditions générales" %>
+          </li>
+          <li>
+            <%= link_to "Politique de confidentialité" %>
+          </li>
+        </ul>
+      </div>
+
     </div>
   </div>
-  <div class="footer-copyright text-center py-3">© 2018 Copyright:
-    <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+  <div class="footer-copyright text-center py-3">© 2019 Copyright
+    <a href="https://mdbootstrap.com/education/bootstrap/"></a>
   </div>
 </footer>
 
