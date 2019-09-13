@@ -128,6 +128,10 @@ RSpec.describe GasSimulation, type: :model do
       it 'should return 7360 if 6' do
         expect(@gas_simulation.consumption_people(6)).to eq(7360)
       end
+
+      it 'should return 10360 if 9' do
+        expect(@gas_simulation.consumption_people(9)).to eq(10360)
+      end
     end
 
   end
