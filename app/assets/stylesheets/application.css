@@ -135,6 +135,10 @@ li.button-group{
 
 	/* NAVBAR USER*/
 
+.user-nav{
+	border-right: 2px grey solid;
+}
+
 #nav-user-collapse {
   position:absolute;
   top:5vh;
