@@ -2,14 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: :registrations }
 
-<<<<<<< Updated upstream
   root to: 'static_pages#landing_page'
   get 'static_pages/about'
-=======
-  root :to => 'static_pages#landing_page'
-  #get 'static_pages/about'
-  get 'static_pages/about', path: :about
->>>>>>> Stashed changes
+
   get 'static_pages/contact'
 
   namespace :admin do
