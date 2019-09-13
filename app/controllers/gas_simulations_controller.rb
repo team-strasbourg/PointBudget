@@ -19,6 +19,7 @@ class GasSimulationsController < ApplicationController
     @gas_simulation = GasSimulation.new
     @gas_simulation.assign_params_from_controller(params)
     estimation = @gas_simulation.estimation
+    binding.pry
     comparison = if estimation[0] == false
                    [-1, false]
                  else
