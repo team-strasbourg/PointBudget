@@ -1,87 +1,85 @@
-<div class="row">
-  <div class="col-md-12">
-    <div class="profile-section">
-      <div class="row">
-        <div class="col-md-12">
-         <h2 class="profile-title"><strong>Vos simulations en cours</strong></h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <table class="table table-striped table-hover">
-            <thead>
-              <tr>
-                <th scope="col" style="width: 15%;">Simulation</th>
-                <th scope="col" style="width: 25%;">Créée le</th>
-                <th scope="col" style="width: 20%;">Domaines remplis</th>
-                <th scope="col" style="width: 40%;">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% unless @simulations.nil? %>
-                <% @simulations.each do |simu| %>
-                  <% if simu.validated == false %>
-                    <tr>
-                      <th scope="row"><%= simu.id %></th>
-                      <td><%= simu.created_at %></td>
-                      <td>
-                        <% if simu.only_one_gas_simulation %>
-                         Gaz
-                        <% end %>
-                      </td>
-                      <td><%= link_to "Compléter cette simulation", user_full_simulation_path(current_user, simu), class: "btn btn-success" %></td>
-                    </tr>
-                  <%end%>
-                <% end %>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
-      </div>
+
+<div class="profile-section">
+  <div class="row">
+    <div class="col-md-12">
+     <h2 class="profile-title"><strong>Vos simulations en cours</strong></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col" style="width: 15%;">Simulation</th>
+            <th scope="col" style="width: 25%;">Créée le</th>
+            <th scope="col" style="width: 15%;">Domaines remplis</th>
+            <th scope="col" style="width: 25%;">Action</th>
+            <th scope="col" style="width: 30%;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% unless @simulations.nil? %>
+            <% @simulations.each do |simu| %>
+              <% if simu.validated == false %>
+                <tr>
+                  <th scope="row"><%= simu.id %></th>
+                  <td><%= simu.created_at %></td>
+                  <td>
+                    <% if simu.only_one_gas_simulation %>
+                     Gaz
+                    <% end %>
+                  </td>
+                  <td><%= link_to "Compléter cette simulation", user_full_simulation_path(current_user, simu), class: "btn btn-success" %></td>
+                </tr>
+              <%end%>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-12">
-    <div class="profile-section">
-      <div class="row">
-        <div class="col-md-12">
-          <h2 class="profile-title"><strong>Vos simulations validées</strong></h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <table class="table table-striped table-hover">
-            <thead>
-              <tr>
-                <th scope="col" style="width: 15%;">Simulation</th>
-                <th scope="col" style="width: 25%;">Validée le</th>
-                <th scope="col" style="width: 20%;">Domaines remplis</th>
-                <th scope="col" style="width: 40%;">Etat</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% unless @simulations.nil? %>
-                <% @simulations.each do |simu| %>
-                  <% if simu.validated == true %>
-                    <tr>
-                      <th scope="row"><%= simu.id %></th>
-                      <td><%= simu.updated_at %></td>
-                      <td>
-                        <% if simu.only_one_gas_simulation %>
-                         <%= simu.gas_simulation.name %>
-                        <% end %>
-                      </td>
-                      <td><%= link_to "Voir cette simulation", user_full_simulation_path(current_user, simu), class: "btn btn-success" %></td>
-                    </tr>
-                  <% end %>
-                <% end %>
+
+<div class="profile-section">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="profile-title"><strong>Vos simulations validées</strong></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col" style="width: 20%;">Simulation</th>
+            <th scope="col" style="width: 25%;">Validée le</th>
+            <th scope="col" style="width: 15%;">Domaines remplis</th>
+            <th scope="col" style="width: 20%;">Action</th>
+            <th scope="col" style="width: 20%;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% unless @simulations.nil? %>
+            <% @simulations.each do |simu| %>
+              <% if simu.validated == true %>
+                <tr>
+                  <th scope="row"><%= simu.id %></th>
+                  <td><%= simu.updated_at %></td>
+                  <td>
+                    <% if simu.only_one_gas_simulation %>
+                     <%= simu.gas_simulation.name %>
+                    <% end %>
+                  </td>
+                  <td><%= link_to "Consulter", user_full_simulation_path(current_user, simu), class: "btn btn-success" %></td>
+                  <td><%= link_to "Supprimer", user_full_simulation_path(current_user, simu), method: :delete, class: "btn btn-danger" %></td>
+                </tr>
               <% end %>
-            </tbody>
-          </table>
-        </div>
-      </div>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
+
