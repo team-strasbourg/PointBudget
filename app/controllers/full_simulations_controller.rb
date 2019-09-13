@@ -1,5 +1,8 @@
 class FullSimulationsController < ApplicationController
+  before_action :user_signed_in?
   before_action :authenticate_user!
+  before_action :not_other_users_simulations
+
   def index
     @simulations = current_user.full_simulations
   end
@@ -53,4 +56,7 @@ class FullSimulationsController < ApplicationController
   def full_simulation_params
     params.require(:full_simulation).permit(:total_cost_saved, :validated)
   end
+
+
+  
 end

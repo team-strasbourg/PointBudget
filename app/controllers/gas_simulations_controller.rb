@@ -2,6 +2,13 @@ class GasSimulationsController < ApplicationController
 
   before_action :authenticate_user!
 
+  before_action :user_signed_in?
+  before_action :not_other_users_simulations
+
+  def index; end
+
+  def show; end
+
   def new
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
     if @full_simulation.only_one_gas_simulation
