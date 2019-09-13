@@ -49,16 +49,15 @@
     <header class="card-header border-bottom bg-white text-center">
       <span class="d-block">
         <span class="display-1 text-secondary font-weight-bold">
-            <span class="align-top font-medium">Vous pouvez épargner</span><%= @gas_sim.gas_cost_saved%>
+            <span class="align-top font-medium pr-5">Vous pouvez épargner</span><%= @gas_sim.gas_cost_saved%>
         </span>
         <span class="text-light font-small">/ month</span>
       </span>
     </header>
-    <!-- End Header -->
     <!-- Content -->
     <div class="card-body">
       <div class="row">
-        <div class="col">
+        <div class="col text-center">
           <ul class="list-group mb-4">
             <li class="list-group-item"><strong>Prix payé </strong> <%=@gas_sim.actual_price_paid%></li>
             <li class="list-group-item"><strong>Superficie</strong>
@@ -66,7 +65,7 @@
             <li class="list-group-item"><strong>Nombre d'habitants</strong> <%= @gas_sim.residents_number%></li>
           </ul>
         </div>
-        <div class="col">
+        <div class="col text-center">
           <ul class="list-group mb-4">
             <li class="list-group-item"><strong>Type de chauffage (maison)</strong>  <%= @gas_sim.heat_type%></li>
             <li class="list-group-item"><strong>Type de chauffage (eau)</strong> 
@@ -78,7 +77,5 @@
       <button type="button" class="btn btn-outline-secondary btn-block"
           tabindex="0">Lancer une nouvelle simulation</button>
     </div>
-    <!-- End Content -->
   </div>
 </div>
-<!-- End of Pricing Card -->
