@@ -51,6 +51,8 @@ Rails.application.configure do
 
   config.action_mailer.show_previews = true
   config.consider_all_requests_local = true
+
+  config.action_mailer.default_url_options = { :host => 'point-budget-staging.herokuapp.com' }
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
   config.log_level = :debug
