@@ -1,7 +1,5 @@
 <h2>Ma simulation de gaz</h2>
 
-<%= @gas_sim%>
-
 <!--users/1/full_simulations/7/gas_simulations/5-->
 
 
@@ -16,19 +14,28 @@
       <table class="table table-striped table-hover">
         <thead>
           <tr>
-            <th scope="col" style="width: 15%;">Simulation</th>
+            <th scope="col" style="width: 5%;">Simulation</th>
             <th scope="col" style="width: 25%;">Créée le</th>
-            <th scope="col" style="width: 15%;">Domaines remplis</th>
-            <th scope="col" style="width: 25%;">Action</th>
-            <th scope="col" style="width: 30%;">Action</th>
+            <th scope="col" style="width: 15%;">Superficie</th>
+            <th scope="col" style="width: 15%;">Type de chauffage (maison)</th>
+            <th scope="col" style="width: 15%;">Type de chauffage (eau)</th>
+            <th scope="col" style="width: 15%;">Nombre d'habitants</th>
+            <th scope="col" style="width: 15%;">Utilisation de gaz</th>
+            <th scope="col" style="width: 25%;">Prix payé</th>
+            <th scope="col" style="width: 30%;">Montant gagné</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row"><%= simu.id %></th>
-            <td><%= gas_sim.created_at %></td>
-            <td><%=%></td>
-            <td><%= link_to "Compléter cette simulation", user_full_simulation_path(current_user, simu), class: "btn btn-success" %></td>
+            <th scope="row"><%= @gas_sim.id %></th>
+            <td><%= @gas_sim.created_at.to_formatted_s(:short)  %></td>
+            <td><%= @gas_sim.floor_space%></td>
+            <td><%= @gas_sim.heat_type%></td>
+            <td><%= @gas_sim.water_cooking_type%></td>
+            <td><%= @gas_sim.residents_number%></td>
+            <td><%= @gas_sim.gas_use%></td>
+            <td><%=@gas_sim.actual_price_paid%></td>
+            <td><%= @gas_sim.gas_cost_saved%></td>
           </tr>
         </tbody>
       </table>
