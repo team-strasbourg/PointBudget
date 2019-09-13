@@ -10,13 +10,13 @@
           <li class="nav-item txt-user-nav-prem">
             <%= link_to("Mon profil", user_path(current_user), class: "nav-link, text-primary")%>
           </li>
-                <li class="nav-item txt-user-nav">
+          <li class="nav-item txt-user-nav">
             <%= link_to("Mes simulations", user_full_simulations_path(current_user), class: "nav-link, text-primary")%>
           </li>
-              <li class="nav-item txt-user-nav">
+          <li class="nav-item txt-user-nav">
             <%= link_to("Nouvelle simulation", new_user_full_simulation_path(current_user), class: "nav-link, ")%>
           </li>
-                </ul>
+        </ul>
       </div>
     </nav>
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10" id="body_content_user">
