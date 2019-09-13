@@ -1,0 +1,10 @@
+<h1>FullSimulations#edit</h1>
+<p>Find me in app/views/full_simulations/edit.html.erb</p>
+
+<%= render partial: "shared/form",
+           locals:{resource: @full_simulation,
+                   action: 'validate_full_simulation',
+                   path: user_full_simulation_path(current_user, @full_simulation),
+                   method: :put,
+                   title: 'Valider ma simulation',
+                   button: "Valider ma simulation"}%>
