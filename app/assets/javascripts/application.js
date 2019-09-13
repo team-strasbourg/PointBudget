@@ -63,10 +63,10 @@ if (document.cookie !== "username=guest"){
   navCollapse.addEventListener('click', function() {
     if (userNavStatus == true) {
         $('#sidenav').animate({
-            right: '200px'
+            right: '250px'
         });
         $('#body_content_user').animate({
-            right: '200px'
+            right: '250px'
         });
       document.getElementById("nav-arrow").classList.remove("fa-angle-left");
       document.getElementById("nav-arrow").classList.add("fa-angle-right");
