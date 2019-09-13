@@ -47,28 +47,36 @@
   <div class="card shadow-soft border-light p-4">
     <!-- Header -->
     <header class="card-header border-bottom bg-white text-center">
-        <span class="d-block">
-            <span class="display-1 text-secondary font-weight-bold">
-                <span class="align-top font-medium">$</span>19
-            </span>
-            <span class="text-light font-small">/ month</span>
+      <span class="d-block">
+        <span class="display-1 text-secondary font-weight-bold">
+            <span class="align-top font-medium">Vous pouvez épargner</span><%= @gas_sim.gas_cost_saved%>
         </span>
+        <span class="text-light font-small">/ month</span>
+      </span>
     </header>
     <!-- End Header -->
     <!-- Content -->
     <div class="card-body">
-        <p>Faster sites deliver better business results for
-            your clients.</p>
-        <ul class="list-group mb-4">
-            <li class="list-group-item"><strong>Full Support</strong>
-                No</li>
-            <li class="list-group-item"><strong>Storage</strong>
-                50 GB</li>
-            <li class="list-group-item"><strong>Monthly
-                    Visitors</strong> 400k</li>
-        </ul>
-        <button type="button" class="btn btn-outline-secondary btn-block"
-            tabindex="0"><span class="fas fa-cart-plus mr-3"></span>Add to Cart</button>
+      <div class="row">
+        <div class="col">
+          <ul class="list-group mb-4">
+            <li class="list-group-item"><strong>Prix payé </strong> <%=@gas_sim.actual_price_paid%></li>
+            <li class="list-group-item"><strong>Superficie</strong>
+                <%= @gas_sim.floor_space%> m2</li>
+            <li class="list-group-item"><strong>Nombre d'habitants</strong> <%= @gas_sim.residents_number%></li>
+          </ul>
+        </div>
+        <div class="col">
+          <ul class="list-group mb-4">
+            <li class="list-group-item"><strong>Type de chauffage (maison)</strong>  <%= @gas_sim.heat_type%></li>
+            <li class="list-group-item"><strong>Type de chauffage (eau)</strong> 
+                <%= @gas_sim.water_cooking_type%></li>
+            <li class="list-group-item"><strong>Utilisation de gaz</strong>  <%= @gas_sim.gas_use%></li>
+          </ul>
+        </div>
+      </div>
+      <button type="button" class="btn btn-outline-secondary btn-block"
+          tabindex="0">Lancer une nouvelle simulation</button>
     </div>
     <!-- End Content -->
   </div>
