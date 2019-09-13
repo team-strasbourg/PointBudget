@@ -56,7 +56,7 @@ if($("body").data("controller") == "gas_simulations" && $("body").data("action")
 }
 
 
-if (document.cookie != "username=guest"){
+if (document.cookie !== "username=guest"){
   navCollapse = document.getElementById("nav-user-collapse")
   userNavStatus = true ;
 
