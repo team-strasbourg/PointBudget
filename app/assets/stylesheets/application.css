@@ -10,6 +10,268 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require css/all
+ *= require css/pixel
  *= require_tree .
  *= require_self
+
+
  */
+
+ body{
+     min-height: 100vh;
+ }
+
+.title{
+	text-align: center;
+	padding: 60px 0 70px 0;
+}
+
+.title-color{
+	color: white;
+}
+
+li.form-group{
+  list-style: none;
+}
+
+li.button-group{
+  list-style: none;
+}
+
+/* NAVBAR */
+
+ .point-budget-title{
+ 	 font-size: 30px;
+ 	 margin-right: 50px;
+ }
+
+
+
+/* JUMBOTRON */
+
+.jumbotron
+{
+    background-image: url("baniere.jpg");
+    background-position: center 75%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 800px;
+}
+
+/* CONTEXT */
+
+#context{
+	margin-bottom: 100px;
+}
+
+#context .icon{
+	font-size: 38px;
+	width: 100px;
+	padding: 30px 0;
+	border-radius: 50%;
+	color: white;
+	box-shadow: 10px 10px 10px rgba(0,0,0,.05);
+}
+
+#context .icon-position{
+	text-align: center;
+	margin-top: 50px;
+}
+
+.title-context h2{
+	padding: 40px 0 30px 0;
+	text-align: center;
+}
+/* BENEFITS */
+
+#benefits{
+	color: white;
+	height: 500px;
+ }
+
+#benefits .icon{
+	font-size: 38px;
+	margin-bottom: 20px;
+	width: 100px;
+	padding: 30px 0;
+	border-radius: 50%;
+	background: white;
+	box-shadow: 10px 10px 10px rgba(0,0,0,.05);
+}
+
+#benefits .icon-position{
+	text-align: center;
+}
+
+/* TIMELINE */
+
+#steps{
+	margin-top: 40px;
+	margin-bottom: 150px;
+}
+
+
+/* DASHBOARD ADMIN */
+
+ .table-admin th, .table-admin td {
+         padding: 1rem 0;
+ }
+
+
+ /* ABOUT */
+
+
+#last-about{
+	margin-bottom: 10em;
+}
+
+.indent {
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+	/* NAVBAR USER*/
+
+/*.user-nav{
+	border-right: 2px #dcded8 solid;
+}*/
+
+#nav-user-collapse {
+  position:absolute;
+  top:15vh;
+  left:95%;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.txt-user-nav{
+	font-size: 18px;
+	margin: 3px 0;
+}
+
+.txt-user-nav-prem{
+	font-size: 18px;
+	margin: 30px 0 2px 0;
+}
+
+#nav-user-collapse:hover {
+  transform: scale(2);
+}
+
+/* DASHBOARD USER */
+
+/* USER PROFILE */
+
+.profile-section{
+	margin-bottom: 50px;
+}
+
+
+.profile-info{
+	margin: 40px 0 0 50px;
+}
+
+#body_content_user{
+	margin: 30px 0;
+	padding: 0 40px;
+
+}
+
+/* SIMULATION INDEX */
+
+.simu-title{
+	margin: 20px 0 30px 0;
+}
+
+.simu-section-top{
+	margin-bottom: 50px;
+}
+
+.simu-section-bottom{
+	margin-bottom: 100px;
+}
+
+/* MODAL PRICE FULL SIMULATION */
+
+.price-simu{
+	font-size: 38px;
+	height: 150px;
+	width: 150px;
+	padding: 50px 0;
+	border-radius: 50%;
+	color: white;
+	box-shadow: 10px 10px 10px rgba(0,0,0,.05);
+}
+
+/* SIMULATIONS#SHOW */
+
+.simulation-result{
+	width: 25%;
+}
+.price-position{
+	text-align: center;
+	margin: 50px 0;
+}
+
+/*  SIMULATION SHOW */
+
+#simulation-list{
+	margin-top: -50px;
+	margin-bottom: 200px;
+}
+
+
+/* FOOTER */
+
+.contact-title{
+	margin-bottom: 10px;
+}
+
+#footer{
+	margin: 0 200px;
+	padding-top: 20px;
+	width: 90%;
+}
+
+.contact-icons{
+	height: 40px;
+}
+
+.contact-section{
+	margin-left: 100px;
+}
+
+.link-section{
+	margin-left: -30px;
+}
+
+.icon-section{
+	margin: 0 -80px;
+}
+
+/* SIMULATION CATEGORY */
+
+#simu-category{
+	width: 120px;
+	height: 120px;
+	display: flex;
+	flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.icon-category{
+	padding-top: 17px;
+}
+
+.gas-category{
+	font-size: 25px;
+	padding-bottom: 11px;
+}
+
+.elec-category{
+	font-size: 15px;
+	padding-bottom: 11px;
+}

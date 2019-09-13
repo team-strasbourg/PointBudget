@@ -1,0 +1,69 @@
+
+<div class="simu-section-top">
+  <div class="simu-title">
+     <h2><strong>Vos simulations en cours</strong></h2>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped table-hover">
+       <thead>
+          <tr>
+            <th scope="col" style="width: 30%;">Simulation</th>
+            <th scope="col" style="width: 35%;">Créée le</th>
+            <th scope="col" style="width: 35%;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% unless @simulations.nil? %>
+            <% @simulations.each do |simu| %>
+              <% if simu.validated == false %>
+            
+                <tr>
+                  <th scope="row"><%= simu.id %></th>
+                  <td><%= simu.created_at %></td>
+                  <td><%= link_to "Je complète ma simulation", user_full_simulation_path(current_user, simu), class: "btn btn-success" %></td>
+                </tr>
+              <%end%>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<div class="simu-section-bottom">
+  <div class="simu-title">
+      <h2><strong>Vos simulations validées</strong></h2>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col" style="width: 25%;">Simulation</th>
+            <th scope="col" style="width: 25%;">Validée le</th>
+            <th scope="col" style="width: 25%;">Action</th>
+            <th scope="col" style="width: 25%;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% unless @simulations.nil? %>
+            <% @simulations.each do |simu| %>
+              <% if simu.validated == true %>
+                <tr>
+                  <th scope="row"><%= simu.id %></th>
+                  <td><%= simu.updated_at %></td>
+                  <td><%= link_to "Consulter", user_full_simulation_path(current_user, simu), class: "btn btn-success" %></td>
+                  <td><%= link_to "Supprimer", user_full_simulation_path(current_user, simu), method: :delete, class: "btn btn-danger" %></td>
+                </tr>
+              <% end %>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

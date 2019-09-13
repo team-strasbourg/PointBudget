@@ -44,6 +44,7 @@ group :development, :test do
   gem 'guard-rspec', require: false
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'letter_opener'
 end
 
 group :development do
@@ -57,6 +58,8 @@ end
 
 group :test do
   gem 'database_cleaner'
+  gem 'nyan-cat-formatter'
+  gem 'shoulda-matchers'
   gem 'webdrivers', '~> 3.0'
 end
 
@@ -71,3 +74,4 @@ gem 'pry'
 gem 'stripe'
 gem 'table_print'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'rest-client'
