@@ -1,10 +1,12 @@
 class StaticPagesController < ApplicationController
-  def landing_page
-  end
 
-  def about
-  end
+  before_action :hide_nav_user
+  def landing_page; end
 
-  def contact
+  def about; end
+
+  def hide_nav_user
+    @nav_user = false
   end
 end
+

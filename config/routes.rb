@@ -4,17 +4,12 @@ Rails.application.routes.draw do
 
   root to: 'static_pages#landing_page'
   get 'static_pages/about'
-  #get 'static_pages/about', as: :about
   get 'static_pages/contact'
-
 
   namespace :admin do
     root to: 'users#index'
     resources :users
-    resources :energies, only: [:show]
-    resources :gas_simulations
     resources :gas_contracts
-    resources :full_simulations
   end
 
   resources :users, only: %i[show edit update] do
@@ -24,8 +19,4 @@ Rails.application.routes.draw do
       resources :gas_simulations
     end
   end
-
-
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
