@@ -10,10 +10,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'users#index'
     resources :users
-    resources :energies, only: [:show]
-    resources :gas_simulations
     resources :gas_contracts
-    resources :full_simulations
   end
 
   resources :users, only: %i[show edit update] do
