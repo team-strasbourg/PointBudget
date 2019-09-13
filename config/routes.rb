@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     root to: 'users#index'
     resources :users
     resources :energies, only: [:show]
-    resources :gas_simulations
+    resources :gas_simulations, only: %i[new create]
     resources :gas_contracts
     resources :full_simulations
   end
