@@ -26,12 +26,8 @@
         <tbody>
           <tr>
             <th scope="row"><%= simu.id %></th>
-            <td><%= simu.created_at %></td>
-            <td>
-              <% if simu.only_one_gas_simulation %>
-                Gaz
-              <% end %>
-            </td>
+            <td><%= gas_sim.created_at %></td>
+            <td><%=%></td>
             <td><%= link_to "Compléter cette simulation", user_full_simulation_path(current_user, simu), class: "btn btn-success" %></td>
           </tr>
         </tbody>
