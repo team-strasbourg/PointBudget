@@ -16,6 +16,10 @@ class User < ApplicationRecord
   def has_city
     city_id.nil? || city_id.zero? ? false : true
   end
+
+  def is_last_admin
+    is_admin && User.select{ |user| user.is_admin == true}.count == 1
+  end
   private
 
   def welcome_send
