@@ -156,14 +156,17 @@ li.button-group{
 }
 
 #nav-user-collapse:hover {
-  transform: scale(2)
-
+  transform: scale(2);
 }
 
 /* DASHBOARD USER */
+
+/* USER PROFILE */
+
 .profile-section{
-	height: 800px;
+	margin-bottom: 50px;
 }
+
 
 .profile-info{
 	margin: 40px 0 0 50px;
@@ -173,6 +176,20 @@ li.button-group{
 	margin: 30px 0;
 	padding: 0 40px;
 
+}
+
+/* SIMULATION INDEX */
+
+.simu-title{
+	margin: 20px 0 30px 0;
+}
+
+.simu-section-top{
+	margin-bottom: 50px;
+}
+
+.simu-section-bottom{
+	margin-bottom: 100px;
 }
 
 /* MODAL PRICE FULL SIMULATION */
@@ -187,7 +204,7 @@ li.button-group{
 	box-shadow: 10px 10px 10px rgba(0,0,0,.05);
 }
 
-/* SIMULATIONS */
+/* SIMULATIONS#SHOW */
 
 .simulation-result{
 	width: 25%;
@@ -231,4 +248,30 @@ li.button-group{
 
 .icon-section{
 	margin: 0 -80px;
+}
+
+/* SIMULATION CATEGORY */
+
+#simu-category{
+	width: 120px;
+	height: 120px;
+	display: flex;
+	flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.icon-category{
+	padding-top: 17px;
+}
+
+.gas-category{
+	font-size: 25px;
+	padding-bottom: 11px;
+}
+
+.elec-category{
+	font-size: 15px;
+	padding-bottom: 11px;
 }
