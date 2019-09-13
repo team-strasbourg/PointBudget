@@ -103,4 +103,31 @@ RSpec.describe GasSimulation, type: :model do
 
   end
 
+  context "public methods" do
+
+    describe '#consumption_people' do
+      it 'should return 1630 if 1' do
+        expect(@gas_simulation.consumption_people(1)).to eq(1630)
+      end
+
+      it 'should return 2945 if 2' do
+        expect(@gas_simulation.consumption_people(2)).to eq(2945)
+      end
+
+      it 'should return 4265 if 3' do
+        expect(@gas_simulation.consumption_people(3)).to eq(4265)
+      end
+
+      it 'should return 5320 if 4' do
+        expect(@gas_simulation.consumption_people(4)).to eq(5320)
+      end
+
+      it 'should return 6360 if 5' do
+        expect(@gas_simulation.consumption_people(5)).to eq(6360)
+      end
+
+    end
+
+  end
+
 end
