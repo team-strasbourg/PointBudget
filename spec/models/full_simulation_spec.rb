@@ -43,4 +43,16 @@ RSpec.describe FullSimulation, type: :model do
 
   end
 
+  context 'public instance methods' do
+
+    describe '#only_one_gas_simulation' do
+
+      it 'should return a boolean' do
+        expect(@full_simulation.only_one_gas_simulation).to be_in([true, false])
+      end
+
+    end
+
+  end
+
 end

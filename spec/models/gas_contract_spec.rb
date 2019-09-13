@@ -23,46 +23,6 @@ RSpec.describe GasContract, type: :model do
         expect(bad_gas_contract).not_to be_valid
         expect(bad_gas_contract.errors.include?(:subscription_base_price_month)).to eq(true)
       end
-
     end
-
-
-  end
-
-  context 'associations' do
-
-    # describe 'join_table_gases association' do
-    #   it 'should have any join_table_gases' do
-    #     expect(@gas_contract).to has_many(::join_table_gases)
-    #   end
-    # end
-    #
-    # describe 'gas_simulations association' do
-    #   it 'should have many gas_simulations' do
-    #     expect(@gas_contract).to have_many(:gas_simulations)
-    #   end
-    # end
-
-  end
-
-  context 'callbacks' do
-
-    describe 'some callbacks' do
-    end
-
-  end
-
-  context 'public instance methods' do
-
-    describe '#some_method' do
-    end
-
-  end
-
-  context 'public class methods' do
-
-    describe 'self.some_method' do
-    end
-
   end
 end

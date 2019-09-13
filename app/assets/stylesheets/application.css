@@ -139,6 +139,12 @@ li.button-group{
 	border-right: 2px grey solid;
 }
 
+#body_content_user{
+	margin: 30px 0;
+	padding: 0 40px;
+
+}
+
 #nav-user-collapse {
   position:absolute;
   top:5vh;
@@ -161,6 +167,14 @@ li.button-group{
 #nav-user-collapse:hover {
   transform: scale(2)
 
+}
+
+.profile-section{
+	height: 800px;
+}
+
+.profile-info{
+	margin: 40px 0 0 50px;
 }
 
 
@@ -188,4 +202,33 @@ li.button-group{
 #simulation-list{
 	margin-top: -50px;
 	margin-bottom: 200px;
+}
+
+
+/* FOOTER */
+
+.contact-title{
+	margin-bottom: 10px;
+}
+
+#footer{
+	margin: 0 200px;
+	padding-top: 20px;
+	width: 90%;
+}
+
+.contact-icons{
+	height: 40px;
+}
+
+.contact-section{
+	margin-left: 100px;
+}
+
+.link-section{
+	margin-left: -30px;
+}
+
+.icon-section{
+	margin: 0 -80px;
 }
