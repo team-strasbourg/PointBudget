@@ -1,4 +1,5 @@
 class StaticPagesController < ApplicationController
+
   before_action :hide_nav_user
   def landing_page; end
 
@@ -8,3 +9,4 @@ class StaticPagesController < ApplicationController
     @nav_user = false
   end
 end
+
