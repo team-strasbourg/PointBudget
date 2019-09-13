@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   before_action :set_user
   before_action :authenticate_user!
+  before_action :not_other_user
 
   def show
     unless current_user.id == @user.id
