@@ -134,6 +134,33 @@ RSpec.describe GasSimulation, type: :model do
       end
     end
 
+    describe 'verify_nilness_params' do
+
+      it 'should return false if yearly_cost is empty' do
+        expect(@gas_simulation.verify_nilness_params(0, 7000, 100, 'Gaz', 'Gaz', 1)).to eq(false)
+      end
+
+      it 'should return false if yearly_consmption is empty and one of the other is empty' do
+        expect(@gas_simulation.verify_nilness_params(100, 0, 0, 'Gaz', 'Gaz', 1)).to eq(false)
+        expect(@gas_simulation.verify_nilness_params(100, 0, 50, '', 'Gaz', 1)).to eq(false)
+        expect(@gas_simulation.verify_nilness_params(100, 0, 50, 'Gaz', '', 1)).to eq(false)
+        expect(@gas_simulation.verify_nilness_params(100, 0, 50, 'Gaz', 'Gaz', 0)).to eq(false)
+      end
+
+      it 'should return true if yearly_consumption and cost are not 0' do
+        expect(@gas_simulation.verify_nilness_params(100, 7000, 0, '', '', 0)).to eq(true)
+        expect(@gas_simulation.verify_nilness_params(100, 7000, 50, '', '', 0)).to eq(true)
+        expect(@gas_simulation.verify_nilness_params(100, 7000, 50, 'Gaz', '', 0)).to eq(true)
+        expect(@gas_simulation.verify_nilness_params(100, 7000, 50, 'Gaz', 'Gaz', 0)).to eq(true)
+        expect(@gas_simulation.verify_nilness_params(100, 7000, 50, 'Gaz', 'Gaz', 1)).to eq(true)
+      end
+
+      it 'should return true if yearly consumption 0 but evrything else is not empty' do
+        expect(@gas_simulation.verify_nilness_params(100, 0,50, 'Gaz', 'Gaz', 1)).to eq(true)
+      end
+
+    end
+
   end
 
 end

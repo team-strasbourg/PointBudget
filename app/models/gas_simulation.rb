@@ -38,8 +38,7 @@ class GasSimulation < ApplicationRecord
     heat_type = @params[:heat_type]
     water_cooking_type = @params[:water_cooking_type]
     nb_residents = @params[:nb_residents].to_i
-
-    if verify_nilness_params
+    if verify_nilness_params(yearly_cost,yearly_consumption,floor_space,heat_type,water_cooking_type,nb_residents)
       first_factor = heat_type == 'Gaz' ? 1 : 0
       second_factor = water_cooking_type == 'Gaz' ? 1 : 0
       yearly_consumption = floor_space * 100 * first_factor + consumption_people(nb_residents) * second_factor if yearly_consumption.zero?
@@ -88,15 +87,12 @@ class GasSimulation < ApplicationRecord
     end
   end
 
-  def verify_nilness_params
-    if @params[:yearly_cost].empty?
+  def verify_nilness_params(yearly_cost,yearly_consumption,floor_space,heat_type,water_cooking_type,nb_residents)
+    if yearly_cost.zero?
       false
     else
-      if @params[:yearly_consumption].empty?
-        if [@params[:floor_space],
-            @params[:heat_type],
-            @params[:water_cooking_type],
-            @params[:nb_residents]].include?('')
+      if yearly_consumption.zero?
+        if [floor_space,nb_residents].include?(0) || [heat_type, water_cooking_type].include?('')
           false
         else
           true
