@@ -1,5 +1,3 @@
-<h1>FullSimulations#show</h1>
-<p>Find me in app/views/full_simulations/show.html.erb</p>
 
 <% unless @full_simulation.validated == true %>
 	<div>
@@ -17,35 +15,84 @@
 		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Mutuelle</button>
 	  <% end %>
 	</div>
-	<div>
-		<%=link_to "Valider ma simulation", edit_user_full_simulation_path(current_user, @full_simulation), class: "btn btn-success"%>
+                                                      
+	<!-- Button Modal -->
+	<div class="container">
+		<button type="button" class="btn btn-block btn-secondary mb-3" data-toggle="modal" data-target="#modal-default">Default</button>
 	</div>
-
+	<!-- Modal Content -->
+	<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default"
+	    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" id="modal-title-default">Point Budget</h6> 
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="context" class="container">
+				    <div class="content">
+				      <h4 class="text-center">D'après nos comparateurs, vous pourriez économiser</h4><br>
+				    </div>
+				    <div class="price-position d-flex justify-content-center">
+				      <h4 class="price-simu bg-secondary text-white"><%= @full_simulation.total_cost_saved %>€</h4><br>
+				    </div>
+				    <div class="content">
+				      <h4 class="text-justify">Validez sans plus tarder votre simulation afin d'accéder à vos différents domaines d'économie!</h4><br>
+				    </div>
+				  </div>
+				</div>
+        <div class="modal-footer">
+        		<%= render partial: "shared/form",
+       locals:{resource: @full_simulation,
+               action: 'validate_full_simulation',
+               path: user_full_simulation_path(current_user, @full_simulation),
+               method: :put,
+               title: '',
+               button: "Valider ma simulation"}%>
+        </div>
+      </div>
+    </div>
+	</div>
+	<!-- End of Modal Content -->
+                                                        
 <% else %>
-	<div>
-		<h1>Résultat de votre simulation</h1>
+
+	<div class="btn-block"></div>
+	<div id="context" class="container">
+    <div class="title-context">
+      <h2>Vous venez de valider votre simulation n°<%= @full_simulation.id %>!</h2>
+    </div>
+    <div class="content">
+		  <h4 class="text-center">D'après nos comparateurs, vous pourriez économiser</h4><br>
+		</div>
+	  <div class="price-position d-flex justify-content-center">
+	    <h4 class="price-simu bg-secondary text-white"><%= @full_simulation.total_cost_saved %>€</h4><br>
+    </div>
+    <div class="content">
+			<p>Regardons de près:</p>
+		</div>
 	</div>
-	<div>
-		<p>Vous venez de valider votre simulation n°<%= @full_simulation.id %>!</p>
-		<p>Vous avez remplis le ou les catégoties suivantes:</p>
-		<ul>
-			<li>
-				<% if @full_simulation.only_one_gas_simulation %>
-		     <%= @full_simulation.gas_simulation.name %>
-		    <% end %>
-		  </li>
-  </ul>
-	</div>
-	<div>
-		<p>D'après notre comparateur, vous pouvez économiser:</p>
-		<h1><%= @full_simulation.total_cost_saved %>€ !!!!</h1>
-	</div>
-	<div>
-		<p>Regardons de près:</p>
-		<p>
-			<% if @full_simulation.only_one_gas_simulation %>
-	     <%= @full_simulation.gas_simulation.name %>: vous pouvez économiser <%= @full_simulation.gas_simulation.gas_cost_saved %>€
-	    <% end %>
-		</p>
+	<div id="simulation-list" class="container">
+		<% if @full_simulation.only_one_gas_simulation %>
+			<div class="accordion container">
+		    <div class="card card-sm card-body shadow-sm border-soft border">
+	        <div data-target="#panel-4" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
+	          <span class="icon-title h6 mb-0 font-weight-bold"><i class="fas fa-burn"></i><%= @full_simulation.gas_simulation.name %></span>
+	          <span class="icon"><i class="fas fa-plus"></i></span>
+	        </div>
+	        <div class="collapse" id="panel-4">
+	          <div class="pt-3">
+              <p class="mb-0">
+                  Vous pouvez économiser <%= @full_simulation.gas_simulation.gas_cost_saved %>€
+              </p>
+            </div>
+	        </div>
+		    </div>
+		   </div>
+    <% end %>
 	</div>
 <% end %>
+

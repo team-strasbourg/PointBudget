@@ -1,24 +1,24 @@
 <div class="container-fluid flex-grow-1">
   <div class="row h-100">
-    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-      <div class="sidebar-sticky">
+    <nav class="col-md-2 d-none d-md-block bg-secondary sidebar" id="sidenav">
+      <span id="nav-user-collapse">
+      <i class="fas fa-angle-left nav-link-arrow" id="nav-arrow"></i>
+      </span>
+      <div class="sidebar h-100" >
         <ul class="nav flex-column">
-          <li class="nav-item">
-            <%= link_to("Mon profil", user_path(current_user), class: "nav-link")%>
+          <li class="nav-item txt-user-nav-prem">
+            <%= link_to("Mon profil", user_path(current_user), class: "nav-link, text-white")%>
           </li>
-          <li class="nav-item">
-            <%= link_to("Mes simulations", user_full_simulations_path(current_user), class: "nav-link")%>
+          <li class="nav-item txt-user-nav">
+            <%= link_to("Mes simulations", user_full_simulations_path(current_user), class: "nav-link, text-white")%>
           </li>
-          <li class="nav-item">
-            <%= link_to("Nouvelle simulation", new_user_full_simulation_path(current_user), class: "nav-link")%>
-          </li>
-          <li class="nav-item">
-            <%= link_to("Se déconnecter", destroy_user_session_path, method: :delete, class: "nav-link")%>
+          <li class="nav-item txt-user-nav">
+            <%= link_to("Nouvelle simulation", new_user_full_simulation_path(current_user), class: "nav-link, text-white")%>
           </li>
         </ul>
       </div>
     </nav>
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10" id="body_content_user">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
         <h1 class="h2">Mon Dashboard</h1>
       </div>
