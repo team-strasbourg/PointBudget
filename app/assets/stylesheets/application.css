@@ -135,6 +135,11 @@ li.button-group{
 
 	/* NAVBAR USER*/
 
+#body_content_user{
+	margin: 30px 0;
+	padding: 0 40px;
+}
+
 #nav-user-collapse {
   position:absolute;
   top:5vh;
@@ -157,6 +162,14 @@ li.button-group{
 #nav-user-collapse:hover {
   transform: scale(2)
 
+}
+
+.profile-section{
+	height: 800px;
+}
+
+.profile-info{
+	margin: 40px 0 0 50px;
 }
 
 
