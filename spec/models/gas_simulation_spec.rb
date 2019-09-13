@@ -175,7 +175,6 @@ RSpec.describe GasSimulation, type: :model do
         expect(@gas_simulation.estimation('500', '', '50', 'Gaz', 'Electricite', '1')).to eq([500, 5000])
       end
     end
-
   end
 
 end
