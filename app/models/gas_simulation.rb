@@ -31,23 +31,19 @@ class GasSimulation < ApplicationRecord
     @params = params
   end
 
-  def estimation
-    yearly_cost = @params[:yearly_cost].to_i
-    yearly_consumption = @params[:yearly_consumption].to_i
-    floor_space = @params[:floor_space].to_i
-    heat_type = @params[:heat_type]
-    water_cooking_type = @params[:water_cooking_type]
-    nb_residents = @params[:nb_residents].to_i
-
-    if verify_nilness_params
+  def estimation(yearly_cost, yearly_consumption, floor_space, heat_type, water_cooking_type, nb_residents )
+    yearly_cost = yearly_cost.to_i
+    yearly_consumption = yearly_consumption.to_i
+    floor_space = floor_space.to_i
+    nb_residents = nb_residents.to_i
+    if verify_nilness_params(yearly_cost,yearly_consumption,floor_space,heat_type,water_cooking_type,nb_residents)
       first_factor = heat_type == 'Gaz' ? 1 : 0
       second_factor = water_cooking_type == 'Gaz' ? 1 : 0
-      yearly_consumption = floor_space * 100 * first_factor + nb_residents * second_factor if yearly_consumption.nil?
-      [yearly_cost, yearly_consumption]
+      yearly_consumption = floor_space * 100 * first_factor + consumption_people(nb_residents) * second_factor if yearly_consumption.zero?
+      return [yearly_cost, yearly_consumption]
     else
-      [false, -1]
+      return [false, -1]
     end
-
   end
 
   def comparison(yearly_cost, yearly_consumption)
@@ -73,20 +69,34 @@ class GasSimulation < ApplicationRecord
     end
   end
 
-  def verify_nilness_params
-    if @params[:yearly_cost] == ''
+  def consumption_people(nb_residents)
+    hash = {
+        1 => 1630,
+        2 => 2945,
+        3 => 4265,
+        4 => 5320,
+        5 => 6360,
+    }
+    if hash[nb_residents].nil?
+      hash[5] + (nb_residents-5)*1000
+    else
+      hash[nb_residents]
+    end
+  end
+
+  def verify_nilness_params(yearly_cost,yearly_consumption,floor_space,heat_type,water_cooking_type,nb_residents)
+    if yearly_cost.zero?
       false
-    elsif @params[:yearly_consumption] == ''
-      if [@params[:floor_space],
-          @params[:heat_type],
-          @params[:water_cooking_type],
-          @params[:nb_residents]].include?('')
-        false
+    else
+      if yearly_consumption.zero?
+        if [floor_space,nb_residents].include?(0) || [heat_type, water_cooking_type].include?('')
+          false
+        else
+          true
+        end
       else
         true
       end
-    else
-      true
     end
   end
 end

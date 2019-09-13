@@ -20,12 +20,14 @@ class GasSimulationsController < ApplicationController
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
     @gas_simulation = GasSimulation.new
     @gas_simulation.assign_params_from_controller(params)
-    estimation = @gas_simulation.estimation
-    comparison = if estimation[0] == false
-                   [-1, false]
-                 else
-                   @gas_simulation.comparison(estimation[0], estimation[1])
-                 end
+    estimation = @gas_simulation.estimation(
+                                    params[:yearly_cost],
+                                    params[:yearly_consumption],
+                                    params[:floor_space],
+                                    params[:heat_type],
+                                    params[:water_cooking_type],
+                                    params[:nb_residents])
+    comparison = estimation[0] == false ? [-1, false] : @gas_simulation.comparison(estimation[0], estimation[1])
     @gas_simulation = GasSimulation.new(actual_price_paid: params[:yearly_cost],
                                         gas_cost_saved: comparison[0],
                                         floor_space: params[:floor_space],
