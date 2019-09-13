@@ -1,22 +1,13 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only:[:show, :edit, :update]
-
-  def index
-    @users = User.all
-  end
+  before_action :set_user
+  before_action :authenticate_user!
 
   def show
     unless current_user.id == @user.id
       flash[:error] = "Vous n'avez pas le droit d'accéder au profil d'autres utilisateurs!!"
       redirect_to user_path(current_user)
     end
-  end
-
-  def new
-  end
-
-  def create
   end
 
   def edit
@@ -31,9 +22,6 @@ class UsersController < ApplicationController
       flash[:error] = "Votre profil n'a pas pu être édité..."
       render :edit
     end
-  end
-
-  def destroy
   end
 
   private
@@ -59,6 +47,4 @@ class UsersController < ApplicationController
       params[:user][:city_id] = the_city.id unless the_city.nil?
     end
   end
-
-
 end

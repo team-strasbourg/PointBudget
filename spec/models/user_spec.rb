@@ -79,7 +79,18 @@ RSpec.describe User, type: :model do
 
   context 'public instance methods' do
 
-    describe '#some_method' do
+    describe '#has_city' do
+      it 'should return a boolean' do
+        expect(@user.has_city).to be_in([true, false])
+      end
+
+      it 'should return true if has a city' do
+        expect(@user.has_city).to be(true)
+      end
+
+      it 'should return false if has not a city' do
+        expect(build(:user_empty_city).has_city).to be(false)
+      end
     end
 
   end
