@@ -3,7 +3,9 @@ class GasSimulationsController < ApplicationController
   before_action :authenticate_user!
   def index; end
 
-  def show; end
+  def show
+    @gas_sim = GasSimulation.find(params[:id])
+  end
 
   def new
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
