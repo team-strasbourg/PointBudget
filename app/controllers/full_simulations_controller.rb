@@ -49,10 +49,5 @@ class FullSimulationsController < ApplicationController
     params.require(:full_simulation).permit(:total_cost_saved, :validated)
   end
 
-  def not_other_user
-    if current_user.id != User.find(params[:user_id])
-      flash[:error] = "Vous n'avez pas le droit d'accéder aux simulations des autres utilisateurs"
-      redirect_to users_root_url
-    end
-  end
+  
 end
