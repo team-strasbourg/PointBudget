@@ -41,7 +41,8 @@ class GasSimulationsController < ApplicationController
     if  @gas_simulation.save
       @gas_simulation.create_join_table_gas(comparison[1])
       @full_simulation.update(total_cost_saved: (@full_simulation.total_cost_saved + @gas_simulation.gas_cost_saved))
-      redirect_to user_full_simulation_path(current_user, @full_simulation)
+      # redirect_to user_full_simulation_path(current_user, @full_simulation)
+      redirect_to user_full_simulation_gas_simulation_path(current_user, @full_simulation, @gas_simulation)
     else
       flash[:error] = @gas_simulation.errors.messages
       render 'new'
