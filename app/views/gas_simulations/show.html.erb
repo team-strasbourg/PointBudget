@@ -1,47 +1,6 @@
 
 <!--users/1/full_simulations/7/gas_simulations/5-->
 
-
-<div class="profile-section">
-  <div class="row">
-    <div class="col-md-12">
-     <h2 class="profile-title"><strong>Votre simulation de gaz</strong></h2>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <table class="table table-striped table-hover">
-        <thead>
-          <tr>
-            <th scope="col" style="width: 5%;">Simulation</th>
-            <th scope="col" style="width: 10%;">Créée le</th>
-            <th scope="col" style="width: 10%;">Superficie</th>
-            <th scope="col" style="width: 10%;">Type de chauffage (eau)</th>
-            <th scope="col" style="width: 10%;">Type de chauffage (maison)</th>
-            <th scope="col" style="width: 10%;">Nombre d'habitants</th>
-            <th scope="col" style="width: 10%;">Utilisation de gaz</th>
-            <th scope="col" style="width: 10%;">Prix payé</th>
-            <th scope="col" style="width: 15%;">Montant gagné</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row"><%= @gas_sim.id %></th>
-            <td><%= @gas_sim.created_at.to_formatted_s(:short)  %></td>
-            <td><%= @gas_sim.floor_space%></td>
-            <td><%= @gas_sim.heat_type%></td>
-            <td><%= @gas_sim.water_cooking_type%></td>
-            <td><%= @gas_sim.residents_number%></td>
-            <td><%= @gas_sim.gas_use%></td>
-            <td><%=@gas_sim.actual_price_paid%></td>
-            <td><%= @gas_sim.gas_cost_saved%></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
 <!-- Card -->
 <div class="pricing-card">
   <div class="card shadow-soft border-light p-4">
@@ -52,7 +11,7 @@
         <span class="display-1 text-secondary font-weight-bold">
             <span class="align-top font-medium pr-5">Vous pouvez épargner</span><%= @gas_sim.gas_cost_saved%>
         </span>
-        <span class="text-light font-small">/ month</span>
+        <span class="text-light font-small">/ mois</span>
       </span>
     </header>
     <!-- Content -->
@@ -60,18 +19,18 @@
       <div class="row">
         <div class="col text-center">
           <ul class="list-group mb-4">
-            <li class="list-group-item"><strong>Prix payé </strong> <%=@gas_sim.actual_price_paid%></li>
+            <li class="list-group-item"><strong>Coût annuel de gaz</strong> <%=@gas_sim.actual_price_paid%></li>
             <li class="list-group-item"><strong>Superficie</strong>
                 <%= @gas_sim.floor_space%> m2</li>
-            <li class="list-group-item"><strong>Nombre d'habitants</strong> <%= @gas_sim.residents_number%></li>
+            <li class="list-group-item"><strong>Nombre de personnes</strong> <%= @gas_sim.residents_number%></li>
           </ul>
         </div>
         <div class="col text-center">
           <ul class="list-group mb-4">
             <li class="list-group-item"><strong>Type de chauffage (maison)</strong>  <%= @gas_sim.heat_type%></li>
-            <li class="list-group-item"><strong>Type de chauffage (eau)</strong> 
+            <li class="list-group-item"><strong>Type de chauffage (eau + cuisson)</strong> 
                 <%= @gas_sim.water_cooking_type%></li>
-            <li class="list-group-item"><strong>Utilisation de gaz</strong>  <%= @gas_sim.gas_use%></li>
+            <li class="list-group-item"><strong>Consommation annuelle</strong>  <%= @gas_sim.gas_use%> Wh</li>
           </ul>
         </div>
       </div>
