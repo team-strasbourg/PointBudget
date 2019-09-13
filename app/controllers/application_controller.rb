@@ -27,7 +27,23 @@ class ApplicationController < ActionController::Base
     cookies[:username] = current_user.nil? ? "guest" : current_user.email
   end
 
-  # def after_update_path_for(resource)
-  #   stored_location_for(resource) || user_path(current_user)
-  # end
+
+  def not_other_user
+    # This method prevents users from going to another user's show and edit pages
+    if current_user != User.find(params[:id])
+      flash[:error] = "Vous n'avez pas le droit d'accéder à cette page (not_other_user)"
+      redirect_to root_path
+    end
+  end
+
+  def not_other_users_simulations
+    # This method prevents users from going to pages associated with another user, namely the simulations
+    if current_user != User.find(params[:user_id])
+      flash[:error] = "Vous n'avez pas le droit d'accéder à cette page (not_other_users_simulations)"
+      redirect_to root_path
+    end
+  end
+
+
+
 end

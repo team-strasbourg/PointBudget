@@ -2,10 +2,11 @@ class UsersController < ApplicationController
 
   before_action :set_user
   before_action :authenticate_user!
+  before_action :not_other_user
 
   def show
     unless current_user.id == @user.id
-      flash[:error] = "Vous n'avez pas le droit d'accéder au profil d'autres utilisateurs!!"
+      flash[:error] = "Vous n'avez pas le droit d'accéder à cette page"
       redirect_to user_path(current_user)
     end
   end
