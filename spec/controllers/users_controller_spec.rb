@@ -18,7 +18,6 @@ RSpec.describe UsersController, type: :controller do
       get :show, params: { id: (subject.current_user.id.to_i + 1) }
       expect( response ).to redirect_to("/users/#{subject.current_user.id}" )
     end
-
   end
 
   describe "anonymous user show" do
@@ -26,6 +25,18 @@ RSpec.describe UsersController, type: :controller do
     it "should be redirected to signin" do
       get :show
       expect( response ).to redirect_to( new_user_session_path )
+    end
+  end
+
+  describe "GET edit" do
+    it "assigns @users" do
+      get :edit, params: { id: subject.current_user.id }
+      expect(assigns(:user)).to eq(subject.current_user)
+    end
+
+    it "renders the edit template" do
+      get :edit, params: { id: subject.current_user.id }
+      expect(response).to render_template("edit")
     end
   end
 end
