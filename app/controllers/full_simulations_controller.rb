@@ -54,7 +54,7 @@ class FullSimulationsController < ApplicationController
   private
 
   def full_simulation_params
-    params.require(:full_simulation).permit(:total_cost_saved, :validated)
+    params.require(:full_simulation).permit(:total_cost_saved, :validated, :counter)
   end
 
 
