@@ -9,9 +9,23 @@ RSpec.describe UsersController, type: :controller do
     end
 
     it 'renders the show template' do
-      get :show
-      expect(response).to render_template('show')
+      get :show, params: { id: subject.current_user.id }
+      expect(response).to have_http_status(:success)
     end
 
+    it 'redirect to his profile if try to see another user' do
+      create(:user)
+      get :show, params: { id: (subject.current_user.id.to_i + 1) }
+      expect( response ).to redirect_to("/users/#{subject.current_user.id}" )
+    end
+
+  end
+
+  describe "anonymous user show" do
+
+    it "should be redirected to signin" do
+      get :show
+      expect( response ).to redirect_to( new_user_session_path )
+    end
   end
 end
