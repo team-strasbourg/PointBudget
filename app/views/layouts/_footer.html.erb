@@ -3,74 +3,43 @@
     <div class="row justify-content-between">
 
 <!--      CONTACT SECTION-->
-      <div class="col-md-4 mt-md-0 contact-section">
-        <h3 class="text-uppercase contact-title">Contact</h3>
-        <div class="contact-info">
-<!--<<<<<<< HEAD-->
-          <%#=mail_to 'pointbudget@hotmail.com' do%>
-<!--            <p><i class="far fa-envelope fa-lg white-text fa-2x"></i> Email</p>-->
-          <%#end%>
-          <%#=link_to  'tel:+33606849288' do %>
-<!--            <p><i class="fas fa-mobile-alt fa-lg white-text fa-2x"></i> 0606849288</p>-->
-          <%# end %>
-<!--        </div>-->
-<!--      </div>-->
-<!--      <hr class="clearfix w-100 d-md-none pb-3">-->
-<!--      Social Network-->
-<!--      <div class="col-md-4">-->
-<!--        <h3 class="text-uppercase contact-title">Réseaux Sociaux</h3>-->
-
-<!--        <div class="d-flex justify-content-around">-->
-
-<!--  <!--        FACEBOOK-->-->
-          <%#= link_to "#", class:'fb-ic d-flex justify-content-center' do %>
-<!--            <i class="fab fa-facebook-f fa-lg white-text fa-2x"> </i>-->
-          <%# end %>
-
-<!--  <!--        INSTAGRAM-->-->
-          <%#= link_to "#", class:'fb-ic d-flex justify-content-center' do %>
-<!--            <i class="fab fa-instagram fa-lg white-text fa-2x"></i>-->
-          <%# end %>
-<!--  <!--         LINKEDIN-->-->
-          <%#= link_to "#", class:'fb-ic d-flex justify-content-center' do %>
-<!--            <i class="fab fa-linkedin-in fa-lg white-text fa-2x"></i>-->
-          <%# end %>
-
-<!--  <!--        TWITTER-->-->
-          <%#= link_to "#", class:'fb-ic d-flex justify-content-center' do %>
-<!--            <i class="fab fa-twitter fa-lg white-text fa-2x"></i>-->
-          <%# end %>
-<!--=======-->
-          <p>Adresse: <%= link_to "adresse" %> <br>Email: <%= link_to "point@pointbudget.fr" %> <br> Tel: <%= link_to "+33 3 33 33 33 33" %>
-          </p>
+      <div class="col-md-3 mb-md-0 mb-3 ">
+        <h3 class="text-uppercase text-md-left text-sm-center">Contact</h3>
+        <div class="d-flex flex-column justify-content-end align-items-md-start text-sm-center align-items-sm-center">
+          <div >
+            Adresse: <%= link_to "adresse" %>
+          </div>
+          <div>
+            Email: <%=mail_to 'pointbudget@hotmail.com'%>
+          </div>
+          <div>
+            Tel: <%= link_to "+33606849288","tel:+33606849288" %>
+          </div>
         </div>
       </div>
-      <div class="col-md-3 mb-md-0 mb-3 d-flex align-items-center icon-section">
-        <div class="contact-icons">
-          <a class="fb-ic">
-            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
-          <a class="fb-ic">
-            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
-          </a>
-          <a class="fb-ic">
-            <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
-          </a>
-          <a class="fb-ic">
-            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
-          </a>
-        </div>
+      <div class="col-md-3 mb-md-0 mb-3 d-flex justify-content-start align-items-end justify-content-sm-center" >
+        <!--                FACEBOOK-->
+        <%= link_to "#", class:'fb-ic mr-3' do %>
+          <i class=" fa-2x fa-facebook-f fa-lg fab white-text"> </i>
+        <% end %>
+        <!--                INSTAGRAM-->
+        <%= link_to "#", class:'fb-ic mr-3' do %>
+          <i class="fab fa-instagram fa-lg white-text fa-2x"></i>
+        <% end %>
+        <!--                 LINKEDIN-->
+        <%= link_to "#", class:'fb-ic mr-3' do %>
+          <i class="fab fa-linkedin-in fa-lg white-text fa-2x"></i>
+        <% end %>
+
+        <!--                TWITTER-->
+        <%= link_to "#", class:'fb-ic mr-3' do %>
+          <i class="fab fa-twitter fa-lg white-text fa-2x"></i>
+        <% end %>
       </div>
       <hr class="clearfix w-100 d-md-none pb-3">
 
-<!--<<<<<<< HEAD-->
-
-<!--      LINK SECTION-->
-<!--      <div class="col-md-4 mb-md-0 mb-3 link-section">-->
-<!--        <h3 class="text-uppercase">Liens</h3>-->
-<!--=======-->
-      <div class="col-md-3 mb-md-0 mb-3">
-        <ul class="list-unstyled">
+      <div class="col-md-3 mb-md-0 mb-3 d-flex flex-column justify-content-end">
+        <ul class="list-unstyled text-md-right mb-0 text-sm-center">
           <li>
             <%= link_to "Haut de page", {:anchor => "navbar"} %>
           </li>
@@ -83,8 +52,8 @@
         </ul>
       </div>
 
-      <div class="col-md-3 mb-md-0 mb-3 link-section">
-        <ul class="list-unstyled">
+      <div class="col-md-3 mb-md-0 mb-3  d-flex flex-column justify-content-end">
+        <ul class="list-unstyled text-md-right mb-0 text-sm-center" >
           <li>
             <%= link_to "Nos partenaires" %>
           </li>
@@ -98,7 +67,7 @@
       </div>
     </div>
   </div>
-  <div class="footer-copyright text-center py-3">© 2019 Copyright
+  <div class="footer-copyright text-center py-3 mt-5">© 2019 Copyright
     <a href="https://mdbootstrap.com/education/bootstrap/"></a>
   </div>
 </footer>
