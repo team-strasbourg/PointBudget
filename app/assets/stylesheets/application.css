@@ -39,6 +39,8 @@ li.button-group{
   list-style: none;
 }
 
+                        /* LANDING PAGE */
+
 /* NAVBAR */
 
  .point-budget-title{
@@ -108,7 +110,21 @@ li.button-group{
 
 #steps{
 	margin-top: 40px;
+	margin-bottom: 120px;
+}
+
+/* LOGS BUTTON */
+
+.logs-button{
 	margin-bottom: 150px;
+}
+
+.log-in-button{
+	margin:0 30px;
+}
+
+.sign-up-button{
+	margin-right:30px;
 }
 
 
@@ -119,7 +135,7 @@ li.button-group{
  }
 
 
- /* ABOUT */
+ /* A PROPOS */
 
 
 #last-about{

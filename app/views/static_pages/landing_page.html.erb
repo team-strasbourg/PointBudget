@@ -60,10 +60,8 @@
       <div class="timeline-item">
         <span class="icon text-secondary"><i class="fas fa-sign-in-alt"></i></i>
         </span>
-        <h5 class="my-3">S'inscrire</h5>
-        <p>Rien de plus simple!<br> Vous trouverez un espace de connexion dans la barre de navigation, à droite.<br><br>Ou suivre tout simplement ces liens!</p>
-        <%= link_to "Je crée mon compte", new_user_registration_path, class: "btn mr-2 mb-2 btn-pill btn-primary" %>
-        <%= link_to "Je me connecte", new_user_session_path, class: "btn mr-2 mb-2 btn-pill btn-primary" %>
+        <h5 class="my-3">Vous inscrire/Vous connecter</h5>
+        <p>Rien de plus simple!<br> Vous trouverez un espace de connexion dans la barre de navigation, à droite, ou à la fin des étapes.</p>
       </div>
 
     <!-- Timeline Item 2 -->
@@ -118,7 +116,7 @@
             </div>
           </div>
         </div>
-        <p>Afin de gagner du temps, munissez-vous d'un maximum de vos contrats ou factures</p>
+        <p>Afin de gagner du temps, munissez-vous d'un maximum <br>de vos contrats ou factures.</p>
         <p>Prêt... Feu.... Simuler!</p>
       </div>
 
@@ -134,3 +132,12 @@
     </div>
   </div>
 </main>
+
+<div class="container d-flex justify-content-center logs-button">
+  <div class="sign-up-button">
+    <%= link_to "Je crée mon compte", new_user_registration_path, class: "btn mr-2 mb-2 btn-pill btn-primary" %>
+  </div>
+  <div class="log-in-button">
+    <%= link_to "Je me connecte", new_user_session_path, class: "btn mr-2 mb-2 btn-pill btn-primary" %>
+  </div>
+</div>
