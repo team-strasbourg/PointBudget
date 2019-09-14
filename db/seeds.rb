@@ -8,6 +8,9 @@
 # YOU CAN CHOOSE IF YOU WANT TO SEED RANDOM CITIES OR REAL CITIES
 require 'rest-client'
 City.destroy_all
+User.all.each do |user|
+  user.update(city_id: nil)
+end
 cities_url = 'https://geo.api.gouv.fr/communes'
 data = JSON.parse( RestClient.get(cities_url) )
 data.select { |city| !city['population'].nil? && city['population'] > 5000}.each do |city|
