@@ -1,6 +1,4 @@
 
-<!--users/1/full_simulations/7/gas_simulations/5-->
-
 <!-- Card -->
 <div class="pricing-card">
   <div class="card shadow-soft border-light p-4">
@@ -9,7 +7,7 @@
       <span class="float-left"><%= @gas_sim.created_at.to_formatted_s(:short)%></span>
       <span class="d-block">
         <span class="display-1 text-secondary font-weight-bold">
-            <span class="align-top font-medium pr-5">Vous pouvez épargner</span><%= @gas_sim.gas_cost_saved%>
+            <span class="align-top font-medium pr-5">Vous pouvez épargner</span><%= @gas_sim.gas_cost_saved / 12%>
         </span>
         <span class="text-light font-small">/ mois</span>
       </span>
@@ -34,8 +32,7 @@
           </ul>
         </div>
       </div>
-      <button type="button" class="btn btn-outline-secondary btn-block"
-          tabindex="0">Lancer une nouvelle simulation</button>
+        <%= link_to 'Lancer une nouvelle simulation', new_user_full_simulation_path(current_user), class:"btn btn-outline-secondary btn-block"%>
     </div>
   </div>
 </div>
