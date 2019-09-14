@@ -51,12 +51,12 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it "changes @user's attributes" do
-        email = Faker::Internet.email
-        password = Faker::Internet.password
-        put :update,  params: { id: subject.current_user, "user" => { email: email, password: password } }
+        first_name = Faker::Name.first_name
+        last_name = Faker::Name.last_name
+        put :update, params: { id: subject.current_user, "user" => { first_name: first_name, last_name: last_name, city_id:''} }
         subject.current_user.reload
-        subject.current_user.firstname.should eq(email)
-        subject.current_user.lastname.should eq(password)
+        expect(subject.current_user.first_name).to eq(first_name)
+        expect(subject.current_user.last_name).to eq(last_name)
       end
       #
       # it "redirects to the updated contact" do
