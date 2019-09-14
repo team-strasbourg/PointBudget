@@ -23,7 +23,6 @@
  }
 
 .title{
-	text-align: center;
 	padding: 60px 0 70px 0;
 }
 
@@ -87,7 +86,6 @@ li.button-group{
 
 #benefits{
 	color: white;
-	height: 500px;
  }
 
 #benefits .icon{
