@@ -8,13 +8,13 @@
 # YOU CAN CHOOSE IF YOU WANT TO SEED RANDOM CITIES OR REAL CITIES
 require 'rest-client'
 City.destroy_all
-cities_url = "https://geo.api.gouv.fr/communes"
+cities_url = 'https://geo.api.gouv.fr/communes'
 data = JSON.parse( RestClient.get(cities_url) )
-data.each do |city|
-  if city["codesPostaux"][0].nil?
-    City.create(name: city["nom"], insee_code: city["code"], zip_code: city["code"])
+data.select { |city| !city['population'].nil? && city['population'] > 5000}.each do |city|
+  if city['codesPostaux'][0].nil?
+    City.create(name: city['nom'], insee_code: city['code'], zip_code: city['code'])
   else
-    City.create(name: city["nom"], insee_code: city["code"], zip_code: city["codesPostaux"][0])
+    City.create(name: city['nom'], insee_code: city['code'], zip_code: city['codesPostaux'][0])
   end
 end
 
@@ -42,16 +42,16 @@ end
 # puts 'admin created'
 
 require 'csv'
-
-data = CSV.read('lib/populate_gas_contract/offer_gas.csv', {:headers => false, :col_sep => ',', :encoding => 'ISO-8859-1'})
-lines = data.select { |line| !line[0].nil?}
-GasContract.destroy_all
-lines.each do |line|
-  GasContract.create(supplier: line[0],
-                     offer_name: line[1],
-                     low_kw_consumption_per_year: line[2],
-                     high_kw_consumption_per_year: line[3],
-                     subscription_base_price_month: line[4],
-                     kwh_price_base: line[5]
-  )
-end
+#
+# data = CSV.read('lib/populate_gas_contract/offer_gas.csv', {:headers => false, :col_sep => ',', :encoding => 'ISO-8859-1'})
+# lines = data.select { |line| !line[0].nil?}
+# GasContract.destroy_all
+# lines.each do |line|
+#   GasContract.create(supplier: line[0],
+#                      offer_name: line[1],
+#                      low_kw_consumption_per_year: line[2],
+#                      high_kw_consumption_per_year: line[3],
+#                      subscription_base_price_month: line[4],
+#                      kwh_price_base: line[5]
+#   )
+# end

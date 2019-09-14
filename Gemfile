@@ -65,7 +65,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'activerecord'
-gem 'devise'
+gem "devise", ">= 4.7.1"
 gem 'dotenv-rails'
 gem 'faker'
 gem 'font-awesome-rails'
