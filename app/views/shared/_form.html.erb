@@ -7,9 +7,7 @@
 
 <!--        IF DEVISE ERRORS-->
         <%begin%>
-          <%if devise_error_messages!%>
-            <%= devise_error_messages! %>
-          <%end%>
+            <%= render partial: 'devise/shared/error_messages', resource: resource %>
         <%rescue%>
         <%end%>
 
@@ -169,23 +167,23 @@
 <!--        EDIT USER FORM -->
 
         <%when 'edit_user'%>
+
           <div class="form-group">
-            <%= f.label :first_name %><br />
+            <%= f.label "Votre nom" %><br />
+            <%= f.text_field :last_name, autofocus: true, placeholder: resource.last_name, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label "Votre prénom" %><br />
             <%= f.text_field :first_name, autofocus: true, placeholder: resource.first_name, class: "form-control"  %>
           </div>
 
           <div class="form-group">
-            <%= f.label :last_name %><br />
-            <%= f.text_field :last_name, autofocus: true, placeholder: resource.last_name, class: "form-control" %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :phone_number %><br />
+            <%= f.label "Votre numéro de téléphone" %><br />
             <%= f.text_field :phone_number, autofocus: true, placeholder: resource.phone_number, class: "form-control"  %>
           </div>
 
           <div class="form-group">
-            <%= f.label :city_id %><br />
+            <%= f.label "Votre ville" %><br />
             <%if @user.city %>
               <%= f.text_field :city_id, placeholder: "#{@user.city.zip_code} - #{@user.city.name}", value: "#{@user.city.zip_code} - #{@user.city.name}", list: 'all_cities', id:'cities_search' %>
             <%else %>
