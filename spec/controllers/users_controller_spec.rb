@@ -46,7 +46,7 @@ RSpec.describe UsersController, type: :controller do
 
     context "with valid attributes" do
       it "located the requested @user" do
-        put :update,  params: { id: subject.current_user.id, user:{ email: Faker::Internet.email, password: Faker::Internet.password, city_id: '' } }
+        put :update, params: { id: subject.current_user, "user" => { first_name: first_name, last_name: last_name, city_id:''} }
         expect(assigns(:user)).to eq(subject.current_user)
       end
 
@@ -58,13 +58,11 @@ RSpec.describe UsersController, type: :controller do
         expect(subject.current_user.first_name).to eq(first_name)
         expect(subject.current_user.last_name).to eq(last_name)
       end
-      #
-      # it "redirects to the updated contact" do
-      #   put :update, id: @user, params: { "user" => { email: Faker::Internet.email, password: Faker::Internet.password } }
-      #
-      #   # redirige où tu veux
-      #   response.should redirect_to @user
-      # end
+
+      it "redirects to the updated contact" do
+        put :update, params: { id: subject.current_user, "user" => { first_name: first_name, last_name: last_name, city_id:''} }
+        expect(response).to redirect_to subject.current_user
+      end
     end
 
     # context "with invalid attributes" do
