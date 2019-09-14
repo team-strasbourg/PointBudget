@@ -1,7 +1,7 @@
 <%if @nav_user.nil? %>
 <div class="container-fluid flex-grow-1 user-nav">
   <div class="row h-100">
-    <nav class="col-md-2 d-none d-md-block bg-white sidebar user-nav" id="sidenav">
+    <nav class="col-2 bg-white sidebar user-nav" id="sidenav">
       <span id="nav-user-collapse">
       <i class="fas fa-angle-left nav-link-arrow" id="nav-arrow"></i>
       </span>
@@ -19,7 +19,7 @@
         </ul>
       </div>
     </nav>
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10" id="body_content_user">
+    <main role="main" class="col-10" id="body_content_user">
       <%=yield%>
     </main>
   </div>
