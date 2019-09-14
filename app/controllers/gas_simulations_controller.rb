@@ -48,7 +48,6 @@ class GasSimulationsController < ApplicationController
       @full_simulation.update(total_cost_saved: (@full_simulation.total_cost_saved + @gas_simulation.gas_cost_saved))
       flash[:success] = 'Votre simulation de gaz a bien été enregistrée'
       redirect_to user_full_simulation_path(current_user, @full_simulation)
-      #redirect_to user_full_simulation_gas_simulation_path(current_user, @full_simulation, @gas_simulation)
     else
       flash[:error] = @gas_simulation.errors.messages
       redirect_to new_user_full_simulation_gas_simulation_path(current_user, @full_simulation)
