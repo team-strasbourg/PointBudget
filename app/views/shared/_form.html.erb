@@ -7,9 +7,9 @@
 
 <!--        IF DEVISE ERRORS-->
         <%begin%>
-          <%if devise_error_messages!%>
-            <%= devise_error_messages! %>
-          <%end%>
+          <%#if devise_error_messages!%>
+            <%= render partial: 'devise/shared/error_messages', resource: resource %>
+          <%#end%>
         <%rescue%>
         <%end%>
 
