@@ -1,6 +1,5 @@
 require 'rails_helper'
-
-feature 'Visitor signs up' do
+RSpec.describe 'Visitor signs up', type: :feature do
   scenario 'with valid email and password' do
     sign_up_with 'valid@example.com', 'password'
 
