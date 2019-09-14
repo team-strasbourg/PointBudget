@@ -68,23 +68,23 @@ RSpec.describe UsersController, type: :controller do
       end
     end
 
-    # context "with invalid attributes" do
-    #   it "locates the requested @user" do
-    #     put :update, id: @user, params: { "user" => { invalide_magueule } }
-    #     assigns(:user).should eq(@user)
-    #   end
+    context "with invalid attributes" do
+      it "locates the requested @user" do
+        put :update, params: {id: subject.current_user,  "user" => { invalide_magueule } }
+        assigns(:user).should eq(subject.current_user)
+      end
     #
-    #   it "does not change @user's attributes" do
-    #     put :update, id: @user, params: { "user" => { invalide_magueule } }
-    #     @user.reload
-    #     @user.firstname.should_not eq("Jean")
-    #     @user.lastname.should eq("Bon")
+    #   it "does not change subject.current_user's attributes" do
+    #     put :update, id: subject.current_user, params: { "user" => { invalide_magueule } }
+    #     subject.current_user.reload
+    #     subject.current_user.firstname.should_not eq("Jean")
+    #     subject.current_user.lastname.should eq("Bon")
     #   end
     #
     #   it "re-renders the edit method" do
-    #     put :update, id: @user, params: { "user" => { invalide_magueule } }
+    #     put :update, id: subject.current_user, params: { "user" => { invalide_magueule } }
     #     response.should render_template :edit
     #   end
-    # end
+    end
   end
 end
