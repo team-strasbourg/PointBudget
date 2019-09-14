@@ -23,9 +23,8 @@
             <li class="nav-item dropdown">
               <%=link_to '#', class:'nav-link', datatoggle:'dropdown', role:'button' do %>
                 <i class="fas fa-angle-down nav-link-arrow"></i>
-              <%end %>
-
                 <span class="nav-link-inner-text">Mon Espace Client</span>
+              <%end %>
 
               <ul class="dropdown-menu">
                 <li><%= link_to "Mon profil", user_path(current_user), class: "dropdown-item"%></li>
