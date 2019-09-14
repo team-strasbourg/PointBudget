@@ -16,15 +16,21 @@ RSpec.describe UsersController, type: :controller do
     it 'redirect to his profile if try to see another user' do
       create(:user)
       get :show, params: { id: (subject.current_user.id.to_i + 1) }
-      expect( response ).to redirect_to("/users/#{subject.current_user.id}" )
+      expect(response).to redirect_to("/users/#{subject.current_user.id}")
     end
   end
 
-  describe 'anonymous user show' do
+  describe 'anonymous user' do
 
-    it 'should be redirected to signin' do
+    it 'should be redirected to signin for show' do
       get :show
-      expect( response ).to redirect_to( new_user_session_path )
+      expect(response).to redirect_to(new_user_session_path)
+    end
+
+    it 'should be redirected to signin for edit' do
+      user = create(:user)
+      get :edit, params: { id: user.id }
+      expect(response).to redirect_to(new_user_session_path)
     end
   end
 
@@ -50,38 +56,54 @@ RSpec.describe UsersController, type: :controller do
         @last_name = Faker::Name.last_name
       end
       it 'located the requested @user' do
-        put :update, params: { id: subject.current_user, 'user' => { first_name: @first_name, last_name: @last_name, city_id:''} }
+        put :update, params: { id: subject.current_user,
+                               user: { first_name: @first_name,
+                                       last_name: @last_name,
+                                       city_id: '' } }
         expect(assigns(:user)).to eq(subject.current_user)
       end
 
       it "changes @user's attributes" do
 
-        put :update, params: { id: subject.current_user, 'user' => { first_name: @first_name, last_name: @last_name, city_id:''} }
+        put :update, params: { id: subject.current_user,
+                               user: { first_name: @first_name,
+                                       last_name: @last_name,
+                                       city_id: '' } }
         subject.current_user.reload
         expect(subject.current_user.first_name).to eq(@first_name)
         expect(subject.current_user.last_name).to eq(@last_name)
       end
 
       it 'redirects to the updated contact' do
-        put :update, params: { id: subject.current_user, 'user' => { first_name: @first_name, last_name: @last_name, city_id:'', phone_number: '0505060607'} }
+        put :update, params: { id: subject.current_user,
+                               user: { first_name: @first_name,
+                                       last_name: @last_name,
+                                       city_id: '',
+                                       phone_number: '0505060607' } }
         expect(response).to redirect_to subject.current_user
       end
     end
 
     context 'with invalid attributes' do
       it 'locates the requested @user' do
-        put :update, params: {id: subject.current_user,  'user' => { phone_number: '0505', city_id:'' } }
+        put :update, params: { id: subject.current_user,
+                               user: { phone_number: '0505',
+                                       city_id: '' } }
         expect(assigns(:user)).to eq(subject.current_user)
       end
 
       it "does not change subject.current_user's attributes" do
-        put :update, params: {id: subject.current_user,  'user' => { phone_number: '0505', city_id:'' } }
+        put :update, params: { id: subject.current_user,
+                               user: { phone_number: '0505',
+                                       city_id: '' } }
         subject.current_user.reload
         expect(subject.current_user.phone_number).not_to eq('0505')
       end
 
       it 're-renders the edit method' do
-        put :update, params: {id: subject.current_user,  'user' => { phone_number: '0505', city_id:'' } }
+        put :update, params: { id: subject.current_user,
+                               user: { phone_number: '0505',
+                                       city_id: '' } }
         expect(response).to render_template :edit
       end
     end
