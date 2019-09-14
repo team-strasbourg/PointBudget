@@ -12,33 +12,37 @@
       </div>
       <hr class="clearfix w-100 d-md-none pb-3">
 <!--      Social Network-->
-      <div class="col-md-4 d-flex justify-content-around">
+      <div class="col-md-4">
+        <h3 class="text-uppercase contact-title">Réseaux Sociaux</h3>
 
-<!--        FACEBOOK-->
-        <%= link_to "#", class:'fb-ic d-flex justify-content-center' do %>
-          <i class="fab fa-facebook-f fa-lg white-text fa-2x"> </i>
-        <% end %>
+        <div class="d-flex justify-content-around">
 
-<!--        INSTAGRAM-->
-        <%= link_to "#", class:'fb-ic d-flex justify-content-center' do %>
-          <i class="fab fa-instagram fa-lg white-text fa-2x"></i>
-        <% end %>
-<!--         LINKEDIN-->
-        <%= link_to "#", class:'fb-ic d-flex justify-content-center' do %>
-          <i class="fab fa-linkedin-in fa-lg white-text fa-2x"></i>
-        <% end %>
+  <!--        FACEBOOK-->
+          <%= link_to "#", class:'fb-ic d-flex justify-content-center' do %>
+            <i class="fab fa-facebook-f fa-lg white-text fa-2x"> </i>
+          <% end %>
 
-<!--        TWITTER-->
-        <%= link_to "#", class:'fb-ic d-flex justify-content-center' do %>
-          <i class="fab fa-twitter fa-lg white-text fa-2x"></i>
-        <% end %>
+  <!--        INSTAGRAM-->
+          <%= link_to "#", class:'fb-ic d-flex justify-content-center' do %>
+            <i class="fab fa-instagram fa-lg white-text fa-2x"></i>
+          <% end %>
+  <!--         LINKEDIN-->
+          <%= link_to "#", class:'fb-ic d-flex justify-content-center' do %>
+            <i class="fab fa-linkedin-in fa-lg white-text fa-2x"></i>
+          <% end %>
+
+  <!--        TWITTER-->
+          <%= link_to "#", class:'fb-ic d-flex justify-content-center' do %>
+            <i class="fab fa-twitter fa-lg white-text fa-2x"></i>
+          <% end %>
+        </div>
       </div>
       <hr class="clearfix w-100 d-md-none pb-3">
 
 
 <!--      LINK SECTION-->
       <div class="col-md-4 mb-md-0 mb-3 link-section">
-        <h5 class="text-uppercase">Liens</h5>
+        <h3 class="text-uppercase">Liens</h3>
         <ul class="list-unstyled">
           <li>
             <%= link_to "Se connecter", new_user_session_path %>
@@ -49,12 +53,6 @@
           <li>
             <%= link_to "Espace Presse" %>
           </li>
-        </ul>
-      </div>
-
-      <div class="col-md-3 mb-md-0 mb-3 link-section">
-        <h5 class="text-uppercase">Liens</h5>
-        <ul class="list-unstyled">
           <li>
             <%= link_to "Nos partenaires" %>
           </li>
@@ -66,7 +64,6 @@
           </li>
         </ul>
       </div>
-
     </div>
   </div>
   <div class="footer-copyright text-center py-3">© 2019 Copyright
