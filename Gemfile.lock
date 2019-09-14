@@ -304,7 +304,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.2)
   database_cleaner
-  devise
+  devise (>= 4.7.1)
   dotenv-rails
   factory_bot_rails
   faker
