@@ -45,22 +45,25 @@ RSpec.describe UsersController, type: :controller do
     login_user
 
     context "with valid attributes" do
+      before :each do
+        @first_name = Faker::Name.first_name
+        @last_name = Faker::Name.last_name
+      end
       it "located the requested @user" do
-        put :update, params: { id: subject.current_user, "user" => { first_name: first_name, last_name: last_name, city_id:''} }
+        put :update, params: { id: subject.current_user, "user" => { first_name: @first_name, last_name: @last_name, city_id:''} }
         expect(assigns(:user)).to eq(subject.current_user)
       end
 
       it "changes @user's attributes" do
-        first_name = Faker::Name.first_name
-        last_name = Faker::Name.last_name
-        put :update, params: { id: subject.current_user, "user" => { first_name: first_name, last_name: last_name, city_id:''} }
+
+        put :update, params: { id: subject.current_user, "user" => { first_name: @first_name, last_name: @last_name, city_id:''} }
         subject.current_user.reload
-        expect(subject.current_user.first_name).to eq(first_name)
-        expect(subject.current_user.last_name).to eq(last_name)
+        expect(subject.current_user.first_name).to eq(@first_name)
+        expect(subject.current_user.last_name).to eq(@last_name)
       end
 
       it "redirects to the updated contact" do
-        put :update, params: { id: subject.current_user, "user" => { first_name: first_name, last_name: last_name, city_id:''} }
+        put :update, params: { id: subject.current_user, "user" => { first_name: @first_name, last_name: @last_name, city_id:''} }
         expect(response).to redirect_to subject.current_user
       end
     end
