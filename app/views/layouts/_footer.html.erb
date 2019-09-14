@@ -6,7 +6,10 @@
       <div class="col-md-4 mt-md-0 contact-section">
         <h3 class="text-uppercase contact-title">Contact</h3>
         <div class="contact-info">
-          <p>Email: point@pointbudget.fr <br> Tel: +33 3 33 33 33 33
+          <%=mail_to 'pointbudget@hotmail.com' do%>
+            <p><i class="far fa-envelope fa-lg white-text fa-2x"></i> Email</p>
+          <%end%>
+          <p><br> Tel: +33 3 33 33 33 33
           </p>
         </div>
       </div>
