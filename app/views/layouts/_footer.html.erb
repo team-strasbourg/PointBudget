@@ -4,7 +4,11 @@
       <div class="col-md-3 mt-md-0 mt-3 contact-section">
         <h3 class="text-uppercase contact-title">Contact</h3>
         <div class="contact-info">
-          <p>Email: point@pointbudget.fr <br> Tel: +33 3 33 33 33 33
+          <p>Email: <%= link_to "point@pointbudget.fr" %> <br> Tel: <%= link_to "+33 3 33 33 33 33" %>
+          </p>
+        </div>
+        <div class="contact-info">
+          <p><%= link_to "Haut de page", {:anchor => "navbar"} %>
           </p>
         </div>
       </div>
