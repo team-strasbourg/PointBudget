@@ -2,23 +2,23 @@
 <% unless @full_simulation.validated == true %>
 	<div>
 		<% if @full_simulation.only_one_gas_simulation %>
-		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Assurance</button>
-		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Banquaire</button>
-		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Energie</button>
-		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Numérique</button>
-		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Mutuelle</button>
+      <%=button_tag 'Assurance', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
+      <%=button_tag 'Banquaire', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
+      <%=button_tag 'Energie', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
+      <%=button_tag 'Numérique', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
+      <%=button_tag 'Mutuelle', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
 	  <% else %>
-		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Assurance</button>
-		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Banquaire</button>
-		  <%=link_to "Energie", new_user_full_simulation_energy_path(current_user, @full_simulation), class: "btn btn-primary"%>
-		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Numérique</button>
-		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Mutuelle</button>
+      <%=button_tag 'Assurance', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
+      <%=button_tag 'Banquaire', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
+      <%=link_to "Energie", new_user_full_simulation_energy_path(current_user, @full_simulation), class: "btn btn-primary"%>
+      <%=button_tag 'Numérique', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
+      <%=button_tag 'Mutuelle', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
 	  <% end %>
 	</div>
                                                       
 	<!-- Button Modal -->
 	<div class="container">
-		<button type="button" class="btn btn-block btn-secondary mb-3 simulation-result" data-toggle="modal" data-target="#modal-default">Résultat de ma simulation</button>
+    <%=button_tag 'Résultat de ma simulation', class:'btn btn-block btn-secondary mb-3 simulation-result', data:{toggle:'modal', target:("#modal-default")} %>
 	</div>
 	<!-- Modal Content -->
 	<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default"
@@ -26,10 +26,10 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h6 class="modal-title" id="modal-title-default">Point Budget</h6> 
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-          </button>
+          <h6 class="modal-title" id="modal-title-default">Point Budget</h6>
+          <%=button_tag class:'close', data:{dismiss:'modal'}, aria:{label:'close'} do %>
+            <span aria-hidden="true">×</span>
+          <%end %>
         </div>
         <div class="modal-body">
           <div id="context" class="container">
