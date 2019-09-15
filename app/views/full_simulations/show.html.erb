@@ -17,14 +17,14 @@
 	</div>
   <!-- btn categories -->
 <!-- energy -->
-<%= link_to new_user_full_simulation_energy_path(current_user, @full_simulation), class: 'btn-simu-elec btn-simu btn btn-secondary' do %>
+<%= link_to new_user_full_simulation_energy_path(current_user, @full_simulation), class: 'btn-simu-elec btn-simu btn btn-primary' do %>
 	<div class="d-flex justify-content-around align-items-center text-white">
 		<span class="icon"><i class="fas fa-sun"></i></span>
 		<h5 class="mt-4">Energie</h5>
 	</div>
 <% end %>
 
-<%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-elec btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+<%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-elec btn-simu btn btn-primary disabled', style:'cursor:not-allowed' do %>
 	<div class="d-flex justify-content-around align-items-center text-white">
 		<span class="icon"><i class="fas fa-sun"></i></span>
 		<h5 class="mt-4">Energie</h5>
