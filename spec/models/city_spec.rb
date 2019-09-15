@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe City, type: :model do
@@ -7,7 +9,6 @@ RSpec.describe City, type: :model do
 
 
   context 'validations' do
-
     it 'is valid with valid attributes' do
       expect(@city).to be_a(City)
       expect(@city).to be_valid
@@ -34,7 +35,6 @@ RSpec.describe City, type: :model do
   end
 
   context 'associations' do
-
     describe 'user' do
       it 'should have_many users' do
         expect(@city).to have_many(:users)
