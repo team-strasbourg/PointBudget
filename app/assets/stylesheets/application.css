@@ -110,6 +110,11 @@ li.button-group{
 
 #benefits .icon-position{
 	text-align: center;
+
+}
+
+.title-benefits{
+	color: white;
 }
 
 /* TIMELINE */
@@ -122,7 +127,7 @@ li.button-group{
 /* LOGS BUTTON */
 
 .logs-button{
-	margin-bottom: 150px;
+	margin-bottom: 100px;
 }
 
 .log-in-button{
@@ -156,7 +161,7 @@ li.button-group{
 
 
 
- /* A PROPOS */
+ /* ABOUT */
 
 
 #last-about{
