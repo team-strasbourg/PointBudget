@@ -264,6 +264,9 @@ li.button-group{
 
 /* SIMULATION CATEGORY */
 
+#categories{
+	margin: 60px 0;
+}
 #simu-category{
 	width: 120px;
 	height: 120px;
@@ -302,4 +305,8 @@ li.button-group{
 
 .btn-simu-mut{
 	width: 180px;
+}
+
+.title-simu{
+	margin-top: 60px;
 }

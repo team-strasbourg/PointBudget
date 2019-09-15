@@ -1,21 +1,20 @@
+ 
+<div class="title-simu container">
+  <h2 class="text-center">3, 2, 1... Simulez!</h2>
+</div>
  <!-- btn categories -->
 
-
 <% unless @full_simulation.validated == true %>
-
-<!-- 	 <div class="container-fluid d-flex justify-content-around"> -->
-	 	<div class="row container-fluid d-flex justify-content-around">
+	<div id="categories" class="row container-fluid d-flex justify-content-around">
 	
 		<% if @full_simulation.only_one_gas_simulation %>
 		<!-- insurance -->
-		<!-- <div class="col-sm-12 mx-4"> -->
-      <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-assur btn-simu btn btn-secondary disabled mb-4', style:'cursor:not-allowed' do %>
+      <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-assur btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
 				<div class="d-flex justify-content-around align-items-center text-white">
 					<span class="icon"><i class="fas fa-house-damage"></i></span>
 					<h5 class="mt-4">Assurance</h5>
 				</div>
 			<% end %>
-		<!-- </div> -->
 		<!-- bank -->
       <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-bank btn-simu btn btn-secondary disabled col-sm-12', style:'cursor:not-allowed' do %>
 				<div class="d-flex justify-content-around align-items-center text-white">
@@ -46,7 +45,7 @@
 			<% end %>
 	  <% else %>
 	  <!-- insurance -->
-      <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-assur btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+	    <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-assur btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
 				<div class="d-flex justify-content-around align-items-center text-white">
 					<span class="icon"><i class="fas fa-house-damage"></i></span>
 					<h5 class="mt-4">Assurance</h5>
@@ -80,9 +79,9 @@
 					<h5 class="mt-4">Mutuelle</h5>
 				</div>
 			<% end %>
-		</div>
+	</div>
 	<!-- </div> -->
-	  <% end %>
+<% end %>
 	
 
 
