@@ -278,6 +278,7 @@ li.button-group{
 .btn-simu{
 	height: 80px;
 	border-radius: 5px;
+	margin-bottom: 20px;
 }
 .btn-simu-gas{
 	width: 120px;
