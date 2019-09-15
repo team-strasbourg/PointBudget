@@ -2,17 +2,17 @@
 <% unless @full_simulation.validated == true %>
 	<div>
 		<% if @full_simulation.only_one_gas_simulation %>
-		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Assurance</button>
-		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Banquaire</button>
-		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Energie</button>
-		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Numérique</button>
-		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Mutuelle</button>
+      <%=button_tag 'Assurance', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
+      <%=button_tag 'Banquaire', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
+      <%=button_tag 'Energie', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
+      <%=button_tag 'Numérique', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
+      <%=button_tag 'Mutuelle', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
 	  <% else %>
-		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Assurance</button>
-		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Banquaire</button>
-		  <%=link_to "Energie", new_user_full_simulation_energy_path(current_user, @full_simulation), class: "btn btn-primary"%>
-		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Numérique</button>
-		  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Mutuelle</button>
+      <%=button_tag 'Assurance', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
+      <%=button_tag 'Banquaire', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
+      <%=link_to "Energie", new_user_full_simulation_energy_path(current_user, @full_simulation), class: "btn btn-primary"%>
+      <%=button_tag 'Numérique', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
+      <%=button_tag 'Mutuelle', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
 	  <% end %>
 	</div>
                                                       
