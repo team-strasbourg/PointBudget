@@ -7,9 +7,9 @@
     <div class="col-md-5">
       <hr class="my-4">
       <% if user_signed_in? %>
-        <%=link_to "Lancer une simulation", new_user_full_simulation_path(current_user), class: "btn mr-2 mb-2 btn-pill btn-primary"%>
+        <%=link_to "Lancer une simulation", new_user_full_simulation_path(current_user), class: "btn mr-2 mb-2 btn-pill btn-primary btn-lg"%>
       <%else%>
-        <%=link_to "Je m'inscris et lance ma première simulation", new_user_session_path, class: "btn mr-2 mb-2 btn-pill btn-primary"%>
+        <%=link_to "Je m'inscris et lance ma première simulation", new_user_session_path, class: "btn mr-2 mb-2 btn-pill btn-primary btn-lg"%>
       <%end%>
     </div>
   </div>
