@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     root to: 'users#show'
     resources :full_simulations do
       resources :energies, only: %i[show new]
-      resources :gas_simulations
+      resources :gas_simulations, except:[:index]
     end
   end
 end
