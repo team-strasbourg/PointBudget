@@ -66,6 +66,8 @@ li.button-group{
     height: 800px;
 }
 
+
+
 /* CONTEXT */
 
 #context{
@@ -284,4 +286,9 @@ li.button-group{
 .elec-category{
 	font-size: 15px;
 	padding-bottom: 11px;
+}
+
+.btn-simulation{
+	width: 400px;
+	height: 100px;
 }

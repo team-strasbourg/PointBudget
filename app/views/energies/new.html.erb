@@ -15,3 +15,11 @@
 	<%= link_to "Back", :back %>
 </div>
 
+<div class="btn-simulation bg-secondary text-white">
+	<%= link_to new_user_full_simulation_gas_simulation_path(current_user, @full_simulation) do %>
+			<div class="d-flex align-items-center btn-simulation flex-direction-raw">
+				<span class="icon"><i class="fas fa-burn"></i></span>
+				<h5>Gaz</h5>
+			</div>
+	<% end %>
+</div>
