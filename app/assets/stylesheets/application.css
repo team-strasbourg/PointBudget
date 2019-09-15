@@ -213,9 +213,8 @@ li.button-group{
 
 
 #body_content_user{
-	margin: 30px 0 150px 0;
+	margin: 30px 0 80px 0;
 	padding: 0 40px;
-
 }
 
 /* SIMULATION INDEX */
@@ -247,7 +246,7 @@ li.button-group{
 /* SIMULATIONS#SHOW */
 
 .simulation-result{
-	margin-bottom: 80px;
+	margin-bottom: 60px;
 }
 .price-position{
 	text-align: center;
