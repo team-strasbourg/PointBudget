@@ -3,11 +3,11 @@
 
 <div>
 	<% if @full_simulation.only_one_gas_simulation %>
-		<button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Gaz</button>
-	  <button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Electricité</button>
+    <%=button_tag 'Gaz', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
+    <%=button_tag 'Electricité', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
 	<% else %>
 		<%=link_to "Gas", new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: "btn btn-primary"%>
-		<button type="button" class="btn btn-primary disabled" style="cursor:not-allowed">Electricité</button>
+    <%=button_tag 'Electricité', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
 	<% end %>
 </div>
 
