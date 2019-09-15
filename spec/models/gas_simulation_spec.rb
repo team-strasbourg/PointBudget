@@ -37,7 +37,7 @@ RSpec.describe GasSimulation, type: :model do
       end
     end
 
-    describe'#floor_space' do
+    describe '#floor_space' do
       it 'can be empty' do
         expect(build(:gas_simulation, floor_space: nil)).to be_valid
       end

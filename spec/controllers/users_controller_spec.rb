@@ -22,7 +22,6 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe 'anonymous user' do
-
     it 'should be redirected to signin for show' do
       get :show
       expect(response).to redirect_to(new_user_session_path)
@@ -65,7 +64,6 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it "changes @user's attributes" do
-
         put :update, params: { id: subject.current_user,
                                user: { first_name: @first_name,
                                        last_name: @last_name,
