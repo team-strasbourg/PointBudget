@@ -3,9 +3,9 @@
     <div class="row justify-content-between">
 
 <!--      CONTACT SECTION-->
-      <div class="col-md-4 mb-md-0 mb-3 ">
-        <h3 class="text-uppercase text-md-left text-sm-center">Contact</h3>
-        <div class="d-flex flex-column justify-content-end align-items-md-start text-sm-center align-items-sm-center">
+      <div class="col-md-3 mb-md-0 mb-3 ">
+        <h3 class="text-uppercase text-md-left text-center">Contact</h3>
+        <div class="d-flex flex-column justify-content-end align-items-md-start text-md-left text-center align-items-sm-center">
           <div >
             Adresse: <%= link_to "adresse" %>
           </div>
@@ -17,27 +17,36 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3 mb-md-0 mb-3 d-flex justify-content-md-start align-items-center justify-content-sm-center my-sm-4" >
+
+      <div class="col-md-3 mb-md-0 mb-3 d-flex justify-content-md-start align-items-md-end justify-content-center align-items-center my-sm-4" >
+
 
         <!--                FACEBOOK-->
-        <%= link_to "#", class:'fb-ic mr-3' do %>
-          <i class=" fa-2x fa-facebook-f fa-lg fab white-text"> </i>
-        <% end %>
+        <div>
+          <%= link_to "#", class:'fb-ic mr-3' do %>
+            <i class=" fa-2x fa-facebook-f fa-lg fab white-text"> </i>
+          <% end %>
+        </div>
         <!--                INSTAGRAM-->
+        <div>
         <%= link_to "#", class:'fb-ic mr-3' do %>
           <i class="fab fa-instagram fa-lg white-text fa-2x"></i>
         <% end %>
+        </div>
         <!--                 LINKEDIN-->
+        <div>
         <%= link_to "#", class:'fb-ic mr-3' do %>
           <i class="fab fa-linkedin-in fa-lg white-text fa-2x"></i>
         <% end %>
+        </div>
 
         <!--                TWITTER-->
+        <div>
         <%= link_to "#", class:'fb-ic mr-3' do %>
           <i class="fab fa-twitter fa-lg white-text fa-2x"></i>
         <% end %>
+        </div>
       </div>
-
       <div class="col-md-2 mb-md-0 mb-3 d-flex flex-column justify-content-end logs-button">
         <ul class="list-unstyled text-md-left mb-0 text-sm-center">
           <li>
@@ -51,7 +60,6 @@
           </li>
         </ul>
       </div>
-
       <div class="col-md-3 mb-md-0 mb-3 d-flex flex-column justify-content-end">
         <ul class="list-unstyled text-md-left mb-0 text-sm-center" >
           <li>
@@ -68,7 +76,6 @@
     </div>
   </div>
   <div class="footer-copyright text-center py-3 mt-5">© 2019 Copyright
-    <a href="https://mdbootstrap.com/education/bootstrap/"></a>
   </div>
 </footer>
 

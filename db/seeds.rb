@@ -8,6 +8,10 @@
 # YOU CAN CHOOSE IF YOU WANT TO SEED RANDOM CITIES OR REAL CITIES
 require 'rest-client'
 City.destroy_all
+# This is update the user cities to avoid errors
+User.all.each do |user|
+  user.update(city_id: nil)
+end
 cities_url = 'https://geo.api.gouv.fr/communes'
 data = JSON.parse( RestClient.get(cities_url) )
 data.select { |city| !city['population'].nil? && city['population'] > 5000}.each do |city|
@@ -41,7 +45,7 @@ end
 # User.create(email: 'admin123@admin.com', password: 'admin123', city: City.first, is_admin: true)
 # puts 'admin created'
 
-require 'csv'
+# require 'csv'
 #
 # data = CSV.read('lib/populate_gas_contract/offer_gas.csv', {:headers => false, :col_sep => ',', :encoding => 'ISO-8859-1'})
 # lines = data.select { |line| !line[0].nil?}
