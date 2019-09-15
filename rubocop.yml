@@ -9,6 +9,7 @@ AllCops:
     - 'vendor/**/*'
     - 'config/environments/*.rb'
     - 'bin/*'
+    - 'test/**/*.rb'
 
 Rails:
   Enabled: True
@@ -16,6 +17,6 @@ Rails:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*.rb'
-    - 'test/**/*.rb'
+
     - 'Guardfile'
     - 'vendor/bundle'

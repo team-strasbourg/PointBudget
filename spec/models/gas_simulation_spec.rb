@@ -176,5 +176,4 @@ RSpec.describe GasSimulation, type: :model do
       end
     end
   end
-
 end
