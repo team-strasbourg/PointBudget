@@ -49,6 +49,16 @@
 	</div>
 <% end %>
 
+<!-- numeric -->
+
+<%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-num btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+	<div class="d-flex justify-content-around align-items-center text-white">
+		<span class="icon"><i class="fas fa-mobile-alt"></i></span>
+		<h5 class="mt-4">Numérique</h5>
+	</div>
+<% end %>
+
+
 	<!-- Button Modal -->
 	<div class="container">
     <%=button_tag 'Résultat de ma simulation', class:'btn btn-block btn-secondary mb-3 simulation-result', data:{toggle:'modal', target:("#modal-default")} %>
