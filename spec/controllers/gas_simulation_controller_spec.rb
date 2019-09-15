@@ -2,5 +2,5 @@
 
 require 'rails_helper'
 
-RSpec.describe GasSimulationController, type: :controller do
+RSpec.describe GasSimulationsController, type: :controller do
 end

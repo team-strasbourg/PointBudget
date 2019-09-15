@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FullSimulation < ApplicationRecord
   belongs_to :user
   has_one :gas_simulation, dependent: :destroy
@@ -5,7 +7,7 @@ class FullSimulation < ApplicationRecord
 
   validates :total_cost_saved,
             presence: true,
-            numericality: { greater_than_or_equal_to: 0.00}
+            numericality: { greater_than_or_equal_to: 0.00 }
 
   def only_one_gas_simulation
     gas_simulation.nil? ? false : true
@@ -14,6 +16,6 @@ class FullSimulation < ApplicationRecord
   private
 
   def mail_if_validated
-    UserMailer.simulation_validated_email(self.user).deliver_now if validated
+    UserMailer.simulation_validated_email(user).deliver_now if validated
   end
 end

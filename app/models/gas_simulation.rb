@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 class GasSimulation < ApplicationRecord
-
   belongs_to :full_simulation
-  has_many :join_table_gases
+  has_many :join_table_gases, dependent: :destroy
   has_many :gas_contracts, through: :join_table_gases
   validates :actual_price_paid,
             presence: true,
@@ -16,17 +15,16 @@ class GasSimulation < ApplicationRecord
             numericality: { greater_than_or_equal_to: 9 }
   validates :heat_type,
             allow_blank: true,
-            format: { with: /\A(Gaz|Electricite)\Z/}
+            format: { with: /\A(Gaz|Electricite)\Z/ }
   validates :water_cooking_type,
             allow_blank: true,
-            format: { with: /\A(Gaz|Electricite)\Z/}
+            format: { with: /\A(Gaz|Electricite)\Z/ }
   validates :residents_number,
             allow_blank: true,
             numericality: { greater_than_or_equal_to: 1 }
   validates :gas_use,
             presence: true,
             numericality: { greater_than_or_equal_to: 0, only_integer: true }
-
 
   def assign_params_from_controller(params)
     @params = params
@@ -41,9 +39,9 @@ class GasSimulation < ApplicationRecord
       first_factor = heat_type == 'Gaz' ? 1 : 0
       second_factor = water_cooking_type == 'Gaz' ? 1 : 0
       yearly_consumption = floor_space * 100 * first_factor + consumption_people(nb_residents) * second_factor if yearly_consumption.zero?
-      return [yearly_cost, yearly_consumption]
+      [yearly_cost, yearly_consumption]
     else
-      return [false, -1]
+      [false, -1]
     end
   end
 
@@ -71,13 +69,7 @@ class GasSimulation < ApplicationRecord
   end
 
   def consumption_people(nb_residents)
-    hash = {
-              1 => 1630,
-              2 => 2945,
-              3 => 4265,
-              4 => 5320,
-              5 => 6360,
-           }
+    hash = { 1 => 1630, 2 => 2945, 3 => 4265, 4 => 5320, 5 => 6360 }
     if hash[nb_residents].nil?
       hash[5] + (nb_residents - 5) * 1000
     else

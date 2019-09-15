@@ -1,5 +1,6 @@
-class GasSimulationsController < ApplicationController
+# frozen_string_literal: true
 
+class GasSimulationsController < ApplicationController
   before_action :authenticate_user!
   before_action :user_signed_in?
   before_action :not_other_users_simulations
@@ -21,17 +22,15 @@ class GasSimulationsController < ApplicationController
   end
 
   def create
-
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
     @gas_simulation = GasSimulation.new
     @gas_simulation.assign_params_from_controller(params)
-    estimation = @gas_simulation.estimation(
-                                    params[:yearly_cost],
-                                    params[:yearly_consumption],
-                                    params[:floor_space],
-                                    params[:heat_type],
-                                    params[:water_cooking_type],
-                                    params[:nb_residents])
+    estimation = @gas_simulation.estimation(params[:yearly_cost],
+                                            params[:yearly_consumption],
+                                            params[:floor_space],
+                                            params[:heat_type],
+                                            params[:water_cooking_type],
+                                            params[:nb_residents])
     comparison = estimation[0] == false ? [-1, false] : @gas_simulation.comparison(estimation[0], estimation[1])
     @gas_simulation = GasSimulation.new(actual_price_paid: params[:yearly_cost],
                                         gas_cost_saved: comparison[0],
@@ -40,8 +39,7 @@ class GasSimulationsController < ApplicationController
                                         water_cooking_type: params[:water_cooking_type],
                                         residents_number: params[:nb_residents],
                                         gas_use: estimation[1],
-                                        full_simulation: @full_simulation
-                                        )
+                                        full_simulation: @full_simulation)
 
     if @gas_simulation.save
       @gas_simulation.create_join_table_gas(comparison[1])
@@ -54,5 +52,4 @@ class GasSimulationsController < ApplicationController
       redirect_to new_user_full_simulation_gas_simulation_path(current_user, @full_simulation)
     end
   end
-
 end

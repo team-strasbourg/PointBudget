@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EnergiesController < ApplicationController
   before_action :authenticate_user!
   before_action :not_other_users_simulations

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FullSimulationsController < ApplicationController
   before_action :user_signed_in?
   before_action :authenticate_user!
@@ -56,7 +58,4 @@ class FullSimulationsController < ApplicationController
   def full_simulation_params
     params.require(:full_simulation).permit(:total_cost_saved, :validated, :counter)
   end
-
-
-  
 end

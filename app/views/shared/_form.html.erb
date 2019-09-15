@@ -196,7 +196,7 @@
             </datalist>
           </div>
 
-          <% if is_admin? && !resource.last_admin?%>
+          <% if admin? && !resource.last_admin?%>
             <div class="form-group">
               <%= f.radio_button(:is_admin, true,autocomplete: :is_admin) %>
               <%= f.label(:is_admin, "True")%>
