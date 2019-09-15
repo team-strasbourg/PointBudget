@@ -20,9 +20,15 @@ class FullSimulationsController < ApplicationController
   def create
     @full_simulation = FullSimulation.new(user: current_user)
     if @full_simulation.save
+      respond_to do |format|
+        format.html do
+          flash[:success] = 'Vous venez de commencer une simulation'
+          redirect_to user_full_simulation_path(current_user, @full_simulation)
+        end
 
-      flash[:success] = 'Vous venez de commencer une simulation'
-      redirect_to user_full_simulation_path(current_user, @full_simulation)
+        format.js do
+        end
+      end
     else
       flash[:error] = @full_simulation.errors.messages
       render 'new'

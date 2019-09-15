@@ -28,11 +28,11 @@
         </thead>
         <tbody>
           <% unless @simulations.nil? %>
-            <% @simulations.each_with_index do |simu, index| %>
+            <% @simulations.each do |simu| %>
               <% if simu.validated == false %>
             
                 <tr>
-                  <th scope="row"><%= index %></th>
+                  <th scope="row"><%= simu.id %></th>
                   <td><%= simu.created_at %></td>
                   <td><%= simu.counter %></td>
                   <td><%= link_to "Je complète ma simulation", user_full_simulation_path(current_user, simu), class: "btn btn-success" %></td>
