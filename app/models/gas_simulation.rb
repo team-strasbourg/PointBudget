@@ -2,8 +2,8 @@
 
 class GasSimulation < ApplicationRecord
   belongs_to :full_simulation
-  has_many :join_table_gases, dependent: :destroy
-  has_many :gas_contracts, through: :join_table_gases
+  has_many :join_table_gas_simulation_contracts, dependent: :destroy
+  has_many :gas_contracts, through: :join_table_gas_simulation_contracts
   validates :actual_price_paid,
             presence: true,
             numericality: { greater_than_or_equal_to: 0 }
@@ -72,6 +72,10 @@ class GasSimulation < ApplicationRecord
       end
     end
     [max_save.round(2), second_filter]
+  end
+
+  def sort_contracts
+    # Here we need to sort the contracts by savings
   end
 
   def create_join_table_gas(filter)
