@@ -20,6 +20,7 @@ class FullSimulationsController < ApplicationController
   def create
     @full_simulation = FullSimulation.new(user: current_user)
     if @full_simulation.save
+
       flash[:success] = 'Vous venez de commencer une simulation'
       redirect_to user_full_simulation_path(current_user, @full_simulation)
     else

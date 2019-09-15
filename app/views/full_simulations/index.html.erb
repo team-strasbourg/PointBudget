@@ -1,4 +1,15 @@
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 d-flex flex-column align-items-center">
+      <div>
+        <h2>Ajoutez une simulation maintenant et complétez là plus tard</h2>
+      </div>
+      <div>
+        <%=link_to "Ajout Rapide", user_full_simulations_path(current_user), method: :post, class: "btn btn-lg btn-primary", remote: true%>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="simu-section-top">
   <div class="simu-title">
      <h2><strong>Vos simulations en cours</strong></h2>
