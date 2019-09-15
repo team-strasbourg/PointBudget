@@ -18,7 +18,7 @@
                                                       
 	<!-- Button Modal -->
 	<div class="container">
-		<button type="button" class="btn btn-block btn-secondary mb-3 simulation-result" data-toggle="modal" data-target="#modal-default">Résultat de ma simulation</button>
+    <%=button_tag 'Résultat de ma simulation', class:'btn btn-block btn-secondary mb-3 simulation-result', data:{toggle:'modal', target:("#modal-default")} %>
 	</div>
 	<!-- Modal Content -->
 	<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default"
@@ -26,10 +26,10 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h6 class="modal-title" id="modal-title-default">Point Budget</h6> 
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-          </button>
+          <h6 class="modal-title" id="modal-title-default">Point Budget</h6>
+          <%=button_tag class:'close', data:{dismiss:'modal'}, aria_label:'close' do %>
+            <span aria-hidden="true">×</span>
+          <%end %>
         </div>
         <div class="modal-body">
           <div id="context" class="container">
