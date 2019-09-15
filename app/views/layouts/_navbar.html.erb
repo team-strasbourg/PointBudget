@@ -52,9 +52,9 @@
 <!-- Hamburger Button -->
 
       <div class="d-flex align-items-center">
-        <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbar-primary" aria-controls="navbar-primary" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <%=button_tag class:'navbar-toggler ml-2', data:{toggle:'collapse', target:'#navbar-primary'}, aria:{controls:'navbar-primary', expanded:'false', label:'Toggle navigation' } do%>
+          <span class="navbar-toggler-icon"></span>
+      <%end %>
       </div>
     </div>
   </nav>
