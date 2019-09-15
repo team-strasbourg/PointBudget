@@ -1,10 +1,10 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: :registrations }
 
   root to: 'static_pages#landing_page'
   get 'static_pages/about'
-
   get 'static_pages/contact'
 
   namespace :admin do

@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 class GasSimulation < ApplicationRecord
 
   belongs_to :full_simulation
-
   has_many :join_table_gases
   has_many :gas_contracts, through: :join_table_gases
   validates :actual_price_paid,
@@ -36,7 +37,7 @@ class GasSimulation < ApplicationRecord
     yearly_consumption = yearly_consumption.to_i
     floor_space = floor_space.to_i
     nb_residents = nb_residents.to_i
-    if verify_nilness_params(yearly_cost,yearly_consumption,floor_space,heat_type,water_cooking_type,nb_residents)
+    if verify_nilness_params(yearly_cost, yearly_consumption, floor_space, heat_type, water_cooking_type, nb_residents)
       first_factor = heat_type == 'Gaz' ? 1 : 0
       second_factor = water_cooking_type == 'Gaz' ? 1 : 0
       yearly_consumption = floor_space * 100 * first_factor + consumption_people(nb_residents) * second_factor if yearly_consumption.zero?
@@ -60,7 +61,7 @@ class GasSimulation < ApplicationRecord
         max_save = savings
       end
     end
-    [(max_save).round(2), second_filter]
+    [max_save.round(2), second_filter]
   end
 
   def create_join_table_gas(filter)
@@ -71,25 +72,25 @@ class GasSimulation < ApplicationRecord
 
   def consumption_people(nb_residents)
     hash = {
-        1 => 1630,
-        2 => 2945,
-        3 => 4265,
-        4 => 5320,
-        5 => 6360,
-    }
+              1 => 1630,
+              2 => 2945,
+              3 => 4265,
+              4 => 5320,
+              5 => 6360,
+           }
     if hash[nb_residents].nil?
-      hash[5] + (nb_residents-5)*1000
+      hash[5] + (nb_residents - 5) * 1000
     else
       hash[nb_residents]
     end
   end
 
-  def verify_nilness_params(yearly_cost,yearly_consumption,floor_space,heat_type,water_cooking_type,nb_residents)
+  def verify_nilness_params(yearly_cost, yearly_consumption, floor_space, heat_type, water_cooking_type, nb_residents)
     if yearly_cost.zero?
       false
     else
       if yearly_consumption.zero?
-        if [floor_space,nb_residents].include?(0) || [heat_type, water_cooking_type].include?('')
+        if [floor_space, nb_residents].include?(0) || [heat_type, water_cooking_type].include?('')
           false
         else
           true
