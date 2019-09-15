@@ -8,7 +8,6 @@ RSpec.describe GasSimulation, type: :model do
   end
 
   context 'validations' do
-
     it 'is valid with valid attributes' do
       expect(@gas_simulation).to be_a(GasSimulation)
       expect(@gas_simulation).to be_valid
@@ -53,7 +52,6 @@ RSpec.describe GasSimulation, type: :model do
       it 'can be blank' do
         expect(build(:gas_simulation, heat_type: nil)).to be_valid
       end
-      
       it 'can be either Gaz or Electricite' do
         expect(build(:gas_simulation)).to be_valid
         expect(build(:gas_simulation, heat_type: 'other')).not_to be_valid
@@ -64,7 +62,6 @@ RSpec.describe GasSimulation, type: :model do
       it 'can be blank' do
         expect(build(:gas_simulation, water_cooking_type: nil)).to be_valid
       end
-      
       it 'can be either Gaz or Electricite' do
         expect(build(:gas_simulation)).to be_valid
         expect(build(:gas_simulation, water_cooking_type: 'other')).not_to be_valid

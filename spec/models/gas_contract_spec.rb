@@ -6,7 +6,6 @@ RSpec.describe GasContract, type: :model do
   end
 
   context 'validations' do
-
     it 'is valid with valid attributes' do
       expect(@gas_contract).to be_a(GasContract)
       expect(@gas_contract).to be_valid
