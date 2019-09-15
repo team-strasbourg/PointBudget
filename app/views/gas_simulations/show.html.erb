@@ -21,15 +21,15 @@
                 <ul class="list-group mb-4">
                   <li class="list-group-item"><strong>Coût annuel de gaz</strong> <%=@gas_sim.actual_price_paid%></li>
                   <li class="list-group-item"><strong>Superficie</strong>
-                      <%= @gas_sim.floor_space%> m2</li>
-                  <li class="list-group-item"><strong>Nombre de personnes</strong> <%= @gas_sim.residents_number%></li>
+                      <%= @floor_space%> m2</li>
+                  <li class="list-group-item"><strong>Nombre de personnes</strong> <%= @residents_number%></li>
                 </ul>
               </div>
               <div class="col text-center">
                 <ul class="list-group mb-4">
-                  <li class="list-group-item"><strong>Type de chauffage (maison)</strong>  <%= @gas_sim.heat_type%></li>
+                  <li class="list-group-item"><strong>Type de chauffage (maison)</strong>  <%= @heat_type%></li>
                   <li class="list-group-item"><strong>Type de chauffage (eau + cuisson)</strong>
-                      <%= @gas_sim.water_cooking_type%></li>
+                      <%= @water_cooking_type%></li>
                   <li class="list-group-item"><strong>Consommation annuelle</strong>  <%= @gas_sim.gas_use%> Wh</li>
                 </ul>
               </div>

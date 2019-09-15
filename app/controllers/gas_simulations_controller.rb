@@ -9,6 +9,11 @@ class GasSimulationsController < ApplicationController
 
   def show
     @gas_sim = GasSimulation.find(params[:id])
+    table_attributes = @gas_sim.print_report
+    @floor_space = table_attributes[0]
+    @heat_type = table_attributes[1]
+    @water_cooking_type = table_attributes[2]
+    @residents_number = table_attributes[3]
   end
 
   def new

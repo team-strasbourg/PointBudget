@@ -15,7 +15,7 @@ class GasSimulation < ApplicationRecord
             numericality: { greater_than_or_equal_to: 9 }
   validates :heat_type,
             allow_blank: true,
-            format: { with: /\A(Gaz|Electricite)\Z/ }
+            format: { with: /\A(Gaz|Electricite|Non)\Z/ }
   validates :water_cooking_type,
             allow_blank: true,
             format: { with: /\A(Gaz|Electricite)\Z/ }
@@ -25,6 +25,18 @@ class GasSimulation < ApplicationRecord
   validates :gas_use,
             presence: true,
             numericality: { greater_than_or_equal_to: 0, only_integer: true }
+
+  def print_report
+    table_attributes = []
+    [floor_space, heat_type, water_cooking_type, residents_number].each do |attribute|
+      table_attributes << if attribute.nil? || attribute.empty?
+                            'Non renseigné'
+                          else
+                            attribute
+                          end
+    end
+    table_attributes
+  end
 
   def assign_params_from_controller(params)
     @params = params
