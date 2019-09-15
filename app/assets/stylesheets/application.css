@@ -274,22 +274,15 @@ li.button-group{
   border-radius: 5px;
 }
 
-/*.icon-category{
-	padding-top: 17px;
-}
 
-.gas-category{
-	font-size: 25px;
-	padding-bottom: 11px;
-}
-
-.elec-category{
-	font-size: 15px;
-	padding-bottom: 11px;
-}*/
-
-.btn-simu-gas{
-	width: 120px;
+.btn-simu{
 	height: 80px;
 	border-radius: 5px;
+}
+.btn-simu-gas{
+	width: 120px;
+}
+
+.btn-simu-elec{
+	width: 170px;
 }
