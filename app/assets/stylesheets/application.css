@@ -274,7 +274,7 @@ li.button-group{
   border-radius: 5px;
 }
 
-.icon-category{
+/*.icon-category{
 	padding-top: 17px;
 }
 
@@ -286,9 +286,10 @@ li.button-group{
 .elec-category{
 	font-size: 15px;
 	padding-bottom: 11px;
-}
+}*/
 
-.btn-simulation{
-	width: 400px;
-	height: 200px;
+.btn-simu-gas{
+	width: 120px;
+	height: 80px;
+	border-radius: 5px;
 }
