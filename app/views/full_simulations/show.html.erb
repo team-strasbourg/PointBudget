@@ -15,7 +15,40 @@
       <%=button_tag 'Mutuelle', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
 	  <% end %>
 	</div>
-                                                      
+  <!-- btn categories -->
+<!-- energy -->
+<%= link_to new_user_full_simulation_energy_path(current_user, @full_simulation), class: 'btn-simu-elec btn-simu btn btn-secondary' do %>
+	<div class="d-flex justify-content-around align-items-center text-white">
+		<span class="icon"><i class="fas fa-sun"></i></span>
+		<h5 class="mt-4">Energie</h5>
+	</div>
+<% end %>
+
+<%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-elec btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+	<div class="d-flex justify-content-around align-items-center text-white">
+		<span class="icon"><i class="fas fa-sun"></i></span>
+		<h5 class="mt-4">Energie</h5>
+	</div>
+<% end %>
+
+<!-- assurance -->
+
+<%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-assur btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+	<div class="d-flex justify-content-around align-items-center text-white">
+		<span class="icon"><i class="fas fa-house-damage"></i></span>
+		<h5 class="mt-4">Assurance</h5>
+	</div>
+<% end %>
+
+<!-- bank -->
+
+<%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-bank btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+	<div class="d-flex justify-content-around align-items-center text-white">
+		<span class="icon"><i class="fas fa-money-check-alt"></i></span>
+		<h5 class="mt-4">Banque</h5>
+	</div>
+<% end %>
+
 	<!-- Button Modal -->
 	<div class="container">
     <%=button_tag 'Résultat de ma simulation', class:'btn btn-block btn-secondary mb-3 simulation-result', data:{toggle:'modal', target:("#modal-default")} %>
