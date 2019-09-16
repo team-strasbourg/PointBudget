@@ -8,6 +8,6 @@ RSpec.describe 'Edit User Profile', type: :feature do
   end
 
   scenario 'can edit his profile with correct things' do
-    click
+
   end
 end

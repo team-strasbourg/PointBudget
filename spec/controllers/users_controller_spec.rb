@@ -23,7 +23,8 @@ RSpec.describe UsersController, type: :controller do
 
   describe 'anonymous user' do
     it 'should be redirected to signin for show' do
-      get :show
+      user = create(:user)
+      get :show, params: { id: user.id }
       expect(response).to redirect_to(new_user_session_path)
     end
 
