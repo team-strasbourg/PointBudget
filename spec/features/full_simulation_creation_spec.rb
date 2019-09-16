@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-RSpec.describe 'Full Simulation', type: :feature do
+RSpec.describe 'Full Simulation creation', type: :feature do
   before :each do
     @user = User.create(email: 'user@example.com', password: 'password')
     sign_in @user.email, @user.password
