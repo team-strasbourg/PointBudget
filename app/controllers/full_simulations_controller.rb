@@ -4,7 +4,7 @@ class FullSimulationsController < ApplicationController
   before_action :user_signed_in?
   before_action :authenticate_user!
   before_action :not_other_users_full_simulations, only: [:show]
-  before_action :not_other_user_index, only: [:index]
+  before_action :not_other_user_index, only: [:index, :new]
 
   def index
     @simulations = current_user.full_simulations
@@ -12,7 +12,7 @@ class FullSimulationsController < ApplicationController
 
   def show
     @full_simulation = FullSimulation.find(params[:id])
-      @gas_simulation = GasSimulation.new
+    @gas_simulation = GasSimulation.new
   end
 
   def new
@@ -27,7 +27,6 @@ class FullSimulationsController < ApplicationController
           flash[:success] = 'Vous venez de commencer une simulation'
           redirect_to user_full_simulation_path(current_user, @full_simulation)
         end
-
         format.js do
         end
       end
@@ -35,10 +34,6 @@ class FullSimulationsController < ApplicationController
       flash[:error] = @full_simulation.errors.messages
       render 'new'
     end
-  end
-
-  def edit
-    @full_simulation = FullSimulation.find(params[:id])
   end
 
   def update

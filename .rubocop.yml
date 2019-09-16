@@ -21,3 +21,18 @@ Metrics/BlockLength:
     - 'Guardfile'
     - 'vendor/bundle'
     - '*'
+Rails/BulkChangeTable:
+  Exclude:
+    - 'db/migrate/*'
+
+Rails/FilePath:
+  Exclude:
+    - 'app/controllers/application_controller.rb'
+
+Style/IfInsideElse:
+  Exclude:
+    - 'app/models/gas_simulation.rb'
+
+Style/RescueStandardError:
+  Exclude:
+    - 'app/**/*'
