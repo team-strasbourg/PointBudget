@@ -33,15 +33,32 @@ class ApplicationController < ActionController::Base
     # This method prevents users from going to another user's show and edit pages
     return unless current_user != User.find(params[:id])
 
-    flash[:error] = "Vous n'avez pas le droit d'accéder à cette page"
-    redirect_to user_path(current_user)
+    error_connected
   end
 
-  def not_other_users_simulations
-    # This method prevents users from going to pages associated with another user, namely the simulations
+  def not_other_user_index
+    # This method prevents users from going to another index page of an other user
     return unless current_user != User.find(params[:user_id])
 
+    error_connected
+  end
+
+  def not_other_users_full_simulations
+    # This method prevents users from going to pages associated with another user, namely the simulations
+    return unless current_user != FullSimulation.find(params[:id]).user
+
+    error_connected
+  end
+
+  def not_other_users_gas_simulations
+    # This method prevents users from going to pages associated with another user, namely the simulations
+    return unless current_user != GasSimulation.find(params[:id]).full_simulation.user && FullSimulation.find(params[:full_simulation_id]) == GasSimulation.find(params[:id]).full_simulation
+
+    error_connected
+  end
+
+  def error_connected
     flash[:error] = "Vous n'avez pas le droit d'accéder à cette page"
-    redirect_to user_path(current_user)
+    redirect_to new_user_full_simulation_path(current_user)
   end
 end

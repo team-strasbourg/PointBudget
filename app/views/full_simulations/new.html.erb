@@ -1,6 +1,18 @@
-<h1>FullSimulations#new</h1>
-<p>Find me in app/views/full_simulations/new.html.erb</p>
-<br>
-<br>
-<br>
-<%=link_to "Nouvelle Simulation", user_full_simulations_path(current_user), method: :post, class: "btn btn-primary"%>
+<div class="title text-center">
+  <h5>Munissez vous des factures trop chères à votre goût ! <button id="btn-click-1"><u><strong>Cliquez ici</strong></u></button> pour voir les domaines analysés</h5>
+  <br>
+  <ul id="domain-list" style="list-style:none;display:none;">
+    <li>Assurances</li>
+    <li>Banquaire</li>
+    <li>Energies (gaz/electricité)</li>
+    <li>Numérique</li>
+    <li>Mutuelle</li>
+  </ul>
+  <br>
+  <h2>Pour commencer à économiser, lancez votre simulation ! </h2>
+  <br>
+  <br>
+  <div>
+    <%=link_to "Lancer ma simulation", user_full_simulations_path(current_user), method: :post, class: "btn btn-primary animate-up-3 btn-lg"%>
+  </div>
+</div>
