@@ -1,5 +1,6 @@
 <div class="title text-center">
-  <h5>Munissez vous des factures trop chères à votre goût ! <button id="btn-click-1">Cliquez ici</button> pour voir les domaines analysés</h5>
+  <h5>Munissez vous des factures trop chères à votre goût ! <button id="btn-click-1"><u><strong>Cliquez ici</strong></u></button> pour voir les domaines analysés</h5>
+  <br>
   <ul id="domain-list" style="list-style:none;display:none;">
     <li>Assurances</li>
     <li>Banquaire</li>
@@ -7,7 +8,9 @@
     <li>Numérique</li>
     <li>Mutuelle</li>
   </ul>
-  <h3>Pour commencer à économiser, cliquez ici :</h3>
+  <br>
+  <h2>Pour commencer à économiser, lancez votre simulation ! </h2>
+  <br>
   <br>
   <div>
     <%=link_to "Lancer ma simulation", user_full_simulations_path(current_user), method: :post, class: "btn btn-primary animate-up-3 btn-lg"%>
