@@ -57,17 +57,9 @@ if($("body").data("controller") == "full_simulations" && $("body").data("action"
 
 if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "new"){
   clickToDisplayDomains = document.getElementById("btn-click-1")
-  domainDisplayStatus = false
 
   clickToDisplayDomains.addEventListener('click', function(){
-    if (domainDisplayStatus == false) {
-      $("#domain-list").show(500);
-      domainDisplayStatus = true
-    }
-    else if (domainDisplayStatus == true) {
-      $("#domain-list").hide(500);
-      domainDisplayStatus = false
-    }
+    $("#domain-list").toggle(600);
   })
 };
 
