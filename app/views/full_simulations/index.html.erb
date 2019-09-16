@@ -27,7 +27,7 @@
           <tr>
             <th scope="col" style="width: 10%;">Simulation</th>
             <th scope="col" style="width: 10%;">Créée le</th>
-            <th scope="col" style="width: 30%;">Catégories testées</th>
+            <th scope="col" style="width: 30%;" class="d-none d-xs-table-cell">Catégories testées</th>
             <th scope="col" style="width: 40%;">Compléter sa simulation</th>
             <th scope="col" style="width: 10%;">Supprimer</th>
           </tr>
@@ -39,7 +39,7 @@
                 <tr id="simulation-unconfirmed-<%=simu.id %>">
                   <th scope="row"><%= simu.id %></th>
                   <td><%= simu.created_at %></td>
-                  <td><%= simu.counter %></td>
+                  <td class="d-none d-xs-table-cell"><%= simu.counter %></td>
                   <td><%= link_to "Je complète ma simulation", user_full_simulation_path(current_user, simu), class: "btn btn-success" %></td>
                   <td><%= link_to "Supprimer", user_full_simulation_path(current_user, simu), method: :delete, class: "btn btn-danger", remote: true %></td>
                 </tr>
