@@ -1,0 +1,2 @@
+class BoxContract < ApplicationRecord
+end

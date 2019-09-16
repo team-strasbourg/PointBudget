@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_16_190830) do
+ActiveRecord::Schema.define(version: 2019_09_16_191503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "box_contracts", force: :cascade do |t|
+    t.string "supplier", default: ""
+    t.string "offer_name", default: ""
+    t.float "price_month", default: 0.0
+    t.integer "commitment", default: 0
+    t.float "price_after", default: 0.0
+    t.string "type", default: ""
+    t.integer "downstream", default: 0
+    t.integer "upstream", default: 0
+    t.string "tv_channel", default: ""
+    t.boolean "tv", default: false
+    t.boolean "call_fix_fr", default: false
+    t.boolean "call_mobile_fr", default: false
+    t.boolean "call_foreign", default: false
+    t.float "opening_fee", default: 0.0
+    t.float "termination_fee", default: 0.0
+    t.float "taken_termination", default: 0.0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "box_simulations", force: :cascade do |t|
     t.float "actual_price_paid", default: 0.0
