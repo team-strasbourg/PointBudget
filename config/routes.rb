@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[show edit update] do
     root to: 'full_simulations#new'
-    resources :full_simulations do
+    resources :full_simulations, except: [:edit] do
       resources :energies, only: %i[show new]
       resources :gas_simulations, except: [:index]
     end
