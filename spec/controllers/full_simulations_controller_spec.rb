@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe FullSimulationsController, type: :controller do
+  login_user
   describe 'GET show' do
-    login_user
     before :each do
       2.times do
         create(:full_simulation, user: subject.current_user)
@@ -28,7 +28,6 @@ RSpec.describe FullSimulationsController, type: :controller do
   end
 
   describe "GET index" do
-    login_user
     it "assigns a full simulation" do
       simu = create(:full_simulation, user: subject.current_user)
       get :index, params: { user_id: subject.current_user.id }
@@ -38,6 +37,13 @@ RSpec.describe FullSimulationsController, type: :controller do
     it "renders the index template" do
       get :index, params: { user_id: subject.current_user.id }
       expect(response).to render_template("index")
+    end
+  end
+
+  describe "GET new" do
+    it "renders the new template" do
+      get :new, params: { user_id: subject.current_user.id }
+      expect(response).to render_template("new")
     end
   end
 end
