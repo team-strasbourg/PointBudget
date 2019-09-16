@@ -1,24 +1,91 @@
 
+ <!-- btn categories -->
+
 <% unless @full_simulation.validated == true %>
-	<div>
-		<% if @full_simulation.only_one_gas_simulation %>
-      <%=button_tag 'Assurance', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
-      <%=button_tag 'Banquaire', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
-      <%=button_tag 'Energie', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
-      <%=button_tag 'Numérique', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
-      <%=button_tag 'Mutuelle', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
-	  <% else %>
-      <%=button_tag 'Assurance', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
-      <%=button_tag 'Banquaire', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
-      <%=link_to "Energie", new_user_full_simulation_energy_path(current_user, @full_simulation), class: "btn btn-primary"%>
-      <%=button_tag 'Numérique', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
-      <%=button_tag 'Mutuelle', class:'btn btn-primary disabled', style:'cursor:not-allowed' %>
-	  <% end %>
+	<div class="title-simu container-fluid">
+	  <h2 class="text-center">Vous désirez economiser un maximum? <br>Explorez toutes nos catégories!</h2>
 	</div>
-                                                      
+
+	<div id="categories" class="row container-fluid d-flex justify-content-around">
+	
+		<% if @full_simulation.only_one_gas_simulation %>
+		<!-- insurance -->
+      <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-assur btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+				<div class="d-flex justify-content-around align-items-center text-white">
+					<span class="icon"><i class="fas fa-house-damage"></i></span>
+					<h5 class="mt-4">Assurance</h5>
+				</div>
+			<% end %>
+		<!-- bank -->
+      <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-bank btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+				<div class="d-flex justify-content-around align-items-center text-white">
+					<span class="icon"><i class="fas fa-money-check-alt"></i></span>
+					<h5 class="mt-4">Banque</h5>
+				</div>
+			<% end %>
+		<!-- energy -->
+      <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-elec btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+				<div class="d-flex justify-content-around align-items-center text-white">
+					<span class="icon"><i class="fas fa-sun"></i></span>
+					<h5 class="mt-4">Energie</h5>
+				</div>
+			<% end %>
+		<!-- numeric -->
+      <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-num btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+				<div class="d-flex justify-content-around align-items-center text-white">
+					<span class="icon"><i class="fas fa-mobile-alt"></i></span>
+					<h5 class="mt-4">Numérique</h5>
+				</div>
+			<% end %>
+		<!-- medical -->
+      <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-mut btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+				<div class="d-flex justify-content-around align-items-center text-white">
+					<span class="icon"><i class="fas fa-stethoscope"></i></span>
+					<h5 class="mt-4">Mutuelle</h5>
+				</div>
+			<% end %>
+	  <% else %>
+	  <!-- insurance -->
+	    <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-assur btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+				<div class="d-flex justify-content-around align-items-center text-white">
+					<span class="icon"><i class="fas fa-house-damage"></i></span>
+					<h5 class="mt-4">Assurance</h5>
+				</div>
+			<% end %>
+		<!-- bank -->
+      <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-bank btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+				<div class="d-flex justify-content-around align-items-center text-white">
+					<span class="icon"><i class="fas fa-money-check-alt"></i></span>
+					<h5 class="mt-4">Banque</h5>
+				</div>
+			<% end %>
+		<!-- energy -->
+      <%= link_to new_user_full_simulation_energy_path(current_user, @full_simulation), class: 'btn-simu-elec btn-simu btn btn-primary animate-up-3' do %>
+				<div class="d-flex justify-content-around align-items-center text-white">
+					<span class="icon"><i class="fas fa-sun"></i></span>
+					<h5 class="mt-4">Energie</h5>
+				</div>
+			<% end %>
+		<!-- numeric -->
+      <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-num btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+				<div class="d-flex justify-content-around align-items-center text-white">
+					<span class="icon"><i class="fas fa-mobile-alt"></i></span>
+					<h5 class="mt-4">Numérique</h5>
+				</div>
+			<% end %>
+		<!-- medical -->
+      <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-mut btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+				<div class="d-flex justify-content-around align-items-center text-white">
+					<span class="icon"><i class="fas fa-stethoscope"></i></span>
+					<h5 class="mt-4">Mutuelle</h5>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+
 	<!-- Button Modal -->
-	<div class="container">
-    <%=button_tag 'Résultat de ma simulation', class:'btn btn-block btn-secondary mb-3 simulation-result', data:{toggle:'modal', target:("#modal-default")} %>
+	<div class="container-fluid row justify-content-center simulation-result">
+    <%=button_tag 'Je finalise ma simulation', class:'btn btn-block btn-secondary mb-3 col-md-3 btn-result', data:{toggle:'modal', target:("#modal-default")} %>
 	</div>
 	<!-- Modal Content -->
 	<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default"
