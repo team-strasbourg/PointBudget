@@ -1,9 +1,9 @@
+# frozen_string_literal: true
+
 class GasSimulation < ApplicationRecord
-
   belongs_to :full_simulation
-
-  has_many :join_table_gases
-  has_many :gas_contracts, through: :join_table_gases
+  has_many :join_table_gas_simulation_contracts, dependent: :destroy
+  has_many :gas_contracts, through: :join_table_gas_simulation_contracts
   validates :actual_price_paid,
             presence: true,
             numericality: { greater_than_or_equal_to: 0 }
@@ -15,10 +15,10 @@ class GasSimulation < ApplicationRecord
             numericality: { greater_than_or_equal_to: 9 }
   validates :heat_type,
             allow_blank: true,
-            format: { with: /\A(Gaz|Electricite)\Z/}
+            format: { with: /\A(Gaz|Electricite|Non)\Z/ }
   validates :water_cooking_type,
             allow_blank: true,
-            format: { with: /\A(Gaz|Electricite)\Z/}
+            format: { with: /\A(Gaz|Electricite)\Z/ }
   validates :residents_number,
             allow_blank: true,
             numericality: { greater_than_or_equal_to: 1 }
@@ -26,6 +26,17 @@ class GasSimulation < ApplicationRecord
             presence: true,
             numericality: { greater_than_or_equal_to: 0, only_integer: true }
 
+  def print_report
+    table_attributes = []
+    [floor_space, heat_type, water_cooking_type, residents_number].each do |attribute|
+      table_attributes << if attribute.nil? || attribute.empty?
+                            'Non renseigné'
+                          else
+                            attribute
+                          end
+    end
+    table_attributes
+  end
 
   def assign_params_from_controller(params)
     @params = params
@@ -36,13 +47,13 @@ class GasSimulation < ApplicationRecord
     yearly_consumption = yearly_consumption.to_i
     floor_space = floor_space.to_i
     nb_residents = nb_residents.to_i
-    if verify_nilness_params(yearly_cost,yearly_consumption,floor_space,heat_type,water_cooking_type,nb_residents)
+    if verify_nilness_params(yearly_cost, yearly_consumption, floor_space, heat_type, water_cooking_type, nb_residents)
       first_factor = heat_type == 'Gaz' ? 1 : 0
       second_factor = water_cooking_type == 'Gaz' ? 1 : 0
       yearly_consumption = floor_space * 100 * first_factor + consumption_people(nb_residents) * second_factor if yearly_consumption.zero?
-      return [yearly_cost, yearly_consumption]
+      [yearly_cost, yearly_consumption]
     else
-      return [false, -1]
+      [false, -1]
     end
   end
 
@@ -54,42 +65,50 @@ class GasSimulation < ApplicationRecord
       yearly_cost > (contract.kwh_price_base * yearly_consumption + contract.subscription_base_price_month * 12)
     }
     max_save = 0
+    all_savings = []
     second_filter.each do |contract|
       savings = yearly_cost - (contract.kwh_price_base * yearly_consumption + contract.subscription_base_price_month * 12)
       if savings > max_save
         max_save = savings
       end
+      all_savings << savings
     end
-    [(max_save).round(2), second_filter]
+    [max_save.round(2), second_filter, all_savings]
   end
 
-  def create_join_table_gas(filter)
-    filter.each do |contract|
-      JoinTableGasSimulationContract.create(gas_simulation: self, gas_contract: contract)
+  def create_join_table_gas(filter, all_savings)
+    filter.each_with_index do |contract,index|
+      JoinTableGasSimulationContract.create(gas_simulation: self, gas_contract: contract, savings: all_savings[index])
     end
+  end
+
+  def sort_contracts(how_many)
+    return_array = []
+    contracts_sorted = join_table_gas_simulation_contracts.sort_by(&:savings).reverse
+    how_many.times do |i|
+      begin
+      return_array << GasContract.find(contracts_sorted[i].gas_contract_id)
+      rescue
+      end
+    end
+    return_array
   end
 
   def consumption_people(nb_residents)
-    hash = {
-        1 => 1630,
-        2 => 2945,
-        3 => 4265,
-        4 => 5320,
-        5 => 6360,
-    }
+    hash = { 1 => 1630, 2 => 2945, 3 => 4265, 4 => 5320, 5 => 6360 }
     if hash[nb_residents].nil?
-      hash[5] + (nb_residents-5)*1000
+      hash[5] + (nb_residents - 5) * 1000
     else
       hash[nb_residents]
     end
   end
 
-  def verify_nilness_params(yearly_cost,yearly_consumption,floor_space,heat_type,water_cooking_type,nb_residents)
+  def verify_nilness_params(yearly_cost, yearly_consumption, floor_space, heat_type, water_cooking_type, nb_residents)
     if yearly_cost.zero?
       false
     else
       if yearly_consumption.zero?
-        if [floor_space,nb_residents].include?(0) || [heat_type, water_cooking_type].include?('')
+        if [floor_space, nb_residents].include?(0) || [heat_type, water_cooking_type].include?('')
           false
         else
           true

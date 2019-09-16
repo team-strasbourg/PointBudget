@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserMailer < ApplicationMailer
   default from: 'no-reply@pointbudget.fr'
 
@@ -18,5 +20,4 @@ class UserMailer < ApplicationMailer
     @url = 'https://point-budget.herokuapp.com/users/sign_in'
     mail(to: @user.email, subject: 'Vous venez de valider une simulation de budget !')
   end
-
 end

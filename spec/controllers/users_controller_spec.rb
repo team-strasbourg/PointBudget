@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
   describe 'GET show' do
     login_user
-
     it 'should have a current_user' do
       expect(subject.current_user).to_not eq(nil)
     end
@@ -21,7 +22,6 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe 'anonymous user' do
-
     it 'should be redirected to signin for show' do
       get :show
       expect(response).to redirect_to(new_user_session_path)
@@ -64,7 +64,6 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it "changes @user's attributes" do
-
         put :update, params: { id: subject.current_user,
                                user: { first_name: @first_name,
                                        last_name: @last_name,

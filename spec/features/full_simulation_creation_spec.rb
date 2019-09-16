@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 RSpec.describe 'Full Simulation', type: :feature do
   before :each do
@@ -18,11 +20,9 @@ RSpec.describe 'Full Simulation', type: :feature do
     within('#body_content_user') do
       click_link 'Nouvelle Simulation'
     end
-    click_button 'Résultat de ma simulation'
+    click_button 'Je finalise ma simulation'
     expect(page).to have_content('D\'après nos comparateurs, vous pourriez économiser')
     click_button 'Valider ma simulation'
     expect(page).to have_content('Votre simulation a été validée')
   end
-
-
 end
