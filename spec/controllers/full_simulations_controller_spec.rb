@@ -26,4 +26,21 @@ RSpec.describe FullSimulationsController, type: :controller do
       expect(response).to redirect_to("/users/#{subject.current_user.id}/full_simulations/new")
     end
   end
+
+  describe "GET index" do
+    login_user
+    it "assigns a full simulation" do
+      simu = create(:full_simulation, user: subject.current_user)
+      get :index, params: { user_id: subject.current_user.id }
+      expect(assigns(:simulations)).to eq([simu])
+    end
+
+    # it "renders the index template" do
+    #   # va sur index
+    #   get :index
+    #
+    #   # on doit rediriger vers index
+    #   expect(response).to render_template("index")
+    # end
+  end
 end

@@ -26,7 +26,6 @@ class FullSimulationsController < ApplicationController
           flash[:success] = 'Vous venez de commencer une simulation'
           redirect_to user_full_simulation_path(current_user, @full_simulation)
         end
-
         format.js do
         end
       end
@@ -34,10 +33,6 @@ class FullSimulationsController < ApplicationController
       flash[:error] = @full_simulation.errors.messages
       render 'new'
     end
-  end
-
-  def edit
-    @full_simulation = FullSimulation.find(params[:id])
   end
 
   def update
