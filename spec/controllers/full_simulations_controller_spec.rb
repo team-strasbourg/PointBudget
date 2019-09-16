@@ -35,12 +35,9 @@ RSpec.describe FullSimulationsController, type: :controller do
       expect(assigns(:simulations)).to eq([simu])
     end
 
-    # it "renders the index template" do
-    #   # va sur index
-    #   get :index
-    #
-    #   # on doit rediriger vers index
-    #   expect(response).to render_template("index")
-    # end
+    it "renders the index template" do
+      get :index, params: { user_id: subject.current_user.id }
+      expect(response).to render_template("index")
+    end
   end
 end
