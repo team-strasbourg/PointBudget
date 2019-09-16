@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :full_simulations, except: [:edit] do
       resources :energies, only: %i[show new]
       resources :gas_simulations, except: [:index]
+      resources :box_simulations, except: [:index]
     end
   end
 end

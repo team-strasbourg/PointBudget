@@ -19,7 +19,7 @@ class BoxSimulationsController < ApplicationController
   def new
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
     if @full_simulation.only_one_box_simulation
-      flash[:error] = 'Vous avez déjà comparé le gaz dans cette simulation'
+      flash[:error] = 'Vous avez déjà comparé la box dans cette simulation'
       redirect_to user_full_simulation_path(current_user, @full_simulation)
     else
       @box_simulation = BoxSimulation.new
@@ -30,20 +30,12 @@ class BoxSimulationsController < ApplicationController
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
     @box_simulation = BoxSimulation.new
     @box_simulation.assign_params_from_controller(params)
-    estimation = @box_simulation.estimation(params[:yearly_cost],
-                                            params[:yearly_consumption],
-                                            params[:floor_space],
-                                            params[:heat_type],
-                                            params[:water_cooking_type],
-                                            params[:nb_residents])
-    comparison = estimation[0] == false ? [-1, false] : @box_simulation.comparison(estimation[0], estimation[1])
+    comparison = @box_simulation.comparison(params[:yearly_cost], params[:tv], params[:call_fix_fr], params[:call_mobile_fr])
     @box_simulation = BoxSimulation.new(actual_price_paid: params[:yearly_cost],
                                         box_cost_saved: comparison[0],
-                                        floor_space: params[:floor_space],
-                                        heat_type: params[:heat_type],
-                                        water_cooking_type: params[:water_cooking_type],
-                                        residents_number: params[:nb_residents],
-                                        box_use: estimation[1],
+                                        tv: params[:tv],
+                                        call_fix_fr:params[:call_fix_fr],
+                                        call_mobile_fr:params[:call_mobile_fr],
                                         full_simulation: @full_simulation)
 
     if @box_simulation.save
