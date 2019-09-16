@@ -64,30 +64,34 @@ if ($("body").data("controller") == "full_simulations" && $("body").data("action
 };
 
 if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show"){
-  clickToDisplayEnergies = document.getElementById("btn-energy")
+  clickToDisplayEnergies = document.getElementById("btn-energy");
 
   clickToDisplayEnergies.addEventListener('click', function(){
     $("#energy-categories").toggleClass("d-flex");
     $("#energy-categories").toggle(500);
     
   });
-    clickToDisplayNumerics = document.getElementById("btn-numeric")
+    clickToDisplayNumerics = document.getElementById("btn-numeric");
 
     clickToDisplayNumerics.addEventListener('click', function(){
         $("#numeric-categories").toggleClass("d-flex");
         $("#numeric-categories").toggle(500);
 
-    })
+    });
 
-};
-
-if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show"){
-  clickToDisplayGasSimu = document.getElementById("btn-gas")
+  clickToDisplayGasSimu = document.getElementById("btn-gas");
 
   clickToDisplayGasSimu.addEventListener('click', function(){
     $("#gas-simu").toggle(500);
     
   })
+
+    clickToDisplayBoxSimu = document.getElementById("btn-box");
+
+    clickToDisplayBoxSimu.addEventListener('click', function(){
+        $("#box-simu").toggle(500);
+
+    })
 };
 
 if (document.cookie !== "username=guest"){
