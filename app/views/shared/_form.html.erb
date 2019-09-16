@@ -316,6 +316,89 @@
             <%= f.label :high_kw_consumption_per_year %><br />
             <%= f.number_field :high_kw_consumption_per_year, in: 1..30 ,step: 1,class: "form-control"  %>
           </div>
+
+<!--         NEW AND EDIT BOX CONTRACT-->
+        <%when 'new_box_contract', 'edit_box_contract' %>
+          <div class="form-group">
+            <%= f.label :supplier %><br />
+            <%= f.text_field :supplier, autofocus: true, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :offer_name %><br />
+            <%= f.text_field :offer_name, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :price_month %><br />
+            <%= f.number_field :price_month, in: 0.00..1000.00, step: 0.01, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :commitment %><br />
+            <%= f.number_field :commitment, in: 0..120, step: 1, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :price_after %><br />
+            <%= f.number_field :price_after, in: 0.00..1000.00, step: 0.01,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :type %><br />
+            <%= f.number_field :type,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :downstream %><br />
+            <%= f.number_field :downstream,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :upstream %><br />
+            <%= f.number_field :upstream,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :tv_channel %><br />
+            <%= f.number_field :tv_channel,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :tv %><br />
+            <%= f.number_field :tv,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :call_fix_fr %><br />
+            <%= f.number_field :call_fix_fr,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :call_mobile_fr %><br />
+            <%= f.number_field :call_mobile_fr,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :call_foreign %><br />
+            <%= f.number_field :call_foreign,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :opening_fee %><br />
+            <%= f.number_field :opening_fee,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :termination_fee %><br />
+            <%= f.number_field :termination_fee,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :taken_termination %><br />
+            <%= f.number_field :taken_termination,class: "form-control"  %>
+          </div>
+
         <%end%>
 
 

@@ -3,7 +3,7 @@
 module Admin
   class BoxContractsController < ApplicationController
     def index
-      @contracts = BooxContract.all.sort_by(&:supplier)
+      @contracts = BoxContract.all.sort_by(&:supplier)
     end
 
     def show

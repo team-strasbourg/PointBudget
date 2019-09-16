@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <h2 class="profile-title"><strong>Gas Contract N°<%=@contract.id %></strong></h2>
+      <h2 class="profile-title"><strong>Box Contract N°<%=@contract.id %></strong></h2>
     </div>
     <div class="col-md-9">
       <dl>
@@ -9,21 +9,41 @@
         <dl><%=@contract.supplier %></dl>
         <dt>Offer</dt>
         <dl><%=@contract.offer_name %></dl>
-        <dt>Subscription base price per month</dt>
-        <dl><%=@contract.subscription_base_price_month %></dl>
-        <dt>Kwh price base</dt>
-        <dl><%=@contract.kwh_price_base %></dl>
-        <dt>Low kw consumption per year</dt>
-        <dl><%=@contract.low_kw_consumption_per_year %></dl>
-        <dt>High kw consumption per year</dt>
-        <dl><%=@contract.high_kw_consumption_per_year %></dl>
+        <dt>Price per month</dt>
+        <dl><%=@contract.price_month %> €</dl>
+        <dt>Commitment</dt>
+        <dl><%=@contract.commitment %> months</dl>
+        <dt>Price after</dt>
+        <dl><%=@contract.price_after %> €</dl>
+        <dt>Type</dt>
+        <dl><%=@contract.type %></dl>
+        <dt>Downstream Mb/s</dt>
+        <dl><%=@contract.downstream %></dl>
+        <dt>Upstream Mb/s</dt>
+        <dl><%=@contract.uptream %></dl>
+        <dt>TV channel</dt>
+        <dl><%=@contract.tv_channel %></dl>
+        <dt>TV</dt>
+        <dl><%=@contract.tv %></dl>
+        <dt>Fixe Fr</dt>
+        <dl><%=@contract.call_fix_fr %></dl>
+        <dt>Mobile Fr</dt>
+        <dl><%=@contract.call_mobile_fr %></dl>
+        <dt>Abroad</dt>
+        <dl><%=@contract.call_foreign %></dl>
+        <dt>Opening fee</dt>
+        <dl><%=@contract.opening_fee %></dl>
+        <dt>Termination fee</dt>
+        <dl><%=@contract.termination_fee %></dl>
+        <dt>Taken Termination</dt>
+        <dl><%=@contract.taken_termination %></dl>
         <dt>Creation date</dt>
         <dl><%=@contract.created_at %></dl>
         <dt>Updated date</dt>
         <dl><%=@contract.updated_at %></dl>
         <br>
-        <%= link_to "Edit the contract", edit_admin_gas_contract_path(@contract), class: "btn btn-success"%>
-        <td><%= link_to 'Destroy',admin_gas_contract_path(@contract), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        <%= link_to "Edit the contract", edit_admin_box_contract_path(@contract), class: "btn btn-success"%>
+        <td><%= link_to 'Destroy',admin_box_contract_path(@contract), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </dl>
     </div>
   </div>
