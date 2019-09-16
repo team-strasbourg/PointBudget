@@ -8,7 +8,7 @@ RSpec.describe FullSimulationsController, type: :controller do
     before :each do
       2.times do
         create(:full_simulation, user: subject.current_user)
-      endgco
+      end
     end
     it 'should have a current_user' do
       expect(subject.current_user).to_not eq(nil)
