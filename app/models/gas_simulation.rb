@@ -82,6 +82,15 @@ class GasSimulation < ApplicationRecord
     end
   end
 
+  def sort_contracts(how_many)
+    return_array =[]
+    contracts_sorted = gas_simulation.join_table_gas_simulation_contracts.sort_by(&:savings).reverse
+    how_many.times do |i|
+      return_array << contracts_sorted[i]
+    end
+    return_array
+  end
+
   def consumption_people(nb_residents)
     hash = { 1 => 1630, 2 => 2945, 3 => 4265, 4 => 5320, 5 => 6360 }
     if hash[nb_residents].nil?

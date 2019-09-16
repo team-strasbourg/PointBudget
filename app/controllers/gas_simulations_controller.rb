@@ -14,6 +14,7 @@ class GasSimulationsController < ApplicationController
     @heat_type = table_attributes[1]
     @water_cooking_type = table_attributes[2]
     @residents_number = table_attributes[3]
+    @gas_contracts = @gas_sim.sort_contracts(3)
   end
 
   def new
