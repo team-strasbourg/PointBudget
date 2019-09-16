@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_16_073106) do
+ActiveRecord::Schema.define(version: 2019_09_16_190830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "box_simulations", force: :cascade do |t|
+    t.float "actual_price_paid", default: 0.0
+    t.float "box_cost_saved", default: 0.0
+    t.boolean "tv", default: false
+    t.boolean "call_fix_fr", default: false
+    t.boolean "call_mob_fr", default: false
+    t.bigint "full_simulation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["full_simulation_id"], name: "index_box_simulations_on_full_simulation_id"
+  end
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
@@ -82,9 +94,9 @@ ActiveRecord::Schema.define(version: 2019_09_16_073106) do
     t.string "last_name"
     t.string "phone_number"
     t.boolean "is_admin", default: false
-    t.bigint "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "city_id"
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

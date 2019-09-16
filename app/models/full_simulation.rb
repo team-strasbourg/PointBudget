@@ -3,6 +3,7 @@
 class FullSimulation < ApplicationRecord
   belongs_to :user
   has_one :gas_simulation, dependent: :destroy
+  has_one :box_simulation, dependent: :destroy
   # after_update :mail_if_validated
 
   validates :total_cost_saved,
