@@ -84,8 +84,10 @@
 	</div>
 
 	<!-- Button Modal -->
-	<div class="container row d-flex justify-content-center simulation-result">
-    <%=button_tag 'Résultat de ma simulation', class:'btn btn-block btn-secondary mb-3 col-md-3', data:{toggle:'modal', target:("#modal-default")} %>
+	<div class="container-fluid row justify-content-center simulation-result">
+		<!-- <div class="col-md-3"> -->
+      <%=button_tag 'Résultat de ma simulation', class:'btn btn-block btn-secondary mb-3 col-md-3', data:{toggle:'modal', target:("#modal-default")} %>
+  	<!-- </div> -->
 	</div>
 	<!-- Modal Content -->
 	<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default"
