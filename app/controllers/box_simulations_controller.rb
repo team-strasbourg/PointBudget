@@ -30,8 +30,8 @@ class BoxSimulationsController < ApplicationController
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
     @box_simulation = BoxSimulation.new
     @box_simulation.assign_params_from_controller(params)
-    comparison = @box_simulation.comparison(params[:yearly_cost], params[:tv], params[:call_fix_fr], params[:call_mobile_fr])
-    @box_simulation = BoxSimulation.new(actual_price_paid: params[:yearly_cost],
+    comparison = @box_simulation.comparison(params[:monthly_cost], params[:tv], params[:call_fix_fr], params[:call_mobile_fr])
+    @box_simulation = BoxSimulation.new(actual_price_paid: params[:monthly_cost],
                                         box_cost_saved: comparison[0],
                                         tv: params[:tv],
                                         call_fix_fr:params[:call_fix_fr],

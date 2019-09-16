@@ -11,14 +11,14 @@ class BoxSimulation < ApplicationRecord
     table_attributes
   end
 
-  def comparison(yearly_cost, tv, call_fix, call_mobile)
+  def comparison(monthly_cost, tv, call_fix, call_mobile)
     first_filter = BoxContract.all.select { |contract|
       contract.tv == tv && contract.call_fix_fr == call_fix && contract.call_mob_fr == call_mobile
     }
     max_save = 0
     all_savings = []
     first_filter.each do |contract|
-      savings = (yearly_cost - (contract.price_month*12 )).round(2)
+      savings = ((monthly_cost - contract.price_month)*12 ).round(2)
       if savings > max_save
         max_save = savings
       end
