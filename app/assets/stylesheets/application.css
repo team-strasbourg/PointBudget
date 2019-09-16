@@ -249,17 +249,20 @@ li.button-group{
 /* SIMULATION INDEX */
 
 .simu-title{
-	margin: 20px 0 30px 0;
+	margin: 60px 0 40px 0;
 }
 
 .simu-section-top{
-	margin-bottom: 50px;
+	margin-bottom: 80px;
 }
 
 .simu-section-bottom{
 	margin-bottom: 100px;
 }
 
+.t-body{
+	border-bottom: 1px grey solid;
+}
 
 /* FULL-SIMULATIONS#SHOW */
 
