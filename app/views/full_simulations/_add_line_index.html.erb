@@ -1,4 +1,8 @@
-<tr id="simulation-unconfirmed-<%=simu.id %>">
+<% if confirmed %>
+  <tr id="simulation-confirmed-<%=simu.id %>">
+<% else %>
+  <tr id="simulation-unconfirmed-<%=simu.id %>">
+<% end %>
   <th scope="row"><%= simu.id %></th>
   <td><%= simu.created_at %></td>
   <td><%= simu.counter %></td>
