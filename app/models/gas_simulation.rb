@@ -65,21 +65,19 @@ class GasSimulation < ApplicationRecord
       yearly_cost > (contract.kwh_price_base * yearly_consumption + contract.subscription_base_price_month * 12)
     }
     max_save = 0
+    all_savings
     second_filter.each do |contract|
       savings = yearly_cost - (contract.kwh_price_base * yearly_consumption + contract.subscription_base_price_month * 12)
       if savings > max_save
         max_save = savings
       end
+      all_savings << savings
     end
-    [max_save.round(2), second_filter]
+    [max_save.round(2), second_filter, all_savings]
   end
 
-  def sort_contracts
-    # Here we need to sort the contracts by savings
-  end
-
-  def create_join_table_gas(filter)
-    filter.each do |contract|
+  def create_join_table_gas(filter, all_savings)
+    filter.each_with_index do |contract,index|
       JoinTableGasSimulationContract.create(gas_simulation: self, gas_contract: contract)
     end
   end
