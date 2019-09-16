@@ -32,3 +32,7 @@ Rails/FilePath:
 Style/IfInsideElse:
   Exclude:
     - 'app/models/gas_simulation.rb'
+
+Style/RescueStandardError:
+  Exclude:
+    - 'app/**/*'
