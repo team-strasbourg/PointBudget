@@ -34,13 +34,7 @@
           <% unless @simulations.nil? %>
             <% @simulations.each do |simu| %>
               <% if simu.validated == false %>
-                <tr id="simulation-unconfirmed-<%=simu.id %>">
-                  <th scope="row"><%= simu.id %></th>
-                  <td><%= simu.created_at %></td>
-                  <td><%= simu.counter %></td>
-                  <td><%= link_to "Je complète ma simulation", user_full_simulation_path(current_user, simu), class: "btn btn-success btn-result" %></td>
-                  <td><%= link_to "Supprimer", user_full_simulation_path(current_user, simu), method: :delete, class: "btn btn-danger btn-result", data:{ confirm: 'Etes-vous sûr?' }, remote: true %></td>
-                </tr>
+                <%= render partial:'add_line_index', locals:{simu: simu} %>
               <%end%>
             <% end %>
           <% end %>
@@ -51,7 +45,7 @@
 </div>
 
 
-<div class="simu-section-bottom container_fluid">
+<div class="simu-section-bottom container-fluid">
   <div class="row d-flex justify-content-center">
     <div class="col-md-10 simu-title">
         <h2><strong>Vos simulations validées</strong></h2>
@@ -60,22 +54,18 @@
       <table class="table table-responsive-sm table-striped">
         <thead class="bg-primary text-white">
           <tr>
-            <th scope="col" style="width: 25%;">Simulation</th>
-            <th scope="col" style="width: 25%;">Validée le</th>
-            <th scope="col" style="width: 25%;">Consulter</th>
-            <th scope="col" style="width: 25%;">Supprimer</th>
+            <th scope="col" style="width: 10%;">Simulation</th>
+            <th scope="col" style="width: 10%;">Validée le</th>
+            <th scope="col" style="width: 30%;">Catégories testées</th>
+            <th scope="col" style="width: 40%;">Consulter</th>
+            <th scope="col" style="width: 10%;">Supprimer</th>
           </tr>
         </thead>
         <tbody>
           <% unless @simulations.nil? %>
             <% @simulations.each do |simu| %>
               <% if simu.validated == true %>
-                <tr id="simulation-confirmed-<%=simu.id %>">
-                  <th scope="row"><%= simu.id %></th>
-                  <td><%= simu.updated_at %></td>
-                  <td><%= link_to "Consulter", user_full_simulation_path(current_user, simu), class: "btn btn-success btn-result" %></td>
-                  <td><%= link_to "Supprimer", user_full_simulation_path(current_user, simu), method: :delete, class: "btn btn-danger btn-result",data:{ confirm: 'Etes-vous sûr?' }, remote:true %></td>
-                </tr>
+                <%= render partial:'add_line_index', locals:{simu: simu} %>
               <% end %>
             <% end %>
           <% end %>
