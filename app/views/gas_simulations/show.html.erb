@@ -42,7 +42,16 @@
     <div class="col-md-3"></div>
   </div>
 
-  <h2 class='text-center'>Voici les 3 meilleurs contrats pour vous </h2>
+  <h2 class='text-center'>
+  <%case @gas_contracts.length %>
+  <%when 0 %>
+    Votre contrat actuel répond parfaitement à vos besoins !
+  <% when 1 %>
+    Voici le meilleur contrat pour vous
+  <%else %>
+    Voici les <%=@gas_contracts.length %> meilleurs contrats pour vous
+  <%end %>
+  </h2>
   <div class="row my-5">
     <% @gas_contracts.each do |contract| %>
       <div class="col-md-4">
