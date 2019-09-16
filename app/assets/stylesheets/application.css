@@ -44,6 +44,10 @@ li.button-group{
   list-style: none;
 }
 
+.btn-form{
+	margin-bottom: 60px;
+}
+
                         /* LANDING PAGE */
 
 /* NAVBAR */
@@ -232,6 +236,7 @@ li.button-group{
   transform: scale(2);
 }
 
+
 /* DASHBOARD USER */
 
 /* USER PROFILE */
@@ -242,14 +247,14 @@ li.button-group{
 
 
 #body_content_user{
-	margin: 30px 0 70px 0;
+	margin: 30px 0 120px 0;
 	padding: 0 40px;
 }
 
 /* SIMULATION INDEX */
 
 .simu-title{
-	margin: 20px 0 30px 0;
+	margin: 40px 0 40px 0;
 }
 
 .simu-section-top{
@@ -258,8 +263,8 @@ li.button-group{
 
 .simu-section-bottom{
 	margin-bottom: 100px;
+	margin-top: 20px;
 }
-
 
 /* FULL-SIMULATIONS#SHOW */
 
