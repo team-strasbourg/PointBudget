@@ -7,7 +7,6 @@
 	</div>
 
 	<div id="categories" class="row container-fluid d-flex justify-content-around">
-	
 		<% if @full_simulation.only_one_gas_simulation %>
 		<!-- insurance -->
       <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-assur btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
@@ -66,7 +65,6 @@
 					<h5 class="mt-4">Energie</h5>
 				</div>
 			<% end %>
-
 		<!-- numeric -->
       <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-num btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
 				<div class="d-flex justify-content-around align-items-center text-white">
@@ -102,7 +100,7 @@
 						</div>
 					<% end %>
 				<% else %>
-					<%= link_to new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-gas btn-simu btn btn-primary animate-up-3 mx-2' do %>
+					<%= button_tag class: 'btn-simu-gas btn-simu btn btn-primary animate-up-3 mx-2', id:'btn-gas' do %>
 						<div class="d-flex justify-content-around align-items-center text-white">
 							<span class="icon"><i class="fas fa-burn"></i></span>
 							<h5 class="mt-4">Gaz</h5>
@@ -117,6 +115,17 @@
 				<% end %>
 			</div>
 		</div>
+
+	<!-- Gas Simulation JS -->
+
+<%= render partial: "shared/form", locals:{resource: @gas_simulation,
+                                           action: 'new_gas_simulation',
+                                           path: user_full_simulation_gas_simulations_path(current_user,
+                                                                                           @full_simulation),
+                                           method: :post,
+                                           title: 'Simulation gaz',
+                                           button: "Terminer"}%>
+
 	<!-- Button Modal -->
 	<div class="container-fluid row justify-content-center simulation-result">
     <%=button_tag 'Je finalise ma simulation', class:'btn btn-block btn-secondary mb-3 col-md-3 btn-result', data:{toggle:'modal', target:("#modal-default")} %>
