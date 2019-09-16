@@ -25,7 +25,7 @@
     min-height: 100vh;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 .title{
@@ -318,4 +318,36 @@ li.button-group{
 #simulation-list{
 	margin-top: -50px;
 	margin-bottom: 200px;
+}
+
+
+/* SIMULATION CATEGORY */
+
+#simu-category{
+	width: 120px;
+	height: 120px;
+	display: flex;
+	flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.icon-category{
+	padding-top: 17px;
+}
+
+.gas-category{
+	font-size: 25px;
+	padding-bottom: 11px;
+}
+
+.elec-category{
+	font-size: 15px;
+	padding-bottom: 11px;
+}
+
+#btn-click-1{
+  background:none;
+  border:none
 }
