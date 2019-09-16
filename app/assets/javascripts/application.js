@@ -57,9 +57,21 @@ if($("body").data("controller") == "gas_simulations" && $("body").data("action")
 
 
 
-if ($("body").data("controller") == "full_simulation" && $("body").data("action") == "new"){
+if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "new"){
+  clickToDisplayDomains = document.getElementById("btn-click-1")
+  domainDisplayStatus = false
 
-};)
+  clickToDisplayDomains.addEventListener('click', function(){
+    if (domainDisplayStatus == false) {
+      $("#domain-list").show(600);
+      domainDisplayStatus = true
+    }
+    else if (domainDisplayStatus == true) {
+      $("#domain-list").hide(600);
+      domainDisplayStatus = false
+    }
+  })
+};
 
 
 if (document.cookie !== "username=guest"){

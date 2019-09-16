@@ -285,3 +285,8 @@ li.button-group{
 	font-size: 15px;
 	padding-bottom: 11px;
 }
+
+#btn-click-1{
+  background:none;
+  border:none
+}
