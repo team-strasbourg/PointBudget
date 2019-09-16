@@ -1,0 +1,2 @@
+class ElectricitySimulation < ApplicationRecord
+end
