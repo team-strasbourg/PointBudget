@@ -31,7 +31,13 @@ RSpec.describe 'Full Simulation', type: :feature do
       click_link 'Lancer ma simulation'
     end
     visit user_full_simulations_path(@user)
-    expect(page).to have_content(FullSimulation.last.id)
+    within('#table-validated') do
+      expect(page).not_to have_content(FullSimulation.last.id)
+    end
+    within('#table-non-validated') do
+      expect(page).to have_content(FullSimulation.last.id)
+    end
+
   end
 
   scenario 'add in index validated' do
@@ -42,14 +48,22 @@ RSpec.describe 'Full Simulation', type: :feature do
     click_button 'Je finalise ma simulation'
     click_button 'Valider ma simulation'
     visit user_full_simulations_path(@user)
-    expect(page).to have_content(FullSimulation.last.id)
+    within('#table-validated') do
+      expect(page).to have_content(FullSimulation.last.id)
+    end
+    within('#table-non-validated') do
+      expect(page).not_to have_content(FullSimulation.last.id)
+    end
   end
 
   scenario 'add in page index' do
     visit user_full_simulations_path(@user)
-    click_link 'Ajout Rapide'
+    create(:full_simulation, user:@user)
     last_one = FullSimulation.last
-    expect(page).to have_content(last_one.id)
     click_link 'Ajout Rapide'
+    visit user_full_simulations_path(@user)
+    within('#table-non-validated') do
+      expect(page).to have_content(last_one.id + 1)
+    end
   end
 end
