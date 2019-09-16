@@ -1,7 +1,7 @@
 
 <!-- Card -->
 <div class="container">
-  <div class="row">
+  <div class="row my-5">
     <div class="col-md-3"></div>
     <div class="col-md-6">
       <div class="pricing-card">
@@ -34,16 +34,42 @@
                 </ul>
               </div>
             </div>
-              <%= link_to 'Lancer une nouvelle simulation', new_user_full_simulation_path(current_user), class:"btn btn-outline-secondary btn-block"%>
+              <%= link_to 'Lancer une nouvelle simulation', new_user_full_simulation_path(current_user), class:"btn animate-up-3 btn-outline-secondary btn-block"%>
           </div>
         </div>
       </div>
     </div>
     <div class="col-md-3"></div>
   </div>
-  <div class="row">
-    <div class="col-md-3">
 
-    </div>
+  <h2 class='text-center'>Voici les 3 meilleurs contrats pour vous </h2>
+  <div class="row my-5">
+    <% @gas_contracts.each do |contract| %>
+      <div class="col-md-4">
+
+        <div class="pricing-card">
+          <div class="card shadow-soft border-light p-4">
+            <!-- Header -->
+            <header class="card-header border-bottom bg-white text-center">
+              <span class="d-block">
+                <span class="display-1 text-primary font-weight-bold">
+                    <span class="align-top font-medium"><%= contract.supplier %></span>
+                    <p>Offre : <%=contract.offer_name %></p>
+                </span>
+              </span>
+            </header>
+            <!-- End Header -->
+            <!-- Content -->
+            <div class="card-body">
+              <ul class="list-group mb-4">
+                <li class="list-group-item"><strong>Prix de l'abonnement par an</strong> : <%=contract.subscription_base_price_month * 12 %></li>
+                <li class="list-group-item"><strong>Prix du kwh</strong> : <%=contract.kwh_price_base %></li>
+              </ul>
+            </div>
+            <!-- End Content -->
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

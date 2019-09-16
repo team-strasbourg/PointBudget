@@ -84,9 +84,12 @@ class GasSimulation < ApplicationRecord
 
   def sort_contracts(how_many)
     return_array = []
-    contracts_sorted = gas_simulation.join_table_gas_simulation_contracts.sort_by(&:savings).reverse
+    contracts_sorted = join_table_gas_simulation_contracts.sort_by(&:savings).reverse
     how_many.times do |i|
+      begin
       return_array << GasContract.find(contracts_sorted[i].gas_contract_id)
+      rescue
+      end
     end
     return_array
   end
