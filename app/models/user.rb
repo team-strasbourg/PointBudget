@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   belongs_to :city, optional: true
   has_many :full_simulations, dependent: :destroy
-  has_one :gas_simulation, through: :full_simulations
+  has_one :gas_simulation
 
   def city?
     city_id.nil? || city_id.zero? ? false : true
