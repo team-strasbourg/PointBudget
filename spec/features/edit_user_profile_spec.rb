@@ -14,13 +14,12 @@ RSpec.describe 'Edit User Profile', type: :feature do
     within('#body_content_user') do
       click_link 'Editer mon profil'
     end
-    find_field('user[last_name]').set('Last')
-    # fill_in '#user_first_name', with: 'First'
-    click_link 'Editer'
+    find_field('user_last_name').set('Last')
+    find_field('user_first_name').set('First')
+    click_button 'Editer'
     within('#body_content_user') do
       expect(page).to have_content('Last')
-      # expect(page).to have_content('First')
+      expect(page).to have_content('First')
     end
-
   end
 end
