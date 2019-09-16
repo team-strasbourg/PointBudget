@@ -17,7 +17,7 @@ RSpec.describe UsersController, type: :controller do
     it 'redirect to his profile if try to see another user' do
       create(:user)
       get :show, params: { id: (subject.current_user.id.to_i + 1) }
-      expect(response).to redirect_to("/users/#{subject.current_user.id}")
+      expect(response).to redirect_to("/users/#{subject.current_user.id}/full_simulations/new")
     end
   end
 
