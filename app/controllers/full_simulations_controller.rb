@@ -12,6 +12,7 @@ class FullSimulationsController < ApplicationController
 
   def show
     @full_simulation = FullSimulation.find(params[:id])
+      @gas_simulation = GasSimulation.new
   end
 
   def new
