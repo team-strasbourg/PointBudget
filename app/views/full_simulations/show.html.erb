@@ -100,6 +100,7 @@
 						</div>
 					<% end %>
 				<% else %>
+				<!-- gaz_simaltion btn -->
 					<%= button_tag class: 'btn-simu-gas btn-simu btn btn-primary animate-up-3 mx-2', id:'btn-gas' do %>
 						<div class="d-flex justify-content-around align-items-center text-white">
 							<span class="icon"><i class="fas fa-burn"></i></span>
@@ -117,14 +118,15 @@
 		</div>
 
 	<!-- Gas Simulation JS -->
-
-<%= render partial: "shared/form", locals:{resource: @gas_simulation,
-                                           action: 'new_gas_simulation',
-                                           path: user_full_simulation_gas_simulations_path(current_user,
-                                                                                           @full_simulation),
-                                           method: :post,
-                                           title: 'Simulation gaz',
-                                           button: "Terminer"}%>
+		<div id="gas-simu" style="display: none;">
+			<%= render partial: "shared/form", locals:{resource: @gas_simulation,
+		                                           action: 'new_gas_simulation',
+		                                           path: user_full_simulation_gas_simulations_path(current_user,
+		                                                                                           @full_simulation),
+		                                           method: :post,
+		                                           title: 'Simulation gaz',
+		                                           button: "Terminer"}%>
+		</div>
 
 	<!-- Button Modal -->
 	<div class="container-fluid row justify-content-center simulation-result">

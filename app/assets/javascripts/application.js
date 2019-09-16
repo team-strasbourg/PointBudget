@@ -32,18 +32,18 @@
 
 $(document).ready(function () {
 
-if($("body").data("controller") == "gas_simulations" && $("body").data("action") == "new") {
+if($("body").data("controller") == "full_simulations" && $("body").data("action") == "show") {
   radioYes = document.getElementById("answer_yes")
   radioNo = document.getElementById("answer_no")
 
   radioYes.addEventListener('click', function(){
-      $('#consumption').show(600);
-      $('#estimation').hide(600);
+      $('#consumption').show(500);
+      $('#estimation').hide(500);
   });
 
   radioNo.addEventListener('click', function(){
-      $('#consumption').hide(600);
-      $('#estimation').show(600);
+      $('#consumption').hide(500);
+      $('#estimation').show(500);
   });
 } else if($("body").data("controller") == "full_simulations" && $("body").data("action") == "show"){
   try {
@@ -61,11 +61,11 @@ if ($("body").data("controller") == "full_simulations" && $("body").data("action
 
   clickToDisplayDomains.addEventListener('click', function(){
     if (domainDisplayStatus == false) {
-      $("#domain-list").show(600);
+      $("#domain-list").show(500);
       domainDisplayStatus = true
     }
     else if (domainDisplayStatus == true) {
-      $("#domain-list").hide(600);
+      $("#domain-list").hide(500);
       domainDisplayStatus = false
     }
   })
@@ -76,7 +76,16 @@ if ($("body").data("controller") == "full_simulations" && $("body").data("action
 
   clickToDisplayEnergies.addEventListener('click', function(){
     $("#energy-categories").toggleClass("d-flex");
-    $("#energy-categories").toggle(1000);
+    $("#energy-categories").toggle(500);
+    
+  })
+};
+
+if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show"){
+  clickToDisplayGasSimu = document.getElementById("btn-gas")
+
+  clickToDisplayGasSimu.addEventListener('click', function(){
+    $("#gas-simu").toggle(500);
     
   })
 };
