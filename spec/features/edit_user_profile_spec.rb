@@ -8,6 +8,19 @@ RSpec.describe 'Edit User Profile', type: :feature do
   end
 
   scenario 'can edit his profile with correct things' do
+    within('#sidenav') do
+      click_link 'Mon profil'
+    end
+    within('#body_content_user') do
+      click_link 'Editer mon profil'
+    end
+    find_field('user[last_name]').set('Last')
+    # fill_in '#user_first_name', with: 'First'
+    click_link 'Editer'
+    within('#body_content_user') do
+      expect(page).to have_content('Last')
+      # expect(page).to have_content('First')
+    end
 
   end
 end
