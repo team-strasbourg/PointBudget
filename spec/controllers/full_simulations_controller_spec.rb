@@ -62,4 +62,24 @@ RSpec.describe FullSimulationsController, type: :controller do
       end
     end
   end
+
+  describe "PUT update" do
+    before :each do
+      @full_simulation = create(:full_simulation, user: subject.current_user)
+    end
+
+    context "with valid attributes" do
+      it "located the requested simulation" do
+        put :update, params: { user_id: subject.current_user.id, id:@full_simulation.id, full_simulation: { validated:true, counter: 1}  }
+        expect(assigns(:full_simulation)).to eq(@full_simulation)
+      end
+
+      it "changes @user's attributes" do
+        put :update, params: { user_id: subject.current_user.id, id:@full_simulation.id, full_simulation: { validated:true, counter: 1} }
+        @full_simulation.reload
+        expect(@full_simulation.validated).to eq(true)
+        expect(@full_simulation.counter).to eq(1)
+      end
+    end
+  end
 end
