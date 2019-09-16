@@ -46,4 +46,33 @@ RSpec.describe FullSimulationsController, type: :controller do
       expect(response).to render_template("new")
     end
   end
+
+  describe "POST create" do
+    login_user
+    context "with valid attributes" do
+      it "creates a new full simulation" do
+        expect {
+          post :create, params: { user_id: subject.current_user.id }
+        }.to change(FullSimulation,:count).by(1)
+      end
+
+      it "redirects to the new simulation" do
+        post :create, params: { user_id: subject.current_user.id }
+        expect(response).to redirect_to user_full_simulation_path(subject.current_user.id, FullSimulation.last)
+      end
+    end
+
+    # context "with invalid attributes" do
+    #   it "doest not create a new user" do
+    #     expect {
+    #       post :create, params: { "user" => { invalide_magueule } }
+    #     }.to_not change(User, :count)
+    #   end
+    #
+    #   it "re-renders the new method" do
+    #     post :create, params: { "user" => { invalide_magueule } }
+    #     response.should render_template :new
+    #   end
+    # end
+  end
 end
