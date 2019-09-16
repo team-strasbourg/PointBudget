@@ -171,13 +171,37 @@ li.button-group{
  /* ABOUT */
 
 
-#last-about{
-	margin-bottom: 10em;
+#success-key{
+	color: white;
+	margin-top: 5em;
+ }
+
+#success-key .icon{
+	font-size: 38px;
+	margin-bottom: 20px;
+	width: 100px;
+	padding: 30px 0;
+	border-radius: 50%;
+	box-shadow: 10px 10px 10px rgba(0,0,0,.05);
 }
 
+#success-key .icon-position{
+	text-align: center;
+}
+
+.about-section{
+	margin-top: 3em;
+}
+
+.last-about-section{
+	margin-bottom: 10em;
+	margin-top: 3em;
+}
+
+
 .indent {
-	padding-left: 2em;
-	padding-right: 2em;
+	padding-left: 25px;
+	padding-right: 25px;
 }
 
 	/* NAVBAR USER*/
