@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_16_073106) do
+ActiveRecord::Schema.define(version: 2019_09_16_163152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,24 @@ ActiveRecord::Schema.define(version: 2019_09_16_073106) do
     t.index ["insee_code"], name: "index_cities_on_insee_code"
     t.index ["name"], name: "index_cities_on_name"
     t.index ["zip_code"], name: "index_cities_on_zip_code"
+  end
+
+  create_table "electricity_contracts", force: :cascade do |t|
+    t.string "supplier"
+    t.string "offer_name"
+    t.float "subscription_base_price_month"
+    t.float "kwh_price_base"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "electricity_simulations", force: :cascade do |t|
+    t.float "actual_price_paid"
+    t.float "elec_cost_saved"
+    t.integer "elec_use"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "full_simulations", force: :cascade do |t|
@@ -60,6 +78,12 @@ ActiveRecord::Schema.define(version: 2019_09_16_073106) do
     t.datetime "updated_at", null: false
     t.string "name", default: "Gaz"
     t.index ["full_simulation_id"], name: "index_gas_simulations_on_full_simulation_id"
+  end
+
+  create_table "join_table_electricity_simulation_contracts", force: :cascade do |t|
+    t.float "savings"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "join_table_gas_simulation_contracts", force: :cascade do |t|
