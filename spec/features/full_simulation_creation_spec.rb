@@ -4,9 +4,9 @@ require 'rails_helper'
 RSpec.describe 'Full Simulation', type: :feature do
   before :each do
     @user = User.create(email: 'user@example.com', password: 'password')
+    sign_in @user.email, @user.password
   end
   scenario 'create a new full simulation' do
-    sign_in @user.email, @user.password
     visit new_user_full_simulation_path(@user)
     within('#body_content_user') do
       click_link 'Lancer ma simulation'
@@ -15,7 +15,6 @@ RSpec.describe 'Full Simulation', type: :feature do
   end
 
   scenario 'validate a full simulation' do
-    sign_in @user.email, @user.password
     visit new_user_full_simulation_path(@user)
     within('#body_content_user') do
       click_link 'Lancer ma simulation'
@@ -27,7 +26,6 @@ RSpec.describe 'Full Simulation', type: :feature do
   end
 
   scenario 'add in index non validated' do
-    sign_in @user.email, @user.password
     visit new_user_full_simulation_path(@user)
     within('#body_content_user') do
       click_link 'Lancer ma simulation'
@@ -36,8 +34,7 @@ RSpec.describe 'Full Simulation', type: :feature do
     expect(page).to have_content(FullSimulation.last.id)
   end
 
-  scenario 'add in index non validated' do
-    sign_in @user.email, @user.password
+  scenario 'add in index validated' do
     visit new_user_full_simulation_path(@user)
     within('#body_content_user') do
       click_link 'Lancer ma simulation'
@@ -46,5 +43,10 @@ RSpec.describe 'Full Simulation', type: :feature do
     click_button 'Valider ma simulation'
     visit user_full_simulations_path(@user)
     expect(page).to have_content(FullSimulation.last.id)
+  end
+
+  scenario 'add in page index' do
+    visit user_full_simulations_path(@user)
+    click_link
   end
 end
