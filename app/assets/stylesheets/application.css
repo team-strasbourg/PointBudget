@@ -291,6 +291,10 @@ li.button-group{
 	margin: 0 0 60px 0;
 }
 
+.btn-result{
+	border-radius: 5px;
+}
+
 /* MODAL PRICE FULL SIMULATION */
 
 .price-simu{

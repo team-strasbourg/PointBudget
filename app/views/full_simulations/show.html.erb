@@ -3,7 +3,7 @@
 
 <% unless @full_simulation.validated == true %>
 	<div class="title-simu container-fluid">
-	  <h2 class="text-center">Vous désirez economiser un maximum? <br>Explorez toutes nos catégorie!</h2>
+	  <h2 class="text-center">Vous désirez economiser un maximum? <br>Explorez toutes nos catégories!</h2>
 	</div>
 
 	<div id="categories" class="row container-fluid d-flex justify-content-around">
@@ -60,7 +60,7 @@
 				</div>
 			<% end %>
 		<!-- energy -->
-      <%= link_to new_user_full_simulation_energy_path(current_user, @full_simulation), class: 'btn-simu-elec btn-simu btn btn-primary' do %>
+      <%= link_to new_user_full_simulation_energy_path(current_user, @full_simulation), class: 'btn-simu-elec btn-simu btn btn-primary animate-up-3' do %>
 				<div class="d-flex justify-content-around align-items-center text-white">
 					<span class="icon"><i class="fas fa-sun"></i></span>
 					<h5 class="mt-4">Energie</h5>
@@ -85,9 +85,7 @@
 
 	<!-- Button Modal -->
 	<div class="container-fluid row justify-content-center simulation-result">
-		<!-- <div class="col-md-3"> -->
-      <%=button_tag 'Résultat de ma simulation', class:'btn btn-block btn-secondary mb-3 col-md-3', data:{toggle:'modal', target:("#modal-default")} %>
-  	<!-- </div> -->
+    <%=button_tag 'Je finalise ma simulation', class:'btn btn-block btn-secondary mb-3 col-md-3 btn-result', data:{toggle:'modal', target:("#modal-default")} %>
 	</div>
 	<!-- Modal Content -->
 	<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default"
