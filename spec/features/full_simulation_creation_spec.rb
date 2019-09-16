@@ -34,6 +34,17 @@ RSpec.describe 'Full Simulation', type: :feature do
     end
     visit user_full_simulations_path(@user)
     expect(page).to have_content(FullSimulation.last.id)
+  end
 
+  scenario 'add in index non validated' do
+    sign_in @user.email, @user.password
+    visit new_user_full_simulation_path(@user)
+    within('#body_content_user') do
+      click_link 'Lancer ma simulation'
+    end
+    click_button 'Je finalise ma simulation'
+    click_button 'Valider ma simulation'
+    visit user_full_simulations_path(@user)
+    expect(page).to have_content(FullSimulation.last.id)
   end
 end
