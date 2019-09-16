@@ -37,7 +37,6 @@ RSpec.describe 'Full Simulation creation', type: :feature do
     within('#table-non-validated') do
       expect(page).to have_content(FullSimulation.last.id)
     end
-
   end
 
   scenario 'add in index validated' do
@@ -58,7 +57,7 @@ RSpec.describe 'Full Simulation creation', type: :feature do
 
   scenario 'add in page index' do
     visit user_full_simulations_path(@user)
-    create(:full_simulation, user:@user)
+    create(:full_simulation, user: @user)
     last_one = FullSimulation.last
     click_link 'Ajout rapide'
     visit user_full_simulations_path(@user)

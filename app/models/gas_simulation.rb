@@ -30,11 +30,7 @@ class GasSimulation < ApplicationRecord
   def print_report
     table_attributes = []
     [floor_space, heat_type, water_cooking_type, residents_number].each do |attribute|
-      table_attributes << if attribute.nil? || attribute.empty?
-                            'Non renseigné'
-                          else
-                            attribute
-                          end
+      table_attributes << attribute.presence || 'Non renseigné'
     end
     table_attributes
   end
@@ -78,7 +74,7 @@ class GasSimulation < ApplicationRecord
   end
 
   def create_join_table_gas(filter, all_savings)
-    filter.each_with_index do |contract,index|
+    filter.each_with_index do |contract, index|
       JoinTableGasSimulationContract.create(gas_simulation: self, gas_contract: contract, savings: all_savings[index])
     end
   end
@@ -87,10 +83,9 @@ class GasSimulation < ApplicationRecord
     return_array = []
     contracts_sorted = join_table_gas_simulation_contracts.sort_by(&:savings).reverse
     how_many.times do |i|
-      begin
       return_array << GasContract.find(contracts_sorted[i].gas_contract_id)
-      rescue
-      end
+    rescue Error
+      return_array
     end
     return_array
   end
