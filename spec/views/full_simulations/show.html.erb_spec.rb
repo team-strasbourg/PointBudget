@@ -10,13 +10,6 @@ RSpec.describe 'full_simulations/show.html.erb', type: :view do
       @full_simulation = create(:full_simulation, user: @user)
       render
     end
-    it "displays 'Mon Profile'" do
-      expect(rendered).to have_content 'Vous désirez economiser un maximum?'
-    end
-
-    it "displays 'Mon Profile'" do
-      expect(rendered).to have_content 'Je finalise ma simulation'
-    end
   end
 
   context 'Validated' do
