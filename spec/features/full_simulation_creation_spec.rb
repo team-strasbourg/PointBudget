@@ -47,6 +47,9 @@ RSpec.describe 'Full Simulation', type: :feature do
 
   scenario 'add in page index' do
     visit user_full_simulations_path(@user)
-    click_link
+    click_link 'Ajout Rapide'
+    last_one = FullSimulation.last
+    expect(page).to have_content(last_one.id)
+    click_link 'Ajout Rapide'
   end
 end
