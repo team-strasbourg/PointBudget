@@ -2,7 +2,6 @@
 
 class ApplicationController < ActionController::Base
   before_action :set_cookie_user
-  before_action :not_other_user_index, only:[:index, :new]
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
   rescue_from ActionController::RoutingError, with: :render_404
 
