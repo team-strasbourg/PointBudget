@@ -1,0 +1,2 @@
+class JoinTableElectricitySimulationContract < ApplicationRecord
+end
