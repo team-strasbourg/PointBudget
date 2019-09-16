@@ -60,15 +60,7 @@ if ($("body").data("controller") == "full_simulations" && $("body").data("action
   domainDeploySatus = false
 
   clickToDisplayDomains.addEventListener('click', function(){
-    if (domainDeploySatus == false) {
-      $("#domain-list").show(600);
-      domainDeploySatus = true;
-    }
-    else if (domainDeploySatus == true) {
-      $("#domain-list").hide(600);
-      domainDeploySatus = false;
-    }
-    
+    $("#domain-list").toggle(600);
   })
 };
 
@@ -79,15 +71,7 @@ if ($("body").data("controller") == "full_simulations" && $("body").data("action
   gasDeployStatus = false
 
   clickToDisplayGasSimu.addEventListener('click', function(){
-    if (gasDeployStatus == false) {
-      $("#gas-simu").show(500);
-      gasDeployStatus = true;
-    }
-    else if (gasDeployStatus == true) {
-      $("#gas-simu").hide(500);
-      gasDeployStatus = false;
-    }
-    
+    $("#gas-simu").toggle(600);
   })
 
   clickToDisplayEnergies.addEventListener('click', function(){
