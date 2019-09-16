@@ -6,7 +6,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "rspec; rubocop",
+      "pre-push": "rspec",
       "post-pull": "rspec"
     }
   },
