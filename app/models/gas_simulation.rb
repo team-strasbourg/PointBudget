@@ -114,4 +114,8 @@ class GasSimulation < ApplicationRecord
       end
     end
   end
+
+  def user
+    self.full_simulation.user
+  end
 end

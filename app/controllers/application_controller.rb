@@ -45,14 +45,14 @@ class ApplicationController < ActionController::Base
 
   def not_other_users_full_simulations
     # This method prevents users from going to pages associated with another user, namely the simulations
-    return unless current_user != FullSimulation.find(params[:id]).user
+    return unless current_user != FullSimulation.find(params[:id]).user && current_user.has_full_simulations(params[:id])
   rescue
     error_connected
   end
 
   def not_other_users_gas_simulations
     # This method prevents users from going to pages associated with another user, namely the simulations
-    return unless current_user != GasSimulation.find(params[:id]).full_simulation.user && FullSimulation.find(params[:full_simulation_id]) == GasSimulation.find(params[:id]).full_simulation
+    return unless current_user != GasSimulation.find(params[:id]).user && current_user.has_gas_simulations(params[:id])
   rescue
     error_connected
   end

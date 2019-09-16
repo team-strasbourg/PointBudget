@@ -23,7 +23,7 @@ RSpec.describe FullSimulationsController, type: :controller do
       user = create(:user)
       simu = create(:full_simulation, user: user)
       get :show, params: { user_id: subject.current_user.id, id: simu.id }
-      expect(response).to redirect_to("/users/#{subject.current_user.id}/full_simulations/new")
+      expect(response).to redirect_to new_user_full_simulation_path(subject.current_user)
     end
   end
 
@@ -80,6 +80,23 @@ RSpec.describe FullSimulationsController, type: :controller do
         expect(@full_simulation.validated).to eq(true)
         expect(@full_simulation.counter).to eq(1)
       end
+    end
+  end
+
+  describe 'DELETE destroy' do
+    before :each do
+      @full_simulation = create(:full_simulation, user: subject.current_user)
+    end
+
+    it "deletes the user" do
+      expect{
+        delete :destroy, params:{id: @full_simulation, user_id: subject.current_user}
+      }.to change(FullSimulation, :count).by(-1)
+    end
+
+    it "redirects to full_simulation#index" do
+      delete :destroy, params:{id: @full_simulation, user_id: subject.current_user}
+      expect(response).to redirect_to user_full_simulations_path(subject.current_user)
     end
   end
 end
