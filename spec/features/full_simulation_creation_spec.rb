@@ -9,7 +9,7 @@ RSpec.describe 'Full Simulation', type: :feature do
     sign_in @user.email, @user.password
     visit new_user_full_simulation_path(@user)
     within('#body_content_user') do
-      click_link 'Nouvelle Simulation'
+      click_link 'Lancer ma simulation'
     end
     expect(page).to have_content('Vous venez de commencer une simulation')
   end
@@ -18,7 +18,7 @@ RSpec.describe 'Full Simulation', type: :feature do
     sign_in @user.email, @user.password
     visit new_user_full_simulation_path(@user)
     within('#body_content_user') do
-      click_link 'Nouvelle Simulation'
+      click_link 'Lancer ma simulation'
     end
     click_button 'Je finalise ma simulation'
     expect(page).to have_content('D\'après nos comparateurs, vous pourriez économiser')
