@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_16_191503) do
+ActiveRecord::Schema.define(version: 2019_09_16_191751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,16 @@ ActiveRecord::Schema.define(version: 2019_09_16_191503) do
     t.datetime "updated_at", null: false
     t.string "name", default: "Gaz"
     t.index ["full_simulation_id"], name: "index_gas_simulations_on_full_simulation_id"
+  end
+
+  create_table "join_table_box_contracts", force: :cascade do |t|
+    t.float "savings"
+    t.bigint "box_contract_id"
+    t.bigint "box_simulation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["box_contract_id"], name: "index_join_table_box_contracts_on_box_contract_id"
+    t.index ["box_simulation_id"], name: "index_join_table_box_contracts_on_box_simulation_id"
   end
 
   create_table "join_table_gas_simulation_contracts", force: :cascade do |t|
