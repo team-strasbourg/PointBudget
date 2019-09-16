@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   def set_user
     @user = begin
               User.find(params[:id])
-            rescue Error
+            rescue
               User.all.sample
             end
   end
