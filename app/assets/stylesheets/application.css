@@ -232,6 +232,7 @@ li.button-group{
   transform: scale(2);
 }
 
+
 /* DASHBOARD USER */
 
 /* USER PROFILE */
@@ -253,15 +254,12 @@ li.button-group{
 }
 
 .simu-section-top{
-	margin-bottom: 80px;
+	margin-bottom: 50px;
 }
 
 .simu-section-bottom{
 	margin-bottom: 100px;
-}
-
-.t-body{
-	border-bottom: 1px grey solid;
+	margin-top: 20px;
 }
 
 /* FULL-SIMULATIONS#SHOW */
