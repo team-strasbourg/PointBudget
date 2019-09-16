@@ -84,7 +84,7 @@ if (document.cookie !== "username=guest"){
             right: $('#sidenav').width()
         });
         $('#body_content_user').animate({
-            right: $('#sidenav').width()
+            right: $('#sidenav').width()/2
         });
       document.getElementById("nav-arrow").classList.remove("fa-angle-left");
       document.getElementById("nav-arrow").classList.add("fa-angle-right");
