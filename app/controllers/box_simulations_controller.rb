@@ -35,7 +35,7 @@ class BoxSimulationsController < ApplicationController
                                         box_cost_saved: comparison[0],
                                         tv: params[:tv],
                                         call_fix_fr:params[:call_fix_fr],
-                                        call_mobile_fr:params[:call_mobile_fr],
+                                        call_mob_fr:params[:call_mobile_fr],
                                         full_simulation: @full_simulation)
 
     if @box_simulation.save

@@ -11,6 +11,10 @@ class BoxSimulation < ApplicationRecord
     table_attributes
   end
 
+  def assign_params_from_controller(params)
+    @params = params
+  end
+
   def comparison(monthly_cost, tv, call_fix, call_mobile)
     first_filter = BoxContract.all.select { |contract|
       contract.tv == tv && contract.call_fix_fr == call_fix && contract.call_mob_fr == call_mobile

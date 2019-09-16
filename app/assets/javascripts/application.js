@@ -70,7 +70,15 @@ if ($("body").data("controller") == "full_simulations" && $("body").data("action
     $("#energy-categories").toggleClass("d-flex");
     $("#energy-categories").toggle(500);
     
-  })
+  });
+    clickToDisplayNumerics = document.getElementById("btn-numeric")
+
+    clickToDisplayNumerics.addEventListener('click', function(){
+        $("#numeric-categories").toggleClass("d-flex");
+        $("#numeric-categories").toggle(500);
+
+    })
+
 };
 
 if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show"){
