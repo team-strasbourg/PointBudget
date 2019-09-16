@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_09_16_163152) do
   create_table "electricity_contracts", force: :cascade do |t|
     t.string "supplier"
     t.string "offer_name"
+    t.integer "kw_consumption_per_year"
     t.float "subscription_base_price_month"
     t.float "kwh_price_base"
     t.datetime "created_at", null: false
@@ -39,9 +40,10 @@ ActiveRecord::Schema.define(version: 2019_09_16_163152) do
     t.float "actual_price_paid"
     t.float "elec_cost_saved"
     t.integer "elec_use"
-    t.string "name"
+    t.bigint "full_simulation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["full_simulation_id"], name: "index_electricity_simulations_on_full_simulation_id"
   end
 
   create_table "full_simulations", force: :cascade do |t|
@@ -81,7 +83,8 @@ ActiveRecord::Schema.define(version: 2019_09_16_163152) do
   end
 
   create_table "join_table_electricity_simulation_contracts", force: :cascade do |t|
-    t.float "savings"
+    t.float "savings", default: 0.0
+    t.float "float", default: 0.0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
