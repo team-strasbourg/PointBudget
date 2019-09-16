@@ -1,5 +1,21 @@
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 d-flex flex-column align-items-center">
+      <div>
+        <h2>Ajoutez une simulation maintenant et complétez là plus tard</h2>
+      </div>
+      <div>
+        <%=link_to "Ajout Rapide", user_full_simulations_path(current_user), method: :post, class: "btn btn-lg btn-primary", remote: true%>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 <div class="simu-section-top container-fluid">
+
   <div class="simu-title">
      <h2><strong>Vos simulations en cours</strong></h2>
   </div>
@@ -17,15 +33,14 @@
         </thead>
         <tbody>
           <% unless @simulations.nil? %>
-            <% @simulations.each_with_index do |simu, index| %>
+            <% @simulations.each do |simu| %>
               <% if simu.validated == false %>
-            
-                <tr>
-                  <th scope="row"><%= index %></th>
+                <tr id="simulation-unconfirmed-<%=simu.id %>">
+                  <th scope="row"><%= simu.id %></th>
                   <td><%= simu.created_at %></td>
                   <td><%= simu.counter %></td>
                   <td><%= link_to "Je complète ma simulation", user_full_simulation_path(current_user, simu), class: "btn btn-success" %></td>
-                  <td><%= link_to "Supprimer", user_full_simulation_path(current_user, simu), method: :delete, class: "btn btn-danger" %></td>
+                  <td><%= link_to "Supprimer", user_full_simulation_path(current_user, simu), method: :delete, class: "btn btn-danger", remote: true %></td>
                 </tr>
               <%end%>
             <% end %>
@@ -56,11 +71,11 @@
           <% unless @simulations.nil? %>
             <% @simulations.each do |simu| %>
               <% if simu.validated == true %>
-                <tr>
+                <tr id="simulation-confirmed-<%=simu.id %>">
                   <th scope="row"><%= simu.id %></th>
                   <td><%= simu.updated_at %></td>
                   <td><%= link_to "Consulter", user_full_simulation_path(current_user, simu), class: "btn btn-success" %></td>
-                  <td><%= link_to "Supprimer", user_full_simulation_path(current_user, simu), method: :delete, class: "btn btn-danger" %></td>
+                  <td><%= link_to "Supprimer", user_full_simulation_path(current_user, simu), method: :delete, class: "btn btn-danger",data:{ confirm: 'Are you sure?' }, remote:true %></td>
                 </tr>
               <% end %>
             <% end %>

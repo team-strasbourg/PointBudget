@@ -4,6 +4,7 @@ class GasSimulation < ApplicationRecord
   belongs_to :full_simulation
   has_many :join_table_gas_simulation_contracts, dependent: :destroy
   has_many :gas_contracts, through: :join_table_gas_simulation_contracts
+
   validates :actual_price_paid,
             presence: true,
             numericality: { greater_than_or_equal_to: 0 }

@@ -20,8 +20,15 @@ class FullSimulationsController < ApplicationController
   def create
     @full_simulation = FullSimulation.new(user: current_user)
     if @full_simulation.save
-      flash[:success] = 'Vous venez de commencer une simulation'
-      redirect_to user_full_simulation_path(current_user, @full_simulation)
+      respond_to do |format|
+        format.html do
+          flash[:success] = 'Vous venez de commencer une simulation'
+          redirect_to user_full_simulation_path(current_user, @full_simulation)
+        end
+
+        format.js do
+        end
+      end
     else
       flash[:error] = @full_simulation.errors.messages
       render 'new'
@@ -45,12 +52,15 @@ class FullSimulationsController < ApplicationController
 
   def destroy
     @full_simulation = FullSimulation.find(params[:id])
-    if @full_simulation.destroy
-      flash[:success] = 'La simulation a bien été supprimée'
-    else
-      flash[:error] = "La simulation n'a pa pu être supprimée"
+    @full_simulation.destroy
+    respond_to do |format|
+      format.html do
+        flash[:success] = 'La simulation a bien été supprimée'
+        redirect_to user_full_simulations_path(current_user)
+      end
+      format.js do
+      end
     end
-    redirect_to user_full_simulations_path(current_user)
   end
 
   private
