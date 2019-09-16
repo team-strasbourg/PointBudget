@@ -55,8 +55,6 @@ if($("body").data("controller") == "gas_simulations" && $("body").data("action")
   }
 }
 
-
-
 if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "new"){
   clickToDisplayDomains = document.getElementById("btn-click-1")
   domainDisplayStatus = false
