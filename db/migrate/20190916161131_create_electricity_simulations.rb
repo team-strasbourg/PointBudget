@@ -4,7 +4,7 @@ class CreateElectricitySimulations < ActiveRecord::Migration[5.2]
       t.float :actual_price_paid
       t.float :elec_cost_saved
       t.integer :elec_use
-      t.string :name
+      t.belongs_to :full_simulation, index: true
 
       t.timestamps
     end
