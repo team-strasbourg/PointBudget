@@ -14,6 +14,7 @@ class User < ApplicationRecord
   belongs_to :city, optional: true
   has_many :full_simulations, dependent: :destroy
   has_many :gas_simulations, through: :full_simulations, dependent: :destroy
+  has_many :box_simulations, through: :full_simulations, dependent: :destroy
 
   def city?
     city_id.nil? || city_id.zero? ? false : true
@@ -25,6 +26,10 @@ class User < ApplicationRecord
 
   def has_gas_simulation(id)
     self.gas_simulations.include?{ |simu| simu.id == id }
+  end
+
+  def has_box_simulation(id)
+    self.box_simulations.include?{ |simu| simu.id == id }
   end
 
   def has_full_simulation(id)
