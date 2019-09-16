@@ -40,8 +40,7 @@ Ruby enVironment Manager 1.29.8 (latest) (c) 2009-2017 Michal Papis, Piotr Kuczy
                               users_root GET    /users(.:format)                                                                         users#show
          new_user_full_simulation_energy GET    /users/:user_id/full_simulations/:full_simulation_id/energies/new(.:format)              energies#new
              user_full_simulation_energy GET    /users/:user_id/full_simulations/:full_simulation_id/energies/:id(.:format)              energies#show
-    user_full_simulation_gas_simulations GET    /users/:user_id/full_simulations/:full_simulation_id/gas_simulations(.:format)           gas_simulations#index
-                                         POST   /users/:user_id/full_simulations/:full_simulation_id/gas_simulations(.:format)           gas_simulations#create
+    user_full_simulation_gas_simulations POST   /users/:user_id/full_simulations/:full_simulation_id/gas_simulations(.:format)           gas_simulations#create
  new_user_full_simulation_gas_simulation GET    /users/:user_id/full_simulations/:full_simulation_id/gas_simulations/new(.:format)       gas_simulations#new
 edit_user_full_simulation_gas_simulation GET    /users/:user_id/full_simulations/:full_simulation_id/gas_simulations/:id/edit(.:format)  gas_simulations#edit
      user_full_simulation_gas_simulation GET    /users/:user_id/full_simulations/:full_simulation_id/gas_simulations/:id(.:format)       gas_simulations#show
