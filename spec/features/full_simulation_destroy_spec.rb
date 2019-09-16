@@ -23,11 +23,10 @@ RSpec.describe 'Full Simulation', type: :feature do
 
   scenario 'delete a validated simulation' do
     visit user_full_simulations_path(@user)
-    full_sim_id = FullSimulation.last.id-1
+    full_sim_id = FullSimulation.where(validated: true).last.id
     within("#simulation-confirmed-#{full_sim_id}") do
       click_link 'Supprimer'
     end
-    expect(page).not_to have_content(full_sim_id)
-    expect(page).to have_content(full_sim_id - 1)
+    expect(page).not_to have_content(" #{full_sim_id} ")
   end
 end
