@@ -56,6 +56,12 @@ if($("body").data("controller") == "gas_simulations" && $("body").data("action")
 }
 
 
+
+if ($("body").data("controller") == "full_simulation" && $("body").data("action") == "new"){
+
+};)
+
+
 if (document.cookie !== "username=guest"){
   navCollapse = document.getElementById("nav-user-collapse")
   userNavStatus = true ;
