@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 RSpec.describe 'the sign in process', type: :feature do
   before :each do
@@ -17,12 +19,10 @@ RSpec.describe 'the sign in process', type: :feature do
   scenario 'with blank password' do
     sign_in 'valid@example.com', ''
     expect(page).to have_content('Log in')
-    end
+  end
 
   scenario 'with 4 letters password' do
     sign_in 'valid@example.com', 'azer'
     expect(page).to have_content('Log in')
   end
-
-
 end

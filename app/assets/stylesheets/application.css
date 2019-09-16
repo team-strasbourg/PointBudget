@@ -18,10 +18,15 @@
 
  */
 
- body{
-     min-height: 100vh;
-     width: 100vw;
- }
+
+ html,body
+{
+    width: 100%;
+    min-height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
 
 .title{
 	padding: 60px 0 70px 0;
@@ -213,9 +218,8 @@ li.button-group{
 
 
 #body_content_user{
-	margin: 30px 0;
+	margin: 30px 0 70px 0;
 	padding: 0 40px;
-
 }
 
 /* SIMULATION INDEX */
@@ -232,6 +236,65 @@ li.button-group{
 	margin-bottom: 100px;
 }
 
+
+/* FULL-SIMULATIONS#SHOW */
+
+#categories{
+	margin: 90px 0 70px 0;
+}
+
+#simu-category{
+	width: 120px;
+	height: 120px;
+	display: flex;
+	flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+}
+
+
+.btn-simu{
+	height: 80px;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+.btn-simu-gas{
+	width: 120px;
+}
+
+.btn-simu-elec{
+	width: 170px;
+}
+
+.btn-simu-assur{
+	width: 210px;
+}
+
+.btn-simu-bank{
+	width: 190px;
+}
+
+.btn-simu-num{
+	width: 200px;
+}
+
+.btn-simu-mut{
+	width: 180px;
+}
+
+.title-simu{
+	margin-top: 60px;
+}
+
+.simulation-result{
+	margin: 0 0 60px 0;
+}
+
+.btn-result{
+	border-radius: 5px;
+}
+
 /* MODAL PRICE FULL SIMULATION */
 
 .price-simu{
@@ -244,52 +307,15 @@ li.button-group{
 	box-shadow: 10px 10px 10px rgba(0,0,0,.05);
 }
 
-/* SIMULATIONS#SHOW */
-
-.simulation-result{
-	width: 25%;
-}
 .price-position{
 	text-align: center;
 	margin: 50px 0;
 }
 
-/*  SIMULATION SHOW */
+
+/*  FULL_SIMULATION#SHOW AFTER VALIDATED FULL_SIMULATIONS */
 
 #simulation-list{
 	margin-top: -50px;
 	margin-bottom: 200px;
-}
-
-
-/* SIMULATION CATEGORY */
-
-#simu-category{
-	width: 120px;
-	height: 120px;
-	display: flex;
-	flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  border-radius: 5px;
-}
-
-/*.icon-category{
-	padding-top: 17px;
-}
-
-.gas-category{
-	font-size: 25px;
-	padding-bottom: 11px;
-}
-
-.elec-category{
-	font-size: 15px;
-	padding-bottom: 11px;
-}*/
-
-.btn-simu-gas{
-	width: 120px;
-	height: 80px;
-	border-radius: 5px;
 }

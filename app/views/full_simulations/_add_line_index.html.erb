@@ -1,0 +1,7 @@
+<tr id="simulation-unconfirmed-<%=simu.id %>">
+  <th scope="row"><%= simu.id %></th>
+  <td><%= simu.created_at %></td>
+  <td><%= simu.counter %></td>
+  <td><%= link_to "Je complète ma simulation", user_full_simulation_path(current_user, simu), class: "btn btn-success" %></td>
+  <td><%= link_to "Supprimer", user_full_simulation_path(current_user, simu), method: :delete, class: "btn btn-danger", remote: true%></td>
+</tr>
