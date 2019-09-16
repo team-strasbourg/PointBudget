@@ -82,9 +82,9 @@ ActiveRecord::Schema.define(version: 2019_09_16_073106) do
     t.string "last_name"
     t.string "phone_number"
     t.boolean "is_admin", default: false
+    t.bigint "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "city_id"
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
