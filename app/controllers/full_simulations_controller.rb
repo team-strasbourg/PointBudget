@@ -3,8 +3,8 @@
 class FullSimulationsController < ApplicationController
   before_action :user_signed_in?
   before_action :authenticate_user!
-  before_action :not_other_users_full_simulations, except: [:index, :new]
-  before_action :not_other_user_index, only:[:index, :new]
+  before_action :not_other_users_full_simulations, only: [:show]
+  before_action :not_other_user_index, only: [:index]
 
   def index
     @simulations = current_user.full_simulations
