@@ -80,13 +80,12 @@
 					<h5 class="mt-4">Mutuelle</h5>
 				</div>
 			<% end %>
-		</div>
-	<% end %>
-
+		<% end %>
+	</div>
 
 	<!-- Button Modal -->
-	<div class="container-fluid row d-flex justify-content-center text-center simulation-result">
-    <%=button_tag 'Résultat de ma simulation', class:'btn btn-block btn-secondary mb-3 col-md-3 col-sm-5', data:{toggle:'modal', target:("#modal-default")} %>
+	<div class="container row d-flex justify-content-center simulation-result">
+    <%=button_tag 'Résultat de ma simulation', class:'btn btn-block btn-secondary mb-3 col-md-3', data:{toggle:'modal', target:("#modal-default")} %>
 	</div>
 	<!-- Modal Content -->
 	<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default"

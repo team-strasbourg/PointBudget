@@ -18,10 +18,13 @@
 
  */
 
- body{
-     min-height: 100vh;
-     width: 100vw;
- }
+ html,body
+{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
 
 .title{
 	padding: 60px 0 70px 0;
@@ -231,41 +234,13 @@ li.button-group{
 	margin-bottom: 100px;
 }
 
-/* MODAL PRICE FULL SIMULATION */
 
-.price-simu{
-	font-size: 38px;
-	height: 150px;
-	width: 150px;
-	padding: 50px 0;
-	border-radius: 50%;
-	color: white;
-	box-shadow: 10px 10px 10px rgba(0,0,0,.05);
-}
-
-/* SIMULATIONS#SHOW */
-
-.simulation-result{
-	margin-bottom: 80px;
-}
-.price-position{
-	text-align: center;
-	margin: 50px 0;
-}
-
-/*  SIMULATION SHOW */
-
-#simulation-list{
-	margin-top: -50px;
-	margin-bottom: 200px;
-}
-
-
-/* SIMULATION CATEGORY */
+/* FULL-SIMULATIONS#SHOW */
 
 #categories{
 	margin: 90px 0 70px 0;
 }
+
 #simu-category{
 	width: 120px;
 	height: 120px;
@@ -308,4 +283,33 @@ li.button-group{
 
 .title-simu{
 	margin-top: 60px;
+}
+
+.simulation-result{
+	margin-bottom: 60px;
+}
+
+/* MODAL PRICE FULL SIMULATION */
+
+.price-simu{
+	font-size: 38px;
+	height: 150px;
+	width: 150px;
+	padding: 50px 0;
+	border-radius: 50%;
+	color: white;
+	box-shadow: 10px 10px 10px rgba(0,0,0,.05);
+}
+
+.price-position{
+	text-align: center;
+	margin: 50px 0;
+}
+
+
+/*  FULL_SIMULATION#SHOW AFTER VALIDATED FULL_SIMULATIONS */
+
+#simulation-list{
+	margin-top: -50px;
+	margin-bottom: 200px;
 }
