@@ -9,6 +9,12 @@ class GasSimulationsController < ApplicationController
 
   def show
     @gas_sim = GasSimulation.find(params[:id])
+    table_attributes = @gas_sim.print_report
+    @floor_space = table_attributes[0]
+    @heat_type = table_attributes[1]
+    @water_cooking_type = table_attributes[2]
+    @residents_number = table_attributes[3]
+    @gas_contracts = @gas_sim.sort_contracts(3)
   end
 
   def new
@@ -42,7 +48,7 @@ class GasSimulationsController < ApplicationController
                                         full_simulation: @full_simulation)
 
     if @gas_simulation.save
-      @gas_simulation.create_join_table_gas(comparison[1])
+      @gas_simulation.create_join_table_gas(comparison[1], comparison[2])
       @full_simulation.update(total_cost_saved: (@full_simulation.total_cost_saved + @gas_simulation.gas_cost_saved),
                               counter: @full_simulation.counter + 1)
       flash[:success] = 'Votre simulation de gaz a bien été enregistrée'

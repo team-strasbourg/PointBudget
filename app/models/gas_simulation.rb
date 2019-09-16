@@ -2,8 +2,9 @@
 
 class GasSimulation < ApplicationRecord
   belongs_to :full_simulation
-  has_many :join_table_gases
-  has_many :gas_contracts, through: :join_table_gases
+  has_many :join_table_gas_simulation_contracts, dependent: :destroy
+  has_many :gas_contracts, through: :join_table_gas_simulation_contracts
+
   validates :actual_price_paid,
             presence: true,
             numericality: { greater_than_or_equal_to: 0 }
@@ -15,7 +16,7 @@ class GasSimulation < ApplicationRecord
             numericality: { greater_than_or_equal_to: 9 }
   validates :heat_type,
             allow_blank: true,
-            format: { with: /\A(Gaz|Electricite)\Z/ }
+            format: { with: /\A(Gaz|Electricite|Non)\Z/ }
   validates :water_cooking_type,
             allow_blank: true,
             format: { with: /\A(Gaz|Electricite)\Z/ }
@@ -25,6 +26,18 @@ class GasSimulation < ApplicationRecord
   validates :gas_use,
             presence: true,
             numericality: { greater_than_or_equal_to: 0, only_integer: true }
+
+  def print_report
+    table_attributes = []
+    [floor_space, heat_type, water_cooking_type, residents_number].each do |attribute|
+      table_attributes << if attribute.nil? || attribute.empty?
+                            'Non renseigné'
+                          else
+                            attribute
+                          end
+    end
+    table_attributes
+  end
 
   def assign_params_from_controller(params)
     @params = params
@@ -53,19 +66,33 @@ class GasSimulation < ApplicationRecord
       yearly_cost > (contract.kwh_price_base * yearly_consumption + contract.subscription_base_price_month * 12)
     }
     max_save = 0
+    all_savings = []
     second_filter.each do |contract|
       savings = yearly_cost - (contract.kwh_price_base * yearly_consumption + contract.subscription_base_price_month * 12)
       if savings > max_save
         max_save = savings
       end
+      all_savings << savings
     end
-    [max_save.round(2), second_filter]
+    [max_save.round(2), second_filter, all_savings]
   end
 
-  def create_join_table_gas(filter)
-    filter.each do |contract|
-      JoinTableGasSimulationContract.create(gas_simulation: self, gas_contract: contract)
+  def create_join_table_gas(filter, all_savings)
+    filter.each_with_index do |contract,index|
+      JoinTableGasSimulationContract.create(gas_simulation: self, gas_contract: contract, savings: all_savings[index])
     end
+  end
+
+  def sort_contracts(how_many)
+    return_array = []
+    contracts_sorted = join_table_gas_simulation_contracts.sort_by(&:savings).reverse
+    how_many.times do |i|
+      begin
+      return_array << GasContract.find(contracts_sorted[i].gas_contract_id)
+      rescue
+      end
+    end
+    return_array
   end
 
   def consumption_people(nb_residents)

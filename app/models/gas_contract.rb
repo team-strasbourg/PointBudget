@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class GasContract < ApplicationRecord
-  has_many :join_table_gases, dependent: :destroy
-  has_many :gas_simulations, through: :join_table_gases
+  has_many :join_table_gas_simulation_contracts, dependent: :destroy
+  has_many :gas_simulations, through: :join_table_gas_simulation_contracts
 
   validates :subscription_base_price_month,
             numericality: { less_than_or_equal_to: 40.00,
