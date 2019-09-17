@@ -32,18 +32,18 @@
 
 $(document).ready(function () {
 
-if($("body").data("controller") == "gas_simulations" && $("body").data("action") == "new") {
+if($("body").data("controller") == "full_simulations" && $("body").data("action") == "show") {
   radioYes = document.getElementById("answer_yes")
   radioNo = document.getElementById("answer_no")
 
   radioYes.addEventListener('click', function(){
-      $('#consumption').show(600);
-      $('#estimation').hide(600);
+      $('#consumption').show(500);
+      $('#estimation').hide(500);
   });
 
   radioNo.addEventListener('click', function(){
-      $('#consumption').hide(600);
-      $('#estimation').show(600);
+      $('#consumption').hide(500);
+      $('#estimation').show(500);
   });
 } else if($("body").data("controller") == "full_simulations" && $("body").data("action") == "show"){
   try {
@@ -55,24 +55,40 @@ if($("body").data("controller") == "gas_simulations" && $("body").data("action")
   }
 }
 
-
-
 if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "new"){
   clickToDisplayDomains = document.getElementById("btn-click-1")
-  domainDisplayStatus = false
+  domainDeploySatus = false
 
   clickToDisplayDomains.addEventListener('click', function(){
-    if (domainDisplayStatus == false) {
-      $("#domain-list").show(600);
-      domainDisplayStatus = true
-    }
-    else if (domainDisplayStatus == true) {
-      $("#domain-list").hide(600);
-      domainDisplayStatus = false
-    }
+    $("#domain-list").toggle(600);
   })
 };
 
+if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show"){
+  clickToDisplayEnergies = document.getElementById("btn-energy")
+  energyDeployStatus = false
+  clickToDisplayGasSimu = document.getElementById("btn-gas")
+  gasDeployStatus = false
+
+  clickToDisplayGasSimu.addEventListener('click', function(){
+    $("#gas-simu").toggle(600);
+  })
+
+  clickToDisplayEnergies.addEventListener('click', function(){
+    if (energyDeployStatus == false) {
+      $("#energy-categories").addClass("d-flex");
+      $("#energy-categories").show(500);
+      $("#gas-simu").hide(500);
+      gasDeployStatus = false;
+      energyDeployStatus = true;
+    }
+    else if (energyDeployStatus == true) {
+      $("#energy-categories").removeClass("d-flex");
+      $("#energy-categories").hide(500);
+      energyDeployStatus = false;
+    }    
+  })
+};
 
 if (document.cookie !== "username=guest"){
   navCollapse = document.getElementById("nav-user-collapse")

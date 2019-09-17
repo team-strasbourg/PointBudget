@@ -20,13 +20,13 @@
        <h2><strong>Vos simulations en cours</strong></h2>
     </div>
     <div class="col-md-10">
-      <table class="table table-responsive-sm table-striped">
+      <table class="table table-responsive-sm table-striped" id="table-non-validated">
        <thead class="bg-primary text-white">
           <tr>
-            <th scope="col" style="width: 20%;">Simulation</th>
-            <th scope="col" style="width: 40%;">Créée le</th>
+            <th scope="col" style="width: 15%;">Simulation</th>
+            <th scope="col" style="width: 15%;">Créée le</th>
             <th scope="col" style="width: 30%;">Catégories testées</th>
-            <th scope="col" style="width: 10%;">Compléter sa simulation</th>
+            <th scope="col" style="width: 30%;">Compléter sa simulation</th>
             <th scope="col" style="width: 10%;">Supprimer</th>
           </tr>
         </thead>
@@ -34,7 +34,7 @@
           <% unless @simulations.nil? %>
             <% @simulations.each do |simu| %>
               <% if simu.validated == false %>
-                <%= render partial:'add_line_index', locals:{simu: simu} %>
+                <%= render partial:'add_line_index', locals:{simu: simu, confirmed: false} %>
               <%end%>
             <% end %>
           <% end %>
@@ -51,7 +51,7 @@
         <h2><strong>Vos simulations validées</strong></h2>
     </div>
     <div class="col-md-10">
-      <table class="table table-responsive-sm table-striped">
+      <table class="table table-responsive-sm table-striped" id="table-validated">
         <thead class="bg-primary text-white">
           <tr>
             <th scope="col" style="width: 20%;">Simulation</th>
@@ -65,7 +65,7 @@
           <% unless @simulations.nil? %>
             <% @simulations.each do |simu| %>
               <% if simu.validated == true %>
-                <%= render partial:'add_line_index', locals:{simu: simu} %>
+                <%= render partial:'add_line_index', locals:{simu: simu, confirmed: true} %>
               <% end %>
             <% end %>
           <% end %>

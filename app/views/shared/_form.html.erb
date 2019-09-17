@@ -190,7 +190,7 @@
               <%= f.text_field :city_id, value: '', list: 'all_cities', id:'cities_search' %>
             <%end %>
             <datalist id="all_cities">
-              <%@cities.each do |city| %>
+              <%City.all.each do |city| %>
                 <option value="<%=city.zip_code %> - <%=city.name %>" id="<%=city.zip_code %> - <%=city.name %>">
               <%end %>
             </datalist>

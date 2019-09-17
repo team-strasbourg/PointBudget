@@ -14,7 +14,7 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
-    it 'redirect to his profile if try to see another user' do
+    it 'redirect to his root page if try to see another user' do
       create(:user)
       get :show, params: { id: (subject.current_user.id.to_i + 1) }
       expect(response).to redirect_to("/users/#{subject.current_user.id}/full_simulations/new")
@@ -23,7 +23,8 @@ RSpec.describe UsersController, type: :controller do
 
   describe 'anonymous user' do
     it 'should be redirected to signin for show' do
-      get :show
+      user = create(:user)
+      get :show, params: { id: user.id }
       expect(response).to redirect_to(new_user_session_path)
     end
 

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  after_create :welcome_send
-  before_destroy :goodbye_send
+  # after_create :welcome_send
+  # before_destroy :goodbye_send
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   belongs_to :city, optional: true
   has_many :full_simulations, dependent: :destroy
-  has_one :gas_simulation
+  has_many :gas_simulations, through: :full_simulations, dependent: :destroy
 
   def city?
     city_id.nil? || city_id.zero? ? false : true
@@ -21,6 +21,14 @@ class User < ApplicationRecord
 
   def last_admin?
     is_admin && User.select{ |user| user.is_admin == true }.count == 1
+  end
+
+  def has_gas_simulation(id)
+    self.gas_simulations.include?{ |simu| simu.id == id }
+  end
+
+  def has_full_simulation(id)
+    self.full_simulations.include?{ |simu| simu.id == id }
   end
 
   private
