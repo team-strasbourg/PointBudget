@@ -1,0 +1,11 @@
+<%= render partial: "shared/form", locals:{resource: @gas_simulation,
+                                           action: 'new_ele_simulation',
+                                           path: user_full_simulation_gas_simulations_path(current_user,
+                                                                                           @full_simulation),
+                                           method: :post,
+                                           title: 'Simulation ele',
+                                           button: "Terminer"}%>
+
+<div class="d-flex align-self-start">
+	<%= link_to "Back", :back %>
+</div>
