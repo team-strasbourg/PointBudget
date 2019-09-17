@@ -30,9 +30,9 @@
 
 		<!-- numeric -->
     <% if @full_simulation.only_one_box_simulation %>
-      <%= render partial: 'button_categories', locals: {category: 'num', sub_category: 'numeric', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-mobile-alt", name:'Numérique',disabled:true} %>
+      <%= render partial: 'button_categories', locals: {category: 'numeric', sub_category: 'num', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-mobile-alt", name:'Numérique',disabled:true} %>
     <%else %>
-      <%= render partial: 'button_categories', locals: {category: 'num', sub_category: 'numeric', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-mobile-alt", name:'Numérique',disabled:false} %>
+      <%= render partial: 'button_categories', locals: {category: 'numeric', sub_category: 'num', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-mobile-alt", name:'Numérique',disabled:false} %>
 
     <% end %>
 		<!-- medical -->
@@ -55,19 +55,9 @@
         <%= render partial: 'button_categories', locals: {category: 'gas', sub_category: 'gas', bg:'primary', animate: 'animate-up-3 mx-2', style:'', icon: "fas fa-burn", name:'Gaz', disabled:false} %>
       <% end %>
       <% if @full_simulation.only_one_ele_simulation %>
-        <%= button_tag class: 'btn-simu-elec btn-simu btn btn-secondary disabled mx-2', style:'cursor:not-allowed',id:'btn-elec', disabled:true do %>
-          <div class="d-flex justify-content-around align-items-center text-white">
-            <span class="icon"><i class="fas fa-bolt"></i></span>
-            <h5 class="mt-4">Electricité</h5>
-          </div>
-        <% end %>
+        <%= render partial: 'button_categories', locals: {category: 'elec', sub_category: 'elec', bg:'secondary', animate: 'disabled mx-2', style:'cursor:not-allowed', icon: "fas fa-bolt", name:'Electricité', disabled:true} %>
       <%else%>
-        <%= button_tag class: 'btn-simu-elec btn-simu btn btn-primary animate-up-3 mx-2', id:'btn-elec' do %>
-          <div class="d-flex justify-content-around align-items-center text-white">
-            <span class="icon"><i class="fas fa-bolt"></i></span>
-            <h5 class="mt-4">Electricité</h5>
-          </div>
-        <% end %>
+        <%= render partial: 'button_categories', locals: {category: 'elec', sub_category: 'elec', bg:'primary', animate: 'animate-up-3 mx-2', style:'', icon: "fas fa-bolt", name:'Electricité', disabled:false} %>
       <%end%>
     </div>
 
