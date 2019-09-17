@@ -15,12 +15,12 @@ module Admin
 
   	def create
   		my_params = params[:mobil_contract]
-      params[:calls_france] = ActiveModel::Type::Boolean.new.cast(params[:calls_france])
+      engagement = my_params[:engagement] == 'true' ? true : false
   		@contract = MobilContract.new(supplier: my_params[:supplier],
                                   offer_name: my_params[:offer_name],
                                 	line_service_price: my_params[:line_service_price],
                                   sim_card_price: my_params[:sim_card_price],
-                                  engagement: my_params[:engagement],
+                                  engagement: engagement,
                                   add_phone: my_params[:add_phone],
                                   bundle_price: my_params[:bundle_price],
                                   bundle_gbyte:my_params[:bundle_gbyte], 
