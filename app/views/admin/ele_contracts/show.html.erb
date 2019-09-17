@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <h2 class="profile-title"><strong>Gas Contract N°<%=@contract.id %></strong></h2>
+      <h2 class="profile-title"><strong>Electricity Contract N°<%=@contract.id %></strong></h2>
     </div>
     <div class="col-md-9">
       <dl>
@@ -22,8 +22,8 @@
         <dt>Updated date</dt>
         <dl><%=@contract.updated_at %></dl>
         <br>
-        <%= link_to "Edit the contract", edit_admin_gas_contract_path(@contract), class: "btn btn-success"%>
-        <td><%= link_to 'Destroy',admin_gas_contract_path(@contract), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        <%= link_to "Edit the contract", edit_admin_ele_contract_path(@contract), class: "btn btn-success"%>
+        <td><%= link_to 'Destroy',admin_ele_contract_path(@contract), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </dl>
     </div>
   </div>
