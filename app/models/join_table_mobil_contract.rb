@@ -1,0 +1,2 @@
+class JoinTableMobilContract < ApplicationRecord
+end
