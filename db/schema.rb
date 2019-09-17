@@ -15,6 +15,40 @@ ActiveRecord::Schema.define(version: 2019_09_17_095506) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "box_contracts", force: :cascade do |t|
+    t.string "supplier", default: ""
+    t.string "offer_name", default: ""
+    t.float "price_month", default: 0.0
+    t.integer "commitment", default: 0
+    t.float "price_after", default: 0.0
+    t.string "internet_type"
+    t.integer "downstream", default: 0
+    t.integer "upstream", default: 0
+    t.string "tv_channel", default: ""
+    t.boolean "tv"
+    t.boolean "call_fix_fr"
+    t.boolean "call_mobile_fr"
+    t.boolean "call_foreign"
+    t.float "opening_fee", default: 0.0
+    t.float "termination_fee", default: 0.0
+    t.float "taken_termination", default: 0.0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "box_simulations", force: :cascade do |t|
+    t.float "actual_price_paid", default: 0.0
+    t.float "box_cost_saved", default: 0.0
+    t.boolean "tv", default: true
+    t.boolean "call_fix_fr", default: true
+    t.boolean "call_mob_fr", default: true
+    t.string "name", default: "Box Internet"
+    t.bigint "full_simulation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["full_simulation_id"], name: "index_box_simulations_on_full_simulation_id"
+  end
+
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.string "zip_code"
@@ -82,7 +116,6 @@ ActiveRecord::Schema.define(version: 2019_09_17_095506) do
     t.index ["full_simulation_id"], name: "index_gas_simulations_on_full_simulation_id"
   end
 
-
   create_table "join_table_box_contracts", force: :cascade do |t|
     t.float "savings"
     t.bigint "box_contract_id"
@@ -103,7 +136,6 @@ ActiveRecord::Schema.define(version: 2019_09_17_095506) do
     t.index ["ele_contract_id"], name: "index_join_table_ele_simulation_contracts_on_ele_contract_id"
     t.index ["ele_simulation_id"], name: "index_join_table_ele_simulation_contracts_on_ele_simulation_id"
   end
-
 
   create_table "join_table_gas_simulation_contracts", force: :cascade do |t|
     t.bigint "gas_simulation_id"
