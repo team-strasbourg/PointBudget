@@ -35,12 +35,9 @@ class GasSimulation < ApplicationRecord
     table_attributes
   end
 
+  # Set the user of the gas simulation
   def user
     self.full_simulation.user
-  end
-
-  def assign_params_from_controller(params)
-    @params = params
   end
 
   def estimation(yearly_cost, yearly_consumption, floor_space, heat_type, water_cooking_type, nb_residents )
@@ -58,6 +55,7 @@ class GasSimulation < ApplicationRecord
     end
   end
 
+  # This method execute the comparison between what is entered by the client and the contracts
   def comparison(yearly_cost, yearly_consumption)
     first_filter = GasContract.all.select { |contract|
       yearly_consumption.between?(contract.low_kw_consumption_per_year * 1000, contract.high_kw_consumption_per_year * 1000)
@@ -77,12 +75,14 @@ class GasSimulation < ApplicationRecord
     [max_save.round(2), second_filter, all_savings]
   end
 
+  # This method create all the join table given by the filter and the saving associated with each
   def create_join_table_gas(filter, all_savings)
     filter.each_with_index do |contract, index|
       JoinTableGasSimulationContract.create(gas_simulation: self, gas_contract: contract, savings: all_savings[index])
     end
   end
 
+  # This method can show the top best contracts depending on the number we want to show
   def sort_contracts(how_many)
     return_array = []
     contracts_sorted = join_table_gas_simulation_contracts.sort_by(&:savings).reverse

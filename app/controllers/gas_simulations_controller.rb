@@ -29,7 +29,6 @@ class GasSimulationsController < ApplicationController
   def create
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
     @gas_simulation = GasSimulation.new
-    @gas_simulation.assign_params_from_controller(params)
     estimation = @gas_simulation.estimation(params[:yearly_cost],
                                             params[:yearly_consumption],
                                             params[:floor_space],
