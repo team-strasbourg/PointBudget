@@ -24,8 +24,6 @@ class EleSimulationsController < ApplicationController
   def create
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
     @ele_simulation = EleSimulation.new
-    @ele_simulation.assign_params_from_controller(params)
-
     comparison = @ele_simulation.comparison(params[:yearly_cost],params[:yearly_consumption],params[:kVA_power])
     @ele_simulation = EleSimulation.new(actual_price_paid: params[:yearly_cost],
                                         ele_cost_saved: comparison[0],

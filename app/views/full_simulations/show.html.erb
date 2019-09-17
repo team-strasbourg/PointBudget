@@ -7,47 +7,37 @@
 	<div id="categories" class="row container-fluid d-flex justify-content-around">
 
 		<!-- insurance -->
-      <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-assur btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+      <%= button_tag class: 'btn-simu-assur btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
 				<div class="d-flex justify-content-around align-items-center text-white">
 					<span class="icon"><i class="fas fa-house-damage"></i></span>
 					<h5 class="mt-4">Assurance</h5>
 				</div>
 			<% end %>
 		<!-- bank -->
-      <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-bank btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+      <%= button_tag class: 'btn-simu-bank btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
 				<div class="d-flex justify-content-around align-items-center text-white">
 					<span class="icon"><i class="fas fa-money-check-alt"></i></span>
 					<h5 class="mt-4">Banque</h5>
 				</div>
 			<% end %>
     <% if @full_simulation.only_one_gas_simulation && @full_simulation.only_one_ele_simulation %>
-
       <!-- energy -->
-      <%= button_tag class: 'btn-simu-elec btn-simu btn btn-secondary disabled', id:'btn-energy', style:'cursor:not-allowed' do %>
-        <div class="d-flex justify-content-around align-items-center text-white">
-          <span class="icon"><i class="fas fa-sun"></i></span>
-          <h5 class="mt-4">Energie</h5>
-        </div>
-      <% end %>
-
+      <%= render partial: 'button_categories', locals: {category: 'energy', sub_category: 'elec', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-sun", name:'Energie', disabled: true} %>
     <%else%>
       <!-- energy -->
-      <%= button_tag class: 'btn-simu-bank btn-simu btn btn-primary animate-up-3', id:'btn-energy' do %>
-        <div class="d-flex justify-content-around align-items-center text-white">
-          <span class="icon"><i class="fas fa-sun"></i></span>
-          <h5 class="mt-4">Energie</h5>
-        </div>
-      <% end %>
+      <%= render partial: 'button_categories', locals: {category: 'energy', sub_category: 'elec', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-sun", name:'Energie', disabled: false} %>
     <%end%>
 
 		<!-- numeric -->
     <% if @full_simulation.only_one_box_simulation %>
-      <%= button_tag class: 'btn-simu-num btn-simu btn btn-secondary disabled', id:'btn-numeric', style:'cursor:not-allowed', disabled:true do %>
-				<div class="d-flex justify-content-around align-items-center text-white">
-					<span class="icon"><i class="fas fa-mobile-alt"></i></span>
-					<h5 class="mt-4">Numérique</h5>
-				</div>
-			<% end %>
+      <%= render partial: 'button_categories', locals: {category: 'num', sub_category: 'numeric', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-mobile-alt", name:'Numérique',disabled:true} %>
+
+      <%#= button_tag class: 'btn-simu-num btn-simu btn btn-secondary disabled', id:'btn-numeric', style:'cursor:not-allowed', disabled:true do %>
+<!--				<div class="d-flex justify-content-around align-items-center text-white">-->
+<!--					<span class="icon"><i class="fas fa-mobile-alt"></i></span>-->
+<!--					<h5 class="mt-4">Numérique</h5>-->
+<!--				</div>-->
+			<%# end %>
     <%else %>
       <%= button_tag class: 'btn-simu-num btn-simu btn btn-primary animate-up-3', id:'btn-numeric' do %>
         <div class="d-flex justify-content-around align-items-center text-white">
@@ -57,7 +47,7 @@
       <% end %>
     <% end %>
 		<!-- medical -->
-      <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-mut btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+      <%= button_tag class: 'btn-simu-mut btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
 				<div class="d-flex justify-content-around align-items-center text-white">
 					<span class="icon"><i class="fas fa-stethoscope"></i></span>
 					<h5 class="mt-4">Mutuelle</h5>
@@ -86,7 +76,7 @@
         <% end %>
       <% end %>
       <% if @full_simulation.only_one_ele_simulation %>
-        <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-elec btn-simu btn btn-secondary disabled mx-2', style:'cursor:not-allowed',id:'btn-elec', disabled:true do %>
+        <%= button_tag class: 'btn-simu-elec btn-simu btn btn-secondary disabled mx-2', style:'cursor:not-allowed',id:'btn-elec', disabled:true do %>
           <div class="d-flex justify-content-around align-items-center text-white">
             <span class="icon"><i class="fas fa-bolt"></i></span>
             <h5 class="mt-4">Electricité</h5>
