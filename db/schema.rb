@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_09_16_163152) do
     t.index ["zip_code"], name: "index_cities_on_zip_code"
   end
 
-  create_table "electricity_contracts", force: :cascade do |t|
+  create_table "ele_contracts", force: :cascade do |t|
     t.string "supplier"
     t.string "offer_name"
     t.integer "kw_consumption_per_year"
@@ -36,14 +36,14 @@ ActiveRecord::Schema.define(version: 2019_09_16_163152) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "electricity_simulations", force: :cascade do |t|
+  create_table "ele_simulations", force: :cascade do |t|
     t.float "actual_price_paid"
-    t.float "elec_cost_saved"
-    t.integer "elec_use"
+    t.float "ele_cost_saved"
+    t.integer "ele_use"
     t.bigint "full_simulation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["full_simulation_id"], name: "index_electricity_simulations_on_full_simulation_id"
+    t.index ["full_simulation_id"], name: "index_ele_simulations_on_full_simulation_id"
   end
 
   create_table "full_simulations", force: :cascade do |t|
@@ -82,11 +82,15 @@ ActiveRecord::Schema.define(version: 2019_09_16_163152) do
     t.index ["full_simulation_id"], name: "index_gas_simulations_on_full_simulation_id"
   end
 
-  create_table "join_table_electricity_simulation_contracts", force: :cascade do |t|
+  create_table "join_table_ele_simulation_contracts", force: :cascade do |t|
     t.float "savings", default: 0.0
     t.float "float", default: 0.0
+    t.bigint "ele_simulation_id"
+    t.bigint "ele_contract_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ele_contract_id"], name: "index_join_table_ele_simulation_contracts_on_ele_contract_id"
+    t.index ["ele_simulation_id"], name: "index_join_table_ele_simulation_contracts_on_ele_simulation_id"
   end
 
   create_table "join_table_gas_simulation_contracts", force: :cascade do |t|

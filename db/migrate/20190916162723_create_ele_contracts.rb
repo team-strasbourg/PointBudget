@@ -1,6 +1,6 @@
-class CreateElectricityContracts < ActiveRecord::Migration[5.2]
+class CreateEleContracts < ActiveRecord::Migration[5.2]
   def change
-    create_table :electricity_contracts do |t|
+    create_table :ele_contracts do |t|
       t.string :supplier
       t.string :offer_name
       t.integer :kw_consumption_per_year

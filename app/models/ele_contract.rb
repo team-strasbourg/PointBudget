@@ -1,6 +1,6 @@
-class ElectricityContract < ApplicationRecord
-  has_many :join_table_electricity_simulation_contracts, dependent: :destroy
-  has_many :electricity_simulations, through: :join_table_electricity_simulation_contracts
+class EleContract < ApplicationRecord
+  has_many :join_table_ele_simulation_contracts, dependent: :destroy
+  has_many :ele_simulations, through: :join_table_ele_simulation_contracts
 
   validates :subscription_base_price_month,
             numericality: { less_than_or_equal_to: 40.00,

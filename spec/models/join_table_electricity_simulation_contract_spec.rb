@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe JoinTableElectricitySimulationContract, type: :model do
+RSpec.describe JoinTableElecSimulationContract, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end
