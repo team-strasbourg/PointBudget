@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :mobil_contract do
     supplier { "MyString" }
     offer_name { "MyString" }
-    lign_service_price { 1 }
+    line_service_price { 1 }
     sim_card_price { 1 }
     engagement { false }
     add_phone { false }

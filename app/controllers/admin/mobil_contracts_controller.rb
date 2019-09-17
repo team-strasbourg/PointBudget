@@ -1,5 +1,5 @@
 module Admin
-  class GasContractsController < ApplicationController
+  class MobilContractsController < ApplicationController
 
   	def index
   		@contracts = MobilContract.all.sort_by(&:supplier)
@@ -17,7 +17,7 @@ module Admin
   		my_params = params[:mobil_contract]
   		@contract = MobilContract.new(supplier: my_params[:supplier],
                                   offer_name: my_params[:offer_name],
-                                	lign_service_price: my_params[:lign_service_price],
+                                	line_service_price: my_params[:line_service_price],
                                   sim_card_price: my_params[:sim_card_price],
                                   engagement: my_params[:engagement],
                                   add_phone: my_params[:add_phone],
@@ -62,7 +62,7 @@ module Admin
     def contract_params
       params.require(:mobil_contract).permit(:supplier,
                                            :offer_name,
-                                           :lign_service_price,
+                                           :line_service_price,
                                            :sim_card_price,
                                            :engagement,
                                            :add_phone,
