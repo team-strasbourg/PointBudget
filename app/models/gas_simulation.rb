@@ -35,6 +35,10 @@ class GasSimulation < ApplicationRecord
     table_attributes
   end
 
+  def user
+    self.full_simulation.user
+  end
+
   def assign_params_from_controller(params)
     @params = params
   end
@@ -115,7 +119,5 @@ class GasSimulation < ApplicationRecord
     end
   end
 
-  def user
-    self.full_simulation.user
-  end
+
 end

@@ -3,7 +3,7 @@
 class BoxSimulationsController < ApplicationController
   before_action :authenticate_user!
   before_action :user_signed_in?
-  before_action :not_other_users_gas_simulations, only: [:show]
+  before_action :not_other_users_box_simulations, only: [:show]
   before_action :not_other_user_index, only: [:index]
 
   def index; end
