@@ -8,7 +8,6 @@ class EleSimulationsController < ApplicationController
 
    def show
     @ele_sim = EleSimulation.find(params[:id])
-    table_attributes = @ele_sim.print_report
     @ele_contracts = @ele_sim.sort_contracts(3)
   end
 
