@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  
-  devise_for :users, controllers: { registrations: :registrations }
+
+  devise_for :users, controllers: { registrations: :registrations,
+                                    omniauth_callbacks: "users/omniauth_callbacks" }
+
 
   root to: 'static_pages#landing_page'
   get 'static_pages/about'
