@@ -26,7 +26,7 @@ lines.each do |line|
       calls_france: to_boolean(line[8]),
       calls_europe: to_boolean(line[9]),
       gbyte_europe: line[10].to_f,
-      calls_internationnal: to_boolean(line[11]),
-      net_internationnal: to_boolean(line[12])
+      calls_international: to_boolean(line[11]),
+      net_international: to_boolean(line[12])
       )
 end
