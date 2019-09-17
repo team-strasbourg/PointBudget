@@ -52,10 +52,6 @@ li.button-group{
 
 /* NAVBAR */
 
-/* .point-budget-title{
- 	 font-size: 30px;
- 	 margin-right: 50px;
- }*/
 
  .logo-nav{
  	width: 200px;
@@ -66,14 +62,16 @@ li.button-group{
 
 /* JUMBOTRON */
 
+
 .jumbotron
 {
-    background-image: url("baniere.jpg");
+    /* background-image: url("baniere.jpg"); */
     background-position: center 75%;
     background-size: cover;
     background-repeat: no-repeat;
     height: 25em;
 }
+
 
 /* Show in Large desktops and laptops */
 @media (min-width: 1200px) {
@@ -97,13 +95,13 @@ li.button-group{
 				#jumbo-image {
 					background-image: none;
 					text-align: center;
+					/* justify-content: left; */
 			}
 	
 	}
 	
 	/* Portrait tablets and small desktops */
 	@media (min-width: 768px) and (max-width: 991px) {
-	
 						#jumbo-image {
 					background-image: none;
 					text-align: center;
@@ -117,6 +115,7 @@ li.button-group{
 						#jumbo-image {
 					background-image: none;
 					text-align: center;
+					justify-content: center;
 			}
 	
 	}
@@ -264,9 +263,7 @@ li.button-group{
 
 	/* NAVBAR USER*/
 
-/*.user-nav{
-	border-right: 2px #dcded8 solid;
-}*/
+
 
 #nav-user-collapse {
   position:absolute;

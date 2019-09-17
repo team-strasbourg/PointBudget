@@ -4,8 +4,7 @@
       <h1 class="display-1">Point Budget</h1>
       <p class="lead">La meilleure façon de gérer son budget est de le comparer.</p>
     </div>
-    <div class="col-md-12">
-      <hr class="my-4">
+    <div class="col-md-12"><br>
       <% if user_signed_in? %>
         <%=link_to "Lancer une simulation", new_user_full_simulation_path(current_user), class: "btn mr-2 mb-2 btn-pill btn-primary btn-lg"%>
       <%else%>
