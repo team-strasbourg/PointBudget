@@ -216,14 +216,31 @@
 		<% if @full_simulation.only_one_gas_simulation %>
 			<div class="accordion container">
 		    <div class="card card-sm card-body shadow-sm border-soft border">
-	        <div data-target="#panel-4" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
+	        <div data-target="#panel-1" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
 	          <span class="icon-title h6 mb-0 font-weight-bold"><i class="fas fa-burn"></i><%= @full_simulation.gas_simulation.name %></span>
 	          <span class="icon"><i class="fas fa-plus"></i></span>
 	        </div>
-	        <div class="collapse" id="panel-4">
+	        <div class="collapse" id="panel-1">
 	          <div class="pt-3">
               <p class="mb-0">
                   Vous pouvez économiser <%= @full_simulation.gas_simulation.gas_cost_saved %>€
+              </p>
+            </div>
+	        </div>
+		    </div>
+		   </div>
+    <% end %>
+		<% if @full_simulation.only_one_box_simulation %>
+			<div class="accordion container">
+		    <div class="card card-sm card-body shadow-sm border-soft border">
+	        <div data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
+	          <span class="icon-title h6 mb-0 font-weight-bold"><i class="fas fa-signal"></i><%= @full_simulation.box_simulation.name %></span>
+	          <span class="icon"><i class="fas fa-plus"></i></span>
+	        </div>
+	        <div class="collapse" id="panel-3">
+	          <div class="pt-3">
+              <p class="mb-0">
+                  Vous pouvez économiser <%= @full_simulation.box_simulation.box_cost_saved %>€
               </p>
             </div>
 	        </div>

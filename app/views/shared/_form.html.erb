@@ -258,21 +258,21 @@
               <%= number_field_tag "monthly_cost", nil, step: 1 , within: 1...10000, class: 'd-flex justify-content-end' %>
             </p>
             <p>Avez-vous ou voulez-vous la TV?
-              <%= radio_button_tag(:tv, true)%>
+              <%= radio_button_tag(:tv, 'true')%>
               <%= label_tag(:tv_yes, "Oui")%>
-              <%= radio_button_tag(:tv, false) %>
+              <%= radio_button_tag(:tv, 'false') %>
               <%= label_tag(:tv_no, "Non") %>
             </p>
             <p>Avez-vous ou voulez-vous les appels vers les téléphones fixes en France?
-              <%= radio_button_tag(:call_fix_fr, true)%>
+              <%= radio_button_tag(:call_fix_fr, 'true')%>
               <%= label_tag(:call_fix_fr_yes, "Oui")%>
-              <%= radio_button_tag(:call_fix_fr, false) %>
+              <%= radio_button_tag(:call_fix_fr, 'false') %>
               <%= label_tag(:call_fix_fr_no, "Non") %>
             </p>
             <p>Avez-vous ou voulez-vous les appels vers les téléphones mobile en France?
-              <%= radio_button_tag(:call_mob_fr, true)%>
+              <%= radio_button_tag(:call_mob_fr, 'true')%>
               <%= label_tag(:call_mob_fr_yes, "Oui")%>
-              <%= radio_button_tag(:call_mob_fr, false) %>
+              <%= radio_button_tag(:call_mob_fr, 'false') %>
               <%= label_tag(:call_mob_fr_no, "Non") %>
             </p>
 
@@ -371,8 +371,8 @@
           </div>
 
           <div class="form-group">
-            <%= f.label :type %><br />
-            <%= f.number_field :type,class: "form-control"  %>
+            <%= f.label :internet_type %><br />
+            <%= f.text_field :internet_type,class: "form-control"  %>
           </div>
 
           <div class="form-group">
@@ -387,27 +387,39 @@
 
           <div class="form-group">
             <%= f.label :tv_channel %><br />
-            <%= f.number_field :tv_channel,class: "form-control"  %>
+            <%= f.text_field :tv_channel,class: "form-control"  %>
           </div>
 
           <div class="form-group">
             <%= f.label :tv %><br />
-            <%= f.number_field :tv,class: "form-control"  %>
+            <%= radio_button_tag(:tv, true)%>
+            <%= label_tag(:tv_yes, "Oui")%>
+            <%= radio_button_tag(:tv, false) %>
+            <%= label_tag(:tv_no, "Non") %>
           </div>
 
           <div class="form-group">
             <%= f.label :call_fix_fr %><br />
-            <%= f.number_field :call_fix_fr,class: "form-control"  %>
+            <%= radio_button_tag(:call_fix_fr, true)%>
+            <%= label_tag(:call_fix_fr_yes, "Oui")%>
+            <%= radio_button_tag(:call_fix_fr, false) %>
+            <%= label_tag(:call_fix_fr_no, "Non") %>
           </div>
 
           <div class="form-group">
             <%= f.label :call_mobile_fr %><br />
-            <%= f.number_field :call_mobile_fr,class: "form-control"  %>
+            <%= radio_button_tag(:call_mobile_fr, true)%>
+            <%= label_tag(:call_mobile_fr_yes, "Oui")%>
+            <%= radio_button_tag(:call_mobile_fr, false) %>
+            <%= label_tag(:call_mobile_fr_no, "Non") %>
           </div>
 
           <div class="form-group">
             <%= f.label :call_foreign %><br />
-            <%= f.number_field :call_foreign,class: "form-control"  %>
+            <%= radio_button_tag(:call_foreign, true)%>
+            <%= label_tag(:call_foreign_yes, "Oui")%>
+            <%= radio_button_tag(:call_foreign, false) %>
+            <%= label_tag(:call_foreign_no, "Non") %>
           </div>
 
           <div class="form-group">

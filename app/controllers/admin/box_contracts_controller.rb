@@ -21,7 +21,7 @@ module Admin
                                   price_month: my_params[:price_month],
                                   commitment: my_params[:commitment],
                                   price_after: my_params[:price_after],
-                                  type: my_params[:type],
+                                  internet_type: my_params[:internet_type],
                                   downstream: my_params[:downstream],
                                   upstream: my_params[:upstream],
                                   tv_channel: my_params[:tv_channel],

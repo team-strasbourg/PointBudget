@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 2019_09_17_095506) do
     t.integer "downstream", default: 0
     t.integer "upstream", default: 0
     t.string "tv_channel", default: ""
-    t.boolean "tv", default: false
-    t.boolean "call_fix_fr", default: false
-    t.boolean "call_mobile_fr", default: false
-    t.boolean "call_foreign", default: false
+    t.boolean "tv", default: true
+    t.boolean "call_fix_fr", default: true
+    t.boolean "call_mobile_fr", default: true
+    t.boolean "call_foreign", default: true
     t.float "opening_fee", default: 0.0
     t.float "termination_fee", default: 0.0
     t.float "taken_termination", default: 0.0
@@ -39,9 +39,10 @@ ActiveRecord::Schema.define(version: 2019_09_17_095506) do
   create_table "box_simulations", force: :cascade do |t|
     t.float "actual_price_paid", default: 0.0
     t.float "box_cost_saved", default: 0.0
-    t.boolean "tv", default: false
-    t.boolean "call_fix_fr", default: false
-    t.boolean "call_mob_fr", default: false
+    t.boolean "tv", default: true
+    t.boolean "call_fix_fr", default: true
+    t.boolean "call_mob_fr", default: true
+    t.string "name", default: "Box Internet"
     t.bigint "full_simulation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

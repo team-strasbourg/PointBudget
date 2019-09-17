@@ -10,10 +10,10 @@ class CreateBoxContracts < ActiveRecord::Migration[5.2]
       t.integer :downstream, default: 0
       t.integer :upstream, default: 0
       t.string :tv_channel, default: ""
-      t.boolean :tv, default: false
-      t.boolean :call_fix_fr, default: false
-      t.boolean :call_mobile_fr, default: false
-      t.boolean :call_foreign, default: false
+      t.boolean :tv, default: :false
+      t.boolean :call_fix_fr, default: :false
+      t.boolean :call_mobile_fr, default: :false
+      t.boolean :call_foreign, default: :false
       t.float :opening_fee, default: 0.0
       t.float :termination_fee, default: 0.0
       t.float :taken_termination, default: 0.0
