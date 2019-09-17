@@ -18,16 +18,13 @@ class EleSimulation < ApplicationRecord
     self.full_simulation.user
   end
 
+  # This method execute the comparison between what is entered by the client and the contracts
   def comparison(yearly_cost, yearly_consumption, kVA_power)
     yearly_cost = yearly_cost.to_i
     yearly_consumption = yearly_consumption.to_i
     kVA_power = kVA_power.to_i
-    first_filter = EleContract.all.select { |contract|
-      contract.kVA_power == kVA_power
-    }
-    second_filter = first_filter.select{ |contract|
-      yearly_cost > (contract.kwh_price_base * yearly_consumption + contract.subscription_base_price_month * 12)
-    }
+    first_filter = EleContract.all.select { |contract| contract.kVA_power == kVA_power }
+    second_filter = first_filter.select{ |contract| yearly_cost > (contract.kwh_price_base * yearly_consumption + contract.subscription_base_price_month * 12)}
     max_save = 0
     all_savings = []
     second_filter.each do |contract|
@@ -40,12 +37,14 @@ class EleSimulation < ApplicationRecord
     [max_save.round(2), second_filter, all_savings]
   end
 
+  # This method create all the join table given by the filter and the saving associated with each
   def create_join_table_ele(filter, all_savings)
     filter.each_with_index do |contract, index|
       JoinTableEleSimulationContract.create(ele_simulation: self, ele_contract: contract, savings: all_savings[index])
     end
   end
 
+  # This method can show the top best contracts depending on the number we want to show
   def sort_contracts(how_many)
     return_array = []
     contracts_sorted = join_table_ele_simulation_contracts.sort_by(&:savings).reverse
@@ -56,5 +55,4 @@ class EleSimulation < ApplicationRecord
     end
     return_array
   end
-
 end
