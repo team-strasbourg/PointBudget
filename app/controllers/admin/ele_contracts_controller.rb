@@ -56,8 +56,7 @@ module Admin
                                            :offer_name,
                                            :subscription_base_price_month,
                                            :kwh_price_base,
-                                           :low_kw_consumption_per_year,
-                                           :high_kw_consumption_per_year)
+                                           :kVA_power)
     end
   end
 end
