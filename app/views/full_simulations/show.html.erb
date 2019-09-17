@@ -132,32 +132,42 @@
 
 
    <!-- btn numeric JAVASCRIPT -->
-   <div class="container-fluid row justify-content-center" id="numeric-categories" style="display:none;">
-     <div class="col-md-4 d-flex justify-content-around">
-       <% if @full_simulation.only_one_box_simulation %>
-       <!-- box_simulation disabled btn -->
-         <%= button_tag new_user_full_simulation_box_simulation_path(current_user, @full_simulation), class: 'btn-simu-box btn-simu btn btn-secondary disabled mx-2', style:'cursor:not-allowed', id:'btn-box' do %>
-           <div class="d-flex justify-content-around align-items-center text-white">
-             <span class="icon"><i class="fas fa-signal"></i></span>
-             <h5 class="mt-4">Box</h5>
-           </div>
-         <% end %>
-       <% else %>
-         <!-- box_simaltion btn -->
-         <%= button_tag class: 'btn-simu-box btn-simu btn btn-primary animate-up-3 mx-2', id:'btn-box' do %>
-           <div class="d-flex justify-content-around align-items-center text-white">
-             <span class="icon"><i class="fas fa-signal"></i></span>
-             <h5 class="mt-4">Box</h5>
-           </div>
-         <% end %>
-       <% end %>
-       <!-- mobil_simulation disabled btn -->
-       <%= button_tag new_user_full_simulation_box_simulation_path(current_user, @full_simulation), class: 'btn-simu-mobile btn-simu btn btn-secondary disabled mx-2', style:'cursor:not-allowed' do %>
-         <div class="d-flex justify-content-around align-items-center text-white">
-           <span class="icon"><i class="fas fa-mobile-alt"></i></span>
-           <h5 class="mt-4">Mobile</h5>
-         </div>
-       <% end %>
+  <div class="container-fluid row justify-content-center" id="numeric-categories" style="display:none;">
+    <div class="col-md-4 d-flex justify-content-around">
+      <% if @full_simulation.only_one_box_simulation %>
+      <!-- box_simulation disabled btn -->
+        <%= button_tag new_user_full_simulation_box_simulation_path(current_user, @full_simulation), class: 'btn-simu-box btn-simu btn btn-secondary disabled mx-2', style:'cursor:not-allowed', id:'btn-box' do %>
+          <div class="d-flex justify-content-around align-items-center text-white">
+            <span class="icon"><i class="fas fa-signal"></i></span>
+            <h5 class="mt-4">Box</h5>
+          </div>
+        <% end %>
+      <% else %>
+      <!-- box_simaltion btn -->
+        <%= button_tag class: 'btn-simu-box btn-simu btn btn-primary animate-up-3 mx-2', id:'btn-box' do %>
+          <div class="d-flex justify-content-around align-items-center text-white">
+            <span class="icon"><i class="fas fa-signal"></i></span>
+            <h5 class="mt-4">Box</h5>
+          </div>
+        <% end %>
+      <% end %>
+      <% if @full_simulation.only_one_mobil_simulation %>
+      <!-- mobil_simulation disabled btn -->
+        <%= button_tag new_user_full_simulation_box_simulation_path(current_user, @full_simulation), class: 'btn-simu-mobile btn-simu btn btn-secondary disabled mx-2', style:'cursor:not-allowed' do %>
+          <div class="d-flex justify-content-around align-items-center text-white">
+            <span class="icon"><i class="fas fa-mobile-alt"></i></span>
+            <h5 class="mt-4">Mobile</h5>
+          </div>
+        <% end %>
+      <% else %>
+      <!--   mobil_simulation btn -->
+        <%= button_tag new_user_full_simulation_box_simulation_path(current_user, @full_simulation), class: 'btn-simu-mobile btn-simu btn btn-primary mx-2' do %>
+          <div class="d-flex justify-content-around align-items-center text-white">
+            <span class="icon"><i class="fas fa-mobile-alt"></i></span>
+            <h5 class="mt-4">Mobile</h5>
+          </div>
+        <% end %>
+      <% end %>
      </div>
      <!-- box_simulation JS -->
      <div id="box-simu" class="col-md-12" style="display: none;">
@@ -170,6 +180,15 @@
                                                   button: "Terminer"}%>
      </div>
      <!-- mobil_simulation JS -->
+     <div id="mobil-simu" class="col-md-12" style="display: none;">
+       <%= render partial: "shared/form", locals:{resource: @mobil_simulation,
+                                                  action: 'new_mobil_simulation',
+                                                  path: user_full_simulation_mobil_simulations_path(current_user,
+                                                                                                  @full_simulation),
+                                                  method: :post,
+                                                  title: 'Simulation mobile',
+                                                  button: "Terminer"}%>
+     </div>
    </div>
 
 

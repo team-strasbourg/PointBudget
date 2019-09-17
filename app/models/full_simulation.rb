@@ -27,7 +27,7 @@ class FullSimulation < ApplicationRecord
   end
 
   def only_one_mobil_simulation
-    mobil_simulation.nil ? false : true
+    mobil_simulation.nil? ? false : true
   end
 
   private
