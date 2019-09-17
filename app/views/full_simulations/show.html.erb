@@ -2,7 +2,6 @@
 <% unless @full_simulation.validated == true %>
 	<div class="title-simu container-fluid">
 	  <h2 class="text-center">Vous désirez economiser un maximum? <br>Explorez toutes nos catégories!</h2>
-		<%= link_to "simu_elec", new_user_full_simulation_ele_simulation_path(current_user, @full_simulation) %>
 	</div>
 
 	<div id="categories" class="row container-fluid d-flex justify-content-around">
@@ -105,13 +104,13 @@
 		                                           title: 'Simulation gaz',
 		                                           button: "Terminer"}%>
 			</div>
-			<div id="gas-simu" class="col-md-12" style="display: none;">
-			<%= render partial: "shared/form", locals:{resource: @gas_simulation,
+			<div id="elec-simu" class="col-md-12" style="display: none;">
+			<%= render partial: "shared/form", locals:{resource: @ele_simulation,
 																							 action: 'new_ele_simulation',
 																							 path: user_full_simulation_ele_simulations_path(current_user,
 																																															 @full_simulation),
 																							 method: :post,
-																							 title: 'Simulation ele',
+																							 title: 'Simulation électricité',
 																							 button: "Terminer"}%>
 			</div>
 		</div>
