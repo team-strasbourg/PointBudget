@@ -6,8 +6,6 @@ class BoxSimulationsController < ApplicationController
   before_action :not_other_users_box_simulations, only: [:show]
   before_action :not_other_user_index, only: [:index]
 
-  def index; end
-
   def show
     @box_sim = BoxSimulation.find(params[:id])
     table_attributes = @box_sim.print_report
