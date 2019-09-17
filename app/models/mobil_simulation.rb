@@ -1,0 +1,2 @@
+class MobilSimulation < ApplicationRecord
+end
