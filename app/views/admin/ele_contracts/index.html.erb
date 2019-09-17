@@ -1,10 +1,10 @@
 <%= render partial: "admin/shared/index",
            locals:{resources: @contracts,
-                   action: 'gaz_contracts',
-                   path_new: new_admin_gas_contract_path,
-                   path: "/admin/gas_contracts/",
+                   action: 'ele_contracts',
+                   path_new: new_admin_ele_contract_path,
+                   path: "/admin/ele_contracts/",
                    edition: true,
-                   title: 'Gas Contracts',
+                   title: 'Ele Contracts',
                    titles: ['Supplier','Offer name', 'Subscription price per month', 'Price Base kw' , 'Low Consumption', 'High Consumption' ],
                    values: %w(supplier  offer_name subscription_base_price_month kwh_price_base low_kw_consumption_per_year high_kw_consumption_per_year),
-                   button_new: "New Gas contract"}%>
+                   button_new: "New Ele contract"}%>
