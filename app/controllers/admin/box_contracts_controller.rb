@@ -56,8 +56,8 @@ module Admin
     def destroy
       @contract = BoxContract.find(params[:id])
       @contract.destroy
-      flash[:success] = 'User successfully deleted'
-      redirect_to admin_gas_contracts_path
+      flash[:success] = 'Contract successfully deleted'
+      redirect_to admin_box_contracts_path
     end
 
     private
@@ -74,7 +74,7 @@ module Admin
                                            :tv_channel,
                                            :tv,
                                            :call_fix_fr,
-                                           :call_mob_fr,
+                                           :call_mobile_fr,
                                            :call_foreign,
                                            :opening_fee,
                                            :termination_fee,

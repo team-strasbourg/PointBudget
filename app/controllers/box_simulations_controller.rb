@@ -38,9 +38,9 @@ class BoxSimulationsController < ApplicationController
     comparison = @box_simulation.comparison(params[:monthly_cost],tv, call_fix_fr, call_mob_fr)
     @box_simulation = BoxSimulation.new(actual_price_paid: params[:monthly_cost],
                                         box_cost_saved: comparison[0],
-                                        tv: params[:tv],
-                                        call_fix_fr:params[:call_fix_fr],
-                                        call_mob_fr:params[:call_mob_fr],
+                                        tv: tv,
+                                        call_fix_fr:call_fix_fr,
+                                        call_mob_fr:call_mob_fr,
                                         full_simulation: @full_simulation)
 
     if @box_simulation.save

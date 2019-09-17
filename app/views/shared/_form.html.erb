@@ -392,34 +392,34 @@
 
           <div class="form-group">
             <%= f.label :tv %><br />
-            <%= radio_button_tag(:tv, true)%>
-            <%= label_tag(:tv_yes, "Oui")%>
-            <%= radio_button_tag(:tv, false) %>
-            <%= label_tag(:tv_no, "Non") %>
+            <%= f.radio_button :tv, true%>
+            <%= f.label(:tv_yes, "Oui")%>
+            <%= f.radio_button :tv, false %>
+            <%= f.label(:tv_no, "Non") %>
           </div>
 
           <div class="form-group">
             <%= f.label :call_fix_fr %><br />
-            <%= radio_button_tag(:call_fix_fr, true)%>
-            <%= label_tag(:call_fix_fr_yes, "Oui")%>
-            <%= radio_button_tag(:call_fix_fr, false) %>
-            <%= label_tag(:call_fix_fr_no, "Non") %>
+            <%= f.radio_button(:call_fix_fr, true)%>
+            <%= f.label(:call_fix_fr_yes, "Oui")%>
+            <%= f.radio_button(:call_fix_fr, false) %>
+            <%= f.label(:call_fix_fr_no, "Non") %>
           </div>
 
           <div class="form-group">
             <%= f.label :call_mobile_fr %><br />
-            <%= radio_button_tag(:call_mobile_fr, true)%>
-            <%= label_tag(:call_mobile_fr_yes, "Oui")%>
-            <%= radio_button_tag(:call_mobile_fr, false) %>
-            <%= label_tag(:call_mobile_fr_no, "Non") %>
+            <%= f.radio_button(:call_mobile_fr, true)%>
+            <%= f.label(:call_mobile_fr_yes, "Oui")%>
+            <%= f.radio_button(:call_mobile_fr, false) %>
+            <%= f.label(:call_mobile_fr_no, "Non") %>
           </div>
 
           <div class="form-group">
             <%= f.label :call_foreign %><br />
-            <%= radio_button_tag(:call_foreign, true)%>
-            <%= label_tag(:call_foreign_yes, "Oui")%>
-            <%= radio_button_tag(:call_foreign, false) %>
-            <%= label_tag(:call_foreign_no, "Non") %>
+            <%= f.radio_button(:call_foreign, true)%>
+            <%= f.label(:call_foreign_yes, "Oui")%>
+            <%= f.radio_button(:call_foreign, false) %>
+            <%= f.label(:call_foreign_no, "Non") %>
           </div>
 
           <div class="form-group">
