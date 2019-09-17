@@ -7,7 +7,7 @@ class CreateMobilSimulations < ActiveRecord::Migration[5.2]
       t.boolean :calls_france, default: false
       t.boolean :calls_europe, default: false
       t.float :gbyte_europe, default: 0.00
-
+      t.belongs_to :full_simulation, index: true
       t.timestamps
     end
   end

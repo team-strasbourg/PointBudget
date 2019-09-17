@@ -104,6 +104,7 @@ end
 
 
 ############################# BOX #######################################
+
 require 'csv'
 
 data = CSV.read('./lib/populate_box_contract/offer_box.csv',
@@ -134,6 +135,7 @@ end
 
 
 ############################## ELEC #######################################
+
 require 'csv'
 
 data = CSV.read('./lib/populate_elec_contract/offer_electricity.csv',
@@ -149,7 +151,4 @@ lines.each do |line|
       kwh_price_base: line[4].to_f
       )
 end
-
-<<<<<<< HEAD
-
 

@@ -182,8 +182,10 @@ ActiveRecord::Schema.define(version: 2019_09_17_095506) do
     t.boolean "calls_france", default: false
     t.boolean "calls_europe", default: false
     t.float "gbyte_europe", default: 0.0
+    t.bigint "full_simulation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["full_simulation_id"], name: "index_mobil_simulations_on_full_simulation_id"
   end
 
   create_table "users", force: :cascade do |t|
