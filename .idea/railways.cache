@@ -39,6 +39,14 @@ Ruby enVironment Manager 1.29.8 (latest) (c) 2009-2017 Michal Papis, Piotr Kuczy
                                          PATCH    /admin/gas_contracts/:id(.:format)                                                       admin/gas_contracts#update
                                          PUT      /admin/gas_contracts/:id(.:format)                                                       admin/gas_contracts#update
                                          DELETE   /admin/gas_contracts/:id(.:format)                                                       admin/gas_contracts#destroy
+                     admin_box_contracts GET      /admin/box_contracts(.:format)                                                           admin/box_contracts#index
+                                         POST     /admin/box_contracts(.:format)                                                           admin/box_contracts#create
+                  new_admin_box_contract GET      /admin/box_contracts/new(.:format)                                                       admin/box_contracts#new
+                 edit_admin_box_contract GET      /admin/box_contracts/:id/edit(.:format)                                                  admin/box_contracts#edit
+                      admin_box_contract GET      /admin/box_contracts/:id(.:format)                                                       admin/box_contracts#show
+                                         PATCH    /admin/box_contracts/:id(.:format)                                                       admin/box_contracts#update
+                                         PUT      /admin/box_contracts/:id(.:format)                                                       admin/box_contracts#update
+                                         DELETE   /admin/box_contracts/:id(.:format)                                                       admin/box_contracts#destroy
                               users_root GET      /users(.:format)                                                                         full_simulations#new
          new_user_full_simulation_energy GET      /users/:user_id/full_simulations/:full_simulation_id/energies/new(.:format)              energies#new
              user_full_simulation_energy GET      /users/:user_id/full_simulations/:full_simulation_id/energies/:id(.:format)              energies#show
@@ -49,6 +57,13 @@ edit_user_full_simulation_gas_simulation GET      /users/:user_id/full_simulatio
                                          PATCH    /users/:user_id/full_simulations/:full_simulation_id/gas_simulations/:id(.:format)       gas_simulations#update
                                          PUT      /users/:user_id/full_simulations/:full_simulation_id/gas_simulations/:id(.:format)       gas_simulations#update
                                          DELETE   /users/:user_id/full_simulations/:full_simulation_id/gas_simulations/:id(.:format)       gas_simulations#destroy
+    user_full_simulation_box_simulations POST     /users/:user_id/full_simulations/:full_simulation_id/box_simulations(.:format)           box_simulations#create
+ new_user_full_simulation_box_simulation GET      /users/:user_id/full_simulations/:full_simulation_id/box_simulations/new(.:format)       box_simulations#new
+edit_user_full_simulation_box_simulation GET      /users/:user_id/full_simulations/:full_simulation_id/box_simulations/:id/edit(.:format)  box_simulations#edit
+     user_full_simulation_box_simulation GET      /users/:user_id/full_simulations/:full_simulation_id/box_simulations/:id(.:format)       box_simulations#show
+                                         PATCH    /users/:user_id/full_simulations/:full_simulation_id/box_simulations/:id(.:format)       box_simulations#update
+                                         PUT      /users/:user_id/full_simulations/:full_simulation_id/box_simulations/:id(.:format)       box_simulations#update
+                                         DELETE   /users/:user_id/full_simulations/:full_simulation_id/box_simulations/:id(.:format)       box_simulations#destroy
                    user_full_simulations GET      /users/:user_id/full_simulations(.:format)                                               full_simulations#index
                                          POST     /users/:user_id/full_simulations(.:format)                                               full_simulations#create
                 new_user_full_simulation GET      /users/:user_id/full_simulations/new(.:format)                                           full_simulations#new
