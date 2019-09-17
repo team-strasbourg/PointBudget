@@ -27,6 +27,17 @@ class BoxSimulation < ApplicationRecord
     @params = params
   end
 
+  def sort_contracts(how_many)
+    return_array = []
+    contracts_sorted = join_table_box_contracts.sort_by(&:savings).reverse
+    how_many.times do |i|
+      return_array << BoxContract.find(contracts_sorted[i].box_contract_id)
+    rescue
+      return_array
+    end
+    return_array
+  end
+
   def comparison(monthly_cost, tv, call_fix, call_mobile)
     monthly_cost = monthly_cost.to_i
     first_filter = BoxContract.all.select { |contract| contract.tv == tv }

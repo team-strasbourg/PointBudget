@@ -89,6 +89,5 @@ lines.each do |line|
                      call_foreign: ActiveModel::Type::Boolean.new.cast(line[12]),
                      opening_fee: line[13].to_i,
                      termination_fee: line[14].to_i,
-                     taken_termination: line[15].to_i
-  )
+                     taken_termination: line[15].to_i)
 end
