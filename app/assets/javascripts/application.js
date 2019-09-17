@@ -57,6 +57,7 @@ if($("body").data("controller") == "full_simulations" && $("body").data("action"
 
 if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "new"){
   clickToDisplayDomains = document.getElementById("btn-click-1")
+  domainDeploySatus = false
 
   clickToDisplayDomains.addEventListener('click', function(){
     $("#domain-list").toggle(600);
@@ -65,20 +66,27 @@ if ($("body").data("controller") == "full_simulations" && $("body").data("action
 
 if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show"){
   clickToDisplayEnergies = document.getElementById("btn-energy")
-
-  clickToDisplayEnergies.addEventListener('click', function(){
-    $("#energy-categories").toggleClass("d-flex");
-    $("#energy-categories").toggle(500);
-    
-  })
-};
-
-if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show"){
+  energyDeployStatus = false
   clickToDisplayGasSimu = document.getElementById("btn-gas")
+  gasDeployStatus = false
 
   clickToDisplayGasSimu.addEventListener('click', function(){
-    $("#gas-simu").toggle(500);
-    
+    $("#gas-simu").toggle(600);
+  })
+
+  clickToDisplayEnergies.addEventListener('click', function(){
+    if (energyDeployStatus == false) {
+      $("#energy-categories").addClass("d-flex");
+      $("#energy-categories").show(500);
+      $("#gas-simu").hide(500);
+      gasDeployStatus = false;
+      energyDeployStatus = true;
+    }
+    else if (energyDeployStatus == true) {
+      $("#energy-categories").removeClass("d-flex");
+      $("#energy-categories").hide(500);
+      energyDeployStatus = false;
+    }    
   })
 };
 
