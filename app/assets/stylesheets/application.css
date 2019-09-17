@@ -52,10 +52,6 @@ li.button-group{
 
 /* NAVBAR */
 
-/* .point-budget-title{
- 	 font-size: 30px;
- 	 margin-right: 50px;
- }*/
 
  .logo-nav{
  	width: 200px;
@@ -66,15 +62,75 @@ li.button-group{
 
 /* JUMBOTRON */
 
+
 .jumbotron
 {
-    background-image: url("baniere.jpg");
+    /* background-image: url("baniere.jpg"); */
     background-position: center 75%;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 800px;
+    height: 25em;
 }
 
+
+/* Show in Large desktops and laptops */
+@media (min-width: 1200px) {
+
+	#jumbo-image {
+					background-image: url('jumbo.jpg');
+					background-repeat: no-repeat;
+					height: 600px;
+					width: 100%;
+					background-size:100% auto;
+			}
+	
+	}
+	
+	/*Hide in Other Small Devices */
+	
+	
+	/* Landscape tablets and medium desktops */
+	@media (min-width: 992px) and (max-width: 1199px) {
+	
+				#jumbo-image {
+					background-image: none;
+					background-color:  white;
+					text-align: center;
+			}
+	
+	}
+	
+	/* Portrait tablets and small desktops */
+	@media (min-width: 768px) and (max-width: 991px) {
+						#jumbo-image {
+					background-image: none;
+					background-color:  white;
+					text-align: center;
+			}
+	
+	}
+	
+	/* Landscape phones and portrait tablets */
+	@media (max-width: 767px) {
+	
+						#jumbo-image {
+					background-image: none;
+					background-color:  white;
+					text-align: center;
+					justify-content: center;
+			}
+	
+	}
+	
+	/* Portrait phones and smaller */
+	@media (max-width: 480px) {
+						#jumbo-image {
+			background-image: none;
+			background-color:  white;
+			height: 50%;
+	}
+
+}
 
 
 /* CONTEXT */
@@ -210,9 +266,7 @@ li.button-group{
 
 	/* NAVBAR USER*/
 
-/*.user-nav{
-	border-right: 2px #dcded8 solid;
-}*/
+
 
 #nav-user-collapse {
   position:absolute;
