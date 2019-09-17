@@ -2,7 +2,7 @@ module Admin
   class MobilContractsController < ApplicationController
 
   	def index
-  		@contracts = MobilContract.all.sort_by(&:id)
+  		@contracts = MobilContract.all.sort_by(&:supplier)
   	end
 
   	def show
@@ -25,18 +25,18 @@ module Admin
       puts params
       puts engagement
       puts "#"*60
-  		@contract = MobilContract.new(supplier: my_params[:supplier],
-                                  offer_name: my_params[:offer_name],
-                                	line_service_price: my_params[:line_service_price],
-                                  sim_card_price: my_params[:sim_card_price],
-                                  engagement: engagement,
-                                  add_phone: add_phone,
-                                  bundle_price: my_params[:bundle_price],
+  		@contract = MobilContract.new(supplier:my_params[:supplier],
+                                  offer_name:my_params[:offer_name],
+                                	line_service_price:my_params[:line_service_price],
+                                  sim_card_price:my_params[:sim_card_price],
+                                  engagement:engagement,
+                                  add_phone:add_phone,
+                                  bundle_price:my_params[:bundle_price],
                                   bundle_gbyte:my_params[:bundle_gbyte], 
-                                  calls_france: calls_france,
-                                  calls_europe: calls_europe,
+                                  calls_france:calls_france,
+                                  calls_europe:calls_europe,
                                   gbyte_europe:my_params[:gbyte_europe],
-                                  calls_international: calls_international,
+                                  calls_international:calls_international,
                                   net_international:net_international
                                   )
       if @contract.save
@@ -56,20 +56,7 @@ module Admin
       puts "#"*60
       puts params
       puts "#"*60
-      if @contract.update(supplier: params[:supplier],
-                                  offer_name: params[:offer_name],
-                                  line_service_price: params[:line_service_price],
-                                  sim_card_price: params[:sim_card_price],
-                                  engagement:params[:engagement],
-                                  add_phone:params[:add_phone],
-                                  bundle_price:params[:bundle_price],
-                                  bundle_gbyte:params[:bundle_gbyte], 
-                                  calls_france: params[:calls_france],
-                                  calls_europe: params[:calls_europe],
-                                  gbyte_europe:params[:gbyte_europe],
-                                  calls_international: params[:calls_international],
-                                  net_international:params[:net_international]
-                                  )
+      if @contract.update(contract_params)
         flash[:success] = 'Contract Mobil edited'
         redirect_to admin_mobil_contracts_path
       else
@@ -84,23 +71,23 @@ module Admin
       redirect_to admin_mobil_contracts_path
   	end
 
-  	# private
+  	private
 
-   #  def contract_params
-   #    params.require(:mobil_contract).permit(:supplier,
-   #                                         :offer_name,
-   #                                         :line_service_price,
-   #                                         :sim_card_price,
-   #                                         :engagement,
-   #                                         :add_phone,
-   #                                         :bundle_price,
-   #                                         :bundle_gbyte,
-   #                                         :calls_france,
-   #                                         :calls_europe,
-   #                                         :gbyte_europe,
-   #                                         :calls_international,
-   #                                         :net_international)
-   #  end
+    def contract_params
+      params.require(:mobil_contract).permit(:supplier,
+                                           :offer_name,
+                                           :line_service_price,
+                                           :sim_card_price,
+                                           :engagement,
+                                           :add_phone,
+                                           :bundle_price,
+                                           :bundle_gbyte,
+                                           :calls_france,
+                                           :calls_europe,
+                                           :gbyte_europe,
+                                           :calls_international,
+                                           :net_international)
+    end
 
   end
 end

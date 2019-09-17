@@ -83,8 +83,8 @@ ActiveRecord::Schema.define(version: 2019_09_17_081949) do
   end
 
   create_table "mobil_contracts", force: :cascade do |t|
-    t.string "supplier", default: ""
-    t.string "offer_name", default: ""
+    t.string "supplier"
+    t.string "offer_name"
     t.integer "line_service_price", default: 0
     t.integer "sim_card_price", default: 0
     t.boolean "engagement", default: false

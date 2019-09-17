@@ -343,18 +343,18 @@
 
           <div class="form-group">
             <%= f.label 'Forfait avec engagement?' %><br />
-            <%= radio_button_tag(:engagement, true)%>
-            <%= label_tag(:engagement_yes, "Oui")%>
-            <%= radio_button_tag(:engagement, false) %>
-            <%= label_tag(:engagement_no, "Non") %>
+            <%= f.radio_button(:engagement, true)%>
+            <%= f.label(:engagement_yes, "Oui")%>
+            <%= f.radio_button(:engagement, false) %>
+            <%= f.label(:engagement_no, "Non") %>
           </div>
 
           <div class="form-group">
             <p>Forfait avec nouveau téléphone?<br>
-            <%= radio_button_tag(:add_phone, 'true')%>
-            <%= label_tag(:add_phone_yes, "Oui")%>
-            <%= radio_button_tag(:add_phone, 'false') %>
-            <%= label_tag(:add_phone_no, "Non") %>
+            <%= f.radio_button(:add_phone, 'true')%>
+            <%= f.label(:add_phone_yes, "Oui")%>
+            <%= f.radio_button(:add_phone, 'false') %>
+            <%= f.label(:add_phone_no, "Non") %>
             </p>
           </div>
 
@@ -370,19 +370,19 @@
 
           <div class="form-group">
             <p>Appels, SMS, MMS illimités en France?<br><br>
-            <%= radio_button_tag(:calls_france, 'true')%>
-            <%= label_tag(:calls_france, "Oui")%>
-            <%= radio_button_tag(:calls_france, 'false') %>
-            <%= label_tag(:calls_france, "Non") %>
+            <%= f.radio_button(:calls_france, 'true')%>
+            <%= f.label(:calls_france, "Oui")%>
+            <%= f.radio_button(:calls_france, 'false') %>
+            <%= f.label(:calls_france, "Non") %>
             </p>
           </div>
 
           <div class="form-group">
             <p>Appels, SMS, MMS illimités en Europe?<br><br>
-            <%= radio_button_tag(:calls_europe, 'true')%>
-            <%= label_tag(:calls_europe_yes, "Oui")%>
-            <%= radio_button_tag(:calls_europe, 'false') %>
-            <%= label_tag(:calls_europe_no, "Non") %>
+            <%= f.radio_button(:calls_europe, 'true')%>
+            <%= f.label(:calls_europe_yes, "Oui")%>
+            <%= f.radio_button(:calls_europe, 'false') %>
+            <%= f.label(:calls_europe_no, "Non") %>
             </p>
           </div>
 
@@ -393,19 +393,19 @@
 
           <div class="form-group">
             <p>Appels, SMS, MMS illimités à l'étranger?<br><br>
-            <%= radio_button_tag(:calls_international, 'true')%>
-            <%= label_tag(:calls_international_yes, "Oui")%>
-            <%= radio_button_tag(:calls_international, 'false') %>
-            <%= label_tag(:calls_international_no, "Non") %>
+            <%= f.radio_button(:calls_international, 'true')%>
+            <%= f.label(:calls_international_yes, "Oui")%>
+            <%= f.radio_button(:calls_international, 'false') %>
+            <%= f.label(:calls_international_no, "Non") %>
             </p>
           </div>
 
           <div class="form-group">
             <p>Internet à l'étranger?<br><br>
-            <%= radio_button_tag(:net_international, 'true')%>
-            <%= label_tag(:net_international, "Oui")%>
-            <%= radio_button_tag(:net_international, 'false') %>
-            <%= label_tag(:net_international, "Non") %>
+            <%= f.radio_button(:net_international, 'true')%>
+            <%= f.label(:net_international, "Oui")%>
+            <%= f.radio_button(:net_international, 'false') %>
+            <%= f.label(:net_international, "Non") %>
             </p>
           </div>
 

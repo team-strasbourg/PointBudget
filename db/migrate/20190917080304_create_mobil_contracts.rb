@@ -1,8 +1,8 @@
 class CreateMobilContracts < ActiveRecord::Migration[5.2]
   def change
     create_table :mobil_contracts do |t|
-      t.string :supplier, default: ""
-      t.string :offer_name, default: ""
+      t.string :supplier
+      t.string :offer_name
       t.integer :line_service_price, default: 0
       t.integer :sim_card_price, default: 0
       t.boolean :engagement, default: false
