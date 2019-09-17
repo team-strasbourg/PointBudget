@@ -20,8 +20,7 @@ module Admin
                                   offer_name: my_params[:offer_name],
                                   subscription_base_price_month: my_params[:subscription_base_price_month],
                                   kwh_price_base: my_params[:kwh_price_base],
-                                  low_kw_consumption_per_year: my_params[:low_kw_consumption_per_year],
-                                  high_kw_consumption_per_year: my_params[:high_kw_consumption_per_year])
+                                  kVA_power: my_params[:kVA_power])
       if @contract.save
         flash[:success] = 'Contract created'
         redirect_to admin_ele_contracts_path
