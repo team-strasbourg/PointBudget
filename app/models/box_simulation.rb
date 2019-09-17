@@ -40,19 +40,20 @@ class BoxSimulation < ApplicationRecord
 
   def comparison(monthly_cost, tv, call_fix, call_mobile)
     monthly_cost = monthly_cost.to_i
-    first_filter = BoxContract.all.select { |contract| contract.tv == tv }
-    second_filter = first_filter.select { |contract| contract.call_fix_fr == call_fix }
-    third_filter = second_filter.select { |contract| contract.call_mobile_fr == call_mobile }
+    first_filter = BoxContract.all.select { |contract| contract.tv == tv } # Filter if the tv option is the same
+    second_filter = first_filter.select { |contract| contract.call_fix_fr == call_fix } # filter by the call to fix phone number in france
+    third_filter = second_filter.select { |contract| contract.call_mobile_fr == call_mobile } # filter by the call to mobile phone number in france
+    fourth_filter = third_filter.select { |contract| contract.price_month < monthly_cost } # filter by price
     max_save = 0
     all_savings = []
-    third_filter.each do |contract|
-      savings = ((monthly_cost - contract.price_month) * 12 ).round(2)
+    fourth_filter.each do |contract|
+      savings = ((monthly_cost - contract.price_month) * 12 ).round(2) # Find the best price
       if savings > max_save
-        max_save = savings
+        max_save = savings # Save the best price
       end
-      all_savings << savings
+      all_savings << savings # Save the differences in an array, it will be use after
     end
-    [max_save.round(2), third_filter, all_savings]
+    [max_save.round(2), fourth_filter, all_savings] # return the max savec, all the better contracts and the savings for each contracts
   end
 
   def create_join_table_box(filter, all_savings)
