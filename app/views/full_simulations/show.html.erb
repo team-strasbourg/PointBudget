@@ -6,7 +6,6 @@
 
 	<div id="categories" class="row container-fluid d-flex justify-content-around">
 
-
 		<!-- insurance -->
       <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-assur btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
 				<div class="d-flex justify-content-around align-items-center text-white">
@@ -21,32 +20,42 @@
 					<h5 class="mt-4">Banque</h5>
 				</div>
 			<% end %>
-			<% if @full_simulation.only_one_gas_simulation && @full_simulation.only_one_ele_simulation %>
+    <% if @full_simulation.only_one_gas_simulation && @full_simulation.only_one_ele_simulation %>
 
-			<!-- energy -->
-				<%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-elec btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
-					<div class="d-flex justify-content-around align-items-center text-white">
-						<span class="icon"><i class="fas fa-sun"></i></span>
-						<h5 class="mt-4">Energie</h5>
-					</div>
-				<% end %>
+      <!-- energy -->
+      <%= button_tag class: 'btn-simu-elec btn-simu btn btn-secondary disabled', id:'btn-energy', style:'cursor:not-allowed' do %>
+        <div class="d-flex justify-content-around align-items-center text-white">
+          <span class="icon"><i class="fas fa-sun"></i></span>
+          <h5 class="mt-4">Energie</h5>
+        </div>
+      <% end %>
 
-			<%else%>
-			<!-- energy -->
-				<%= button_tag class: 'btn-simu-bank btn-simu btn btn-primary animate-up-3', id:'btn-energy' do %>
-					<div class="d-flex justify-content-around align-items-center text-white">
-						<span class="icon"><i class="fas fa-sun"></i></span>
-						<h5 class="mt-4">Energie</h5>
-					</div>
-				<% end %>
-			<%end%>
+    <%else%>
+      <!-- energy -->
+      <%= button_tag class: 'btn-simu-bank btn-simu btn btn-primary animate-up-3', id:'btn-energy' do %>
+        <div class="d-flex justify-content-around align-items-center text-white">
+          <span class="icon"><i class="fas fa-sun"></i></span>
+          <h5 class="mt-4">Energie</h5>
+        </div>
+      <% end %>
+    <%end%>
+
 		<!-- numeric -->
-      <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-num btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+    <% if @full_simulation.only_one_box_simulation %>
+      <%= button_tag class: 'btn-simu-num btn-simu btn btn-secondary disabled', id:'btn-numeric', style:'cursor:not-allowed' do %>
 				<div class="d-flex justify-content-around align-items-center text-white">
 					<span class="icon"><i class="fas fa-mobile-alt"></i></span>
 					<h5 class="mt-4">Numérique</h5>
 				</div>
 			<% end %>
+    <%else %>
+      <%= button_tag class: 'btn-simu-num btn-simu btn btn-primary animate-up-3', id:'btn-numeric' do %>
+        <div class="d-flex justify-content-around align-items-center text-white">
+          <span class="icon"><i class="fas fa-mobile-alt"></i></span>
+          <h5 class="mt-4">Numérique</h5>
+        </div>
+      <% end %>
+    <% end %>
 		<!-- medical -->
       <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-mut btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
 				<div class="d-flex justify-content-around align-items-center text-white">
@@ -54,66 +63,105 @@
 					<h5 class="mt-4">Mutuelle</h5>
 				</div>
 			<% end %>
-
 	</div>
 
 
-	<!-- btn energy JAVASCRIPT -->
-		<div class="container-fluid row justify-content-center" id="energy-categories" style="display:none;">
-			<div class="col-md-4 d-flex justify-content-around">
-				<% if @full_simulation.only_one_gas_simulation %>
-					<%= button_tag class: 'btn-simu-gas btn-simu btn btn-secondary disabled mx-2', style:'cursor:not-allowed', id:'btn-gas', disabled:true do %>
-						<div class="d-flex justify-content-around align-items-center text-white">
-							<span class="icon"><i class="fas fa-burn"></i></span>
-							<h5 class="mt-4">Gaz</h5>
-						</div>
-					<% end %>
-				<% else %>
-				<!-- gaz_simaltion btn -->
-					<%= button_tag class: 'btn-simu-gas btn-simu btn btn-primary animate-up-3 mx-2', id:'btn-gas' do %>
-						<div class="d-flex justify-content-around align-items-center text-white">
-							<span class="icon"><i class="fas fa-burn"></i></span>
-							<h5 class="mt-4">Gaz</h5>
-						</div>
-					<% end %>
-				<% end %>
-				<% if @full_simulation.only_one_ele_simulation %>
-			    <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-elec btn-simu btn btn-secondary disabled mx-2', style:'cursor:not-allowed', disabled:true do %>
-						<div class="d-flex justify-content-around align-items-center text-white">
-							<span class="icon"><i class="fas fa-bolt"></i></span>
-							<h5 class="mt-4">Electricité</h5>
-						</div>
-					<% end %>
-				<%else%>
-					<%= button_tag class: 'btn-simu-elec btn-simu btn btn-primary animate-up-3 mx-2', id:'btn-elec' do %>
-						<div class="d-flex justify-content-around align-items-center text-white">
-							<span class="icon"><i class="fas fa-bolt"></i></span>
-							<h5 class="mt-4">Electricité</h5>
-						</div>
-					<% end %>
-				<%end%>
-			</div>
+  <!-- btn energy JAVASCRIPT -->
+  <div class="container-fluid row justify-content-center" id="energy-categories" style="display:none;">
+    <div class="col-md-4 d-flex justify-content-around">
+      <% if @full_simulation.only_one_gas_simulation %>
+        <%= button_tag class: 'btn-simu-gas btn-simu btn btn-secondary disabled mx-2', style:'cursor:not-allowed', id:'btn-gas', disabled:true do %>
+          <div class="d-flex justify-content-around align-items-center text-white">
+            <span class="icon"><i class="fas fa-burn"></i></span>
+            <h5 class="mt-4">Gaz</h5>
+          </div>
+        <% end %>
+      <% else %>
+        <!-- gaz_simaltion btn -->
+        <%= button_tag class: 'btn-simu-gas btn-simu btn btn-primary animate-up-3 mx-2', id:'btn-gas' do %>
+          <div class="d-flex justify-content-around align-items-center text-white">
+            <span class="icon"><i class="fas fa-burn"></i></span>
+            <h5 class="mt-4">Gaz</h5>
+          </div>
+        <% end %>
+      <% end %>
+      <% if @full_simulation.only_one_ele_simulation %>
+        <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-elec btn-simu btn btn-secondary disabled mx-2', style:'cursor:not-allowed',id:'btn-elec', disabled:true do %>
+          <div class="d-flex justify-content-around align-items-center text-white">
+            <span class="icon"><i class="fas fa-bolt"></i></span>
+            <h5 class="mt-4">Electricité</h5>
+          </div>
+        <% end %>
+      <%else%>
+        <%= button_tag class: 'btn-simu-elec btn-simu btn btn-primary animate-up-3 mx-2', id:'btn-elec' do %>
+          <div class="d-flex justify-content-around align-items-center text-white">
+            <span class="icon"><i class="fas fa-bolt"></i></span>
+            <h5 class="mt-4">Electricité</h5>
+          </div>
+        <% end %>
+      <%end%>
+    </div>
 
-		<!-- Gas Simulation JS -->
-			<div id="gas-simu" class="col-md-12" style="display: none;">
-			<%= render partial: "shared/form", locals:{resource: @gas_simulation,
-		                                           action: 'new_gas_simulation',
-		                                           path: user_full_simulation_gas_simulations_path(current_user,
-		                                                                                           @full_simulation),
-		                                           method: :post,
-		                                           title: 'Simulation gaz',
-		                                           button: "Terminer"}%>
-			</div>
-			<div id="elec-simu" class="col-md-12" style="display: none;">
-			<%= render partial: "shared/form", locals:{resource: @ele_simulation,
-																							 action: 'new_ele_simulation',
-																							 path: user_full_simulation_ele_simulations_path(current_user,
-																																															 @full_simulation),
-																							 method: :post,
-																							 title: 'Simulation électricité',
-																							 button: "Terminer"}%>
-			</div>
-		</div>
+    <!-- Gas Simulation JS -->
+    <div id="gas-simu" class="col-md-12" style="display: none;">
+      <%= render partial: "shared/form", locals:{resource: @gas_simulation,
+                                                 action: 'new_gas_simulation',
+                                                 path: user_full_simulation_gas_simulations_path(current_user,
+                                                                                                 @full_simulation),
+                                                 method: :post,
+                                                 title: 'Simulation gaz',
+                                                 button: "Terminer"}%>
+    </div>
+    <div id="elec-simu" class="col-md-12" style="display: none;">
+      <%= render partial: "shared/form", locals:{resource: @ele_simulation,
+                                                 action: 'new_ele_simulation',
+                                                 path: user_full_simulation_ele_simulations_path(current_user,
+                                                                                                 @full_simulation),
+                                                 method: :post,
+                                                 title: 'Simulation électricité',
+                                                 button: "Terminer"}%>
+    </div>
+  </div>
+
+
+
+   <!-- btn numeric JAVASCRIPT -->
+   <div class="container-fluid row justify-content-center" id="numeric-categories" style="display:none;">
+     <div class="col-md-4 d-flex justify-content-around">
+       <% if @full_simulation.only_one_box_simulation %>
+         <%= button_tag new_user_full_simulation_box_simulation_path(current_user, @full_simulation), class: 'btn-simu-box btn-simu btn btn-secondary disabled mx-2', style:'cursor:not-allowed', id:'btn-box' do %>
+           <div class="d-flex justify-content-around align-items-center text-white">
+             <span class="icon"><i class="fas fa-signal"></i></span>
+             <h5 class="mt-4">Box</h5>
+           </div>
+         <% end %>
+       <% else %>
+         <!-- box_simaltion btn -->
+         <%= button_tag class: 'btn-simu-box btn-simu btn btn-primary animate-up-3 mx-2', id:'btn-box' do %>
+           <div class="d-flex justify-content-around align-items-center text-white">
+             <span class="icon"><i class="fas fa-signal"></i></span>
+             <h5 class="mt-4">Box</h5>
+           </div>
+         <% end %>
+       <% end %>
+       <%= button_tag new_user_full_simulation_box_simulation_path(current_user, @full_simulation), class: 'btn-simu-mobile btn-simu btn btn-secondary disabled mx-2', style:'cursor:not-allowed' do %>
+         <div class="d-flex justify-content-around align-items-center text-white">
+           <span class="icon"><i class="fas fa-mobile-alt"></i></span>
+           <h5 class="mt-4">Mobile</h5>
+         </div>
+       <% end %>
+     </div>
+     <!-- Gas Simulation JS -->
+     <div id="box-simu" class="col-md-12" style="display: none;">
+       <%= render partial: "shared/form", locals:{resource: @box_simulation,
+                                                  action: 'new_box_simulation',
+                                                  path: user_full_simulation_box_simulations_path(current_user,
+                                                                                                  @full_simulation),
+                                                  method: :post,
+                                                  title: 'Simulation box internet',
+                                                  button: "Terminer"}%>
+     </div>
+   </div>
 
 
 	<!-- Button Modal -->
@@ -179,15 +227,34 @@
 		<% if @full_simulation.only_one_gas_simulation %>
 			<div class="accordion container">
 		    <div class="card card-sm card-body shadow-sm border-soft border">
-	        <div data-target="#panel-4" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
+	        <div data-target="#panel-1" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
 	          <span class="icon-title h6 mb-0 font-weight-bold"><i class="fas fa-burn"></i><%= @full_simulation.gas_simulation.name %></span>
 	          <span class="icon"><i class="fas fa-plus"></i></span>
 	        </div>
-	        <div class="collapse" id="panel-4">
+	        <div class="collapse" id="panel-1">
 	          <div class="pt-3">
               <p class="mb-0">
                   Vous pouvez économiser <%= @full_simulation.gas_simulation.gas_cost_saved %>€
               </p>
+              <%=link_to 'Voir en détails', user_full_simulation_gas_simulation_path(current_user,@full_simulation, @full_simulation.gas_simulation) %>
+            </div>
+	        </div>
+		    </div>
+		   </div>
+    <% end %>
+		<% if @full_simulation.only_one_box_simulation %>
+			<div class="accordion container">
+		    <div class="card card-sm card-body shadow-sm border-soft border">
+	        <div data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
+	          <span class="icon-title h6 mb-0 font-weight-bold"><i class="fas fa-signal"></i><%= @full_simulation.box_simulation.name %></span>
+	          <span class="icon"><i class="fas fa-plus"></i></span>
+	        </div>
+	        <div class="collapse" id="panel-3">
+	          <div class="pt-3">
+              <p class="mb-0">
+                  Vous pouvez économiser <%= @full_simulation.box_simulation.box_cost_saved %>€
+              </p>
+              <%=link_to 'Voir en détails', user_full_simulation_box_simulation_path(current_user,@full_simulation, @full_simulation.box_simulation) %>
             </div>
 	        </div>
 		    </div>
@@ -197,6 +264,5 @@
 <% end %>
 
 
-<div class="d-flex align-self-start">
-	<%= link_to "Back", :back %>
-</div>
+<%= render partial: 'shared/back' %>
+

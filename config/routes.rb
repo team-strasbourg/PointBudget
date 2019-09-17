@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     root to: 'users#index'
     resources :users
     resources :gas_contracts
+    resources :box_contracts
     resources :ele_contracts
   end
 
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
     resources :full_simulations, except: [:edit] do
       resources :energies, only: %i[show new]
       resources :gas_simulations, except: [:index]
+      resources :box_simulations, except: [:index]
       resources :ele_simulations, except: [:index]
     end
   end
