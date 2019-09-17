@@ -18,6 +18,8 @@ class FullSimulation < ApplicationRecord
     box_simulation.nil? ? false : true
   end
 
+
+
   private
 
   def mail_if_validated
