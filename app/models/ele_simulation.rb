@@ -13,12 +13,9 @@ class EleSimulation < ApplicationRecord
             presence: true,
             numericality: { greater_than_or_equal_to: 0, only_integer: true }
 
+  # Set the user of the elec simulation
   def user
     self.full_simulation.user
-  end
-
-  def assign_params_from_controller(params)
-    @params = params
   end
 
   def comparison(yearly_cost, yearly_consumption, kVA_power)
