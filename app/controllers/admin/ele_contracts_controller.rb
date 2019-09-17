@@ -25,6 +25,7 @@ module Admin
         flash[:success] = 'Contract created'
         redirect_to admin_ele_contracts_path
       else
+        flash[:error] = @contract.errors.messages
         render 'new'
       end
     end
@@ -45,7 +46,7 @@ module Admin
     def destroy
       @contract = EleContract.find(params[:id])
       @contract.destroy
-      flash[:success] = 'User successfully deleted'
+      flash[:success] = 'Electricity contract successfully deleted'
       redirect_to admin_ele_contracts_path
     end
 
