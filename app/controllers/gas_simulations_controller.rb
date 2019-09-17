@@ -6,8 +6,6 @@ class GasSimulationsController < ApplicationController
   before_action :not_other_users_gas_simulations, only: [:show]
   before_action :not_other_user_index, only: [:index]
 
-  def index; end
-
   def show
     @gas_sim = GasSimulation.find(params[:id])
     table_attributes = @gas_sim.print_report

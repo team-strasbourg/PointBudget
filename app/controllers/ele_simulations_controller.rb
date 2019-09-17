@@ -6,10 +6,7 @@ class EleSimulationsController < ApplicationController
   before_action :not_other_users_ele_simulations, only: [:show]
   before_action :not_other_user_index, only:[:index]
 
-  def index
-  end
-
-  def show
+   def show
     @ele_sim = EleSimulation.find(params[:id])
     table_attributes = @ele_sim.print_report
     @ele_contracts = @ele_sim.sort_contracts(3)
