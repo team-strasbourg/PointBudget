@@ -22,6 +22,9 @@ class EleSimulation < ApplicationRecord
   end
 
   def comparison(yearly_cost, yearly_consumption, kVA_power)
+    yearly_cost = yearly_cost.to_i
+    yearly_consumption = yearly_consumption.to_i
+    kVA_power = kVA_power.to_i
     first_filter = EleContract.all.select { |contract|
       contract.kVA_power == kVA_power
     }
