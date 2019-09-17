@@ -42,7 +42,7 @@
 
 		<!-- numeric -->
     <% if @full_simulation.only_one_box_simulation %>
-      <%= button_tag class: 'btn-simu-num btn-simu btn btn-secondary disabled', id:'btn-numeric', style:'cursor:not-allowed' do %>
+      <%= button_tag class: 'btn-simu-num btn-simu btn btn-secondary disabled', id:'btn-numeric', style:'cursor:not-allowed', disabled:true do %>
 				<div class="d-flex justify-content-around align-items-center text-white">
 					<span class="icon"><i class="fas fa-mobile-alt"></i></span>
 					<h5 class="mt-4">Numérique</h5>
@@ -265,4 +265,3 @@
 
 
 <%= render partial: 'shared/back' %>
-
