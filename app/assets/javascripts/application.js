@@ -67,45 +67,44 @@ $(document).ready(function () {
     if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show"){
 
         // ENERGIE
-
-      clickToDisplayEnergies = document.getElementById("btn-energy")
-      energyDeployStatus = false
-      clickToDisplayGasSimu = document.getElementById("btn-gas")
-      gasDeployStatus = false
-      clickToDisplayElecSimu = document.getElementById("btn-elec")
-
-      clickToDisplayGasSimu.addEventListener('click', function(){
-        $("#gas-simu").toggle(600);
-        $("#elec-simu").hide(500);
-      });
-
-      clickToDisplayElecSimu.addEventListener('click', function(){
-        $("#elec-simu").toggle(600);
-        $("#gas-simu").hide(500);
-      });
-
-      clickToDisplayEnergies.addEventListener('click', function(){
-        if (energyDeployStatus == false) {
-          $("#energy-categories").addClass("d-flex");
-          $("#energy-categories").show(500);
-          $("#gas-simu").hide(500);
-          $("#elec-simu").hide(500);
-          gasDeployStatus = false;
-          energyDeployStatus = true;
-        }
-        else if (energyDeployStatus == true) {
-          $("#energy-categories").removeClass("d-flex");
-          $("#energy-categories").hide(500);
-          energyDeployStatus = false;
-        }
-      });
-
-      // Numeric
         clickToDisplayNumerics = document.getElementById("btn-numeric");
         numericDeployStatus = false;
         clickToDisplayBoxSimu = document.getElementById("btn-box");
         boxDeployStatus = false;
 
+        clickToDisplayEnergies = document.getElementById("btn-energy");
+        energyDeployStatus = false;
+        clickToDisplayGasSimu = document.getElementById("btn-gas");
+        gasDeployStatus = false;
+        clickToDisplayElecSimu = document.getElementById("btn-elec");
+
+        clickToDisplayGasSimu.addEventListener('click', function(){
+            $("#gas-simu").toggle(600);
+            $("#elec-simu").hide(500);
+          });
+
+        clickToDisplayElecSimu.addEventListener('click', function(){
+            $("#elec-simu").toggle(600);
+            $("#gas-simu").hide(500);
+          });
+
+        clickToDisplayEnergies.addEventListener('click', function(){
+            if (energyDeployStatus == false) {
+              $("#energy-categories").addClass("d-flex");
+              $("#energy-categories").show(500);
+              $("#gas-simu").hide(500);
+              $("#elec-simu").hide(500);
+              gasDeployStatus = false;
+              energyDeployStatus = true;
+            }
+            else if (energyDeployStatus == true) {
+              $("#energy-categories").removeClass("d-flex");
+              $("#energy-categories").hide(500);
+              energyDeployStatus = false;
+            }
+          });
+
+      // Numeric
         clickToDisplayBoxSimu.addEventListener('click', function(){
             $("#box-simu").toggle(600);
         });
