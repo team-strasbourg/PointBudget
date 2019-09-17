@@ -29,4 +29,22 @@ class EleSimulation < ApplicationRecord
     end
     [max_save.round(2), second_filter, all_savings]
   end
+
+  def create_join_table_ele(filter, all_savings)
+    filter.each_with_index do |contract, index|
+      JoinTableEleSimulationContract.create(ele_simulation: self, ele_contract: contract, savings: all_savings[index])
+    end
+  end
+
+  def sort_contracts(how_many)
+    return_array = []
+    contracts_sorted = join_table_ele_simulation_contracts.sort_by(&:savings).reverse
+    how_many.times do |i|
+      return_array << EleContract.find(contracts_sorted[i].ele_contract_id)
+    rescue
+      return_array
+    end
+    return_array
+  end
+
 end
