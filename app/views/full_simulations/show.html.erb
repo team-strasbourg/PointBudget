@@ -225,6 +225,7 @@
               <p class="mb-0">
                   Vous pouvez économiser <%= @full_simulation.gas_simulation.gas_cost_saved %>€
               </p>
+              <%=link_to 'Voir en détails', user_full_simulation_gas_simulation_path(current_user,@full_simulation, @full_simulation.gas_simulation) %>
             </div>
 	        </div>
 		    </div>
@@ -242,6 +243,7 @@
               <p class="mb-0">
                   Vous pouvez économiser <%= @full_simulation.box_simulation.box_cost_saved %>€
               </p>
+              <%=link_to 'Voir en détails', user_full_simulation_gas_simulation_path(current_user,@full_simulation, @full_simulation.box_simulation) %>
             </div>
 	        </div>
 		    </div>
