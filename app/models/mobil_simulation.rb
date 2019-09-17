@@ -7,8 +7,11 @@ class MobilSimulation < ApplicationRecord
             presence: true,
             numericality: { greater_than_or_equal_to: 0 }
 
-  validates :box_cost_saved,
+  validates :mobil_cost_saved,
             presence: true,
             numericality: { greater_than_or_equal_to: 0 }
-            
+
+  def assign_params_from_controller(params)
+    @params = params
+  end
 end

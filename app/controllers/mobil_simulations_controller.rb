@@ -13,7 +13,15 @@ class MobilSimulationsController < ApplicationController
   end
 
   def create
-    @mobil_simution = MobilSimulation.find(params[:id])
+    @full_simulation = FullSimulation.find(params[:full_simulation_id])
+    @mobil_simulation = MobilSimulation.new
+
+    if @mobil_simulation.save
+      flash[:success] = "Votre simulation concernant votre mobile a été sauvegardée!"
+    else
+      flash[:error] = @mobil_simulation.errors.messages
+    end
+    redirect_to user_full_simulation_path(current_user, @full_simulation)
   end
 
   def edit
