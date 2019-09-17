@@ -15,6 +15,10 @@ class FullSimulation < ApplicationRecord
     gas_simulation.nil? ? false : true
   end
 
+  def only_one_ele_simulation
+    ele_simulation.nil? ? false : true
+  end
+
   private
 
   def mail_if_validated
