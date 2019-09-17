@@ -7,6 +7,7 @@
 # DON'T UNCOMMENT THE CITIES SEED
 # YOU CAN CHOOSE IF YOU WANT TO SEED RANDOM CITIES OR REAL CITIES
 # require 'rest-client'
+
 # City.destroy_all
 # # This is update the user cities to avoid errors
 # User.all.each do |user|
@@ -62,6 +63,7 @@
 #                      kwh_price_base: line[5]
 #   )
 # end
+
 #
 
 ############################### BOX #######################################
@@ -92,3 +94,22 @@ lines.each do |line|
                      taken_termination: line[15].to_f
   )
 end
+
+
+############################### ELEC #######################################
+require 'csv'
+
+data = CSV.read('./lib/populate_elec_contract/offer_electricity.csv',
+headers: true, col_sep: ',', encoding: 'ISO-8859-1')
+lines = data.reject { |line| line[0].blank? }
+
+EleContract.destroy_all
+lines.each do |line|
+  EleContract.create(supplier: line[0],
+      offer_name: line[1],
+      kVA_power: line[2].to_i,
+      subscription_base_price_month: line[3].to_f,
+      kwh_price_base: line[4].to_f
+      )
+end
+

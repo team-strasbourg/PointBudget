@@ -64,6 +64,13 @@ class ApplicationController < ActionController::Base
     error_connected
   end
 
+  def not_other_users_ele_simulations
+  # This method prevents users from going to pages associated with another user, namely the simulations
+  return unless current_user != EleSimulation.find(params[:id]).user && current_user.has_ele_simulations(params[:id])
+  rescue
+    error_connected
+  end
+
   def error_connected
     flash[:error] = "Vous n'avez pas le droit d'accéder à cette page"
     redirect_to new_user_full_simulation_path(current_user)
