@@ -3,6 +3,16 @@ class EleSimulation < ApplicationRecord
   has_many :join_table_ele_simulation_contracts, dependent: :destroy
   has_many :ele_contracts, through: :join_table_ele_simulation_contracts
 
+  validates :actual_price_paid,
+            presence: true,
+            numericality: { greater_than_or_equal_to: 0 }
+  validates :ele_cost_saved,
+            presence: true,
+            numericality: { greater_than_or_equal_to: 0 }
+  validates :ele_use,
+            presence: true,
+            numericality: { greater_than_or_equal_to: 0, only_integer: true }
+
   def user
     self.full_simulation.user
   end
