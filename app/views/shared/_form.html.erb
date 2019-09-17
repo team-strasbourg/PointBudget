@@ -318,6 +318,43 @@
           </div>
 
 
+
+<!--        MOBILE SIMULATION  -->
+
+        <%when 'new_mobil_simulation'%>
+          <div class="form-group">
+            <p>Combien payez-vous par mois?
+              <%= f.number_field :bundle_price, in: 0.00..200.00 ,step: 0.10,class: "form-control"%>
+            </p>
+            <p>Combien votre forfait possède-t-il de Go?
+              <%= f.number_field :bundle_gbyte, in: 0.00..200.00 ,step: 0.10,class: "form-control"  %>
+            </p>
+            <div class="form-group">
+              <p>Bénéficiez-vous d'appels/SMS/MMS illimités en Europe?<br><br>
+                <%= f.radio_button(:calls_europe, 'true')%>
+                <%= f.label(:calls_europe_yes, "Oui")%>
+                <%= f.radio_button(:calls_europe, 'false') %>
+                <%= f.label(:calls_europe_no, "Non") %>
+              </p>
+            </div>
+            <div class="form-group">
+              <p>Appels, SMS, MMS illimités à l'étranger?<br><br>
+              <%= f.radio_button(:calls_international, 'true')%>
+              <%= f.label(:calls_international_yes, "Oui")%>
+              <%= f.radio_button(:calls_international, 'false') %>
+              <%= f.label(:calls_international_no, "Non") %>
+              </p>
+            </div>
+            <div class="form-group">
+              <p>Internet à l'étranger?<br><br>
+              <%= f.radio_button(:net_international, 'true')%>
+              <%= f.label(:net_international, "Oui")%>
+              <%= f.radio_button(:net_international, 'false') %>
+              <%= f.label(:net_international, "Non") %>
+              </p>
+            </div>
+
+
 <!--        NEW/EDIT MOBIL CONTRACT -->
         
         <%when 'new_mobil_contract','edit_mobil_contract'  %>
