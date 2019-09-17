@@ -318,9 +318,9 @@
           </div>
 
 
-<!--        NEW MOBIL CONTRACT -->
+<!--        NEW/EDIT MOBIL CONTRACT -->
         
-        <%when 'new_mobil_contract' %>
+        <%when 'new_mobil_contract','edit_mobil_contract'  %>
           <div class="form-group">
             <%= f.label :supplier %><br />
             <%= f.text_field :supplier, autofocus: true, class: "form-control"  %>
@@ -342,16 +342,15 @@
           </div>
 
           <div class="form-group">
-            <p>Forfait avec engagement?<br><br>
-            <%= radio_button_tag(:engagement, 'true')%>
+            <%= f.label 'Forfait avec engagement?' %><br />
+            <%= radio_button_tag(:engagement, true)%>
             <%= label_tag(:engagement_yes, "Oui")%>
-            <%= radio_button_tag(:engagement, 'false') %>
+            <%= radio_button_tag(:engagement, false) %>
             <%= label_tag(:engagement_no, "Non") %>
-            </p>
           </div>
 
           <div class="form-group">
-            <p>Forfait avec nouveau téléphone?<br><br>
+            <p>Forfait avec nouveau téléphone?<br>
             <%= radio_button_tag(:add_phone, 'true')%>
             <%= label_tag(:add_phone_yes, "Oui")%>
             <%= radio_button_tag(:add_phone, 'false') %>
@@ -364,7 +363,7 @@
             <%= f.number_field :bundle_price, in: 0.00..200.00 ,step: 0.10,class: "form-control"  %>
           </div>
 
-           <div class="form-group">
+          <div class="form-group">
             <%= f.label :bundle_gbyte %><br />
             <%= f.number_field :bundle_gbyte, in: 0.00..200.00 ,step: 0.10,class: "form-control"  %>
           </div>
@@ -392,7 +391,7 @@
             <%= f.number_field :gbyte_europe, in: 0.00..200.00 ,step: 0.10,class: "form-control"  %>
           </div>
 
-           <div class="form-group">
+          <div class="form-group">
             <p>Appels, SMS, MMS illimités à l'étranger?<br><br>
             <%= radio_button_tag(:calls_international, 'true')%>
             <%= label_tag(:calls_international_yes, "Oui")%>
@@ -410,97 +409,7 @@
             </p>
           </div>
 
-<!--     EDIT MOBILE CONTRACT   -->
-        
-        <%when 'edit_mobil_contract' %>
-          <div class="form-group">
-            <%= f.label :supplier %><br />
-            <%= f.text_field :supplier, autofocus: true, class: "form-control"  %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :offer_name %><br />
-            <%= f.text_field :offer_name, class: "form-control"  %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :line_service_price %><br />
-            <%= f.number_field :line_service_price, in: 0..30, class: "form-control"  %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :sim_card_price %><br />
-            <%= f.number_field :sim_card_price, in: 0..20, class: "form-control"  %>
-          </div>
-
-          <div class="form-group">
-            <p>Forfait avec engagement?<br><br>
-            <%= radio_button_tag(:engagement, 'true')%>
-            <%= label_tag(:engagement_yes, "Oui")%>
-            <%= radio_button_tag(:engagement, 'false') %>
-            <%= label_tag(:engagement_no, "Non") %>
-            </p>
-          </div>
-
-          <div class="form-group">
-            <p>Forfait avec nouveau téléphone?<br><br>
-            <%= radio_button_tag(:add_phone, 'true')%>
-            <%= label_tag(:add_phone_yes, "Oui")%>
-            <%= radio_button_tag(:add_phone, 'false') %>
-            <%= label_tag(:add_phone_no, "Non") %>
-            </p>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :bundle_price %><br />
-            <%= f.number_field :bundle_price, in: 0.00..200.00 ,step: 0.10,class: "form-control"  %>
-          </div>
-
-           <div class="form-group">
-            <%= f.label :bundle_gbyte %><br />
-            <%= f.number_field :bundle_gbyte, in: 0.00..200.00 ,step: 0.10,class: "form-control"  %>
-          </div>
-
-          <div class="form-group">
-            <p>Appels, SMS, MMS illimités en France?<br><br>
-            <%= radio_button_tag(:calls_france, 'true')%>
-            <%= label_tag(:calls_france_yes, "Oui")%>
-            <%= radio_button_tag(:calls_france, 'false') %>
-            <%= label_tag(:calls_france_no, "Non") %>
-            </p>
-          </div>
-
-          <div class="form-group">
-            <p>Appels, SMS, MMS illimités en Europe?<br><br>
-            <%= radio_button_tag(:calls_europe, 'true')%>
-            <%= label_tag(:calls_europe_yes, "Oui")%>
-            <%= radio_button_tag(:calls_europe, 'false') %>
-            <%= label_tag(:calls_europe_no, "Non") %>
-            </p>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :gbyte_europe %><br />
-            <%= f.number_field :gbyte_europe, in: 0.00..200.00 ,step: 0.10,class: "form-control"  %>
-          </div>
-
-          <div class="form-group">
-            <p>Appels, SMS, MMS illimités à l'étranger?<br><br>
-            <%= radio_button_tag(:calls_international, true)%>
-            <%= label_tag(:calls_international_yes, 'Oui')%>
-            <%= radio_button_tag(:calls_international, false) %>
-            <%= label_tag(:calls_international_no, 'Non') %>
-            </p>
-          </div>
-
-          <div class="form-group">
-            <p>Internet à l'étranger?<br><br>
-            <%= radio_button_tag(:net_international, true)%>
-            <%= label_tag(:net_international_yes, 'Oui')%>
-            <%= radio_button_tag(:net_international, false) %>
-            <%= label_tag(:net_international_no, 'Non') %>
-            </p>
-          </div>
+      
 
 
         <% end %>
