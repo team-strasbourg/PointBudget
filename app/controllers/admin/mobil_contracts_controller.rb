@@ -15,6 +15,7 @@ module Admin
 
   	def create
   		my_params = params[:mobil_contract]
+      params[:calls_france] = ActiveModel::Type::Boolean.new.cast(params[:calls_france])
   		@contract = MobilContract.new(supplier: my_params[:supplier],
                                   offer_name: my_params[:offer_name],
                                 	line_service_price: my_params[:line_service_price],
