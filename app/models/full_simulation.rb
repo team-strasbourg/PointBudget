@@ -3,8 +3,11 @@
 class FullSimulation < ApplicationRecord
   belongs_to :user
   has_one :gas_simulation, dependent: :destroy
+  has_one :box_simulation, dependent: :destroy
+  has_one :ele_simulation, dependent: :destroy
   # after_update :mail_if_validated
   has_one :mobil_simulation, dependent: :destroy
+
 
   validates :total_cost_saved,
             presence: true,
@@ -12,6 +15,14 @@ class FullSimulation < ApplicationRecord
 
   def only_one_gas_simulation
     gas_simulation.nil? ? false : true
+  end
+
+  def only_one_box_simulation
+    box_simulation.nil? ? false : true
+  end
+
+  def only_one_ele_simulation
+    ele_simulation.nil? ? false : true
   end
 
   private

@@ -208,12 +208,13 @@
 
 <!--      EDIT FULL SIMULATION TO VALIDATE -->
 
+
           <% when 'validate_full_simulation' %>
             <div class="form-group hide">
               <%= f.radio_button(:validated, true, checked: 'checked', hidden: true) %>
             </div>
-      
-        
+
+
 
 
 <!--        GAS SIMULATION FORM-->
@@ -230,7 +231,7 @@
             <%= label_tag(:answer_no, "Non") %>
             </p>
             <div id="consumption" style="display:none;">
-              <p>Consommation annuelle en Wh
+              <p>Consommation annuelle en kWh
               <%= number_field_tag "yearly_consumption", nil, step: 1, class: 'd-flex justify-content-end' %>
               </p>
             </div>
@@ -251,6 +252,32 @@
             </div>
           </div>
 
+<!--          BOX SIMULATION FORM-->
+        <%when 'new_box_simulation'%>
+          <div class="form-group">
+            <p>Coût mensuel de votre abonnement box internet en €
+              <%= number_field_tag "monthly_cost", nil, step: 1 , within: 1...10000, class: 'd-flex justify-content-end' %>
+            </p>
+            <p>Avez-vous ou voulez-vous la TV?
+              <%= f.radio_button(:tv, 'true')%>
+              <%= f.label(:tv_yes, "Oui")%>
+              <%= f.radio_button(:tv, 'false') %>
+              <%= f.label(:tv_no, "Non") %>
+            </p>
+            <p>Avez-vous ou voulez-vous les appels vers les téléphones fixes en France?
+              <%= f.radio_button(:call_fix_fr, 'true')%>
+              <%= f.label(:call_fix_fr_yes, "Oui")%>
+              <%= f.radio_button(:call_fix_fr, 'false') %>
+              <%= f.label(:call_fix_fr_no, "Non") %>
+            </p>
+            <p>Avez-vous ou voulez-vous les appels vers les téléphones mobile en France?
+              <%= f.radio_button(:call_mob_fr, 'true')%>
+              <%= f.label(:call_mob_fr_yes, "Oui")%>
+              <%= f.radio_button(:call_mob_fr, 'false') %>
+              <%= f.label(:call_mob_fr_no, "Non") %>
+            </p>
+
+          </div>
 
 <!--          NEW GAS CONTRACT-->
 
@@ -450,7 +477,152 @@
 
 
         <% end %>
+        
 
+<!--         NEW AND EDIT BOX CONTRACT-->
+        <%when 'new_box_contract', 'edit_box_contract' %>
+          <div class="form-group">
+            <%= f.label :supplier %><br />
+            <%= f.text_field :supplier, autofocus: true, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :offer_name %><br />
+            <%= f.text_field :offer_name, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :price_month %><br />
+            <%= f.number_field :price_month, in: 0.00..1000.00, step: 0.01, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :commitment %><br />
+            <%= f.number_field :commitment, in: 0..120, step: 1, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :price_after %><br />
+            <%= f.number_field :price_after, in: 0.00..1000.00, step: 0.01,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :internet_type %><br />
+            <%= f.text_field :internet_type,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :downstream %><br />
+            <%= f.number_field :downstream,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :upstream %><br />
+            <%= f.number_field :upstream,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :tv_channel %><br />
+            <%= f.text_field :tv_channel,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :tv %><br />
+            <%= f.radio_button :tv, true%>
+            <%= f.label(:tv_yes, "Oui")%>
+            <%= f.radio_button :tv, false %>
+            <%= f.label(:tv_no, "Non") %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :call_fix_fr %><br />
+            <%= f.radio_button(:call_fix_fr, true)%>
+            <%= f.label(:call_fix_fr_yes, "Oui")%>
+            <%= f.radio_button(:call_fix_fr, false) %>
+            <%= f.label(:call_fix_fr_no, "Non") %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :call_mobile_fr %><br />
+            <%= f.radio_button(:call_mobile_fr, true)%>
+            <%= f.label(:call_mobile_fr_yes, "Oui")%>
+            <%= f.radio_button(:call_mobile_fr, false) %>
+            <%= f.label(:call_mobile_fr_no, "Non") %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :call_foreign %><br />
+            <%= f.radio_button(:call_foreign, true)%>
+            <%= f.label(:call_foreign_yes, "Oui")%>
+            <%= f.radio_button(:call_foreign, false) %>
+            <%= f.label(:call_foreign_no, "Non") %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :opening_fee %><br />
+            <%= f.number_field :opening_fee,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :termination_fee %><br />
+            <%= f.number_field :termination_fee,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :taken_termination %><br />
+            <%= f.number_field :taken_termination,class: "form-control"  %>
+          </div>
+
+
+
+
+
+<!--          NEW/EDIT ELECTRICITY CONTRACT-->
+
+        <%when 'new_ele_contract','edit_ele_contract' %>
+          <div class="form-group">
+            <%= f.label :supplier %><br />
+            <%= f.text_field :supplier, autofocus: true, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :offer_name %><br />
+            <%= f.text_field :offer_name, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :subscription_base_price_month %><br />
+            <%= f.number_field :subscription_base_price_month, in: 0.00..100.00, step: 0.01, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :kwh_price_base %><br />
+            <%= f.number_field :kwh_price_base, in: 0.001..0.5, step: 0.00001, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :kVA_power %><br />
+            <%= f.number_field :kVA_power, in: 6..12 , step: 3,class: "form-control"  %>
+          </div>
+
+<!--        ELEC SIMULATION-->
+        <%when 'new_ele_simulation'%>
+          <div class="form-group">
+            <p>Coût annuel de l'electricité en €
+            <%= number_field_tag "yearly_cost", nil, step: 1 , within: 1...10000, class: 'd-flex justify-content-end' %>
+            </p>
+            <p>Quelle est votre consommation d'électricité ?
+            </p>
+            <div id="consumption-elec">
+              <p>Consommation annuelle en kWh
+              <%= number_field_tag "yearly_consumption", nil, step: 1, class: 'd-flex justify-content-end' %>
+              </p>
+              <p>Quelle est la puissance de votre compteur ?
+              <%= number_field_tag "kVA_power", nil, in: 6..12 , step: 3 , class: 'd-flex justify-content-end' %>
+              </p>
+            </div>
+          </div>
+        <%end%>
 
 <!--        FOR ALL FORMS-->
         <div class="form-group">

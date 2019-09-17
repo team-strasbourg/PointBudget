@@ -32,92 +32,126 @@
 
 $(document).ready(function () {
 
-if($("body").data("controller") == "full_simulations" && $("body").data("action") == "show") {
-  radioYes = document.getElementById("answer_yes")
-  radioNo = document.getElementById("answer_no")
+    if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show") {
+        radioYes = document.getElementById("answer_yes")
+        radioNo = document.getElementById("answer_no")
 
-  radioYes.addEventListener('click', function(){
-      $('#consumption').show(500);
-      $('#estimation').hide(500);
-  });
+        radioYes.addEventListener('click', function () {
+            $('#consumption').show(500);
+            $('#estimation').hide(500);
+        });
 
-  radioNo.addEventListener('click', function(){
-      $('#consumption').hide(500);
-      $('#estimation').show(500);
-  });
-} else if($("body").data("controller") == "full_simulations" && $("body").data("action") == "show"){
-  try {
-    $('.btn-block')[0].on('click', function () {
-      $('#myModal').trigger('focus');
-    })
-  }
-  catch(error){
-  }
-}
-
-if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "new"){
-  clickToDisplayDomains = document.getElementById("btn-click-1")
-  domainDeploySatus = false
-
-  clickToDisplayDomains.addEventListener('click', function(){
-    $("#domain-list").toggle(600);
-  })
-};
-
-if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show"){
-  clickToDisplayEnergies = document.getElementById("btn-energy")
-  energyDeployStatus = false
-  clickToDisplayGasSimu = document.getElementById("btn-gas")
-  gasDeployStatus = false
-
-  clickToDisplayGasSimu.addEventListener('click', function(){
-    $("#gas-simu").toggle(600);
-  })
-
-  clickToDisplayEnergies.addEventListener('click', function(){
-    if (energyDeployStatus == false) {
-      $("#energy-categories").addClass("d-flex");
-      $("#energy-categories").show(500);
-      $("#gas-simu").hide(500);
-      gasDeployStatus = false;
-      energyDeployStatus = true;
+        radioNo.addEventListener('click', function () {
+            $('#consumption').hide(500);
+            $('#estimation').show(500);
+        });
+    } else if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show") {
+        try {
+            $('.btn-block')[0].on('click', function () {
+                $('#myModal').trigger('focus');
+            })
+        } catch (error) {
+        }
     }
-    else if (energyDeployStatus == true) {
-      $("#energy-categories").removeClass("d-flex");
-      $("#energy-categories").hide(500);
-      energyDeployStatus = false;
-    }    
-  })
-};
 
-if (document.cookie !== "username=guest"){
-  navCollapse = document.getElementById("nav-user-collapse")
-  userNavStatus = true ;
+    if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "new"){
+      clickToDisplayDomains = document.getElementById("btn-click-1")
+      domainDeploySatus = false
 
-  navCollapse.addEventListener('click', function() {
-    if (userNavStatus == true) {
-        $('#sidenav').animate({
-            right: $('#sidenav').width()
-        });
-        $('#body_content_user').animate({
-            right: $('#sidenav').width()/2
-        });
-      document.getElementById("nav-arrow").classList.remove("fa-angle-left");
-      document.getElementById("nav-arrow").classList.add("fa-angle-right");
-      userNavStatus = false
-    }
-    else if (userNavStatus == false) {
-        $('#sidenav').animate({
-            right: '0px'
-        });
-        $('#body_content_user').animate({
-            right: '0px'
-        });
-      document.getElementById("nav-arrow").classList.remove("fa-angle-right");
-      document.getElementById("nav-arrow").classList.add("fa-angle-left");
-      userNavStatus = true
-    }
-  });
-};
+      clickToDisplayDomains.addEventListener('click', function(){
+        $("#domain-list").toggle(600);
+      })
+    };
 
+    if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show"){
+
+        // ENERGIE
+        clickToDisplayNumerics = document.getElementById("btn-numeric");
+        numericDeployStatus = false;
+        clickToDisplayBoxSimu = document.getElementById("btn-box");
+        boxDeployStatus = false;
+
+        clickToDisplayEnergies = document.getElementById("btn-energy");
+        energyDeployStatus = false;
+        clickToDisplayGasSimu = document.getElementById("btn-gas");
+        gasDeployStatus = false;
+        clickToDisplayElecSimu = document.getElementById("btn-elec");
+
+        clickToDisplayGasSimu.addEventListener('click', function(){
+            $("#gas-simu").toggle(600);
+            $("#elec-simu").hide(500);
+          });
+
+        clickToDisplayElecSimu.addEventListener('click', function(){
+            $("#elec-simu").toggle(600);
+            $("#gas-simu").hide(500);
+          });
+
+        clickToDisplayEnergies.addEventListener('click', function(){
+            if (energyDeployStatus == false) {
+              $("#energy-categories").addClass("d-flex");
+              $("#energy-categories").show(500);
+              $("#gas-simu").hide(500);
+              $("#elec-simu").hide(500);
+              gasDeployStatus = false;
+              energyDeployStatus = true;
+            }
+            else if (energyDeployStatus == true) {
+              $("#energy-categories").removeClass("d-flex");
+              $("#energy-categories").hide(500);
+              energyDeployStatus = false;
+            }
+          });
+
+      // Numeric
+        clickToDisplayBoxSimu.addEventListener('click', function(){
+            $("#box-simu").toggle(600);
+        });
+
+        clickToDisplayNumerics.addEventListener('click', function(){
+            if (numericDeployStatus == false) {
+                $("#numeric-categories").addClass("d-flex");
+                $("#numeric-categories").show(500);
+                $("#box-simu").hide(500);
+                boxDeployStatus = false;
+                numericDeployStatus = true;
+            }
+            else if (numericDeployStatus == true) {
+                $("#numeric-categories").removeClass("d-flex");
+                $("#numeric-categories").hide(500);
+                numericDeployStatus = false;
+            }
+        });
+
+    };
+
+    if (document.cookie !== "username=guest"){
+      navCollapse = document.getElementById("nav-user-collapse")
+      userNavStatus = true ;
+
+      navCollapse.addEventListener('click', function() {
+        if (userNavStatus == true) {
+            $('#sidenav').animate({
+                right: $('#sidenav').width()
+            });
+            $('#body_content_user').animate({
+                right: $('#sidenav').width()/2
+            });
+          document.getElementById("nav-arrow").classList.remove("fa-angle-left");
+          document.getElementById("nav-arrow").classList.add("fa-angle-right");
+          userNavStatus = false
+        }
+        else if (userNavStatus == false) {
+            $('#sidenav').animate({
+                right: '0px'
+            });
+            $('#body_content_user').animate({
+                right: '0px'
+            });
+          document.getElementById("nav-arrow").classList.remove("fa-angle-right");
+          document.getElementById("nav-arrow").classList.add("fa-angle-left");
+          userNavStatus = true
+        }
+      });
+    };
 });

@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     resources :users
     resources :gas_contracts
     resources :mobil_contracts
+    resources :box_contracts
+    resources :ele_contracts
+
   end
 
   resources :users, only: %i[show edit update] do
@@ -23,6 +26,8 @@ Rails.application.routes.draw do
       resources :energies, only: %i[show new]
       resources :gas_simulations, except: [:index]
       resources :mobil_simulations, except: [:index]
+      resources :box_simulations, except: [:index]
+      resources :ele_simulations, except: [:index]
     end
   end
 end

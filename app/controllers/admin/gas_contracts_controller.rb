@@ -46,7 +46,7 @@ module Admin
     def destroy
       @contract = GasContract.find(params[:id])
       @contract.destroy
-      flash[:success] = 'User successfully deleted'
+      flash[:success] = 'Gaz contract successfully deleted'
       redirect_to admin_gas_contracts_path
     end
 
