@@ -46,6 +46,10 @@ class User < ApplicationRecord
     self.gas_simulations.include?{ |simu| simu.id == id }
   end
 
+  def has_ele_simulation(id)
+    self.ele_simulations.include?{ |simu| simu.id == id }
+  end
+
   def has_full_simulation(id)
     self.full_simulations.include?{ |simu| simu.id == id }
   end

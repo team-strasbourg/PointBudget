@@ -69,9 +69,16 @@ if ($("body").data("controller") == "full_simulations" && $("body").data("action
   energyDeployStatus = false
   clickToDisplayGasSimu = document.getElementById("btn-gas")
   gasDeployStatus = false
+  clickToDisplayElecSimu = document.getElementById("btn-elec")
 
   clickToDisplayGasSimu.addEventListener('click', function(){
     $("#gas-simu").toggle(600);
+    $("#elec-simu").hide(500);
+  })
+
+  clickToDisplayElecSimu.addEventListener('click', function(){
+    $("#elec-simu").toggle(600);
+    $("#gas-simu").hide(500);
   })
 
   clickToDisplayEnergies.addEventListener('click', function(){
@@ -79,6 +86,7 @@ if ($("body").data("controller") == "full_simulations" && $("body").data("action
       $("#energy-categories").addClass("d-flex");
       $("#energy-categories").show(500);
       $("#gas-simu").hide(500);
+      $("#elec-simu").hide(500);
       gasDeployStatus = false;
       energyDeployStatus = true;
     }
@@ -86,7 +94,7 @@ if ($("body").data("controller") == "full_simulations" && $("body").data("action
       $("#energy-categories").removeClass("d-flex");
       $("#energy-categories").hide(500);
       energyDeployStatus = false;
-    }    
+    }
   })
 };
 
