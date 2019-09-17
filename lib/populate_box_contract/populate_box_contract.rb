@@ -1,4 +1,3 @@
-# BOX contract
 require 'csv'
 
 data = CSV.read('./lib/populate_box_contract/offer_box.csv',
@@ -30,6 +29,6 @@ lines.each do |line|
                      call_foreign: to_boolean(line[12]),
                      opening_fee: line[13].to_i,
                      termination_fee: line[14].to_i,
-                     taken_termination: line[15].to_i,
+                     taken_termination: line[15].to_i
                      )
 end
