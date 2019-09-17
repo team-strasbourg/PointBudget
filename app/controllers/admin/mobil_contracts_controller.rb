@@ -31,7 +31,7 @@ module Admin
                                   )
       if @contract.save
         flash[:success] = 'Contract Mobil created'
-        redirect_to admin_gas_contracts_path
+        redirect_to admin_mobil_contracts_path
       else
         render 'new'
       end
@@ -44,7 +44,8 @@ module Admin
   	def update
   		@contract = MobilContract.find(params[:id])
       if @contract.update(contract_params)
-        redirect_to admin_gas_contract_path
+        flash[:success] = 'Contract Mobil edited'
+        redirect_to admin_mobil_contracts_path
       else
         render 'edit'
       end
@@ -54,7 +55,7 @@ module Admin
   		@contract = MobilContract.find(params[:id])
       @contract.destroy
       flash[:success] = 'Mobil Simulation successfully deleted'
-      redirect_to admin_gas_contracts_path
+      redirect_to admin_mobil_contracts_path
   	end
 
   	private
