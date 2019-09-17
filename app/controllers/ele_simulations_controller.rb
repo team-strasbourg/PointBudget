@@ -6,15 +6,12 @@ class EleSimulationsController < ApplicationController
   before_action :not_other_users_ele_simulations, only: [:show]
   before_action :not_other_user_index, only:[:index]
 
-  def index; end
+  def index
+  end
 
   def show
     @ele_sim = EleSimulation.find(params[:id])
     table_attributes = @ele_sim.print_report
-    @floor_space = table_attributes[0]
-    @heat_type = table_attributes[1]
-    @water_cooking_type = table_attributes[2]
-    @residents_number = table_attributes[3]
     @ele_contracts = @ele_sim.sort_contracts(3)
   end
 
@@ -52,7 +49,7 @@ class EleSimulationsController < ApplicationController
       @ele_simulation.create_join_table_ele(comparison[1], comparison[2])
       @full_simulation.update(total_cost_saved: (@full_simulation.total_cost_saved + @ele_simulation.ele_cost_saved),
                               counter: @full_simulation.counter + 1)
-      flash[:success] = 'Votre simulation de gaz a bien été enregistrée'
+      flash[:success] = "Votre simulation d'electricité a bien été enregistrée"
       redirect_to user_full_simulation_path(current_user, @full_simulation)
     else
       flash[:error] = @ele_simulation.errors.messages
