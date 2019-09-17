@@ -67,7 +67,7 @@ module Admin
   	def destroy
   		@contract = MobilContract.find(params[:id])
       @contract.destroy
-      flash[:success] = 'Mobil Simulation successfully deleted'
+      flash[:success] = 'Mobil contract successfully deleted'
       redirect_to admin_mobil_contracts_path
   	end
 
