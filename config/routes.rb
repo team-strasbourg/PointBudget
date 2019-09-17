@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  
   devise_for :users, controllers: { registrations: :registrations }
 
   root to: 'static_pages#landing_page'
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
     root to: 'users#index'
     resources :users
     resources :gas_contracts
+    resources :mobil_contracts
   end
 
   resources :users, only: %i[show edit update] do
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
     resources :full_simulations, except: [:edit] do
       resources :energies, only: %i[show new]
       resources :gas_simulations, except: [:index]
+      resources :mobil_simulations, except: [:index]
     end
   end
 end
