@@ -70,7 +70,8 @@ $(document).ready(function () {
         numericDeployStatus = false;
         clickToDisplayBoxSimu = document.getElementById("btn-box");
         boxDeployStatus = false;
-
+        clickToDisplayBoxSimu = document.getElementById("btn-mobil");
+        boxDeployStatus = false;
         clickToDisplayEnergies = document.getElementById("btn-energy");
         energyDeployStatus = false;
         clickToDisplayGasSimu = document.getElementById("btn-gas");
