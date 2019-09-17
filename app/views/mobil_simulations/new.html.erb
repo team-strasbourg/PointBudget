@@ -1,2 +1,15 @@
 <h1>MobilSimulations#new</h1>
 <p>Find me in app/views/mobil_simulations/new.html.erb</p>
+
+
+<%= render partial: "shared/form", locals:{resource: @gas_simulation,
+                                           action: 'new_mobil_simulation',
+                                           path: user_full_simulation_mobil_simulations_path(current_user,
+                                                                                           @full_simulation),
+                                           method: :post,
+                                           title: 'Simulation mobile',
+                                           button: "Terminer"}%>
+
+<div class="d-flex align-self-start">
+	<%= link_to "Back", :back %>
+</div>
