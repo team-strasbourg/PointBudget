@@ -36,17 +36,6 @@ ActiveRecord::Schema.define(version: 2019_09_17_095506) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "cities", force: :cascade do |t|
-    t.string "name"
-    t.string "zip_code"
-    t.string "insee_code"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["insee_code"], name: "index_cities_on_insee_code"
-    t.index ["name"], name: "index_cities_on_name"
-    t.index ["zip_code"], name: "index_cities_on_zip_code"
-  end
-
   create_table "box_simulations", force: :cascade do |t|
     t.float "actual_price_paid", default: 0.0
     t.float "box_cost_saved", default: 0.0
@@ -57,6 +46,18 @@ ActiveRecord::Schema.define(version: 2019_09_17_095506) do
     t.bigint "full_simulation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["full_simulation_id"], name: "index_box_simulations_on_full_simulation_id"
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.string "zip_code"
+    t.string "insee_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["insee_code"], name: "index_cities_on_insee_code"
+    t.index ["name"], name: "index_cities_on_name"
+    t.index ["zip_code"], name: "index_cities_on_zip_code"
   end
 
   create_table "ele_contracts", force: :cascade do |t|
@@ -115,6 +116,16 @@ ActiveRecord::Schema.define(version: 2019_09_17_095506) do
     t.index ["full_simulation_id"], name: "index_gas_simulations_on_full_simulation_id"
   end
 
+  create_table "join_table_box_contracts", force: :cascade do |t|
+    t.float "savings"
+    t.bigint "box_contract_id"
+    t.bigint "box_simulation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["box_contract_id"], name: "index_join_table_box_contracts_on_box_contract_id"
+    t.index ["box_simulation_id"], name: "index_join_table_box_contracts_on_box_simulation_id"
+  end
+
   create_table "join_table_ele_simulation_contracts", force: :cascade do |t|
     t.float "savings", default: 0.0
     t.float "float", default: 0.0
@@ -146,9 +157,9 @@ ActiveRecord::Schema.define(version: 2019_09_17_095506) do
     t.string "last_name"
     t.string "phone_number"
     t.boolean "is_admin", default: false
-    t.bigint "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "city_id"
     t.string "provider"
     t.string "uid"
     t.index ["city_id"], name: "index_users_on_city_id"
