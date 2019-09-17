@@ -6,8 +6,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "rspec",
-      "post-pull": "rspec"
+      "pre-push": "rspec"
     }
   },
   "devDependencies": {
