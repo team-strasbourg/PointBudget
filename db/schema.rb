@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_09_17_095506) do
     t.float "price_month", default: 0.0
     t.integer "commitment", default: 0
     t.float "price_after", default: 0.0
-    t.string "type", default: ""
+    t.string "internet_type", default: ""
     t.integer "downstream", default: 0
     t.integer "upstream", default: 0
     t.string "tv_channel", default: ""

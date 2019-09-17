@@ -30,12 +30,16 @@ class BoxSimulationsController < ApplicationController
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
     @box_simulation = BoxSimulation.new
     @box_simulation.assign_params_from_controller(params)
-    comparison = @box_simulation.comparison(params[:monthly_cost], params[:tv], params[:call_fix_fr], params[:call_mobile_fr])
+    params[:tv] = params[:tv] == 'true' ? true : false
+    params[:call_fix_fr] = params[:call_fix_fr] == 'true' ? true : false
+    params[:call_mob_fr] = params[:call_mob_fr] == 'true' ? true : false
+    @box_simulation.assign_params_from_controller(params)
+    comparison = @box_simulation.comparison(params[:monthly_cost], params[:tv], params[:call_fix_fr], params[:call_mob_fr])
     @box_simulation = BoxSimulation.new(actual_price_paid: params[:monthly_cost],
                                         box_cost_saved: comparison[0],
                                         tv: params[:tv],
                                         call_fix_fr:params[:call_fix_fr],
-                                        call_mob_fr:params[:call_mobile_fr],
+                                        call_mob_fr:params[:call_mob_fr],
                                         full_simulation: @full_simulation)
 
     if @box_simulation.save

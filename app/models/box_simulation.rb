@@ -9,12 +9,7 @@ class BoxSimulation < ApplicationRecord
   validates :box_cost_saved,
             presence: true,
             numericality: { greater_than_or_equal_to: 0 }
-  validates :tv,
-            presence: true
-  validates :call_fix_fr,
-            presence: true
-  validates :call_mob_fr,
-            presence: true
+
 
   def print_report
     table_attributes = []
@@ -33,19 +28,20 @@ class BoxSimulation < ApplicationRecord
   end
 
   def comparison(monthly_cost, tv, call_fix, call_mobile)
-    first_filter = BoxContract.all.select { |contract|
-      contract.tv == tv && contract.call_fix_fr == call_fix && contract.call_mob_fr == call_mobile
-    }
+    monthly_cost = monthly_cost.to_i
+    first_filter = BoxContract.all.select { |contract| contract.tv == tv }
+    second_filter = first_filter.select { |contract| contract.call_fix_fr == call_fix }
+    third_filter = second_filter.select { |contract| contract.call_mobile_fr == call_mobile }
     max_save = 0
     all_savings = []
-    first_filter.each do |contract|
-      savings = ((monthly_cost - contract.price_month)*12 ).round(2)
+    third_filter.each do |contract|
+      savings = ((monthly_cost - contract.price_month) * 12 ).round(2)
       if savings > max_save
         max_save = savings
       end
       all_savings << savings
     end
-    [max_save.round(2), first_filter, all_savings]
+    [max_save.round(2), third_filter, all_savings]
   end
 
   def create_join_table_box(filter, all_savings)

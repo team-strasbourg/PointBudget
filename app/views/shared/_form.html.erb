@@ -251,11 +251,11 @@
             </div>
           </div>
 
-<!--          BOX SIMULATION-->
+<!--          BOX SIMULATION FORM-->
         <%when 'new_box_simulation'%>
           <div class="form-group">
             <p>Coût mensuel de votre abonnement box internet en €
-              <%= number_field_tag "yearly_cost", nil, step: 1 , within: 1...10000, class: 'd-flex justify-content-end' %>
+              <%= number_field_tag "monthly_cost", nil, step: 1 , within: 1...10000, class: 'd-flex justify-content-end' %>
             </p>
             <p>Avez-vous ou voulez-vous la TV?
               <%= radio_button_tag(:tv, true)%>
@@ -270,10 +270,10 @@
               <%= label_tag(:call_fix_fr_no, "Non") %>
             </p>
             <p>Avez-vous ou voulez-vous les appels vers les téléphones mobile en France?
-              <%= radio_button_tag(:call_mobile_fr, true)%>
-              <%= label_tag(:call_mobile_fr_yes, "Oui")%>
-              <%= radio_button_tag(:call_mobile_fr, false) %>
-              <%= label_tag(:call_mobile_fr_no, "Non") %>
+              <%= radio_button_tag(:call_mob_fr, true)%>
+              <%= label_tag(:call_mob_fr_yes, "Oui")%>
+              <%= radio_button_tag(:call_mob_fr, false) %>
+              <%= label_tag(:call_mob_fr_no, "Non") %>
             </p>
 
           </div>
