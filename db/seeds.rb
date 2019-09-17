@@ -79,6 +79,7 @@ lines.each do |line|
                      price_month: line[2].to_i,
                      commitment: line[3].to_i,
                      price_after: line[4].to_i,
+                     internet_type: line[5].to_s,
                      downstream: line[6].to_i,
                      upstream: line[7].to_i,
                      tv_channel: line[8],
