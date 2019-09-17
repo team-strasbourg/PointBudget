@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2019_09_16_163152) do
   create_table "ele_contracts", force: :cascade do |t|
     t.string "supplier"
     t.string "offer_name"
-    t.integer "kw_consumption_per_year"
+    t.integer "kVA_power"
     t.float "subscription_base_price_month"
     t.float "kwh_price_base"
     t.datetime "created_at", null: false
