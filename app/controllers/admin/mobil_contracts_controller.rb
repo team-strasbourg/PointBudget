@@ -26,8 +26,8 @@ module Admin
                                   calls_france:my_params[:calls_france],
                                   calls_europe:my_params[:calls_europe],
                                   gbyte_europe:my_params[:gbyte_europe],
-                                  calls_internationnal:my_params[:calls_internationnal],
-                                  net_internationnal:my_params[:net_internationnal]
+                                  calls_international:my_params[:calls_international],
+                                  net_international:my_params[:net_international]
                                   )
       if @contract.save
         flash[:success] = 'Contract Mobil created'
@@ -71,8 +71,8 @@ module Admin
                                            :calls_france,
                                            :calls_europe,
                                            :gbyte_europe,
-                                           :calls_internationnal,
-                                           :net_internationnal)
+                                           :calls_international,
+                                           :net_international)
     end
 
   end

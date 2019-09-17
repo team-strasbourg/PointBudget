@@ -11,7 +11,7 @@ FactoryBot.define do
     calls_france { false }
     calls_europe { false }
     gbyte_europe { 1.5 }
-    calls_internationnal { false }
-    net_internationnal { false }
+    calls_international { false }
+    net_international { false }
   end
 end
