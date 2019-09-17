@@ -48,10 +48,11 @@ User.create(email: 'admin123@admin.com', password: 'admin123', city: City.first,
 puts 'admin created'
 
 
-############################### GAZ #######################################
+############################## GAZ #######################################
 
 
 require 'csv'
+
 
 data = CSV.read('lib/populate_gas_contract/offer_gas.csv', {:headers => false, :col_sep => ',', :encoding => 'ISO-8859-1'})
 lines = data.select { |line| !line[0].nil?}
@@ -101,9 +102,8 @@ lines.each do |line|
       )
 end
 
-#
 
-############################### BOX #######################################
+############################# BOX #######################################
 require 'csv'
 
 data = CSV.read('./lib/populate_box_contract/offer_box.csv',
@@ -133,7 +133,7 @@ lines.each do |line|
 end
 
 
-############################### ELEC #######################################
+############################## ELEC #######################################
 require 'csv'
 
 data = CSV.read('./lib/populate_elec_contract/offer_electricity.csv',
@@ -150,5 +150,6 @@ lines.each do |line|
       )
 end
 
+<<<<<<< HEAD
 
 
