@@ -25,10 +25,6 @@ class BoxSimulation < ApplicationRecord
     self.full_simulation.user
   end
 
-  def assign_params_from_controller(params)
-    @params = params
-  end
-
   # This method can show the top best contracts depending on the number we want to show
   def sort_contracts(how_many)
     return_array = []

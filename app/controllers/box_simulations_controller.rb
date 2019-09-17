@@ -28,7 +28,6 @@ class BoxSimulationsController < ApplicationController
   def create
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
     @box_simulation = BoxSimulation.new
-    @box_simulation.assign_params_from_controller(params)
     my_params = params[:box_simulation]
     tv = my_params[:tv] == 'true' ? true : false
     call_fix_fr = my_params[:call_fix_fr] == 'true' ? true : false
