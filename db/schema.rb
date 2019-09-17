@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_16_073106) do
+ActiveRecord::Schema.define(version: 2019_09_17_081949) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,45 @@ ActiveRecord::Schema.define(version: 2019_09_16_073106) do
     t.float "savings", default: 0.0
     t.index ["gas_contract_id"], name: "index_join_table_gas_simulation_contracts_on_gas_contract_id"
     t.index ["gas_simulation_id"], name: "index_join_table_gas_simulation_contracts_on_gas_simulation_id"
+  end
+
+  create_table "join_table_mobil_contracts", force: :cascade do |t|
+    t.float "savings", default: 0.0
+    t.bigint "mobil_simulation_id"
+    t.bigint "mobil_contract_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mobil_contract_id"], name: "index_join_table_mobil_contracts_on_mobil_contract_id"
+    t.index ["mobil_simulation_id"], name: "index_join_table_mobil_contracts_on_mobil_simulation_id"
+  end
+
+  create_table "mobil_contracts", force: :cascade do |t|
+    t.string "supplier", default: ""
+    t.string "offer_name", default: ""
+    t.integer "line_service_price", default: 0
+    t.integer "sim_card_price", default: 0
+    t.boolean "engagement", default: false
+    t.boolean "add_phone", default: false
+    t.float "bundle_price", default: 0.0
+    t.float "bundle_gbyte", default: 0.0
+    t.boolean "calls_france", default: false
+    t.boolean "calls_europe", default: false
+    t.float "gbyte_europe", default: 0.0
+    t.boolean "calls_international", default: false
+    t.boolean "net_international", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "mobil_simulations", force: :cascade do |t|
+    t.string "name", default: "Electricité"
+    t.float "actual_price_paid", default: 0.0
+    t.float "mobil_cost_saved", default: 0.0
+    t.boolean "calls_france", default: false
+    t.boolean "calls_europe", default: false
+    t.float "gbyte_europe", default: 0.0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
