@@ -47,9 +47,9 @@ module Admin
     def update
       @contract = BoxContract.find(params[:id])
       if @contract.update(contract_params)
-        redirect_to admin_gas_contract_path
+        redirect_to admin_box_contracts_path
       else
-        render 'edit'
+        redirect_to admin_box_contract_path(@contract)
       end
     end
 
@@ -63,18 +63,18 @@ module Admin
     private
 
     def contract_params
-      params.require(:gas_contract).permit(:supplier,
+      params.require(:box_contract).permit(:supplier,
                                            :offer_name,
                                            :price_month,
                                            :commitment,
                                            :price_after,
-                                           :type,
+                                           :internet_type,
                                            :downstream,
                                            :upstream,
                                            :tv_channel,
                                            :tv,
                                            :call_fix_fr,
-                                           :call_mobile_fr,
+                                           :call_mob_fr,
                                            :call_foreign,
                                            :opening_fee,
                                            :termination_fee,
