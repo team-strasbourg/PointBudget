@@ -32,7 +32,6 @@
 
 $(document).ready(function () {
 
-    let radioYes;
     if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show") {
         radioYes = document.getElementById("answer_yes")
         radioNo = document.getElementById("answer_no")
