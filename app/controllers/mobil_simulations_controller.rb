@@ -5,15 +5,15 @@ class MobilSimulationsController < ApplicationController
   def index; end
 
   def show
-    @mobil_simu = MobilSimulation.find(params[:id])
+    @mobil_simulation = MobilSimulation.find(params[:id])
   end
 
   def new
-    @mobil_simu = MobilSimulation.new
+    @mobil_simulation = MobilSimulation.new
   end
 
   def create
-    @mobil_simu = MobilSimulation.find(params[:id])
+    @mobil_simution = MobilSimulation.find(params[:id])
   end
 
   def edit
