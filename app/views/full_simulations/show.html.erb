@@ -105,6 +105,15 @@
 		                                           title: 'Simulation gaz',
 		                                           button: "Terminer"}%>
 			</div>
+			<div id="gas-simu" class="col-md-12" style="display: none;">
+			<%= render partial: "shared/form", locals:{resource: @gas_simulation,
+																							 action: 'new_ele_simulation',
+																							 path: user_full_simulation_ele_simulations_path(current_user,
+																																															 @full_simulation),
+																							 method: :post,
+																							 title: 'Simulation ele',
+																							 button: "Terminer"}%>
+			</div>
 		</div>
 
 
