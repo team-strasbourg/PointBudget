@@ -28,7 +28,7 @@ module Admin
                                       international_withdraw: my_params[:international_withdraw])
       if @contract.save
         flash[:success] = 'Contract created'
-        redirect_to admin_box_contracts_path
+        redirect_to admin_bank_contracts_path
       else
         render 'new'
       end
