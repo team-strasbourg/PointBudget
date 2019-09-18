@@ -23,13 +23,13 @@
         <li class="form-group">
           <dt>Votre ville</dt>
             <% if @user.city? %>
-            <dl>
-             <%= current_user.city.name %>
-            </dl>
+              <dl>
+               <%= current_user.city.name %>
+              </dl>
             <%else%>
-            <dl>
-             Non renseigné
-            </dl>
+              <dl>
+               Non renseigné
+              </dl>
             <%end %>
           </dl>
         </li>
