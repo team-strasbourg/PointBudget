@@ -21,10 +21,7 @@ module Admin
       calls_europe = params[:calls_europe] == 'true' ? true : false
       calls_international = params[:calls_international] == 'true' ? true : false
       net_international = params[:net_international] == 'true' ? true : false
-      puts "#"*60
-      puts params
-      puts engagement
-      puts "#"*60
+
   		@contract = MobilContract.new(supplier:my_params[:supplier],
                                   offer_name:my_params[:offer_name],
                                 	line_service_price:my_params[:line_service_price],
