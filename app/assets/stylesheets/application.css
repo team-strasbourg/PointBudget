@@ -443,6 +443,6 @@ li.button-group{
   border:none
 }
 
-#energy-categories{
+#energy-categories, #numeric-categories{
 	margin-bottom: 80px;
 }
