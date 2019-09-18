@@ -7,14 +7,14 @@
 	<div id="categories" class="row container-fluid d-flex justify-content-around">
 
 		<!-- insurance -->
-      <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-assur btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+      <%= button_tag class: 'btn-simu-assur btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
 				<div class="d-flex justify-content-around align-items-center text-white">
 					<span class="icon"><i class="fas fa-house-damage"></i></span>
 					<h5 class="mt-4">Assurance</h5>
 				</div>
 			<% end %>
 		<!-- bank -->
-      <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-bank btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+      <%= button_tag class: 'btn-simu-bank btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
 				<div class="d-flex justify-content-around align-items-center text-white">
 					<span class="icon"><i class="fas fa-money-check-alt"></i></span>
 					<h5 class="mt-4">Banque</h5>
@@ -22,43 +22,22 @@
 			<% end %>
 
     <% if @full_simulation.only_one_gas_simulation && @full_simulation.only_one_ele_simulation %>
-
       <!-- energy -->
-      <%= button_tag class: 'btn-simu-elec btn-simu btn btn-secondary disabled', id:'btn-energy', style:'cursor:not-allowed' do %>
-        <div class="d-flex justify-content-around align-items-center text-white">
-          <span class="icon"><i class="fas fa-sun"></i></span>
-          <h5 class="mt-4">Energie</h5>
-        </div>
-      <% end %>
-
+      <%= render partial: 'button_categories', locals: {category: 'energy', sub_category: 'elec', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-sun", name:'Energie', disabled: true} %>
     <%else%>
       <!-- energy -->
-      <%= button_tag class: 'btn-simu-bank btn-simu btn btn-primary animate-up-3', id:'btn-energy' do %>
-        <div class="d-flex justify-content-around align-items-center text-white">
-          <span class="icon"><i class="fas fa-sun"></i></span>
-          <h5 class="mt-4">Energie</h5>
-        </div>
-      <% end %>
+      <%= render partial: 'button_categories', locals: {category: 'energy', sub_category: 'elec', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-sun", name:'Energie', disabled: false} %>
     <%end%>
 
 		<!-- numeric -->
     <% if @full_simulation.only_one_box_simulation %>
-      <%= button_tag class: 'btn-simu-num btn-simu btn btn-secondary disabled', id:'btn-numeric', style:'cursor:not-allowed', disabled:true do %>
-				<div class="d-flex justify-content-around align-items-center text-white">
-					<span class="icon"><i class="fas fa-mobile-alt"></i></span>
-					<h5 class="mt-4">Numérique</h5>
-				</div>
-			<% end %>
+      <!-- numeric disabled -->
+      <%= render partial: 'button_categories', locals: {category: 'numeric', sub_category: 'num', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-mobile-alt", name:'Numérique',disabled:true} %>
     <%else %>
-      <%= button_tag class: 'btn-simu-num btn-simu btn btn-primary animate-up-3', id:'btn-numeric' do %>
-        <div class="d-flex justify-content-around align-items-center text-white">
-          <span class="icon"><i class="fas fa-mobile-alt"></i></span>
-          <h5 class="mt-4">Numérique</h5>
-        </div>
-      <% end %>
+      <%= render partial: 'button_categories', locals: {category: 'numeric', sub_category: 'num', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-mobile-alt", name:'Numérique',disabled:false} %>
     <% end %>
 		<!-- medical -->
-      <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-mut btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
+      <%= button_tag class: 'btn-simu-mut btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
 				<div class="d-flex justify-content-around align-items-center text-white">
 					<span class="icon"><i class="fas fa-stethoscope"></i></span>
 					<h5 class="mt-4">Mutuelle</h5>
@@ -71,38 +50,19 @@
   <div class="container-fluid row justify-content-center" id="energy-categories" style="display:none;">
     <div class="col-md-4 d-flex justify-content-around">
       <% if @full_simulation.only_one_gas_simulation %>
+
         <!-- gaz_simulation disbled btn -->
-        <%= button_tag class: 'btn-simu-gas btn-simu btn btn-secondary disabled mx-2', style:'cursor:not-allowed', id:'btn-gas', disabled:true do %>
-          <div class="d-flex justify-content-around align-items-center text-white">
-            <span class="icon"><i class="fas fa-burn"></i></span>
-            <h5 class="mt-4">Gaz</h5>
-          </div>
-        <% end %>
+        <%= render partial: 'button_categories', locals: {category: 'gas', sub_category: 'gas', bg:'secondary', animate: 'disabled mx-2', style:'cursor:not-allowed', icon: "fas fa-burn", name:'Gaz', disabled:true} %>
       <% else %>
         <!-- gaz_simaltion btn -->
-        <%= button_tag class: 'btn-simu-gas btn-simu btn btn-primary animate-up-3 mx-2', id:'btn-gas' do %>
-          <div class="d-flex justify-content-around align-items-center text-white">
-            <span class="icon"><i class="fas fa-burn"></i></span>
-            <h5 class="mt-4">Gaz</h5>
-          </div>
-        <% end %>
+        <%= render partial: 'button_categories', locals: {category: 'gas', sub_category: 'gas', bg:'primary', animate: 'animate-up-3 mx-2', style:'', icon: "fas fa-burn", name:'Gaz', disabled:false} %>
       <% end %>
       <% if @full_simulation.only_one_ele_simulation %>
-        <!-- ele_simulation disabled btn -->
-        <%= button_tag new_user_full_simulation_gas_simulation_path(current_user, @full_simulation), class: 'btn-simu-elec btn-simu btn btn-secondary disabled mx-2', style:'cursor:not-allowed',id:'btn-elec', disabled:true do %>
-          <div class="d-flex justify-content-around align-items-center text-white">
-            <span class="icon"><i class="fas fa-bolt"></i></span>
-            <h5 class="mt-4">Electricité</h5>
-          </div>
-        <% end %>
+       <!-- ele_simulation disabled btn -->
+        <%= render partial: 'button_categories', locals: {category: 'elec', sub_category: 'elec', bg:'secondary', animate: 'disabled mx-2', style:'cursor:not-allowed', icon: "fas fa-bolt", name:'Electricité', disabled:true} %>
       <%else%>
-      <!--  ele_simulation btn -->
-        <%= button_tag class: 'btn-simu-elec btn-simu btn btn-primary animate-up-3 mx-2', id:'btn-elec' do %>
-          <div class="d-flex justify-content-around align-items-center text-white">
-            <span class="icon"><i class="fas fa-bolt"></i></span>
-            <h5 class="mt-4">Electricité</h5>
-          </div>
-        <% end %>
+       <!--  ele_simulation btn -->
+        <%= render partial: 'button_categories', locals: {category: 'elec', sub_category: 'elec', bg:'primary', animate: 'animate-up-3 mx-2', style:'', icon: "fas fa-bolt", name:'Electricité', disabled:false} %>
       <%end%>
     </div>
 
@@ -129,47 +89,25 @@
     </div>
   </div>
 
-
-
    <!-- btn numeric JAVASCRIPT -->
-  <div class="container-fluid row justify-content-center" id="numeric-categories" style="display:none;">
-    <div class="col-md-4 d-flex justify-content-around">
-      <% if @full_simulation.only_one_box_simulation %>
-      <!-- box_simulation disabled btn -->
-        <%= button_tag new_user_full_simulation_box_simulation_path(current_user, @full_simulation), class: 'btn-simu-box btn-simu btn btn-secondary disabled mx-2', style:'cursor:not-allowed', id:'btn-box' do %>
-          <div class="d-flex justify-content-around align-items-center text-white">
-            <span class="icon"><i class="fas fa-signal"></i></span>
-            <h5 class="mt-4">Box</h5>
-          </div>
-        <% end %>
-      <% else %>
-      <!-- box_simaltion btn -->
-        <%= button_tag class: 'btn-simu-box btn-simu btn btn-primary animate-up-3 mx-2', id:'btn-box' do %>
-          <div class="d-flex justify-content-around align-items-center text-white">
-            <span class="icon"><i class="fas fa-signal"></i></span>
-            <h5 class="mt-4">Box</h5>
-          </div>
-        <% end %>
-      <% end %>
-      <% if @full_simulation.only_one_mobil_simulation %>
+   <div class="container-fluid row justify-content-center" id="numeric-categories" style="display:none;">
+     <div class="col-md-4 d-flex justify-content-around">
+       <% if @full_simulation.only_one_box_simulation %>
+         <%= render partial: 'button_categories', locals: {category: 'box', sub_category: 'box', bg:'secondary', animate: 'disabled mx-2', style:'cursor:not-allowed', icon: "fas fa-signal", name:'Box', disabled: true} %>
+       <% else %>
+         <!-- box_simulation btn -->
+         <%= render partial: 'button_categories', locals: {category: 'box', sub_category: 'box', bg:'primary', animate: 'animate-up-3 mx-2', style:'', icon: "fas fa-signal", name:'Box', disabled: false} %>
+       <% end %>
+
+       <% if @full_simulation.only_one_mobil_simulation %>
       <!-- mobil_simulation disabled btn -->
-        <%= button_tag new_user_full_simulation_box_simulation_path(current_user, @full_simulation), class: 'btn-simu-mobile btn-simu btn btn-secondary disabled mx-2', style:'cursor:not-allowed' do %>
-          <div class="d-flex justify-content-around align-items-center text-white">
-            <span class="icon"><i class="fas fa-mobile-alt"></i></span>
-            <h5 class="mt-4">Mobile</h5>
-          </div>
-        <% end %>
+        <%= render partial: 'button_categories', locals: {category: 'mobil', sub_category: 'mobil', bg:'secondary', animate: 'disabled mx-2', style:'cursor:not-allowed', icon: "fas fa-mobile-alt", name:'Mobile', disabled: true} %>
       <% else %>
       <!--   mobil_simulation btn -->
-        <%= button_tag class: 'btn-simu-mobile btn-simu btn btn-primary mx-2', id:'btn-mobil' do %>
-          <div class="d-flex justify-content-around align-items-center text-white">
-            <span class="icon"><i class="fas fa-mobile-alt"></i></span>
-            <h5 class="mt-4">Mobile</h5>
-          </div>
-        <% end %>
+        <%= render partial: 'button_categories', locals: {category: 'mobil', sub_category: 'mobil', bg:'primary', animate: 'animate-up-3 mx-2', style:'', icon: "fas fa-mobile-alt", name:'Mobile', disabled: false} %>
       <% end %>
      </div>
-     <!-- box_simulation JS -->
+     <!-- Box Simulation JS -->
      <div id="box-simu" class="col-md-12" style="display: none;">
        <%= render partial: "shared/form", locals:{resource: @box_simulation,
                                                   action: 'new_box_simulation',

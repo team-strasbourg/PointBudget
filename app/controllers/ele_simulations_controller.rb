@@ -6,12 +6,8 @@ class EleSimulationsController < ApplicationController
   before_action :not_other_users_ele_simulations, only: [:show]
   before_action :not_other_user_index, only:[:index]
 
-  def index
-  end
-
-  def show
+   def show
     @ele_sim = EleSimulation.find(params[:id])
-    table_attributes = @ele_sim.print_report
     @ele_contracts = @ele_sim.sort_contracts(3)
   end
 
@@ -28,8 +24,6 @@ class EleSimulationsController < ApplicationController
   def create
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
     @ele_simulation = EleSimulation.new
-    @ele_simulation.assign_params_from_controller(params)
-
     comparison = @ele_simulation.comparison(params[:yearly_cost],params[:yearly_consumption],params[:kVA_power])
     @ele_simulation = EleSimulation.new(actual_price_paid: params[:yearly_cost],
                                         ele_cost_saved: comparison[0],
