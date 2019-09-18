@@ -44,11 +44,11 @@
 # end
 # puts ''
 # puts 'Users created'
-User.create(email: 'admin123@admin.com', password: 'admin123', city: City.first, is_admin: true)
-puts 'admin created'
+# User.create(email: 'admin123@admin.com', password: 'admin123', city: City.first, is_admin: true)
+# puts 'admin created'
 
 
-############################## GAZ #######################################
+############################## GAS #######################################
 
 
 require 'csv'
