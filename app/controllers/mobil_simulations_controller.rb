@@ -7,10 +7,10 @@ class MobilSimulationsController < ApplicationController
   def show
     @mobil_simulation = MobilSimulation.find(params[:id])
     table_attributes = @mobil_simulation.print_report
-    @tv = table_attributes[0]
-    @call_fix_fr = table_attributes[1]
-    @call_mob_fr = table_attributes[2]
-    @box_contracts = @box_sim.sort_contracts(3)
+    @calls_europe = table_attributes[0]
+    @calls_international = table_attributes[1]
+    @net_international = table_attributes[2]
+    @mobil_contracts = @mobil_simulation.sort_contracts(3)
   end
 
   def new

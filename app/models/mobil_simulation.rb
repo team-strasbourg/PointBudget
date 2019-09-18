@@ -60,4 +60,16 @@ class MobilSimulation < ApplicationRecord
     table_attributes
   end
 
+  # This method can show the top best contracts depending on the number we want to show
+  def sort_contracts(how_many)
+    return_array = []
+    contracts_sorted = join_table_mobil_contracts.sort_by(&:savings).reverse
+    how_many.times do |i|
+      return_array << MobilContract.find(contracts_sorted[i].mobil_contract_id)
+    rescue
+      return_array
+    end
+    return_array
+  end
+
 end
