@@ -23,6 +23,7 @@ Ruby enVironment Manager 1.29.8 (latest) (c) 2009-2017 Michal Papis, Piotr Kuczy
                       static_pages_about GET      /static_pages/about(.:format)                                                            static_pages#about
                     static_pages_contact GET      /static_pages/contact(.:format)                                                          static_pages#contact
                               admin_root GET      /admin(.:format)                                                                         admin/users#index
+              admin_user_full_simulation GET      /admin/users/:user_id/full_simulations/:id(.:format)                                     admin/full_simulations#show
                              admin_users GET      /admin/users(.:format)                                                                   admin/users#index
                                          POST     /admin/users(.:format)                                                                   admin/users#create
                           new_admin_user GET      /admin/users/new(.:format)                                                               admin/users#new
@@ -47,9 +48,15 @@ Ruby enVironment Manager 1.29.8 (latest) (c) 2009-2017 Michal Papis, Piotr Kuczy
                                          PATCH    /admin/box_contracts/:id(.:format)                                                       admin/box_contracts#update
                                          PUT      /admin/box_contracts/:id(.:format)                                                       admin/box_contracts#update
                                          DELETE   /admin/box_contracts/:id(.:format)                                                       admin/box_contracts#destroy
+                     admin_ele_contracts GET      /admin/ele_contracts(.:format)                                                           admin/ele_contracts#index
+                                         POST     /admin/ele_contracts(.:format)                                                           admin/ele_contracts#create
+                  new_admin_ele_contract GET      /admin/ele_contracts/new(.:format)                                                       admin/ele_contracts#new
+                 edit_admin_ele_contract GET      /admin/ele_contracts/:id/edit(.:format)                                                  admin/ele_contracts#edit
+                      admin_ele_contract GET      /admin/ele_contracts/:id(.:format)                                                       admin/ele_contracts#show
+                                         PATCH    /admin/ele_contracts/:id(.:format)                                                       admin/ele_contracts#update
+                                         PUT      /admin/ele_contracts/:id(.:format)                                                       admin/ele_contracts#update
+                                         DELETE   /admin/ele_contracts/:id(.:format)                                                       admin/ele_contracts#destroy
                               users_root GET      /users(.:format)                                                                         full_simulations#new
-         new_user_full_simulation_energy GET      /users/:user_id/full_simulations/:full_simulation_id/energies/new(.:format)              energies#new
-             user_full_simulation_energy GET      /users/:user_id/full_simulations/:full_simulation_id/energies/:id(.:format)              energies#show
     user_full_simulation_gas_simulations POST     /users/:user_id/full_simulations/:full_simulation_id/gas_simulations(.:format)           gas_simulations#create
  new_user_full_simulation_gas_simulation GET      /users/:user_id/full_simulations/:full_simulation_id/gas_simulations/new(.:format)       gas_simulations#new
 edit_user_full_simulation_gas_simulation GET      /users/:user_id/full_simulations/:full_simulation_id/gas_simulations/:id/edit(.:format)  gas_simulations#edit
@@ -64,6 +71,13 @@ edit_user_full_simulation_box_simulation GET      /users/:user_id/full_simulatio
                                          PATCH    /users/:user_id/full_simulations/:full_simulation_id/box_simulations/:id(.:format)       box_simulations#update
                                          PUT      /users/:user_id/full_simulations/:full_simulation_id/box_simulations/:id(.:format)       box_simulations#update
                                          DELETE   /users/:user_id/full_simulations/:full_simulation_id/box_simulations/:id(.:format)       box_simulations#destroy
+    user_full_simulation_ele_simulations POST     /users/:user_id/full_simulations/:full_simulation_id/ele_simulations(.:format)           ele_simulations#create
+ new_user_full_simulation_ele_simulation GET      /users/:user_id/full_simulations/:full_simulation_id/ele_simulations/new(.:format)       ele_simulations#new
+edit_user_full_simulation_ele_simulation GET      /users/:user_id/full_simulations/:full_simulation_id/ele_simulations/:id/edit(.:format)  ele_simulations#edit
+     user_full_simulation_ele_simulation GET      /users/:user_id/full_simulations/:full_simulation_id/ele_simulations/:id(.:format)       ele_simulations#show
+                                         PATCH    /users/:user_id/full_simulations/:full_simulation_id/ele_simulations/:id(.:format)       ele_simulations#update
+                                         PUT      /users/:user_id/full_simulations/:full_simulation_id/ele_simulations/:id(.:format)       ele_simulations#update
+                                         DELETE   /users/:user_id/full_simulations/:full_simulation_id/ele_simulations/:id(.:format)       ele_simulations#destroy
                    user_full_simulations GET      /users/:user_id/full_simulations(.:format)                                               full_simulations#index
                                          POST     /users/:user_id/full_simulations(.:format)                                               full_simulations#create
                 new_user_full_simulation GET      /users/:user_id/full_simulations/new(.:format)                                           full_simulations#new
