@@ -13,8 +13,12 @@ class MobilSimulationsController < ApplicationController
   end
 
   def create
-    @full_simulation = FullSimulation.find(params[:full_simulation_id])
+
+    @full_simulation = FullSimulation.find(params[:id])
     @mobil_simulation = MobilSimulation.new
+    puts "#"*60
+    puts params
+    puts "#"*60
 
     if @mobil_simulation.save
       flash[:success] = "Votre simulation concernant votre mobile a été sauvegardée!"
