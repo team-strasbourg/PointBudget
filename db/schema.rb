@@ -187,6 +187,49 @@ ActiveRecord::Schema.define(version: 2019_09_18_142431) do
     t.index ["gas_simulation_id"], name: "index_join_table_gas_simulation_contracts_on_gas_simulation_id"
   end
 
+  create_table "join_table_mobil_contracts", force: :cascade do |t|
+    t.float "savings", default: 0.0
+    t.bigint "mobil_simulation_id"
+    t.bigint "mobil_contract_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mobil_contract_id"], name: "index_join_table_mobil_contracts_on_mobil_contract_id"
+    t.index ["mobil_simulation_id"], name: "index_join_table_mobil_contracts_on_mobil_simulation_id"
+  end
+
+  create_table "mobil_contracts", force: :cascade do |t|
+    t.string "supplier"
+    t.string "offer_name"
+    t.integer "line_service_price", default: 0
+    t.integer "sim_card_price", default: 0
+    t.boolean "engagement", default: false
+    t.boolean "add_phone", default: false
+    t.float "bundle_price", default: 0.0
+    t.float "bundle_gbyte", default: 0.0
+    t.boolean "calls_france", default: false
+    t.boolean "calls_europe", default: false
+    t.float "gbyte_europe", default: 0.0
+    t.boolean "calls_international", default: false
+    t.boolean "net_international", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "mobil_simulations", force: :cascade do |t|
+    t.string "name", default: "Mobile"
+    t.float "actual_price_paid", default: 0.0
+    t.float "mobil_cost_saved", default: 0.0
+    t.boolean "engagement", default: false
+    t.boolean "calls_europe", default: false
+    t.boolean "calls_international", default: false
+    t.boolean "net_international", default: false
+    t.float "bundle_go", default: 0.0
+    t.bigint "full_simulation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["full_simulation_id"], name: "index_mobil_simulations_on_full_simulation_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -197,9 +240,9 @@ ActiveRecord::Schema.define(version: 2019_09_18_142431) do
     t.string "last_name"
     t.string "phone_number"
     t.boolean "is_admin", default: false
+    t.bigint "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "city_id"
     t.string "provider"
     t.string "uid"
     t.index ["city_id"], name: "index_users_on_city_id"

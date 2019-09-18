@@ -8,7 +8,7 @@ lines = data.reject { |line| line[0].blank? }
 def to_boolean(value)
   if value == "true"
     return true 
-  elsif value == "false"  
+  else
     return false
   end
 end

@@ -1,4 +1,3 @@
-
 <!-- Card -->
 <div class="container">
   <div class="row my-5">
@@ -8,9 +7,9 @@
         <div class="card shadow-soft border-light p-4">
           <!-- Header -->
           <header class="card-header border-bottom bg-white text-center d-flex flex-column">
-            <div class="float-left"><%= @box_sim.created_at.to_formatted_s(:short)%></div>
+            <div class="float-left"><%= @mobil_simulation.created_at.to_formatted_s(:short)%></div>
             <div class="display-1 text-secondary font-weight-bold">
-                <p class="align-top font-medium pr-5">Vous pouvez épargner</p><%= (@box_sim.box_cost_saved).round(2)%> €
+                <p class="align-top font-medium pr-5">Vous pouvez épargner</p><%= (@mobil_simulation.mobil_cost_saved).round(2)%> €
             <span class="text-light font-small">/ an</span>
             </div>
           </header>
@@ -19,16 +18,26 @@
             <div class="row">
               <div class="col text-center">
                 <ul class="list-group mb-4">
-                  <li class="list-group-item"><strong>Coût mensuel de votre box internet</strong><br><%=@box_sim.actual_price_paid%> €</li>
-                  <li class="list-group-item"><strong>Télevision</strong><br>
-                      <%= @tv%> </li>
+                  <li class="list-group-item"><strong>Coût mensuel de votre forfait Mobile</strong><br><%= @mobil_simulation.actual_price_paid%> €
+                  </li>
+                  <li class="list-group-item"><strong>Nombre de Go</strong><br>
+                      <%= @mobil_simulation.bundle_go%> 
+                  </li>
+							    <li class="list-group-item"><strong>+Forfaits avec engagement</strong><br>
+                    <%= @mobil_simulation.engagement%> 
+                  </li>
                 </ul>
               </div>
               <div class="col text-center">
                 <ul class="list-group mb-4">
-                  <li class="list-group-item"><strong>Appels vers les fixes en France</strong>  <%= @call_fix_fr%></li>
-                  <li class="list-group-item"><strong>Appels vers les mobiles en France</strong>
-                      <%= @call_mob_fr%></li>
+                  <li class="list-group-item"><strong>Appels/SMS/MMS illimités en Europe</strong>  <%= @mobil_simulation.calls_europe%>
+                  </li>
+                  <li class="list-group-item"><strong>Appels/SMS/MMS illimités à l'étranger</strong>
+                      <%= @mobil_simulation.calls_international%>
+                  </li>
+                  <li class="list-group-item"><strong>Internet à l'étranger</strong>
+                      <%= @mobil_simulation.net_international%>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -41,17 +50,17 @@
   </div>
 
   <h2 class='text-center'>
-  <%case @box_contracts.length %>
+  <%case @mobil_contracts.length %>
   <%when 0 %>
     Votre contrat actuel répond parfaitement à vos besoins !
   <% when 1 %>
     Voici le meilleur contrat pour vous
   <%else %>
-    Voici les <%=@box_contracts.length %> meilleurs contrats pour vous
+    Voici les <%=@mobil_contracts.length %> meilleurs contrats pour vous
   <%end %>
   </h2>
-  <div class="row my-5">
-    <% @box_contracts.each do |contract| %>
+  <div class="row d-flex justify-content-center my-5">
+    <% @mobil_contracts.each do |contract| %>
       <div class="col-md-4">
 
         <div class="pricing-card">
@@ -69,7 +78,7 @@
             <!-- Content -->
             <div class="card-body">
               <ul class="list-group mb-4">
-                <li class="list-group-item"><strong>Prix de l'abonnement par mois</strong> : <%=contract.price_month %> € </li>
+                <li class="list-group-item"><strong>Prix de l'abonnement par mois</strong> : <%=contract.bundle_price %> € </li>
               </ul>
             </div>
             <!-- End Content -->

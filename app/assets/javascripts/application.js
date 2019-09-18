@@ -70,7 +70,8 @@ $(document).ready(function () {
         numericDeployStatus = false;
         clickToDisplayBoxSimu = document.getElementById("btn-box");
         boxDeployStatus = false;
-
+        clickToDisplayMobilSimu = document.getElementById("btn-mobil");
+        mobilDeployStatus = false;
         clickToDisplayEnergies = document.getElementById("btn-energy");
         energyDeployStatus = false;
         clickToDisplayGasSimu = document.getElementById("btn-gas");
@@ -106,6 +107,12 @@ $(document).ready(function () {
       // Numeric
         clickToDisplayBoxSimu.addEventListener('click', function(){
             $("#box-simu").toggle(600);
+            $("#mobil-simu").hide(500);
+        });
+
+        clickToDisplayMobilSimu.addEventListener('click', function(){
+            $("#mobil-simu").toggle(600);
+            $("#box-simu").hide(500);
         });
 
         clickToDisplayNumerics.addEventListener('click', function(){
@@ -113,7 +120,9 @@ $(document).ready(function () {
                 $("#numeric-categories").addClass("d-flex");
                 $("#numeric-categories").show(500);
                 $("#box-simu").hide(500);
+                $("#mobil-simu").hide(500);
                 boxDeployStatus = false;
+                mobilDeployStatus = false;
                 numericDeployStatus = true;
             }
             else if (numericDeployStatus == true) {

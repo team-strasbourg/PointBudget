@@ -15,6 +15,7 @@ class FullSimulationsController < ApplicationController
     @gas_simulation = GasSimulation.new
     @box_simulation = BoxSimulation.new
     @ele_simulation = EleSimulation.new
+    @mobil_simulation = MobilSimulation.new
   end
 
   def new

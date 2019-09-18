@@ -403,6 +403,14 @@ li.button-group{
 	margin-bottom: 200px;
 }
 
+.btn-full{
+	border-radius: 5px;
+	margin: 60px 0;
+}
+
+.categ-choice{
+	margin-bottom: 40px;
+}
 
 /* SIMULATION CATEGORY */
 
