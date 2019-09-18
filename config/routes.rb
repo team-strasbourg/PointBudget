@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root to: 'static_pages#landing_page'
   get 'static_pages/about'
   get 'static_pages/contact'
-  get 'static_pages/service_operation'
+  get 'static_pages/terms_and_conditions'
   get 'static_pages/legal_information'
   get 'static_pages/privacy_policy'
 
