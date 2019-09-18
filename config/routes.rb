@@ -16,7 +16,9 @@ Rails.application.routes.draw do
     resources :full_simulations, only: [:show]
     resources :gas_simulations, only: [:show]
     resources :box_simulations, only: [:show]
+    resources :bank_simulations, only: [:show]
     resources :ele_simulations, only: [:show]
+    resources :mobil_simulations, only: [:show]
     resources :gas_contracts
     resources :mobil_contracts
     resources :box_contracts
