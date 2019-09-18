@@ -34,7 +34,7 @@ class MobilSimulationsController < ApplicationController
                                         net_international:net_international,
                                         bundle_go: params[:bundle_go].to_f,
                                         full_simulation: @full_simulation)
-
+    if @mobil_simulation.save
     # if @mobil_simulation.save
     #   flash[:success] = "Votre simulation concernant votre mobile a été sauvegardée!"
     # else

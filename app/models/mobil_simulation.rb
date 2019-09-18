@@ -40,4 +40,11 @@ class MobilSimulation < ApplicationRecord
   	[max_save.round(2), fifth_filter, all_savings] # return the max save, all the better contracts and the savings for each contracts
   end
 
+  # This method create all the join table given by the filter and the saving associated with each
+  def create_join_table_mobil(filter, all_savings)
+    filter.each_with_index do |contract, index|
+      JoinTableMobilContract.create(mobil_simulation: self, mobil_contract: contract, savings: all_savings[index])
+    end
+  end
+
 end
