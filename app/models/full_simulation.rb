@@ -12,17 +12,17 @@ class FullSimulation < ApplicationRecord
             presence: true,
             numericality: { greater_than_or_equal_to: 0.00 }
 
-  # Check if the full simulation as already a gas simulation
+  # Check if the full simulation has already a gas simulation
   def only_one_gas_simulation
     gas_simulation.nil? ? false : true
   end
 
-  # Check if the full simulation as already a gas simulation
+  # Check if the full simulation has already a gas simulation
   def only_one_box_simulation
     box_simulation.nil? ? false : true
   end
 
-  # Check if the full simulation as already a gas simulation
+  # Check if the full simulation has already a gas simulation
   def only_one_ele_simulation
     ele_simulation.nil? ? false : true
   end
