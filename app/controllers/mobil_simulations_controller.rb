@@ -28,6 +28,7 @@ class MobilSimulationsController < ApplicationController
     comparison = @mobil_simulation.comparison(params[:monthly_cost], params[:bundle_go], calls_europe, calls_international, net_international, engagement)
     @mobil_simulation = MobilSimulation.new(actual_price_paid: params[:monthly_cost].to_f,
                                         mobil_cost_saved: comparison[0],
+                                        engagement: engagement,
                                         calls_europe: calls_europe,
                                         calls_international:calls_international,
                                         net_international:net_international,
