@@ -27,11 +27,12 @@ class MobilSimulationsController < ApplicationController
     #comparison
     comparison = @mobil_simulation.comparison(params[:monthly_cost], params[:bundle_go], calls_europe, calls_international, net_international)
 
-    @mobil_simulation = MobilSimulation.new(actual_price_paid: params[:monthly_cost],
-                                        box_cost_saved: comparison[0],
-                                        tv: tv,
-                                        call_fix_fr:call_fix_fr,
-                                        call_mob_fr:call_mob_fr,
+    @mobil_simulation = MobilSimulation.new(actual_price_paid: params[:monthly_cost].to_f,
+                                        mobil_cost_saved: comparison[0],
+                                        calls_europe: calls_europe,
+                                        calls_international:calls_international,
+                                        net_international:net_international,
+                                        bundle_go: params[:bundle_go].to_f,
                                         full_simulation: @full_simulation)
 
     # if @mobil_simulation.save

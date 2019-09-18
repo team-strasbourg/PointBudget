@@ -19,7 +19,7 @@ class MobilSimulation < ApplicationRecord
   # Def comparison
   def comparison(monthly_cost, bundle_go, calls_europe, calls_international, net_international)
   	monthly_cost = monthly_cost.to_f
-  	bundle_go = bundle_go.to_i
+  	bundle_go = bundle_go.to_f
   	first_filter = MobilContract.all.select { |contract| contract.bundle_gbyte >= bundle_go}
   	second_filter = first_filter.select { |contract| contract.calls_europe == calls_europe}
   	third_filter = second_filter.select { |contract| contract.calls_international == calls_international}

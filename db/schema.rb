@@ -176,12 +176,13 @@ ActiveRecord::Schema.define(version: 2019_09_17_095506) do
   end
 
   create_table "mobil_simulations", force: :cascade do |t|
-    t.string "name", default: "Electricité"
+    t.string "name", default: "Mobile"
     t.float "actual_price_paid", default: 0.0
     t.float "mobil_cost_saved", default: 0.0
-    t.boolean "calls_france", default: false
     t.boolean "calls_europe", default: false
-    t.float "gbyte_europe", default: 0.0
+    t.boolean "calls_international", default: false
+    t.float "net_international", default: 0.0
+    t.float "bundle_go", default: 0.0
     t.bigint "full_simulation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
