@@ -83,6 +83,13 @@ $(document).ready(function () {
         // BANK
         clickToDisplayBankSimu.addEventListener('click', function(){
             $("#bank-categories").toggle(600);
+            $("#numeric-categories").hide(600);
+            $("#numeric-categories").removeClass("d-flex");
+            numericDeployStatus = false;
+            $("#energy-categories").hide(600);
+            $("#energy-categories").removeClass("d-flex");
+            energyDeployStatus = false;
+
 
         });
         // ENERGIE
@@ -97,6 +104,10 @@ $(document).ready(function () {
           });
 
         clickToDisplayEnergies.addEventListener('click', function(){
+            $("#bank-categories").hide(600);
+            $("#numeric-categories").hide(600);
+            $("#numeric-categories").removeClass("d-flex");
+            numericDeployStatus = false;
             if (energyDeployStatus == false) {
               $("#energy-categories").addClass("d-flex");
               $("#energy-categories").show(500);
@@ -124,6 +135,10 @@ $(document).ready(function () {
         });
 
         clickToDisplayNumerics.addEventListener('click', function(){
+            $("#bank-categories").hide(600);
+            $("#energy-categories").hide(600);
+            $("#energy-categories").removeClass("d-flex");
+            energyDeployStatus = false;
             if (numericDeployStatus == false) {
                 $("#numeric-categories").addClass("d-flex");
                 $("#numeric-categories").show(500);
