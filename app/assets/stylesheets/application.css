@@ -362,6 +362,14 @@ li.button-group{
 	width: 200px;
 }
 
+.btn-simu-box{
+	width: 150px;
+}
+
+.btn-simu-mobil{
+	width: 170px;
+}
+
 .btn-simu-mut{
 	width: 180px;
 }
@@ -382,9 +390,9 @@ li.button-group{
 
 .price-simu{
 	font-size: 38px;
-	height: 150px;
-	width: 150px;
-	padding: 50px 0;
+	height: 180px;
+	width: 180px;
+	padding: 63px 0 50px 0;
 	border-radius: 50%;
 	color: white;
 	box-shadow: 10px 10px 10px rgba(0,0,0,.05);
@@ -392,9 +400,17 @@ li.button-group{
 
 .price-position{
 	text-align: center;
-	margin: 50px 0;
+	margin-bottom: 50px;
 }
 
+.modal-body{
+	margin: 20px 0;
+}
+
+.modal-footer{
+	margin-bottom: -50px;
+	margin-top: -40px;
+}
 
 /*  FULL_SIMULATION#SHOW AFTER VALIDATED FULL_SIMULATIONS */
 
@@ -411,6 +427,7 @@ li.button-group{
 .categ-choice{
 	margin-bottom: 40px;
 }
+
 
 /* SIMULATION CATEGORY */
 
@@ -443,6 +460,6 @@ li.button-group{
   border:none
 }
 
-#energy-categories{
+#energy-categories, #numeric-categories{
 	margin-bottom: 80px;
 }
