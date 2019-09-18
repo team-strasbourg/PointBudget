@@ -180,6 +180,7 @@ ActiveRecord::Schema.define(version: 2019_09_18_080120) do
     t.string "name", default: "Mobile"
     t.float "actual_price_paid", default: 0.0
     t.float "mobil_cost_saved", default: 0.0
+    t.boolean "engagement", default: false
     t.boolean "calls_europe", default: false
     t.boolean "calls_international", default: false
     t.boolean "net_international", default: false
