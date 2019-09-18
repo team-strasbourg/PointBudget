@@ -41,7 +41,7 @@ class User < ApplicationRecord
 
   # return true if the user has a city
   def city?
-    city.nil? || city.zero? || city.blank? ? false : true
+    city.nil? || city.blank? ? false : true
   end
 
   # return true if the user is the last admin
