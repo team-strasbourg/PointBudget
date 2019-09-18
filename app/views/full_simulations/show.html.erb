@@ -5,17 +5,11 @@
 
 	<div id="categories" class="row container-fluid d-flex justify-content-center">
 
-		<!-- bank -->
-    <% if @full_simulation.only_one_bank_simulation %>
-      <!-- bank -->
-      <%= render partial: 'button_categories', locals: {category: 'bank', sub_category: 'bank', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-money-check-alt", name:'Banque', disabled: true} %>
-    <%else%>
-      <!-- bank -->
-      <%= render partial: 'button_categories', locals: {category: 'bank', sub_category: 'bank', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-money-check-alt", name:'Banque', disabled: false} %>
-    <%end%>
 
+
+    <!-- energy -->
     <% if @full_simulation.only_one_gas_simulation && @full_simulation.only_one_ele_simulation %>
-      <!-- energy -->
+
       <%= render partial: 'button_categories', locals: {category: 'energy', sub_category: 'elec', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-sun", name:'Energie', disabled: true} %>
     <%else%>
       <!-- energy -->
@@ -30,6 +24,15 @@
       <!-- numeric btn -->
       <%= render partial: 'button_categories', locals: {category: 'numeric', sub_category: 'num', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-mobile-alt", name:'Numérique',disabled:false} %>
     <% end %>
+
+    <!-- bank -->
+    <% if @full_simulation.only_one_bank_simulation %>
+      <!-- bank -->
+      <%= render partial: 'button_categories', locals: {category: 'bank', sub_category: 'bank', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-money-check-alt", name:'Banque', disabled: true} %>
+    <%else%>
+      <!-- bank -->
+      <%= render partial: 'button_categories', locals: {category: 'bank', sub_category: 'bank', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-money-check-alt", name:'Banque', disabled: false} %>
+    <%end%>
 	</div>
 
 <!--btn BANK JAVASCRIPT-->
