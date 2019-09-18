@@ -9,23 +9,22 @@ class BankSimulation < ApplicationRecord
 
 
   def comparison(accounting_fees, price_cheque,insurance_payment)
-    first_filter = BankContract.all.select{|contract| contract.accounting_fees < accounting_fees }
-    second_filter = first_filter.select{|contract| contract.price_cheque < price_cheque }
-    third_filter = second_filter.select{|contract| contract.insurance_payment < insurance_payment }
-
-
     price_paid = accounting_fees + price_cheque + insurance_payment
+    first_filter = BankContract.all.select {|contract|
+      contract.accounting_fees.to_f + contract.price_cheque.to_f + contract.insurance_payment.to_f < price_paid
+    }
     max_save = 0
     all_savings = []
-    third_filter.each do |contract|
-      price_contract = contract.accounting_fees + contract.price_cheque + contract.insurance_payment
-      savings = (price_paid - price_contract ).round(2) # Find the best price
+    first_filter.each do |contract|
+      price_contract = contract.accounting_fees.to_f + contract.price_cheque.to_f + contract.insurance_payment.to_f
+      savings = (price_paid - price_contract).round(2) # Find the best price
       if savings > max_save
         max_save = savings # Save the best price
       end
       all_savings << savings # Save the differences in an array, it will be use after
     end
-    [max_save.round(2), third_filter, all_savings] # return the max savec, all the better contracts and the savings for each contracts
+    binding.pry
+    [max_save.round(2), first_filter, all_savings] # return the max savec, all the better contracts and the savings for each contracts
   end
 
   # This method can show the top best contracts depending on the number we want to show

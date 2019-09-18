@@ -29,25 +29,21 @@ class BankSimulationsController < ApplicationController
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
     @bank_simulation = BankSimulation.new
     my_params = params[:bank_simulation]
-    # tv = my_params[:tv] == 'true' ? true : false
-    # call_fix_fr = my_params[:call_fix_fr] == 'true' ? true : false
-    # call_mob_fr = my_params[:call_mob_fr] == 'true' ? true : false
-    # comparison = @bank_simulation.comparison(params[:monthly_cost], tv, call_fix_fr, call_mob_fr)
-    # @bank_simulation = BankSimulation.new(actual_price_paid: params[:monthly_cost],
-    #                                     bank_cost_saved: comparison[0],
-    #                                     tv: tv,
-    #                                     call_fix_fr:call_fix_fr,
-    #                                     call_mob_fr:call_mob_fr,
-    #                                     full_simulation: @full_simulation)
-    #
-    # if @bank_simulation.save
-    #   @bank_simulation.create_join_table_bank(comparison[1], comparison[2])
-    #   @full_simulation.update(total_cost_saved: (@full_simulation.total_cost_saved + @bank_simulation.bank_cost_saved),
-    #                           counter: @full_simulation.counter + 1)
-    #   flash[:success] = 'Votre simulation de gaz a bien été enregistrée'
-    # else
-    #   flash[:error] = "Veuillez remplir tous les champs pour terminer la simulation d'offre internet"
-    # end
-    # redirect_to user_full_simulation_path(current_user, @full_simulation)
+    comparison = @bank_simulation.comparison(my_params[:accounting_fees].to_f, my_params[:price_cheque].to_f, my_params[:insurance_payment].to_f)
+    @bank_simulation = BankSimulation.new(bank_cost_saved: comparison[0],
+                                          accounting_fees: my_params[:accounting_fees].to_f,
+                                          price_cheque: my_params[:price_cheque].to_f,
+                                          insurance_payment: my_params[:insurance_payment].to_f,
+                                          full_simulation: @full_simulation)
+
+    if @bank_simulation.save
+      @bank_simulation.create_join_table_bank(comparison[1], comparison[2])
+      @full_simulation.update(total_cost_saved: (@full_simulation.total_cost_saved + @bank_simulation.bank_cost_saved),
+                              counter: @full_simulation.counter + 1)
+      flash[:success] = 'Votre simulation bancaire a bien été enregistrée'
+    else
+      flash[:error] = "Veuillez remplir tous les champs pour terminer la simulation d'offre internet"
+    end
+    redirect_to user_full_simulation_path(current_user, @full_simulation)
   end
 end
