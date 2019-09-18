@@ -191,7 +191,10 @@
     </div>
   <% end %>
 	</div>
-	<div id="simulation-list" class="container">
+    <%= mail_to "pointbudget@hotmail.com", class: 'btn btn-primary btn-simu mb-5 d-flex justify-content-center align-items-center' do %>
+      <p><strong>Contacter un conseiller par mail</strong></p>
+    <% end %>
+	<div id="simulation-list" class="container mt-5">
     <div class="content categ-choice">
       <h5>Ci-dessous, les domaines que vous avez choisis:</h5>
     </div>
@@ -234,7 +237,7 @@
 		<% if @full_simulation.only_one_box_simulation %>
 			<div class="accordion container">
 		    <div class="card card-sm card-body shadow-sm border-soft border">
-	        <div data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
+	        <div data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-3">
 	          <span class="icon-title h6 mb-0 font-weight-bold"><i class="fas fa-signal mr-3"></i><%= @full_simulation.box_simulation.name %></span>
 	          <span class="icon"><i class="fas fa-plus"></i></span>
 	        </div>
@@ -252,7 +255,7 @@
     <% if @full_simulation.only_one_mobil_simulation %>
       <div class="accordion container">
         <div class="card card-sm card-body shadow-sm border-soft border">
-          <div data-target="#panel-4" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
+          <div data-target="#panel-4" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-4">
             <span class="icon-title h6 mb-0 font-weight-bold"><i class="fas fa-mobile-alt mr-3"></i><%= @full_simulation.mobil_simulation.name %></span>
             <span class="icon"><i class="fas fa-plus"></i></span>
           </div>
@@ -270,11 +273,11 @@
     <% if @full_simulation.only_one_bank_simulation %>
       <div class="accordion container">
         <div class="card card-sm card-body shadow-sm border-soft border">
-          <div data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
+          <div data-target="#panel-5" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-5">
             <span class="icon-title h6 mb-0 font-weight-bold"><i class="fas fa-money-check-alt mr-3"></i><%= @full_simulation.bank_simulation.name %></span>
             <span class="icon"><i class="fas fa-plus"></i></span>
           </div>
-          <div class="collapse" id="panel-3">
+          <div class="collapse" id="panel-5">
             <div class="pt-3">
               <p class="mb-0">
                 Vous pouvez économiser <strong><%= @full_simulation.bank_simulation.bank_cost_saved %>€</strong>
@@ -285,11 +288,6 @@
         </div>
       </div>
     <% end %>
-	</div>
-	<div class="card card-sm card-body shadow-sm border-soft border">
-		<%= mail_to "pointbudget@hotmail.com" do %>
-  		<strong>Contacter un conseiller par mail</strong>
-		<% end %>
 	</div>
 <% end %>
 
