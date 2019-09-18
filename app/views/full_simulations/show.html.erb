@@ -269,6 +269,24 @@
         </div>
        </div>
     <% end %>
+    <% if @full_simulation.only_one_bank_simulation %>
+      <div class="accordion container">
+        <div class="card card-sm card-body shadow-sm border-soft border">
+          <div data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
+            <span class="icon-title h6 mb-0 font-weight-bold"><i class="fas fa-money-check-alt"></i><%= @full_simulation.bank_simulation.name %></span>
+            <span class="icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="collapse" id="panel-3">
+            <div class="pt-3">
+              <p class="mb-0">
+                Vous pouvez économiser <strong><%= @full_simulation.bank_simulation.bank_cost_saved %>€</strong>
+              </p>
+              <%=link_to 'Voir en détails', user_full_simulation_bank_simulation_path(current_user,@full_simulation, @full_simulation.mobil_simulation) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
 	</div>
 	<div class="card card-sm card-body shadow-sm border-soft border">
 		<%= mail_to "pointbudget@hotmail.com" do %>

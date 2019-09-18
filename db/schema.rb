@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2019_09_18_142431) do
     t.float "insurance_payment", default: 0.0
     t.float "sms_alert", default: 0.0
     t.float "international_withdraw", default: 0.0
+    t.string "name", default: "Bank"
     t.bigint "full_simulation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -8,6 +8,7 @@ class CreateBankSimulations < ActiveRecord::Migration[5.2]
       t.float :insurance_payment, default: 0.00
       t.float :sms_alert, default: 0.00
       t.float :international_withdraw, default: 0.00
+      t.string :name, default: 'Bank'
       t.belongs_to :full_simulation, index: true
 
       t.timestamps
