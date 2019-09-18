@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :users
     resources :gas_contracts
     resources :box_contracts
+    resources :bank_contracts
     resources :ele_contracts
   end
 
