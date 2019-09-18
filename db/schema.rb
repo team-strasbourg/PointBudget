@@ -240,9 +240,9 @@ ActiveRecord::Schema.define(version: 2019_09_18_142431) do
     t.string "last_name"
     t.string "phone_number"
     t.boolean "is_admin", default: false
-    t.bigint "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "city_id"
     t.string "provider"
     t.string "uid"
     t.index ["city_id"], name: "index_users_on_city_id"
