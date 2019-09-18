@@ -23,7 +23,6 @@ class BankSimulation < ApplicationRecord
       end
       all_savings << savings # Save the differences in an array, it will be use after
     end
-    binding.pry
     [max_save.round(2), first_filter, all_savings] # return the max savec, all the better contracts and the savings for each contracts
   end
 
