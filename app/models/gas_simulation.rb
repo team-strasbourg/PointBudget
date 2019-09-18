@@ -29,18 +29,25 @@ class GasSimulation < ApplicationRecord
 
   def print_report
     table_attributes = []
+    message = "Non renseigné"
     [floor_space, heat_type, water_cooking_type, residents_number].each do |attribute|
-      table_attributes << attribute.presence || 'Non renseigné'
+      if attribute.blank?
+        table_attributes << message
+      else
+        table_attributes << attribute
+      end
     end
     table_attributes
   end
 
-  def assign_params_from_controller(params)
-    @params = params
+  # Set the user of the gas simulation
+  def user
+    self.full_simulation.user
   end
 
+  # This method can estimate the consumption depending on the params you give to it
   def estimation(yearly_cost, yearly_consumption, floor_space, heat_type, water_cooking_type, nb_residents )
-    yearly_cost = yearly_cost.to_i
+    yearly_cost = yearly_cost.to_f
     yearly_consumption = yearly_consumption.to_i
     floor_space = floor_space.to_i
     nb_residents = nb_residents.to_i
@@ -54,6 +61,7 @@ class GasSimulation < ApplicationRecord
     end
   end
 
+  # This method execute the comparison between what is entered by the client and the contracts
   def comparison(yearly_cost, yearly_consumption)
     first_filter = GasContract.all.select { |contract|
       yearly_consumption.between?(contract.low_kw_consumption_per_year * 1000, contract.high_kw_consumption_per_year * 1000)
@@ -73,12 +81,14 @@ class GasSimulation < ApplicationRecord
     [max_save.round(2), second_filter, all_savings]
   end
 
+  # This method create all the join table given by the filter and the saving associated with each
   def create_join_table_gas(filter, all_savings)
     filter.each_with_index do |contract, index|
       JoinTableGasSimulationContract.create(gas_simulation: self, gas_contract: contract, savings: all_savings[index])
     end
   end
 
+  # This method can show the top best contracts depending on the number we want to show
   def sort_contracts(how_many)
     return_array = []
     contracts_sorted = join_table_gas_simulation_contracts.sort_by(&:savings).reverse
@@ -90,6 +100,7 @@ class GasSimulation < ApplicationRecord
     return_array
   end
 
+  # Estimate the consumption per habitant
   def consumption_people(nb_residents)
     hash = { 1 => 1630, 2 => 2945, 3 => 4265, 4 => 5320, 5 => 6360 }
     if hash[nb_residents].nil?
@@ -99,11 +110,13 @@ class GasSimulation < ApplicationRecord
     end
   end
 
+  # This method is part of the estimation process
+  # It verifies the entries of the client
   def verify_nilness_params(yearly_cost, yearly_consumption, floor_space, heat_type, water_cooking_type, nb_residents)
-    if yearly_cost.zero?
+    if yearly_cost.zero? # if he forgot the yearly cost
       false
     else
-      if yearly_consumption.zero?
+      if yearly_consumption.zero? # if the consumption is not entered, all the other field must be present
         if [floor_space, nb_residents].include?(0) || [heat_type, water_cooking_type].include?('')
           false
         else
@@ -113,9 +126,5 @@ class GasSimulation < ApplicationRecord
         true
       end
     end
-  end
-
-  def user
-    self.full_simulation.user
   end
 end

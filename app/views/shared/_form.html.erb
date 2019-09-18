@@ -1,4 +1,4 @@
-<div class="container d-flex justify-content-center align-items-center">
+<div class="container d-flex justify-content-center align-items-center my-5">
   <div class="row", style="margin-top:50px">
     <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
 
@@ -208,12 +208,13 @@
 
 <!--      EDIT FULL SIMULATION TO VALIDATE -->
 
+
           <% when 'validate_full_simulation' %>
             <div class="form-group hide">
               <%= f.radio_button(:validated, true, checked: 'checked', hidden: true) %>
             </div>
-      
-        
+
+
 
 
 <!--        GAS SIMULATION FORM-->
@@ -230,7 +231,7 @@
             <%= label_tag(:answer_no, "Non") %>
             </p>
             <div id="consumption" style="display:none;">
-              <p>Consommation annuelle en Wh
+              <p>Consommation annuelle en kWh
               <%= number_field_tag "yearly_consumption", nil, step: 1, class: 'd-flex justify-content-end' %>
               </p>
             </div>
@@ -251,10 +252,36 @@
             </div>
           </div>
 
+<!--          BOX SIMULATION FORM-->
+        <%when 'new_box_simulation'%>
+          <div class="form-group">
+            <p>Coût mensuel de votre abonnement box internet en €
+              <%= number_field_tag "monthly_cost", nil, step: 1 , within: 1...10000, class: 'd-flex justify-content-end' %>
+            </p>
+            <p>Avez-vous ou voulez-vous la TV?
+              <%= f.radio_button(:tv, 'true')%>
+              <%= f.label(:tv_yes, "Oui")%>
+              <%= f.radio_button(:tv, 'false') %>
+              <%= f.label(:tv_no, "Non") %>
+            </p>
+            <p>Avez-vous ou voulez-vous les appels vers les téléphones fixes en France?
+              <%= f.radio_button(:call_fix_fr, 'true')%>
+              <%= f.label(:call_fix_fr_yes, "Oui")%>
+              <%= f.radio_button(:call_fix_fr, 'false') %>
+              <%= f.label(:call_fix_fr_no, "Non") %>
+            </p>
+            <p>Avez-vous ou voulez-vous les appels vers les téléphones mobile en France?
+              <%= f.radio_button(:call_mob_fr, 'true')%>
+              <%= f.label(:call_mob_fr_yes, "Oui")%>
+              <%= f.radio_button(:call_mob_fr, 'false') %>
+              <%= f.label(:call_mob_fr_no, "Non") %>
+            </p>
 
-<!--          NEW GAS CONTRACT-->
+          </div>
 
-        <%when 'new_gas_contract' %>
+<!--          NEW/EDIT GAS CONTRACT-->
+
+        <%when 'new_gas_contract', 'edit_gas_contract' %>
           <div class="form-group">
             <%= f.label :supplier %><br />
             <%= f.text_field :supplier, autofocus: true, class: "form-control"  %>
@@ -284,10 +311,6 @@
             <%= f.label :high_kw_consumption_per_year %><br />
             <%= f.number_field :high_kw_consumption_per_year, in: 1..30 ,step: 1,class: "form-control"  %>
           </div>
-
-
-
-
 
 <!--        NEW MOBILE SIMULATION  -->
 
@@ -525,7 +548,6 @@
 <!--          NEW/EDIT ELECTRICITY CONTRACT-->
 
         <%when 'new_ele_contract','edit_ele_contract' %>
-
           <div class="form-group">
             <%= f.label :supplier %><br />
             <%= f.text_field :supplier, autofocus: true, class: "form-control"  %>
@@ -543,20 +565,32 @@
 
           <div class="form-group">
             <%= f.label :kwh_price_base %><br />
-            <%= f.number_field :kwh_price_base, in: 0.00001..0.1, step: 0.00001, class: "form-control"  %>
+            <%= f.number_field :kwh_price_base, in: 0.001..0.5, step: 0.00001, class: "form-control"  %>
           </div>
 
           <div class="form-group">
-            <%= f.label :low_kw_consumption_per_year %><br />
-            <%= f.number_field :low_kw_consumption_per_year, in: 0..6 , step: 1,class: "form-control"  %>
+            <%= f.label :kVA_power %><br />
+            <%= f.number_field :kVA_power, in: 6..12 , step: 3, class: "form-control"  %>
           </div>
 
+<!--        ELEC SIMULATION-->
+        <%when 'new_ele_simulation'%>
           <div class="form-group">
-            <%= f.label :high_kw_consumption_per_year %><br />
-            <%= f.number_field :high_kw_consumption_per_year, in: 1..30 ,step: 1,class: "form-control"  %>
+            <p>Coût annuel de l'electricité en €
+            <%= number_field_tag "yearly_cost", nil, step: 1 , within: 1...10000, class: 'd-flex justify-content-end' %>
+            </p>
+            <p>Quelle est votre consommation d'électricité ?
+            </p>
+            <div id="consumption-elec">
+              <p>Consommation annuelle en kWh
+              <%= number_field_tag "yearly_consumption", nil, step: 1, class: 'd-flex justify-content-end' %>
+              </p>
+              <p>Quelle est la puissance de votre compteur en kVa?
+              <%= number_field_tag "kVA_power", nil, in: 6..12 , step: 3 , class: 'd-flex justify-content-end' %>
+              </p>
+            </div>
           </div>
         <%end%>
-
 
 <!--        FOR ALL FORMS-->
         <div class="form-group">

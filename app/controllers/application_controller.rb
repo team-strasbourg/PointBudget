@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     if current_user.is_admin?
       stored_location_for(resource) || admin_root_path
     else
-      stored_location_for(resource) || users_root_path(current_user)
+      stored_location_for(resource) || user_path(current_user)
     end
   end
 
@@ -53,6 +53,27 @@ class ApplicationController < ActionController::Base
   def not_other_users_gas_simulations
     # This method prevents users from going to pages associated with another user, namely the simulations
     return unless current_user != GasSimulation.find(params[:id]).user && current_user.has_gas_simulations(params[:id])
+  rescue
+    error_connected
+  end
+
+  def not_other_users_box_simulations
+    # This method prevents users from going to pages associated with another user, namely the simulations
+    return unless current_user != BoxSimulation.find(params[:id]).user && current_user.has_box_simulations(params[:id])
+  rescue
+    error_connected
+  end
+
+  def not_other_users_mobil_simulations
+    # This method prevents users from going to pages associated with another user, namely the simulations
+    return unless current_user != MobilSimulation.find(params[:id]).user && current_user.has_mobil_simulations(params[:id])
+  rescue
+    error_connected
+  end
+
+  def not_other_users_ele_simulations
+  # This method prevents users from going to pages associated with another user, namely the simulations
+  return unless current_user != EleSimulation.find(params[:id]).user && current_user.has_ele_simulations(params[:id])
   rescue
     error_connected
   end

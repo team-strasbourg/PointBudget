@@ -6,8 +6,6 @@ class GasSimulationsController < ApplicationController
   before_action :not_other_users_gas_simulations, only: [:show]
   before_action :not_other_user_index, only: [:index]
 
-  def index; end
-
   def show
     @gas_sim = GasSimulation.find(params[:id])
     table_attributes = @gas_sim.print_report
@@ -31,7 +29,6 @@ class GasSimulationsController < ApplicationController
   def create
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
     @gas_simulation = GasSimulation.new
-    @gas_simulation.assign_params_from_controller(params)
     estimation = @gas_simulation.estimation(params[:yearly_cost],
                                             params[:yearly_consumption],
                                             params[:floor_space],
@@ -54,7 +51,7 @@ class GasSimulationsController < ApplicationController
                               counter: @full_simulation.counter + 1)
       flash[:success] = 'Votre simulation de gaz a bien été enregistrée'
     else
-      flash[:error] = @gas_simulation.errors.messages
+      flash[:error] = 'Veuillez remplir tous les champs pour terminer la simulation de gaz'
     end
     redirect_to user_full_simulation_path(current_user, @full_simulation)
   end
