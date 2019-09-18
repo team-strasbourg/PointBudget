@@ -48,12 +48,4 @@ class MobilSimulationsController < ApplicationController
     redirect_to user_full_simulation_path(current_user, @full_simulation)
   end
 
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
-  end
 end
