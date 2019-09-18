@@ -313,6 +313,146 @@
           </div>
 
 
+
+
+<!--        NEW MOBILE SIMULATION  -->
+
+        <%when 'new_mobil_simulation'%>
+          <div class="form-group">
+            <p>Combien payez-vous par mois?<br>
+              <%= number_field_tag "monthly_cost", within: 0.00..200.00 ,step: 0.10,class: "form-control"%>
+            </p>
+            <p>Combien votre forfait possède-t-il de Go?<br>
+              <%= number_field_tag "bundle_go", in: 0.00..200.00 ,step: 0.10,class: "form-control"  %>
+            </p>
+          </div>
+          <div class="form-group">
+            <p>Voulez-vous inclure les forfaits avec engagement dans votre comparaison?<br><br>
+              <%= radio_button_tag(:engagement, 'true', true)%>
+              <%= label_tag(:engagement_yes, "Oui")%>
+              <%= radio_button_tag(:engagement, 'false') %>
+              <%= label_tag(:engagement_no, "Non") %>
+            </p>
+          </div>
+          <div class="form-group">
+            <p>Bénéficiez-vous d'appels/SMS/MMS illimités en Europe?<br><br>
+              <%= radio_button_tag(:calls_europe, 'true', true)%>
+              <%= label_tag(:calls_europe_yes, "Oui")%>
+              <%= radio_button_tag(:calls_europe, 'false') %>
+              <%= label_tag(:calls_europe_no, "Non") %>
+            </p>
+          </div>
+          <div class="form-group">
+            <p>Appels, SMS, MMS illimités à l'étranger?<br><br>
+            <%= radio_button_tag(:calls_international, 'true')%>
+            <%= label_tag(:calls_international_yes, "Oui")%>
+            <%= radio_button_tag(:calls_international, 'false', true) %>
+            <%= label_tag(:calls_international_no, "Non") %>
+            </p>
+          </div>
+          <div class="form-group">
+            <p>Internet à l'étranger?<br><br>
+            <%= radio_button_tag(:net_international, 'true')%>
+            <%= label_tag(:net_international, "Oui")%>
+            <%= radio_button_tag(:net_international, 'false', true) %>
+            <%= label_tag(:net_international, "Non") %>
+            </p>
+          </div>
+
+
+
+<!--        NEW/EDIT MOBIL CONTRACT -->
+        
+        <%when 'new_mobil_contract','edit_mobil_contract'  %>
+          <div class="form-group">
+            <%= f.label :supplier %><br />
+            <%= f.text_field :supplier, autofocus: true, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :offer_name %><br />
+            <%= f.text_field :offer_name, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :line_service_price %><br />
+            <%= f.number_field :line_service_price, in: 0..30, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :sim_card_price %><br />
+            <%= f.number_field :sim_card_price, in: 0..20, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label 'Forfait avec engagement?' %><br />
+            <%= f.radio_button(:engagement, true)%>
+            <%= f.label(:engagement_yes, "Oui")%>
+            <%= f.radio_button(:engagement, false) %>
+            <%= f.label(:engagement_no, "Non") %>
+          </div>
+
+          <div class="form-group">
+            <p>Forfait avec nouveau téléphone?<br>
+            <%= f.radio_button(:add_phone, 'true')%>
+            <%= f.label(:add_phone_yes, "Oui")%>
+            <%= f.radio_button(:add_phone, 'false') %>
+            <%= f.label(:add_phone_no, "Non") %>
+            </p>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :bundle_price %><br />
+            <%= f.number_field :bundle_price, in: 0.00..200.00 ,step: 0.10,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :bundle_gbyte %><br />
+            <%= f.number_field :bundle_gbyte, in: 0.00..200.00 ,step: 0.10,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <p>Appels, SMS, MMS illimités en France?<br><br>
+            <%= f.radio_button(:calls_france, 'true')%>
+            <%= f.label(:calls_france, "Oui")%>
+            <%= f.radio_button(:calls_france, 'false') %>
+            <%= f.label(:calls_france, "Non") %>
+            </p>
+          </div>
+
+          <div class="form-group">
+            <p>Appels, SMS, MMS illimités en Europe?<br><br>
+            <%= f.radio_button(:calls_europe, 'true')%>
+            <%= f.label(:calls_europe_yes, "Oui")%>
+            <%= f.radio_button(:calls_europe, 'false') %>
+            <%= f.label(:calls_europe_no, "Non") %>
+            </p>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :gbyte_europe %><br />
+            <%= f.number_field :gbyte_europe, in: 0.00..200.00 ,step: 0.10,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <p>Appels, SMS, MMS illimités à l'étranger?<br><br>
+            <%= f.radio_button(:calls_international, 'true')%>
+            <%= f.label(:calls_international_yes, "Oui")%>
+            <%= f.radio_button(:calls_international, 'false') %>
+            <%= f.label(:calls_international_no, "Non") %>
+            </p>
+          </div>
+
+          <div class="form-group">
+            <p>Internet à l'étranger?<br><br>
+            <%= f.radio_button(:net_international, 'true')%>
+            <%= f.label(:net_international, "Oui")%>
+            <%= f.radio_button(:net_international, 'false') %>
+            <%= f.label(:net_international, "Non") %>
+            </p>
+          </div>
+
+
 <!--         NEW AND EDIT BOX CONTRACT-->
         <%when 'new_box_contract', 'edit_box_contract' %>
           <div class="form-group">
@@ -407,6 +547,7 @@
             <%= f.number_field :taken_termination,class: "form-control"  %>
           </div>
 
+
 <!--          NEW/EDIT ELECTRICITY CONTRACT-->
 
         <%when 'new_ele_contract','edit_ele_contract' %>
@@ -432,7 +573,7 @@
 
           <div class="form-group">
             <%= f.label :kVA_power %><br />
-            <%= f.number_field :kVA_power, in: 6..12 , step: 3,class: "form-control"  %>
+            <%= f.number_field :kVA_power, in: 6..12 , step: 3, class: "form-control"  %>
           </div>
 
 <!--        ELEC SIMULATION-->

@@ -1,7 +1,4 @@
 Opérateur,Nom de l’offre,Prix mise en service,Prix sim,Engagement,portable,Prix,Nbrede Giga,Appel/sms/mmsIllimité France,Appel/sms/mmsIllimité Europe,Nombre giga Europe,Appel/sms/mmsIllimité Internetionnal,Internet Internationnal
-SFR,STARTER 2 H,10,1,false,false,0.00,40,true,true,40,false,false
-SFR,STARTER 2 H BLOQUE,10,1,false,false,0.00,40,false,false,0,false,false
-SFR,STARTER 100MO,10,1,false,false,0.00,"0,1",true,true,"0,1",false,false
 SFR,POWER 10GO,10,1,false,false,31.00,10,true,true,10,false,false
 SFR,POWER 50GO,10,1,false,false,35.00,50,true,true,50,false,false
 SFR,POWER 100GO,10,1,false,false,50.00,100,true,true,100,true,false
