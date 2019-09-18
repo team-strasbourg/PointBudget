@@ -11,7 +11,9 @@ class MobilSimulation < ApplicationRecord
             presence: true,
             numericality: { greater_than_or_equal_to: 0 }
 
-  def assign_params_from_controller(params)
-    @params = params
+	# Set the user of the mobil simulation
+  def user
+    self.full_simulation.user
   end
+
 end
