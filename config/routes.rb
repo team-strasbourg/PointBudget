@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+
   devise_for :users, controllers: { registrations: :registrations,
                                     omniauth_callbacks: "users/omniauth_callbacks" }
+
 
   root to: 'static_pages#landing_page'
   get 'static_pages/about'
@@ -16,15 +18,20 @@ Rails.application.routes.draw do
     resources :box_simulations, only: [:show]
     resources :ele_simulations, only: [:show]
     resources :gas_contracts
+    resources :mobil_contracts
     resources :box_contracts
+    resources :bank_contracts
     resources :ele_contracts
+
   end
 
   resources :users, only: %i[show edit update] do
     root to: 'full_simulations#new'
     resources :full_simulations, except: [:edit] do
       resources :gas_simulations, except: [:index]
+      resources :mobil_simulations, except: [:index]
       resources :box_simulations, except: [:index]
+      resources :bank_simulations, except: [:index]
       resources :ele_simulations, except: [:index]
     end
   end

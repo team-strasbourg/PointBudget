@@ -46,7 +46,7 @@ class BoxSimulationsController < ApplicationController
                               counter: @full_simulation.counter + 1)
       flash[:success] = 'Votre simulation de gaz a bien été enregistrée'
     else
-      flash[:error] = @box_simulation.errors.messages
+      flash[:error] = "Veuillez remplir tous les champs pour terminer la simulation d'offre internet"
     end
     redirect_to user_full_simulation_path(current_user, @full_simulation)
   end

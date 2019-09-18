@@ -29,8 +29,13 @@ class GasSimulation < ApplicationRecord
 
   def print_report
     table_attributes = []
+    message = "Non renseigné"
     [floor_space, heat_type, water_cooking_type, residents_number].each do |attribute|
-      table_attributes << attribute.presence || 'Non renseigné'
+      if attribute.blank?
+        table_attributes << message
+      else
+        table_attributes << attribute
+      end
     end
     table_attributes
   end
@@ -42,7 +47,7 @@ class GasSimulation < ApplicationRecord
 
   # This method can estimate the consumption depending on the params you give to it
   def estimation(yearly_cost, yearly_consumption, floor_space, heat_type, water_cooking_type, nb_residents )
-    yearly_cost = yearly_cost.to_i
+    yearly_cost = yearly_cost.to_f
     yearly_consumption = yearly_consumption.to_i
     floor_space = floor_space.to_i
     nb_residents = nb_residents.to_i

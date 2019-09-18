@@ -21,6 +21,7 @@ class EleSimulationsController < ApplicationController
     end
   end
 
+
   def create
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
     @ele_simulation = EleSimulation.new
@@ -35,10 +36,9 @@ class EleSimulationsController < ApplicationController
       @full_simulation.update(total_cost_saved: (@full_simulation.total_cost_saved + @ele_simulation.ele_cost_saved),
                               counter: @full_simulation.counter + 1)
       flash[:success] = "Votre simulation d'electricité a bien été enregistrée"
-      redirect_to user_full_simulation_path(current_user, @full_simulation)
     else
-      flash[:error] = @ele_simulation.errors.messages
-      redirect_to new_user_full_simulation_ele_simulation_path(current_user, @full_simulation)
+      flash[:error] = 'Veuillez remplir tous les champs pour terminer la simulation'
     end
+    redirect_to user_full_simulation_path(current_user, @full_simulation)
   end
 end

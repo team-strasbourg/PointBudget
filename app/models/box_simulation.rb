@@ -15,7 +15,12 @@ class BoxSimulation < ApplicationRecord
   def print_report
     table_attributes = []
     [tv, call_fix_fr, call_mob_fr].each do |attribute|
-      table_attributes << attribute.presence || 'Non renseigné'
+      if attribute == true
+        table_attributes << 'Oui'
+      else
+        table_attributes << 'Non'
+
+      end
     end
     table_attributes
   end
@@ -39,7 +44,7 @@ class BoxSimulation < ApplicationRecord
 
   # This method execute the comparison between what is entered by the client and the contracts
   def comparison(monthly_cost, tv, call_fix, call_mobile)
-    monthly_cost = monthly_cost.to_i
+    monthly_cost = monthly_cost.to_f
     first_filter = BoxContract.all.select { |contract| contract.tv == tv } # Filter if the tv option is the same
     second_filter = first_filter.select { |contract| contract.call_fix_fr == call_fix } # filter by the call to fix phone number in france
     third_filter = second_filter.select { |contract| contract.call_mobile_fr == call_mobile } # filter by the call to mobile phone number in france

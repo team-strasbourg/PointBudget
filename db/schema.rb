@@ -10,10 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_18_080120) do
+ActiveRecord::Schema.define(version: 2019_09_18_142431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bank_contracts", force: :cascade do |t|
+    t.string "supplier", default: ""
+    t.string "group_name", default: ""
+    t.float "accounting_fees", default: 0.0
+    t.float "inactive_accounting_fees", default: 0.0
+    t.boolean "cheque", default: true
+    t.float "price_cheque", default: 0.0
+    t.float "price_order_cheque", default: 0.0
+    t.float "insurance_payment", default: 0.0
+    t.float "sms_alert", default: 0.0
+    t.float "international_withdraw", default: 0.0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bank_simulations", force: :cascade do |t|
+    t.float "bank_cost_saved", default: 0.0
+    t.float "accounting_fees", default: 0.0
+    t.float "inactive_accounting_fees", default: 0.0
+    t.float "price_cheque", default: 0.0
+    t.float "insurance_payment", default: 0.0
+    t.float "sms_alert", default: 0.0
+    t.float "international_withdraw", default: 0.0
+    t.string "name", default: "Banque"
+    t.bigint "full_simulation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["full_simulation_id"], name: "index_bank_simulations_on_full_simulation_id"
+  end
 
   create_table "box_contracts", force: :cascade do |t|
     t.string "supplier", default: ""
@@ -21,14 +51,14 @@ ActiveRecord::Schema.define(version: 2019_09_18_080120) do
     t.float "price_month", default: 0.0
     t.integer "commitment", default: 0
     t.float "price_after", default: 0.0
-    t.string "type", default: ""
+    t.string "internet_type", default: ""
     t.integer "downstream", default: 0
     t.integer "upstream", default: 0
     t.string "tv_channel", default: ""
-    t.boolean "tv", default: false
-    t.boolean "call_fix_fr", default: false
-    t.boolean "call_mobile_fr", default: false
-    t.boolean "call_foreign", default: false
+    t.boolean "tv", default: true
+    t.boolean "call_fix_fr", default: true
+    t.boolean "call_mobile_fr", default: true
+    t.boolean "call_foreign", default: true
     t.float "opening_fee", default: 0.0
     t.float "termination_fee", default: 0.0
     t.float "taken_termination", default: 0.0
@@ -39,9 +69,10 @@ ActiveRecord::Schema.define(version: 2019_09_18_080120) do
   create_table "box_simulations", force: :cascade do |t|
     t.float "actual_price_paid", default: 0.0
     t.float "box_cost_saved", default: 0.0
-    t.boolean "tv", default: false
-    t.boolean "call_fix_fr", default: false
-    t.boolean "call_mob_fr", default: false
+    t.boolean "tv", default: true
+    t.boolean "call_fix_fr", default: true
+    t.boolean "call_mob_fr", default: true
+    t.string "name", default: "Box Internet"
     t.bigint "full_simulation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -116,6 +147,16 @@ ActiveRecord::Schema.define(version: 2019_09_18_080120) do
     t.index ["full_simulation_id"], name: "index_gas_simulations_on_full_simulation_id"
   end
 
+  create_table "join_table_bank_contracts", force: :cascade do |t|
+    t.float "savings", default: 0.0
+    t.bigint "bank_simulation_id"
+    t.bigint "bank_contract_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bank_contract_id"], name: "index_join_table_bank_contracts_on_bank_contract_id"
+    t.index ["bank_simulation_id"], name: "index_join_table_bank_contracts_on_bank_simulation_id"
+  end
+
   create_table "join_table_box_contracts", force: :cascade do |t|
     t.float "savings"
     t.bigint "box_contract_id"
@@ -145,6 +186,49 @@ ActiveRecord::Schema.define(version: 2019_09_18_080120) do
     t.float "savings", default: 0.0
     t.index ["gas_contract_id"], name: "index_join_table_gas_simulation_contracts_on_gas_contract_id"
     t.index ["gas_simulation_id"], name: "index_join_table_gas_simulation_contracts_on_gas_simulation_id"
+  end
+
+  create_table "join_table_mobil_contracts", force: :cascade do |t|
+    t.float "savings", default: 0.0
+    t.bigint "mobil_simulation_id"
+    t.bigint "mobil_contract_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mobil_contract_id"], name: "index_join_table_mobil_contracts_on_mobil_contract_id"
+    t.index ["mobil_simulation_id"], name: "index_join_table_mobil_contracts_on_mobil_simulation_id"
+  end
+
+  create_table "mobil_contracts", force: :cascade do |t|
+    t.string "supplier"
+    t.string "offer_name"
+    t.integer "line_service_price", default: 0
+    t.integer "sim_card_price", default: 0
+    t.boolean "engagement", default: false
+    t.boolean "add_phone", default: false
+    t.float "bundle_price", default: 0.0
+    t.float "bundle_gbyte", default: 0.0
+    t.boolean "calls_france", default: false
+    t.boolean "calls_europe", default: false
+    t.float "gbyte_europe", default: 0.0
+    t.boolean "calls_international", default: false
+    t.boolean "net_international", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "mobil_simulations", force: :cascade do |t|
+    t.string "name", default: "Mobile"
+    t.float "actual_price_paid", default: 0.0
+    t.float "mobil_cost_saved", default: 0.0
+    t.boolean "engagement", default: false
+    t.boolean "calls_europe", default: false
+    t.boolean "calls_international", default: false
+    t.boolean "net_international", default: false
+    t.float "bundle_go", default: 0.0
+    t.bigint "full_simulation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["full_simulation_id"], name: "index_mobil_simulations_on_full_simulation_id"
   end
 
   create_table "users", force: :cascade do |t|

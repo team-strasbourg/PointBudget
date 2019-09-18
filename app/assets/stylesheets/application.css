@@ -83,23 +83,23 @@ li.button-group{
 					width: 100%;
 					background-size:100% auto;
 			}
-	
+
 	}
-	
+
 	/*Hide in Other Small Devices */
-	
-	
+
+
 	/* Landscape tablets and medium desktops */
 	@media (min-width: 992px) and (max-width: 1199px) {
-	
+
 				#jumbo-image {
 					background-image: none;
 					background-color:  white;
 					text-align: center;
 			}
-	
+
 	}
-	
+
 	/* Portrait tablets and small desktops */
 	@media (min-width: 768px) and (max-width: 991px) {
 						#jumbo-image {
@@ -107,21 +107,21 @@ li.button-group{
 					background-color:  white;
 					text-align: center;
 			}
-	
+
 	}
-	
+
 	/* Landscape phones and portrait tablets */
 	@media (max-width: 767px) {
-	
+
 						#jumbo-image {
 					background-image: none;
 					background-color:  white;
 					text-align: center;
 					justify-content: center;
 			}
-	
+
 	}
-	
+
 	/* Portrait phones and smaller */
 	@media (max-width: 480px) {
 						#jumbo-image {
@@ -299,7 +299,6 @@ li.button-group{
 	margin-bottom: 50px;
 }
 
-
 #body_content_user{
 	margin: 30px 0 120px 0;
 	padding: 0 40px;
@@ -362,6 +361,14 @@ li.button-group{
 	width: 200px;
 }
 
+.btn-simu-box{
+	width: 150px;
+}
+
+.btn-simu-mobil{
+	width: 170px;
+}
+
 .btn-simu-mut{
 	width: 180px;
 }
@@ -382,9 +389,9 @@ li.button-group{
 
 .price-simu{
 	font-size: 38px;
-	height: 150px;
-	width: 150px;
-	padding: 50px 0;
+	height: 180px;
+	width: 180px;
+	padding: 63px 0 50px 0;
 	border-radius: 50%;
 	color: white;
 	box-shadow: 10px 10px 10px rgba(0,0,0,.05);
@@ -392,15 +399,32 @@ li.button-group{
 
 .price-position{
 	text-align: center;
-	margin: 50px 0;
+	margin-bottom: 50px;
 }
 
+.modal-body{
+	margin: 20px 0;
+}
+
+.modal-footer{
+	margin-bottom: -50px;
+	margin-top: -40px;
+}
 
 /*  FULL_SIMULATION#SHOW AFTER VALIDATED FULL_SIMULATIONS */
 
 #simulation-list{
 	margin-top: -50px;
-	margin-bottom: 200px;
+	margin-bottom: 50px;
+}
+
+.btn-full{
+	border-radius: 5px;
+	margin: 60px 0;
+}
+
+.categ-choice{
+	margin-bottom: 40px;
 }
 
 
@@ -435,7 +459,6 @@ li.button-group{
   border:none
 }
 
-#energy-categories{
+#energy-categories, #numeric-categories{
 	margin-bottom: 80px;
 }
-
