@@ -25,6 +25,14 @@ class MobilSimulationsController < ApplicationController
     net_international = params[:net_international] == 'true' ? true : false
 
     #comparison
+    comparison = @mobil_simulation.comparison(params[:monthly_cost], params[:bundle_go], calls_europe, calls_international, net_international)
+
+    @mobil_simulation = MobilSimulation.new(actual_price_paid: params[:monthly_cost],
+                                        box_cost_saved: comparison[0],
+                                        tv: tv,
+                                        call_fix_fr:call_fix_fr,
+                                        call_mob_fr:call_mob_fr,
+                                        full_simulation: @full_simulation)
 
     # if @mobil_simulation.save
     #   flash[:success] = "Votre simulation concernant votre mobile a été sauvegardée!"
