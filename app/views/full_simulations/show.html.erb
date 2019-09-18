@@ -181,7 +181,7 @@
 	        <div class="collapse" id="panel-1">
 	          <div class="pt-3">
               <p class="mb-0">
-                  Vous pouvez économiser <%= @full_simulation.gas_simulation.gas_cost_saved %>€
+                  Vous pouvez économiser <strong><%= @full_simulation.gas_simulation.gas_cost_saved %>€</strong>
               </p>
               <%=link_to 'Voir en détails', user_full_simulation_gas_simulation_path(current_user,@full_simulation, @full_simulation.gas_simulation) %>
             </div>
@@ -189,6 +189,24 @@
 		    </div>
 		   </div>
     <% end %>
+		<% if @full_simulation.only_one_ele_simulation %>
+			<div class="accordion container">
+				<div class="card card-sm card-body shadow-sm border-soft border">
+					<div data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-2">
+						<span class="icon-title h6 mb-0 font-weight-bold"><i class="fas fa-bolt"></i><%= @full_simulation.ele_simulation.name %></span>
+						<span class="icon"><i class="fas fa-plus"></i></span>
+					</div>
+					<div class="collapse" id="panel-2">
+						<div class="pt-3">
+							<p class="mb-0">
+									Vous pouvez économiser <strong><%= @full_simulation.ele_simulation.ele_cost_saved %>€</strong>
+							</p>
+							<%=link_to 'Voir en détails', user_full_simulation_ele_simulation_path(current_user,@full_simulation, @full_simulation.ele_simulation) %>
+						</div>
+					</div>
+				</div>
+			 </div>
+		<% end %>
 		<% if @full_simulation.only_one_box_simulation %>
 			<div class="accordion container">
 		    <div class="card card-sm card-body shadow-sm border-soft border">
@@ -199,7 +217,7 @@
 	        <div class="collapse" id="panel-3">
 	          <div class="pt-3">
               <p class="mb-0">
-                  Vous pouvez économiser <%= @full_simulation.box_simulation.box_cost_saved %>€
+                  Vous pouvez économiser <strong><%= @full_simulation.box_simulation.box_cost_saved %>€</strong>
               </p>
               <%=link_to 'Voir en détails', user_full_simulation_box_simulation_path(current_user,@full_simulation, @full_simulation.box_simulation) %>
             </div>

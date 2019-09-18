@@ -3,7 +3,7 @@
     <div class="row justify-content-between">
 
 <!--      CONTACT SECTION-->
-      <div class="col-md-3 mb-md-0 mb-3 ">
+      <div class="col-md-4 mb-md-0 mb-4 ">
         <h3 class="text-uppercase text-md-left text-center">Contact</h3>
         <div class="d-flex flex-column justify-content-end align-items-md-start text-md-left text-center align-items-sm-center">
           <div >
@@ -18,36 +18,10 @@
         </div>
       </div>
 
-      <div class="col-md-3 mb-md-0 mb-3 d-flex justify-content-md-start align-items-md-end justify-content-center align-items-center my-sm-4" >
 
 
-        <!--                FACEBOOK-->
-        <div>
-          <%= link_to "#", class:'fb-ic mr-3' do %>
-            <i class=" fa-2x fa-facebook-f fa-lg fab white-text"> </i>
-          <% end %>
-        </div>
-        <!--                INSTAGRAM-->
-        <div>
-        <%= link_to "#", class:'fb-ic mr-3' do %>
-          <i class="fab fa-instagram fa-lg white-text fa-2x"></i>
-        <% end %>
-        </div>
-        <!--                 LINKEDIN-->
-        <div>
-        <%= link_to "#", class:'fb-ic mr-3' do %>
-          <i class="fab fa-linkedin-in fa-lg white-text fa-2x"></i>
-        <% end %>
-        </div>
-
-        <!--                TWITTER-->
-        <div>
-        <%= link_to "#", class:'fb-ic mr-3' do %>
-          <i class="fab fa-twitter fa-lg white-text fa-2x"></i>
-        <% end %>
-        </div>
-      </div>
-      <div class="col-md-2 mb-md-0 mb-3 d-flex flex-column justify-content-end logs-button">
+<!--      NAVIGATION SECTION-->
+      <div class="col-md-4 mb-md-0 mb-4 d-flex flex-column justify-content-end align-items-center logs-button">
         <ul class="list-unstyled text-md-left mb-0 text-sm-center">
           <li>
             <%= link_to "Haut de page", {:anchor => "navbar"} %>
@@ -60,8 +34,10 @@
           </li>
         </ul>
       </div>
-      <div class="col-md-3 mb-md-0 mb-3 d-flex flex-column justify-content-end">
-        <ul class="list-unstyled text-md-left mb-0 text-sm-center" >
+
+<!--      OTHER LINKS-->
+      <div class="col-md-4 mb-md-0 mb-4 d-flex flex-column justify-content-end align-items-md-end align-items-center">
+        <ul class="list-unstyled text-md-right mb-0 text-sm-center" >
           <li>
             <%= link_to "Nos partenaires" %>
           </li>
@@ -75,7 +51,41 @@
       </div>
     </div>
   </div>
-  <div class="footer-copyright text-center py-3 mt-5">© 2019 Copyright
+    <!--      SOCIAL NETWORKS-->
+  <div class="row justify-content-between mt-3">
+    <div class="col-md-4 mb-md-0 mb-4 d-flex flex-column justify-content-end"></div>
+    <div class="col-md-4 mb-md-0 mb-4 d-flex align-items-md-end justify-content-center justify-content-md-around align-items-center my-sm-4" >
+
+
+      <!--                FACEBOOK-->
+<!--      <div>-->
+        <%#= link_to "#", class:'fb-ic mr-3' do %>
+<!--          <i class=" fa-2x fa-facebook-f fa-lg fab white-text"> </i>-->
+        <%# end %>
+<!--      </div>-->
+      <!--                INSTAGRAM-->
+      <div>
+        <%= link_to "https://www.instagram.com/pointbudget/", class:'fb-ic mr-3' do %>
+          <i class="fab fa-instagram fa-lg white-text fa-2x"></i>
+        <% end %>
+      </div>
+      <!--                 LINKEDIN-->
+      <div>
+        <%= link_to "https://www.linkedin.com/in/benjamin-vaissac-20b930193/", class:'fb-ic mr-3' do %>
+          <i class="fab fa-linkedin-in fa-lg white-text fa-2x"></i>
+        <% end %>
+      </div>
+
+      <!--                TWITTER-->
+      <div>
+        <%= link_to "https://twitter.com/VaissacB", class:'fb-ic mr-3' do %>
+          <i class="fab fa-twitter fa-lg white-text fa-2x"></i>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-4 mb-md-0 mb-4 d-flex flex-column justify-content-end"></div>
+  </div>
+  <div class="footer-copyright text-center py-3 mt-3">© 2019 Copyright
   </div>
 </footer>
 
