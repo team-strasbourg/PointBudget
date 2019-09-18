@@ -5,6 +5,7 @@ class FullSimulation < ApplicationRecord
   has_one :gas_simulation, dependent: :destroy
   has_one :box_simulation, dependent: :destroy
   has_one :ele_simulation, dependent: :destroy
+  has_one :bank_simulation, dependent: :destroy
   has_one :mobil_simulation, dependent: :destroy
   # after_update :mail_if_validated
 
@@ -19,12 +20,17 @@ class FullSimulation < ApplicationRecord
     gas_simulation.nil? ? false : true
   end
 
-  # Check if the full simulation has already a gas simulation
+  # Check if the full simulation has already a box simulation
   def only_one_box_simulation
     box_simulation.nil? ? false : true
   end
 
-  # Check if the full simulation has already a gas simulation
+  # Check if the full simulation has already a bank simulation
+  def only_one_bank_simulation
+    bank_simulation.nil? ? false : true
+  end
+
+  # Check if the full simulation has already a ele simulation
   def only_one_ele_simulation
     ele_simulation.nil? ? false : true
   end

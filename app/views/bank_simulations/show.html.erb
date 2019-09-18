@@ -8,10 +8,9 @@
         <div class="card shadow-soft border-light p-4">
           <!-- Header -->
           <header class="card-header border-bottom bg-white text-center d-flex flex-column">
-            <div class="float-left"><%= @ele_sim.created_at.to_formatted_s(:short)%></div>
             <div class="display-1 text-secondary font-weight-bold">
-                <p class="align-top font-medium pr-5">Vous pouvez épargner</p><%= (@ele_sim.ele_cost_saved).round(2)%> €
-            <span class="font-medium">/ an</span>
+              <p class="align-top font-medium">Vous pouvez épargner</p><%= (@bank_sim.bank_cost_saved).round(2)%> €
+              <span class="font-medium">/ an</span>
             </div>
           </header>
           <!-- Content -->
@@ -19,16 +18,16 @@
             <div class="row">
               <div class="col text-center">
                 <ul class="list-group mb-4">
-                  <li class="list-group-item"><strong>Coût annuel de l'électricité</strong><br><%=@ele_sim.actual_price_paid%> €</li>
-                </ul>
-              </div>
-              <div class="col text-center">
-                <ul class="list-group mb-4">
-                  <li class="list-group-item"><strong>Consommation annuelle</strong>  <%= @ele_sim.ele_use%> Wh</li>
+                  <li class="list-group-item"><strong>Frais de gestion de compte</strong><br>
+                    <%= @bank_sim.accounting_fees%> €  </li>
+                  <li class="list-group-item"><strong>Frais liés au chéquier</strong><br>
+                    <%= @bank_sim.price_cheque%>  € </li>
+                  <li class="list-group-item"><strong>Frais liés à l'assurance de vos moyens de paiement</strong><br>
+                    <%= @bank_sim.insurance_payment%>  €  </li>
                 </ul>
               </div>
             </div>
-              <%= link_to 'Lancer une nouvelle simulation', new_user_full_simulation_path(current_user), class:"btn animate-up-3 btn-outline-secondary btn-block"%>
+            <%= link_to 'Lancer une nouvelle simulation', new_user_full_simulation_path(current_user), class:"btn animate-up-3 btn-outline-secondary btn-block"%>
           </div>
         </div>
       </div>
@@ -37,17 +36,17 @@
   </div>
 
   <h2 class='text-center'>
-  <%case @ele_contracts.length %>
-  <%when 0 %>
-    Votre contrat actuel répond parfaitement à vos besoins !
-  <% when 1 %>
-    Voici le meilleur contrat pour vous
-  <%else %>
-    Voici les <%=@ele_contracts.length %> meilleurs contrats pour vous
-  <%end %>
+    <%case @bank_contracts.length %>
+    <%when 0 %>
+      Votre contrat actuel répond parfaitement à vos besoins !
+    <% when 1 %>
+      Voici le meilleur contrat pour vous
+    <%else %>
+      Voici les <%=@bank_contracts.length %> meilleurs contrats pour vous
+    <%end %>
   </h2>
-  <div class="row my-5">
-    <% @ele_contracts.each do |contract| %>
+  <div class="row d-flex justify-content-center my-5">
+    <% @bank_contracts.each do |contract| %>
       <div class="col-md-4">
 
         <div class="pricing-card">
@@ -57,7 +56,6 @@
               <span class="d-block">
                 <span class="display-1 text-primary font-weight-bold">
                     <span class="align-top font-medium"><%= contract.supplier %></span>
-                    <p>Offre : <%=contract.offer_name %></p>
                 </span>
               </span>
             </header>
@@ -65,8 +63,9 @@
             <!-- Content -->
             <div class="card-body">
               <ul class="list-group mb-4">
-                <li class="list-group-item"><strong>Prix de l'abonnement par an</strong> : <%=(contract.subscription_base_price_month * 12).round(2) %></li>
-                <li class="list-group-item"><strong>Prix du kwh</strong> : <%=contract.kwh_price_base %></li>
+                <li class="list-group-item"><strong>Frais de gestion de compte</strong> : <%=contract.accounting_fees %> € </li>
+                <li class="list-group-item"><strong>Frais liés au chéquier</strong> : <%=contract.price_cheque %> € </li>
+                <li class="list-group-item"><strong>Frais liés à l'assurance de vos moyens de paiement</strong> : <%=contract.insurance_payment %> € </li>
               </ul>
             </div>
             <!-- End Content -->
