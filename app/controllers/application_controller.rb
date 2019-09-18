@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     if current_user.is_admin?
       stored_location_for(resource) || admin_root_path
     else
-      stored_location_for(resource) || user_path(current_user)
+      stored_location_for(resource) || new_user_full_simulation_path(current_user)
     end
   end
 

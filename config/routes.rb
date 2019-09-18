@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     root to: 'users#index'
     resources :users
     resources :full_simulations, only: [:show]
+    resources :gas_simulations, only: [:show]
+    resources :box_simulations, only: [:show]
+    resources :ele_simulations, only: [:show]
     resources :gas_contracts
     resources :box_contracts
     resources :ele_contracts
