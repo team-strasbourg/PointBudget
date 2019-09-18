@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'static_pages/about'
   get 'static_pages/contact'
   get 'static_pages/service_operation'
+  get 'static_pages/legal_information'
 
   namespace :admin do
     root to: 'users#index'
