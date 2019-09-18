@@ -19,12 +19,9 @@ RSpec.describe 'full_simulations/show.html.erb', type: :view do
       @full_simulation = create(:full_simulation, user: @user, validated: true)
       render
     end
-    it "displays 'Mon Profile'" do
-      expect(rendered).to have_content 'Vous venez de valider votre simulation'
+    it "displays 'Contacter un conseiller par mail'" do
+      expect(rendered).to have_content 'Contacter un conseiller par mail'
     end
 
-    it "displays 'Mon Profile'" do
-      expect(rendered).to have_content 'Regardons de près:'
-    end
   end
 end
