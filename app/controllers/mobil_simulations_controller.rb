@@ -24,7 +24,6 @@ class MobilSimulationsController < ApplicationController
     calls_international = params[:calls_international] == 'true' ? true : false
     net_international = params[:net_international] == 'true' ? true : false
 
-    #comparison
     comparison = @mobil_simulation.comparison(params[:monthly_cost], params[:bundle_go], calls_europe, calls_international, net_international)
 
     @mobil_simulation = MobilSimulation.new(actual_price_paid: params[:monthly_cost].to_f,
