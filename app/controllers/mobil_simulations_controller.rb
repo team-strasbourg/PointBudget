@@ -10,6 +10,7 @@ class MobilSimulationsController < ApplicationController
     @calls_europe = table_attributes[0]
     @calls_international = table_attributes[1]
     @net_international = table_attributes[2]
+    @engagement = table_attributes[3]
     @mobil_contracts = @mobil_simulation.sort_contracts(3)
   end
 
