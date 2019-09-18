@@ -23,4 +23,4 @@ Things you may want to cover:
 
 * ...
 
-.to_formatted_s(:short)
+
