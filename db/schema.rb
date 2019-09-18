@@ -182,7 +182,7 @@ ActiveRecord::Schema.define(version: 2019_09_18_080120) do
     t.float "mobil_cost_saved", default: 0.0
     t.boolean "calls_europe", default: false
     t.boolean "calls_international", default: false
-    t.float "net_international", default: 0.0
+    t.boolean "net_international", default: false
     t.float "bundle_go", default: 0.0
     t.bigint "full_simulation_id"
     t.datetime "created_at", null: false

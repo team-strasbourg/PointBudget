@@ -20,14 +20,19 @@
                 <ul class="list-group mb-4">
                   <li class="list-group-item"><strong>Coût mensuel de votre forfait Mobile</strong><br><%= @mobil_simulation.actual_price_paid%> €</li>
                   <li class="list-group-item"><strong>Nombre de Go</strong><br>
-                      <%= @bundle_go%> </li>
+                      <%= @mobil_simulation.bundle_go%> </li>
                 </ul>
               </div>
               <div class="col text-center">
                 <ul class="list-group mb-4">
-                  <li class="list-group-item"><strong>Appels/SMS/MMS illimités en Europe</strong>  <%= @calls_europe%></li>
+                  <li class="list-group-item"><strong>Appels/SMS/MMS illimités en Europe</strong>  <%= @mobil_simulation.calls_europe%>
+                  </li>
                   <li class="list-group-item"><strong>Appels/SMS/MMS illimités à l'étranger</strong>
-                      <%= @calls_international%></li>
+                      <%= @mobil_simulation.calls_international%>
+                  </li>
+                  <li class="list-group-item"><strong>Internet à l'étranger</strong>
+                      <%= @mobil_simulation.net_international%>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -49,7 +54,7 @@
     Voici les <%=@mobil_contracts.length %> meilleurs contrats pour vous
   <%end %>
   </h2>
-  <div class="row d-flex justify-content-md-center my-5">
+  <div class="row d-flex justify-content-center my-5">
     <% @mobil_contracts.each do |contract| %>
       <div class="col-md-4">
 
