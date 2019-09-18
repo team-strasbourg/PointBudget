@@ -11,6 +11,7 @@ class BoxSimulation < ApplicationRecord
             numericality: { greater_than_or_equal_to: 0 }
 
 
+  # This method is used to replace the value to show if there are not provided by the client
   def print_report
     table_attributes = []
     [tv, call_fix_fr, call_mob_fr].each do |attribute|
@@ -19,14 +20,12 @@ class BoxSimulation < ApplicationRecord
     table_attributes
   end
 
+  # Set the user of the box simulation
   def user
     self.full_simulation.user
   end
 
-  def assign_params_from_controller(params)
-    @params = params
-  end
-
+  # This method can show the top best contracts depending on the number we want to show
   def sort_contracts(how_many)
     return_array = []
     contracts_sorted = join_table_box_contracts.sort_by(&:savings).reverse
@@ -38,6 +37,7 @@ class BoxSimulation < ApplicationRecord
     return_array
   end
 
+  # This method execute the comparison between what is entered by the client and the contracts
   def comparison(monthly_cost, tv, call_fix, call_mobile)
     monthly_cost = monthly_cost.to_i
     first_filter = BoxContract.all.select { |contract| contract.tv == tv } # Filter if the tv option is the same
@@ -56,6 +56,7 @@ class BoxSimulation < ApplicationRecord
     [max_save.round(2), fourth_filter, all_savings] # return the max savec, all the better contracts and the savings for each contracts
   end
 
+  # This method create all the join table given by the filter and the saving associated with each
   def create_join_table_box(filter, all_savings)
     filter.each_with_index do |contract, index|
       JoinTableBoxContract.create(box_simulation: self, box_contract: contract, savings: all_savings[index])

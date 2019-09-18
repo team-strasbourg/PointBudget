@@ -6,8 +6,6 @@ class BoxSimulationsController < ApplicationController
   before_action :not_other_users_box_simulations, only: [:show]
   before_action :not_other_user_index, only: [:index]
 
-  def index; end
-
   def show
     @box_sim = BoxSimulation.find(params[:id])
     table_attributes = @box_sim.print_report
@@ -30,12 +28,10 @@ class BoxSimulationsController < ApplicationController
   def create
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
     @box_simulation = BoxSimulation.new
-    @box_simulation.assign_params_from_controller(params)
     my_params = params[:box_simulation]
     tv = my_params[:tv] == 'true' ? true : false
     call_fix_fr = my_params[:call_fix_fr] == 'true' ? true : false
     call_mob_fr = my_params[:call_mob_fr] == 'true' ? true : false
-    @box_simulation.assign_params_from_controller(params)
     comparison = @box_simulation.comparison(params[:monthly_cost], tv, call_fix_fr, call_mob_fr)
     @box_simulation = BoxSimulation.new(actual_price_paid: params[:monthly_cost],
                                         box_cost_saved: comparison[0],
