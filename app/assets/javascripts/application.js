@@ -97,6 +97,7 @@ $(document).ready(function () {
           });
 
         clickToDisplayEnergies.addEventListener('click', function(){
+            $("#bank-categories").hide(600);
             if (energyDeployStatus == false) {
               $("#energy-categories").addClass("d-flex");
               $("#energy-categories").show(500);
@@ -124,6 +125,7 @@ $(document).ready(function () {
         });
 
         clickToDisplayNumerics.addEventListener('click', function(){
+            $("#bank-categories").hide(600);
             if (numericDeployStatus == false) {
                 $("#numeric-categories").addClass("d-flex");
                 $("#numeric-categories").show(500);
