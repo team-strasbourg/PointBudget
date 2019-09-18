@@ -172,16 +172,16 @@
 	<div class="btn-block"></div>
 	<div id="context" class="container">
     <div class="title-context">
-      <h2>Vous venez de valider votre simulation n°<%= @full_simulation.id %>!</h2>
+      <h2>Voici le résultat de votre simulation n°<%= @full_simulation.id %></h2>
     </div>
     <div class="content">
-		  <h4 class="text-center">D'après nos comparateurs, vous pourriez économiser</h4><br>
+		  <h4 class="text-center">D'après nos comparateurs, selon vos simulations, vous pourriez économiser</h4><br>
 		</div>
 	  <div class="price-position d-flex justify-content-center">
 	    <h4 class="price-simu bg-secondary text-white"><%= @full_simulation.total_cost_saved %>€</h4><br>
     </div>
     <div class="content">
-			<p>Regardons de près:</p>
+			<h5>Ci-dessous, les domaines que vous avez choisis:</5>
 		</div>
 	</div>
 	<div id="simulation-list" class="container">
