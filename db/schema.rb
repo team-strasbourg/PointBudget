@@ -21,14 +21,14 @@ ActiveRecord::Schema.define(version: 2019_09_18_080120) do
     t.float "price_month", default: 0.0
     t.integer "commitment", default: 0
     t.float "price_after", default: 0.0
-    t.string "internet_type"
+    t.string "internet_type", default: ""
     t.integer "downstream", default: 0
     t.integer "upstream", default: 0
     t.string "tv_channel", default: ""
-    t.boolean "tv"
-    t.boolean "call_fix_fr"
-    t.boolean "call_mobile_fr"
-    t.boolean "call_foreign"
+    t.boolean "tv", default: true
+    t.boolean "call_fix_fr", default: true
+    t.boolean "call_mobile_fr", default: true
+    t.boolean "call_foreign", default: true
     t.float "opening_fee", default: 0.0
     t.float "termination_fee", default: 0.0
     t.float "taken_termination", default: 0.0
@@ -158,9 +158,9 @@ ActiveRecord::Schema.define(version: 2019_09_18_080120) do
     t.string "last_name"
     t.string "phone_number"
     t.boolean "is_admin", default: false
-    t.bigint "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "city_id"
     t.string "provider"
     t.string "uid"
     t.index ["city_id"], name: "index_users_on_city_id"
