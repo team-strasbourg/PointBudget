@@ -13,15 +13,25 @@ class MobilSimulationsController < ApplicationController
   end
 
   def create
+
+    puts "#"*60
+    puts params
+    puts "#"*60
+
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
     @mobil_simulation = MobilSimulation.new
+    calls_europe = params[:calls_europe] == 'true' ? true : false
+    calls_international = params[:calls_international] == 'true' ? true : false
+    net_international = params[:net_international] == 'true' ? true : false
 
-    if @mobil_simulation.save
-      flash[:success] = "Votre simulation concernant votre mobile a été sauvegardée!"
-    else
-      flash[:error] = @mobil_simulation.errors.messages
-    end
-    redirect_to user_full_simulation_path(current_user, @full_simulation)
+    #comparison
+
+    # if @mobil_simulation.save
+    #   flash[:success] = "Votre simulation concernant votre mobile a été sauvegardée!"
+    # else
+    #   flash[:error] = @mobil_simulation.errors.messages
+    # end
+    # redirect_to user_full_simulation_path(current_user, @full_simulation)
   end
 
   def edit

@@ -16,4 +16,9 @@ class MobilSimulation < ApplicationRecord
     self.full_simulation.user
   end
 
+  # Def comparison
+  def comparison(monthly_cost, bundle_go, calls_europe, calls_international, net_international)
+  	
+  end
+
 end
