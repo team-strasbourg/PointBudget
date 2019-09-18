@@ -62,7 +62,7 @@
             <!-- Content -->
             <div class="card-body">
               <ul class="list-group mb-4">
-                <li class="list-group-item"><strong>Economies grâce à ce contrat</strong> : <%=contract.join_table_bank_simulation_contracts.find_by(bank_simulation_id: @bank_sim.id).savings %> €</li>
+                <li class="list-group-item"><strong>Economies grâce à ce contrat</strong> : <%=contract.join_table_bank_contracts.find_by(bank_simulation_id: @bank_sim.id).savings %> €</li>
                 <li class="list-group-item"><strong>Frais de gestion de compte</strong> : <%=contract.accounting_fees %> € </li>
                 <li class="list-group-item"><strong>Frais liés au chéquier</strong> : <%=contract.price_cheque %> € </li>
                 <li class="list-group-item"><strong>Frais liés à l'assurance de vos moyens de paiement</strong> : <%=contract.insurance_payment %> € </li>
