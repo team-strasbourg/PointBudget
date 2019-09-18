@@ -32,7 +32,7 @@
 
 $(document).ready(function () {
 
-    if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show") {
+    if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show" && document.body.contains(document.getElementById('full-simu-not-validated'))) {
         radioYes = document.getElementById("answer_yes")
         radioNo = document.getElementById("answer_no")
 
@@ -54,7 +54,7 @@ $(document).ready(function () {
         }
     }
 
-    if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "new"){
+    if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "new") {
       clickToDisplayDomains = document.getElementById("btn-click-1")
       domainDeploySatus = false
 
@@ -63,7 +63,7 @@ $(document).ready(function () {
       })
     };
 
-    if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show"){
+    if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show" && document.body.contains(document.getElementById('full-simu-not-validated'))) {
 
         // ENERGIE
         clickToDisplayNumerics = document.getElementById("btn-numeric");
