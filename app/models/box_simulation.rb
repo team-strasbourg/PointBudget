@@ -19,7 +19,6 @@ class BoxSimulation < ApplicationRecord
         table_attributes << 'Oui'
       else
         table_attributes << 'Non'
-
       end
     end
     table_attributes

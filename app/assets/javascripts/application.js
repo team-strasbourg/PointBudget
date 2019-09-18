@@ -65,7 +65,6 @@ $(document).ready(function () {
 
     if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show" && document.body.contains(document.getElementById('full-simu-not-validated'))) {
 
-
         clickToDisplayNumerics = document.getElementById("btn-numeric");
         numericDeployStatus = false;
         clickToDisplayBoxSimu = document.getElementById("btn-box");
