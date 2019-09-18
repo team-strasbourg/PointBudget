@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_17_095506) do
+ActiveRecord::Schema.define(version: 2019_09_18_080120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2019_09_17_095506) do
     t.bigint "full_simulation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name", default: "Electricité"
     t.index ["full_simulation_id"], name: "index_ele_simulations_on_full_simulation_id"
   end
 
