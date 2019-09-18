@@ -23,8 +23,9 @@ class MobilSimulationsController < ApplicationController
     calls_europe = params[:calls_europe] == 'true' ? true : false
     calls_international = params[:calls_international] == 'true' ? true : false
     net_international = params[:net_international] == 'true' ? true : false
-    
-    comparison = @mobil_simulation.comparison(params[:monthly_cost], params[:bundle_go], calls_europe, calls_international, net_international)
+    engagement = params[:engagement] == 'true' ? true : false
+
+    comparison = @mobil_simulation.comparison(params[:monthly_cost], params[:bundle_go], calls_europe, calls_international, net_international, engagement)
     @mobil_simulation = MobilSimulation.new(actual_price_paid: params[:monthly_cost].to_f,
                                         mobil_cost_saved: comparison[0],
                                         calls_europe: calls_europe,
