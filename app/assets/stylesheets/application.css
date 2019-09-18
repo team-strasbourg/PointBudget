@@ -83,23 +83,23 @@ li.button-group{
 					width: 100%;
 					background-size:100% auto;
 			}
-	
+
 	}
-	
+
 	/*Hide in Other Small Devices */
-	
-	
+
+
 	/* Landscape tablets and medium desktops */
 	@media (min-width: 992px) and (max-width: 1199px) {
-	
+
 				#jumbo-image {
 					background-image: none;
 					background-color:  white;
 					text-align: center;
 			}
-	
+
 	}
-	
+
 	/* Portrait tablets and small desktops */
 	@media (min-width: 768px) and (max-width: 991px) {
 						#jumbo-image {
@@ -107,21 +107,21 @@ li.button-group{
 					background-color:  white;
 					text-align: center;
 			}
-	
+
 	}
-	
+
 	/* Landscape phones and portrait tablets */
 	@media (max-width: 767px) {
-	
+
 						#jumbo-image {
 					background-image: none;
 					background-color:  white;
 					text-align: center;
 					justify-content: center;
 			}
-	
+
 	}
-	
+
 	/* Portrait phones and smaller */
 	@media (max-width: 480px) {
 						#jumbo-image {
@@ -400,7 +400,7 @@ li.button-group{
 
 #simulation-list{
 	margin-top: -50px;
-	margin-bottom: 200px;
+	margin-bottom: 50px;
 }
 
 .btn-full{
@@ -446,4 +446,3 @@ li.button-group{
 #energy-categories{
 	margin-bottom: 80px;
 }
-
