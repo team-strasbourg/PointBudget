@@ -141,18 +141,16 @@
             <span aria-hidden="true">×</span>
           <%end %>
         </div>
-        <div class="modal-body">
-          <div id="context" class="container">
-				    <div class="content">
-				      <h4 class="text-center">D'après nos comparateurs, vous pourriez économiser</h4><br>
-				    </div>
-				    <div class="price-position d-flex justify-content-center">
-				      <h4 class="price-simu bg-secondary text-white"><%= @full_simulation.total_cost_saved %>€</h4><br>
-				    </div>
-				    <div class="content">
-				      <h4 class="text-justify">Validez sans plus tarder votre simulation afin d'accéder à vos différents domaines d'économie!</h4><br>
-				    </div>
-				  </div>
+        <div class="modal-body container">
+			    <div class="content">
+			      <h4 class="text-center">D'après nos comparateurs, vous pourriez économiser</h4><br>
+			    </div>
+			    <div class="price-position d-flex justify-content-center">
+			      <h4 class="price-simu bg-secondary text-white"><%= @full_simulation.total_cost_saved %>€</h4><br>
+			    </div>
+			    <div class="content">
+			      <h4 class="text-justify">Validez sans plus tarder votre simulation afin d'accéder à vos différents domaines d'économie!</h4><br>
+			    </div>
 				</div>
         <div class="modal-footer">
         		<%= render partial: "shared/form",
