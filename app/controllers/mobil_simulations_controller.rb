@@ -35,12 +35,16 @@ class MobilSimulationsController < ApplicationController
                                         bundle_go: params[:bundle_go].to_f,
                                         full_simulation: @full_simulation)
     if @mobil_simulation.save
-    # if @mobil_simulation.save
-    #   flash[:success] = "Votre simulation concernant votre mobile a été sauvegardée!"
-    # else
-    #   flash[:error] = @mobil_simulation.errors.messages
-    # end
-    # redirect_to user_full_simulation_path(current_user, @full_simulation)
+      # create the join table with arguments the better contracts and the savings for each contracts
+      @mobil_simulation.create_join_table_mobil(comparison[1], comparison[2])
+      # update full_simulation
+      @full_simulation.update(total_cost_saved: (@full_simulation.total_cost_saved + @mobil_simulation.mobil_cost_saved),
+                              counter: @full_simulation.counter + 1)
+    flash[:success] = 'Votre simulation de mobile a bien été enregistrée'
+    else
+      flash[:error] = @mobil_simulation.errors.messages
+    end
+    redirect_to user_full_simulation_path(current_user, @full_simulation)
   end
 
   def edit
