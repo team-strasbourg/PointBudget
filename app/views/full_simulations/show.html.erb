@@ -172,19 +172,29 @@
 	<div class="btn-block"></div>
 	<div id="context" class="container">
     <div class="title-context">
-      <h2>Voici le résultat de votre simulation</h2>
+      <h2>Voici le résultat de votre simulation!</h2>
     </div>
+  <!-- Different front if user does economies or not after his full_simulation -->
+  <% if @full_simulation.total_cost_saved <= 0 %>
+    <div class="content container row d-flex justify-content-center">
+      <h4 class="text-center">D'après nos comparateurs et selon vos simulations, nous ne pouvons vous proposer mieux!<br><br>Avez-vous faits toutes les simulations que nous vous proposons?</h4><br>
+      <div class="col-md-5 ">
+        <%= link_to 'Lancer une nouvelle simulation', new_user_full_simulation_path(current_user), class: "btn animate-up-3 btn-primary btn-block mx-5 btn-full"%>
+      </div>
+    </div>
+  <% else %>
     <div class="content">
 		  <h4 class="text-center">D'après nos comparateurs, selon vos simulations, vous pourriez économiser</h4><br>
 		</div>
 	  <div class="price-position d-flex justify-content-center">
 	    <h4 class="price-simu bg-secondary text-white"><%= @full_simulation.total_cost_saved %>€</h4><br>
     </div>
-    <div class="content">
-			<h5>Ci-dessous, les domaines que vous avez choisis:</5>
-		</div>
+  <% end %>
 	</div>
 	<div id="simulation-list" class="container">
+    <div class="content categ-choice">
+      <h5>Ci-dessous, les domaines que vous avez choisis:</5>
+    </div>
 		<% if @full_simulation.only_one_gas_simulation %>
 			<div class="accordion container">
 		    <div class="card card-sm card-body shadow-sm border-soft border">
