@@ -51,7 +51,7 @@ class GasSimulationsController < ApplicationController
                               counter: @full_simulation.counter + 1)
       flash[:success] = 'Votre simulation de gaz a bien été enregistrée'
     else
-      flash[:error] = @gas_simulation.errors.messages
+      flash[:error] = 'Veuillez remplir tous les champs pour terminer la simulation de gaz'
     end
     redirect_to user_full_simulation_path(current_user, @full_simulation)
   end
