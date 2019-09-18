@@ -143,18 +143,16 @@
             <span aria-hidden="true">×</span>
           <%end %>
         </div>
-        <div class="modal-body">
-          <div id="context" class="container">
-				    <div class="content">
-				      <h4 class="text-center">D'après nos comparateurs, vous pourriez économiser</h4><br>
-				    </div>
-				    <div class="price-position d-flex justify-content-center">
-				      <h4 class="price-simu bg-secondary text-white"><%= @full_simulation.total_cost_saved %>€</h4><br>
-				    </div>
-				    <div class="content">
-				      <h4 class="text-justify">Validez sans plus tarder votre simulation afin d'accéder à vos différents domaines d'économie!</h4><br>
-				    </div>
-				  </div>
+        <div class="modal-body container">
+			    <div class="content">
+			      <h4 class="text-center">D'après nos comparateurs, vous pourriez économiser</h4><br>
+			    </div>
+			    <div class="price-position d-flex justify-content-center">
+			      <h4 class="price-simu bg-secondary text-white"><%= @full_simulation.total_cost_saved %>€</h4><br>
+			    </div>
+			    <div class="content">
+			      <h4 class="text-justify">Validez sans plus tarder votre simulation afin d'accéder à vos différents domaines d'économie!</h4><br>
+			    </div>
 				</div>
         <div class="modal-footer">
         		<%= render partial: "shared/form",
@@ -201,7 +199,7 @@
 			<div class="accordion container">
 		    <div class="card card-sm card-body shadow-sm border-soft border">
 	        <div data-target="#panel-1" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
-	          <span class="icon-title h6 mb-0 font-weight-bold"><i class="fas fa-burn"></i><%= @full_simulation.gas_simulation.name %></span>
+	          <span class="icon-title h6 mb-0 font-weight-bold"><i class="fas fa-burn mr-3"></i><%= @full_simulation.gas_simulation.name %></span>
 	          <span class="icon"><i class="fas fa-plus"></i></span>
 	        </div>
 	        <div class="collapse" id="panel-1">
@@ -219,13 +217,13 @@
 			<div class="accordion container">
 				<div class="card card-sm card-body shadow-sm border-soft border">
 					<div data-target="#panel-2" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-2">
-						<span class="icon-title h6 mb-0 font-weight-bold"><i class="fas fa-bolt"></i><%= @full_simulation.ele_simulation.name %></span>
+						<span class="icon-title h6 mb-0 font-weight-bold"><i class="fas fa-bolt mr-3"></i><%= @full_simulation.ele_simulation.name %></span>
 						<span class="icon"><i class="fas fa-plus"></i></span>
 					</div>
 					<div class="collapse" id="panel-2">
 						<div class="pt-3">
 							<p class="mb-0">
-									Vous pouvez économiser <strong><%= @full_simulation.ele_simulation.ele_cost_saved %>€</strong>
+								Vous pouvez économiser <strong><%= @full_simulation.ele_simulation.ele_cost_saved %>€</strong>
 							</p>
 							<%=link_to 'Voir en détails', user_full_simulation_ele_simulation_path(current_user,@full_simulation, @full_simulation.ele_simulation) %>
 						</div>
@@ -237,7 +235,7 @@
 			<div class="accordion container">
 		    <div class="card card-sm card-body shadow-sm border-soft border">
 	        <div data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
-	          <span class="icon-title h6 mb-0 font-weight-bold"><i class="fas fa-signal"></i><%= @full_simulation.box_simulation.name %></span>
+	          <span class="icon-title h6 mb-0 font-weight-bold"><i class="fas fa-signal mr-3"></i><%= @full_simulation.box_simulation.name %></span>
 	          <span class="icon"><i class="fas fa-plus"></i></span>
 	        </div>
 	        <div class="collapse" id="panel-3">
@@ -254,14 +252,14 @@
     <% if @full_simulation.only_one_mobil_simulation %>
       <div class="accordion container">
         <div class="card card-sm card-body shadow-sm border-soft border">
-          <div data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
-            <span class="icon-title h6 mb-0 font-weight-bold"><i class="fas fa-signal"></i><%= @full_simulation.mobil_simulation.name %></span>
+          <div data-target="#panel-4" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
+            <span class="icon-title h6 mb-0 font-weight-bold"><i class="fas fa-mobile-alt mr-3"></i><%= @full_simulation.mobil_simulation.name %></span>
             <span class="icon"><i class="fas fa-plus"></i></span>
           </div>
-          <div class="collapse" id="panel-3">
+          <div class="collapse" id="panel-4">
             <div class="pt-3">
               <p class="mb-0">
-                  Vous pouvez économiser <strong><%= @full_simulation.mobil_simulation.mobil_cost_saved %>€</strong>
+                Vous pouvez économiser <strong><%= @full_simulation.mobil_simulation.mobil_cost_saved %>€</strong>
               </p>
               <%=link_to 'Voir en détails', user_full_simulation_mobil_simulation_path(current_user,@full_simulation, @full_simulation.mobil_simulation) %>
             </div>
@@ -273,7 +271,7 @@
       <div class="accordion container">
         <div class="card card-sm card-body shadow-sm border-soft border">
           <div data-target="#panel-3" class="accordion-panel-header" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
-            <span class="icon-title h6 mb-0 font-weight-bold"><i class="fas fa-money-check-alt"></i><%= @full_simulation.bank_simulation.name %></span>
+            <span class="icon-title h6 mb-0 font-weight-bold"><i class="fas fa-money-check-alt mr-3"></i><%= @full_simulation.bank_simulation.name %></span>
             <span class="icon"><i class="fas fa-plus"></i></span>
           </div>
           <div class="collapse" id="panel-3">
