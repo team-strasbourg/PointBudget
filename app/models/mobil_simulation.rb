@@ -50,9 +50,14 @@ class MobilSimulation < ApplicationRecord
   # This method is used to replace the value to show if there are not provided by the client
   def print_report
     table_attributes = []
-    [tv, call_fix_fr, call_mob_fr].each do |attribute|
-      table_attributes << attribute.presence || 'Non renseigné'
+    [calls_europe, calls_international, net_international].each do |attribute|
+      if attribute.blank?
+        table_attributes << 'Non renseigné'
+      else
+        table_attributes << attribute.presence
+      end
     end
-    table_att
+    table_attributes
+  end
 
 end
