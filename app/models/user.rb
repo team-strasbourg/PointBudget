@@ -19,6 +19,7 @@ class User < ApplicationRecord
   has_many :gas_simulations, through: :full_simulations, dependent: :destroy
   has_many :box_simulations, through: :full_simulations, dependent: :destroy
   has_many :ele_simulations, through: :full_simulations, dependent: :destroy
+  has_many :mobil_simulations, through: :full_simulations, dependent: :destroy
 
 # For omniauth faceboook
   def self.new_with_session(params, session)
