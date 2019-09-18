@@ -24,18 +24,4 @@ RSpec.describe 'Full Simulation creation', type: :feature do
     click_button 'Valider ma simulation'
     expect(page).to have_content('Votre simulation a été validée')
   end
-
-  scenario 'add in index non validated' do
-    visit new_user_full_simulation_path(@user)
-    within('#body_content_user') do
-      click_link 'Je lance ma simulation'
-    end
-    visit user_full_simulations_path(@user)
-    within('#table-validated') do
-      expect(page).not_to have_content(FullSimulation.last.id)
-    end
-    within('#table-non-validated') do
-      expect(page).to have_content(FullSimulation.last.id)
-    end
-  end
 end
