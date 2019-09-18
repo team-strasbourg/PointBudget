@@ -64,7 +64,7 @@
         <%= render partial: 'button_categories', locals: {category: 'elec', sub_category: 'elec', bg:'primary', animate: 'animate-up-3 mx-2', style:'', icon: "fas fa-bolt", name:'Electricité', disabled:false} %>
       <%end%>
     </div>
-    
+
     <!-- Gas Simulation JS -->
     <div id="gas-simu" class="col-md-12" style="display: none;">
       <%= render partial: "shared/form", locals:{resource: @gas_simulation,
@@ -270,8 +270,10 @@
     <% end %>
 	</div>
 	<div class="card card-sm card-body shadow-sm border-soft border">
-		Contacter mon conseiller
-		</div>
+		<%= mail_to "pointbudget@hotmail.com" do %>
+  		<strong>Contacter un conseiller par mail</strong>
+		<% end %>
+	</div>
 <% end %>
 
 
