@@ -5,13 +5,6 @@
 
 	<div id="categories" class="row container-fluid d-flex justify-content-around">
 
-		<!-- insurance -->
-      <%= button_tag class: 'btn-simu-assur btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
-				<div class="d-flex justify-content-around align-items-center text-white">
-					<span class="icon"><i class="fas fa-house-damage"></i></span>
-					<h5 class="mt-4">Assurance</h5>
-				</div>
-			<% end %>
 		<!-- bank -->
     <% if @full_simulation.only_one_bank_simulation %>
       <!-- bank -->
@@ -37,13 +30,6 @@
       <!-- numeric btn -->
       <%= render partial: 'button_categories', locals: {category: 'numeric', sub_category: 'num', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-mobile-alt", name:'Numérique',disabled:false} %>
     <% end %>
-		<!-- medical -->
-      <%= button_tag class: 'btn-simu-mut btn-simu btn btn-secondary disabled', style:'cursor:not-allowed' do %>
-				<div class="d-flex justify-content-around align-items-center text-white">
-					<span class="icon"><i class="fas fa-stethoscope"></i></span>
-					<h5 class="mt-4">Mutuelle</h5>
-				</div>
-			<% end %>
 	</div>
 
 <!--btn BANK JAVASCRIPT-->
@@ -61,6 +47,7 @@
       </div>
     </div>
   </div>
+
   <!-- btn energy JAVASCRIPT -->
   <div class="container-fluid row justify-content-center" id="energy-categories" style="display:none;">
     <div class="col-md-4 d-flex justify-content-around">
@@ -185,7 +172,6 @@
 
 <% else %>
 
-	<div class="btn-block"></div>
 	<div id="context" class="container">
     <div class="title-context">
       <h2>Voici le résultat de votre simulation!</h2>
