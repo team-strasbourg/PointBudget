@@ -6,14 +6,16 @@ class FullSimulationsController < ApplicationController
   before_action :not_other_users_full_simulations, only: [:show]
   before_action :not_other_user_index, only: [:index, :new]
 
+
   def index
-    @simulations = current_user.full_simulations
+    @simulations = current_user.full_simulations.sort_by { |simu | simu.updated_at  }.reverse
   end
 
   def show
     @full_simulation = FullSimulation.find(params[:id])
     @gas_simulation = GasSimulation.new
     @box_simulation = BoxSimulation.new
+    @bank_simulation = BankSimulation.new
     @ele_simulation = EleSimulation.new
     @mobil_simulation = MobilSimulation.new
   end

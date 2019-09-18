@@ -65,7 +65,7 @@ $(document).ready(function () {
 
     if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show" && document.body.contains(document.getElementById('full-simu-not-validated'))) {
 
-        // ENERGIE
+
         clickToDisplayNumerics = document.getElementById("btn-numeric");
         numericDeployStatus = false;
         clickToDisplayBoxSimu = document.getElementById("btn-box");
@@ -77,7 +77,22 @@ $(document).ready(function () {
         clickToDisplayGasSimu = document.getElementById("btn-gas");
         gasDeployStatus = false;
         clickToDisplayElecSimu = document.getElementById("btn-elec");
+        clickToDisplayBankSimu = document.getElementById("btn-bank");
+        bankDeployStatus = false;
 
+        // BANK
+        clickToDisplayBankSimu.addEventListener('click', function(){
+            $("#bank-categories").toggle(600);
+            $("#numeric-categories").hide(600);
+            $("#numeric-categories").removeClass("d-flex");
+            numericDeployStatus = false;
+            $("#energy-categories").hide(600);
+            $("#energy-categories").removeClass("d-flex");
+            energyDeployStatus = false;
+
+
+        });
+        // ENERGIE
         clickToDisplayGasSimu.addEventListener('click', function(){
             $("#gas-simu").toggle(600);
             $("#elec-simu").hide(500);
@@ -89,6 +104,10 @@ $(document).ready(function () {
           });
 
         clickToDisplayEnergies.addEventListener('click', function(){
+            $("#bank-categories").hide(600);
+            $("#numeric-categories").hide(600);
+            $("#numeric-categories").removeClass("d-flex");
+            numericDeployStatus = false;
             if (energyDeployStatus == false) {
               $("#energy-categories").addClass("d-flex");
               $("#energy-categories").show(500);
@@ -116,6 +135,10 @@ $(document).ready(function () {
         });
 
         clickToDisplayNumerics.addEventListener('click', function(){
+            $("#bank-categories").hide(600);
+            $("#energy-categories").hide(600);
+            $("#energy-categories").removeClass("d-flex");
+            energyDeployStatus = false;
             if (numericDeployStatus == false) {
                 $("#numeric-categories").addClass("d-flex");
                 $("#numeric-categories").show(500);

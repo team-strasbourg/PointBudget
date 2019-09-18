@@ -10,7 +10,7 @@
             <div class="float-left"><%= @mobil_simulation.created_at.to_formatted_s(:short)%></div>
             <div class="display-1 text-secondary font-weight-bold">
                 <p class="align-top font-medium pr-5">Vous pouvez épargner</p><%= (@mobil_simulation.mobil_cost_saved).round(2)%> €
-            <span class="text-light font-small">/ an</span>
+            <span class="font-medium">/ an</span>
             </div>
           </header>
           <!-- Content -->
@@ -24,19 +24,19 @@
                       <%= @mobil_simulation.bundle_go%> 
                   </li>
 							    <li class="list-group-item"><strong>+Forfaits avec engagement</strong><br>
-                    <%= @mobil_simulation.engagement%> 
+                    <%= @engagement%>
                   </li>
                 </ul>
               </div>
               <div class="col text-center">
                 <ul class="list-group mb-4">
-                  <li class="list-group-item"><strong>Appels/SMS/MMS illimités en Europe</strong>  <%= @mobil_simulation.calls_europe%>
+                  <li class="list-group-item"><strong>Appels/SMS/MMS illimités en Europe</strong> <br> <%= @calls_europe%>
                   </li>
-                  <li class="list-group-item"><strong>Appels/SMS/MMS illimités à l'étranger</strong>
-                      <%= @mobil_simulation.calls_international%>
+                  <li class="list-group-item"><strong>Appels/SMS/MMS illimités à l'étranger</strong> <br>
+                      <%= @calls_international%>
                   </li>
-                  <li class="list-group-item"><strong>Internet à l'étranger</strong>
-                      <%= @mobil_simulation.net_international%>
+                  <li class="list-group-item"><strong>Internet à l'étranger</strong> <br>
+                      <%= @net_international%>
                   </li>
                 </ul>
               </div>

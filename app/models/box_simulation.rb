@@ -15,7 +15,12 @@ class BoxSimulation < ApplicationRecord
   def print_report
     table_attributes = []
     [tv, call_fix_fr, call_mob_fr].each do |attribute|
-      table_attributes << attribute.presence || 'Non renseigné'
+      if attribute == true
+        table_attributes << 'Oui'
+      else
+        table_attributes << 'Non'
+
+      end
     end
     table_attributes
   end

@@ -317,14 +317,14 @@
         <%when 'new_mobil_simulation'%>
           <div class="form-group">
             <p>Combien payez-vous par mois?<br>
-              <%= number_field_tag "monthly_cost", within: 0.00..200.00 ,step: 0.10,class: "form-control"%>
+              <%= number_field_tag "monthly_cost",0.00, in: 0.00..200.00 ,step: 0.01,class: "form-control"%>
             </p>
             <p>Combien votre forfait possède-t-il de Go?<br>
-              <%= number_field_tag "bundle_go", in: 0.00..200.00 ,step: 0.10,class: "form-control"  %>
+              <%= number_field_tag "bundle_go", 0.00, in: 0.00..200.00 ,step: 0.01,class: "form-control"  %>
             </p>
           </div>
           <div class="form-group">
-            <p>Voulez-vous inclure les forfaits avec engagement dans votre comparaison?<br><br>
+            <p>Voulez-vous inclure les forfaits <br> avec engagement dans votre comparaison?<br><br>
               <%= radio_button_tag(:engagement, 'true', true)%>
               <%= label_tag(:engagement_yes, "Oui")%>
               <%= radio_button_tag(:engagement, 'false') %>
@@ -355,6 +355,22 @@
             <%= label_tag(:net_international, "Non") %>
             </p>
           </div>
+
+  <!--        NEW BANK SIMULATION  -->
+
+        <%when 'new_bank_simulation'%>
+          <div class="form-group">
+            <p>Combien payez-vous de frais de gestion de compte par mois?<br>
+              <%= f.number_field :accounting_fees, within: 0.00..1000.00 ,step: 0.10,class: "form-control"%>
+            </p>
+            <p>Combien payez-vous pour votre chéquier par mois?<br>
+              <%= f.number_field :price_cheque, in: 0.00..1000.00 ,step: 0.10,class: "form-control"  %>
+            </p>
+            <p>Combien payez-vous pour votre assurance de vos moyen de paiements par mois?<br>
+              <%= f.number_field :insurance_payment, in: 0.00..1000.00 ,step: 0.10,class: "form-control"  %>
+            </p>
+          </div>
+
 
 
 
@@ -542,6 +558,62 @@
           <div class="form-group">
             <%= f.label :taken_termination %><br />
             <%= f.number_field :taken_termination,class: "form-control"  %>
+          </div>
+
+
+<!--         NEW AND EDIT BANK CONTRACT-->
+        <%when 'new_bank_contract', 'edit_bank_contract' %>
+          <div class="form-group">
+            <%= f.label :supplier %><br />
+            <%= f.text_field :supplier, autofocus: true, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :group_name %><br />
+            <%= f.text_field :group_name, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :accounting_fees %><br />
+            <%= f.number_field :accounting_fees, in: 0.00..1000.00, step: 0.01, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :inactive_accounting_fees %><br />
+            <%= f.number_field :inactive_accounting_fees, in: 0.00..1000.00, step: 0.01, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :cheque %><br />
+            <%= f.radio_button :cheque, true%>
+            <%= f.label(:cheque_yes, "Oui")%>
+            <%= f.radio_button :cheque, false %>
+            <%= f.label(:cheque_no, "Non") %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :price_cheque %><br />
+            <%= f.number_field :price_cheque, in: 0.00..1000.00, step: 0.01, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :price_order_cheque %><br />
+            <%= f.number_field :price_order_cheque, in: 0.00..1000.00, step: 0.01, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :insurance_payment %><br />
+            <%= f.number_field :insurance_payment, in: 0.00..1000.00, step: 0.01, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :sms_alert %><br />
+            <%= f.number_field :sms_alert, in: 0.00..1000.00, step: 0.01, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :international_withdraw %><br />
+            <%= f.number_field :international_withdraw, in: 0.00..1000.00, step: 0.01, class: "form-control"  %>
           </div>
 
 

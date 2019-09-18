@@ -8,10 +8,9 @@
         <div class="card shadow-soft border-light p-4">
           <!-- Header -->
           <header class="card-header border-bottom bg-white text-center d-flex flex-column">
-            <div class="float-left"><%= @ele_sim.created_at.to_formatted_s(:short)%></div>
             <div class="display-1 text-secondary font-weight-bold">
                 <p class="align-top font-medium pr-5">Vous pouvez épargner</p><%= (@ele_sim.ele_cost_saved).round(2)%> €
-            <span class="text-light font-small">/ an</span>
+            <span class="font-medium">/ an</span>
             </div>
           </header>
           <!-- Content -->
