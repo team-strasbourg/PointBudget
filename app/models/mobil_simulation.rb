@@ -16,6 +16,19 @@ class MobilSimulation < ApplicationRecord
     self.full_simulation.user
   end
 
+  # This method is used to replace the value to show if there are not provided by the client
+  def print_report
+    table_attributes = []
+    [calls_europe, calls_international, net_international, engagement].each do |attribute|
+      if attribute == true
+        table_attributes << 'Oui'
+      else
+        table_attributes << 'Non'
+      end
+    end
+    table_attributes
+  end
+
   # Def comparison
   def comparison(monthly_cost, bundle_go, calls_europe, calls_international, net_international, engagement)
   	monthly_cost = monthly_cost.to_f
@@ -50,19 +63,6 @@ class MobilSimulation < ApplicationRecord
     filter.each_with_index do |contract, index|
       JoinTableMobilContract.create(mobil_simulation: self, mobil_contract: contract, savings: all_savings[index])
     end
-  end
-
-  # This method is used to replace the value to show if there are not provided by the client
-  def print_report
-    table_attributes = []
-    [calls_europe, calls_international, net_international, engagement].each do |attribute|
-      if attribute.blank?
-        table_attributes << 'Non renseigné'
-      else
-        table_attributes << attribute.presence
-      end
-    end
-    table_attributes
   end
 
   # This method can show the top best contracts depending on the number we want to show
