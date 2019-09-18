@@ -71,7 +71,7 @@
             <th><%=full_sim.id %></th>
             <th><%=full_sim.total_cost_saved %></th>
             <th><%=full_sim.created_at %></th>
-            <th><%=link_to 'Show', admin_user_full_simulation_path(@user), class: 'btn btn-primary' %></th>
+            <th><%=link_to 'Show', admin_full_simulation_path( full_sim), class: 'btn btn-primary' %></th>
           </tr>
         <% end %>
         </tbody>

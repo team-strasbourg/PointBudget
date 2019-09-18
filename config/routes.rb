@@ -10,9 +10,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'users#index'
-    resources :users do
-      resources :full_simulations, only: [:show]
-    end
+    resources :users
+    resources :full_simulations, only: [:show]
     resources :gas_contracts
     resources :box_contracts
     resources :ele_contracts
