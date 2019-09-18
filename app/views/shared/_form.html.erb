@@ -327,6 +327,14 @@
             </p>
           </div>
           <div class="form-group">
+            <p>Bénéficiez-vous d'un forfait sans engagement?<br><br>
+              <%= radio_button_tag(:engagement, 'true')%>
+              <%= label_tag(:engagement_yes, "Oui")%>
+              <%= radio_button_tag(:calls_europe, 'false') %>
+              <%= label_tag(:calls_europe_no, "Non") %>
+            </p>
+          </div>
+          <div class="form-group">
             <p>Bénéficiez-vous d'appels/SMS/MMS illimités en Europe?<br><br>
               <%= radio_button_tag(:calls_europe, 'true')%>
               <%= label_tag(:calls_europe_yes, "Oui")%>
