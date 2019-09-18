@@ -4,6 +4,7 @@ class CreateBankContracts < ActiveRecord::Migration[5.2]
       t.string :supplier, default: ''
       t.string :group_name, default: ''
       t.float :accounting_fees, default: 0.00
+      t.float :inactive_accounting_fees, default: 0.00
       t.boolean :cheque, default: true
       t.float :price_cheque, default: 0.00
       t.float :price_order_cheque, default: 0.00
