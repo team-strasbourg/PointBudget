@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_18_125449) do
+ActiveRecord::Schema.define(version: 2019_09_18_142431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,20 @@ ActiveRecord::Schema.define(version: 2019_09_18_125449) do
     t.float "international_withdraw", default: 0.0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "bank_simulations", force: :cascade do |t|
+    t.float "bank_cost_saved", default: 0.0
+    t.float "accounting_fees", default: 0.0
+    t.float "inactive_accounting_fees", default: 0.0
+    t.float "price_cheque", default: 0.0
+    t.float "insurance_payment", default: 0.0
+    t.float "sms_alert", default: 0.0
+    t.float "international_withdraw", default: 0.0
+    t.bigint "full_simulation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["full_simulation_id"], name: "index_bank_simulations_on_full_simulation_id"
   end
 
   create_table "box_contracts", force: :cascade do |t|
@@ -130,6 +144,16 @@ ActiveRecord::Schema.define(version: 2019_09_18_125449) do
     t.datetime "updated_at", null: false
     t.string "name", default: "Gaz"
     t.index ["full_simulation_id"], name: "index_gas_simulations_on_full_simulation_id"
+  end
+
+  create_table "join_table_bank_contracts", force: :cascade do |t|
+    t.float "savings", default: 0.0
+    t.bigint "bank_simulation_id"
+    t.bigint "bank_contract_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bank_contract_id"], name: "index_join_table_bank_contracts_on_bank_contract_id"
+    t.index ["bank_simulation_id"], name: "index_join_table_bank_contracts_on_bank_simulation_id"
   end
 
   create_table "join_table_box_contracts", force: :cascade do |t|
