@@ -5,6 +5,7 @@ class FullSimulation < ApplicationRecord
   has_one :gas_simulation, dependent: :destroy
   has_one :box_simulation, dependent: :destroy
   has_one :ele_simulation, dependent: :destroy
+  has_one :bank_simulation, dependent: :destroy
   # after_update :mail_if_validated
 
 
