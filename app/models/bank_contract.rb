@@ -1,0 +1,2 @@
+class BankContract < ApplicationRecord
+end
