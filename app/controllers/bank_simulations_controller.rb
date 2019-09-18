@@ -8,10 +8,6 @@ class BankSimulationsController < ApplicationController
 
   def show
     @bank_sim = BankSimulation.find(params[:id])
-    table_attributes = @bank_sim.print_report
-    @tv = table_attributes[0]
-    @call_fix_fr = table_attributes[1]
-    @call_mob_fr = table_attributes[2]
     @bank_contracts = @bank_sim.sort_contracts(3)
   end
 

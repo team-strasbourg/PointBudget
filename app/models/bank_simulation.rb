@@ -17,7 +17,7 @@ class BankSimulation < ApplicationRecord
     all_savings = []
     first_filter.each do |contract|
       price_contract = contract.accounting_fees.to_f + contract.price_cheque.to_f + contract.insurance_payment.to_f
-      savings = (price_paid - price_contract).round(2) # Find the best price
+      savings = ((price_paid - price_contract)*12).round(2) # Find the best price
       if savings > max_save
         max_save = savings # Save the best price
       end
