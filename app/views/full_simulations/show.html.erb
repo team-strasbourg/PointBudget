@@ -29,10 +29,11 @@
     <%end%>
 
 		<!-- numeric -->
-    <% if @full_simulation.only_one_box_simulation %>
+    <% if @full_simulation.only_one_box_simulation && @full_simulation.only_one_mobil_simulation %>
       <!-- numeric disabled -->
       <%= render partial: 'button_categories', locals: {category: 'numeric', sub_category: 'num', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-mobile-alt", name:'Numérique',disabled:true} %>
     <%else %>
+      <!-- numeric btn -->
       <%= render partial: 'button_categories', locals: {category: 'numeric', sub_category: 'num', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-mobile-alt", name:'Numérique',disabled:false} %>
     <% end %>
 		<!-- medical -->
