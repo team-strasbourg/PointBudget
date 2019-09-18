@@ -24,7 +24,11 @@ class MobilSimulation < ApplicationRecord
   	second_filter = first_filter.select { |contract| contract.calls_europe == calls_europe}
   	third_filter = second_filter.select { |contract| contract.calls_international == calls_international}
   	fourth_filter = third_filter.select { |contract| contract.net_international == net_international}
-    fifth_filter = fourth_filter.select { |contract| contract.engagement == engagement}}
+    if engagement == true 
+      fifth_filter = fourth_filter
+    else
+      fifth_filter = fourth_filter.select { |contract| contract.engagement == false}
+    end
 
   	sixth_filter = fifth_filter.select { |contract| contract.bundle_price < monthly_cost } # filter by price
   	max_save = 0
