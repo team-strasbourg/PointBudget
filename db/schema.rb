@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2019_09_18_142431) do
     t.float "insurance_payment", default: 0.0
     t.float "sms_alert", default: 0.0
     t.float "international_withdraw", default: 0.0
-    t.string "name", default: "Bank"
+    t.string "name", default: "Banque"
     t.bigint "full_simulation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -51,14 +51,14 @@ ActiveRecord::Schema.define(version: 2019_09_18_142431) do
     t.float "price_month", default: 0.0
     t.integer "commitment", default: 0
     t.float "price_after", default: 0.0
-    t.string "internet_type"
+    t.string "internet_type", default: ""
     t.integer "downstream", default: 0
     t.integer "upstream", default: 0
     t.string "tv_channel", default: ""
-    t.boolean "tv"
-    t.boolean "call_fix_fr"
-    t.boolean "call_mobile_fr"
-    t.boolean "call_foreign"
+    t.boolean "tv", default: true
+    t.boolean "call_fix_fr", default: true
+    t.boolean "call_mobile_fr", default: true
+    t.boolean "call_foreign", default: true
     t.float "opening_fee", default: 0.0
     t.float "termination_fee", default: 0.0
     t.float "taken_termination", default: 0.0
@@ -250,5 +250,4 @@ ActiveRecord::Schema.define(version: 2019_09_18_142431) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
 end
