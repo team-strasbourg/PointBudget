@@ -325,30 +325,32 @@
             <p>Combien votre forfait possède-t-il de Go?
               <%= number_field_tag "bundle_go", in: 0.00..200.00 ,step: 0.10,class: "form-control"  %>
             </p>
-            <div class="form-group">
-              <p>Bénéficiez-vous d'appels/SMS/MMS illimités en Europe?<br><br>
-                <%= radio_button_tag(:calls_europe, 'true')%>
-                <%= label_tag(:calls_europe_yes, "Oui")%>
-                <%= radio_button_tag(:calls_europe, 'false') %>
-                <%= label_tag(:calls_europe_no, "Non") %>
-              </p>
-            </div>
-            <div class="form-group">
-              <p>Appels, SMS, MMS illimités à l'étranger?<br><br>
-              <%= radio_button_tag(:calls_international, 'true')%>
-              <%= label_tag(:calls_international_yes, "Oui")%>
-              <%= radio_button_tag(:calls_international, 'false') %>
-              <%= label_tag(:calls_international_no, "Non") %>
-              </p>
-            </div>
-            <div class="form-group">
-              <p>Internet à l'étranger?<br><br>
-              <%= radio_button_tag(:net_international, 'true')%>
-              <%= label_tag(:net_international, "Oui")%>
-              <%= radio_button_tag(:net_international, 'false') %>
-              <%= label_tag(:net_international, "Non") %>
-              </p>
-            </div>
+          </div>
+          <div class="form-group">
+            <p>Bénéficiez-vous d'appels/SMS/MMS illimités en Europe?<br><br>
+              <%= radio_button_tag(:calls_europe, 'true')%>
+              <%= label_tag(:calls_europe_yes, "Oui")%>
+              <%= radio_button_tag(:calls_europe, 'false') %>
+              <%= label_tag(:calls_europe_no, "Non") %>
+            </p>
+          </div>
+          <div class="form-group">
+            <p>Appels, SMS, MMS illimités à l'étranger?<br><br>
+            <%= radio_button_tag(:calls_international, 'true')%>
+            <%= label_tag(:calls_international_yes, "Oui")%>
+            <%= radio_button_tag(:calls_international, 'false') %>
+            <%= label_tag(:calls_international_no, "Non") %>
+            </p>
+          </div>
+          <div class="form-group">
+            <p>Internet à l'étranger?<br><br>
+            <%= radio_button_tag(:net_international, 'true')%>
+            <%= label_tag(:net_international, "Oui")%>
+            <%= radio_button_tag(:net_international, 'false') %>
+            <%= label_tag(:net_international, "Non") %>
+            </p>
+          </div>
+
 
 
 <!--        NEW/EDIT MOBIL CONTRACT -->
