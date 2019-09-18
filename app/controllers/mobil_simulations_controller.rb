@@ -23,10 +23,7 @@ class MobilSimulationsController < ApplicationController
     calls_europe = params[:calls_europe] == 'true' ? true : false
     calls_international = params[:calls_international] == 'true' ? true : false
     net_international = params[:net_international] == 'true' ? true : false
-
-    puts "#"*60
-    puts params
-    puts "#"*60
+    
     comparison = @mobil_simulation.comparison(params[:monthly_cost], params[:bundle_go], calls_europe, calls_international, net_international)
     @mobil_simulation = MobilSimulation.new(actual_price_paid: params[:monthly_cost].to_f,
                                         mobil_cost_saved: comparison[0],
@@ -35,9 +32,6 @@ class MobilSimulationsController < ApplicationController
                                         net_international:net_international,
                                         bundle_go: params[:bundle_go].to_f,
                                         full_simulation: @full_simulation)
-       puts "#"*60
-    puts params
-    puts "#"*60
     if @mobil_simulation.save
       # create the join table with arguments the better contracts and the savings for each contracts
       @mobil_simulation.create_join_table_mobil(comparison[1], comparison[2])
