@@ -18,9 +18,14 @@
             <div class="row">
               <div class="col text-center">
                 <ul class="list-group mb-4">
-                  <li class="list-group-item"><strong>Coût mensuel de votre forfait Mobile</strong><br><%= @mobil_simulation.actual_price_paid%> €</li>
+                  <li class="list-group-item"><strong>Coût mensuel de votre forfait Mobile</strong><br><%= @mobil_simulation.actual_price_paid%> €
+                  </li>
                   <li class="list-group-item"><strong>Nombre de Go</strong><br>
-                      <%= @mobil_simulation.bundle_go%> </li>
+                      <%= @mobil_simulation.bundle_go%> 
+                  </li>
+							    <li class="list-group-item"><strong>+Forfaits avec engagement</strong><br>
+                    <%= @mobil_simulation.engagement%> 
+                  </li>
                 </ul>
               </div>
               <div class="col text-center">
