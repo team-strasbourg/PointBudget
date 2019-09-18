@@ -29,8 +29,13 @@ class GasSimulation < ApplicationRecord
 
   def print_report
     table_attributes = []
+    message = "Non renseigné"
     [floor_space, heat_type, water_cooking_type, residents_number].each do |attribute|
-      table_attributes << attribute.presence || 'Non renseigné'
+      if attribute.blank?
+        table_attributes << message
+      else
+        table_attributes << attribute
+      end
     end
     table_attributes
   end
