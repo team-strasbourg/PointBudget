@@ -56,6 +56,11 @@ class User < ApplicationRecord
     self.box_simulations.include?{ |simu| simu.id == id }
   end
 
+# verify if he has a bank simulation with the good id (for callbacks)
+  def has_bank_simulation(id)
+    self.bank_simulations.include?{ |simu| simu.id == id }
+  end
+
 # verify if he has a elec simulation with the good id (for callbacks)
   def has_ele_simulation(id)
     self.ele_simulations.include?{ |simu| simu.id == id }
