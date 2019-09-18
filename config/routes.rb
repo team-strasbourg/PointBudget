@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :gas_contracts
     resources :mobil_contracts
     resources :box_contracts
+    resources :bank_contracts
     resources :ele_contracts
 
   end
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
       resources :gas_simulations, except: [:index]
       resources :mobil_simulations, except: [:index]
       resources :box_simulations, except: [:index]
+      resources :bank_simulations, except: [:index]
       resources :ele_simulations, except: [:index]
     end
   end

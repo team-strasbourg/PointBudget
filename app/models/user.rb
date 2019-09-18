@@ -18,6 +18,7 @@ class User < ApplicationRecord
   has_many :full_simulations, dependent: :destroy
   has_many :gas_simulations, through: :full_simulations, dependent: :destroy
   has_many :box_simulations, through: :full_simulations, dependent: :destroy
+  has_many :bank_simulations, through: :full_simulations, dependent: :destroy
   has_many :ele_simulations, through: :full_simulations, dependent: :destroy
 
 # For omniauth faceboook
@@ -56,11 +57,17 @@ class User < ApplicationRecord
     self.box_simulations.include?{ |simu| simu.id == id }
   end
 
+# verify if he has a bank simulation with the good id (for callbacks)
+  def has_bank_simulation(id)
+    self.bank_simulations.include?{ |simu| simu.id == id }
+  end
+
   # verify if he has a mobil simulation with the good id (for callbacks)
   def has_mobil_simulation(id)
     self.mobil_simulations.include?{ |simu| simu.id == id }
   end
   # verify if he has a elec simulation with the good id (for callbacks)
+
   def has_ele_simulation(id)
     self.ele_simulations.include?{ |simu| simu.id == id }
   end

@@ -64,9 +64,19 @@ class ApplicationController < ActionController::Base
     error_connected
   end
 
+  def not_other_users_bank_simulations
+    # This method prevents users from going to pages associated with another user, namely the simulations
+    return unless current_user != BankSimulation.find(params[:id]).user && current_user.has_bank_simulations(params[:id])
+
+  rescue
+    error_connected
+  end
+
   def not_other_users_mobil_simulations
     # This method prevents users from going to pages associated with another user, namely the simulations
     return unless current_user != MobilSimulation.find(params[:id]).user && current_user.has_mobil_simulations(params[:id])
+
+
   rescue
     error_connected
   end
