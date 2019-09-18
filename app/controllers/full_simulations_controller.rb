@@ -8,7 +8,7 @@ class FullSimulationsController < ApplicationController
 
 
   def index
-    @simulations = current_user.full_simulations
+    @simulations = current_user.full_simulations.sort_by { |simu | simu.updated_at  }.reverse
   end
 
   def show

@@ -41,7 +41,7 @@ class MobilSimulationsController < ApplicationController
       # update full_simulation
       @full_simulation.update(total_cost_saved: (@full_simulation.total_cost_saved + @mobil_simulation.mobil_cost_saved),
                               counter: @full_simulation.counter + 1)
-    flash[:success] = 'Votre simulation de mobile a bien été enregistrée'
+      flash[:success] = 'Votre simulation de mobile a bien été enregistrée'
     else
       flash[:error] = @mobil_simulation.errors.messages
     end
