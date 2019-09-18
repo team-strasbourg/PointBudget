@@ -4,8 +4,8 @@ module Admin
   class MobilSimulationsController < ApplicationController
     def show
       @mobil_simulation = MobilSimulation.find(params[:id])
-      @user = @mobil_sim.user
-      @mobil_contracts = @mobil_sim.sort_contracts(@mobil_sim.join_table_mobil_contracts.length)
+      @user = @mobil_simulation.user
+      @mobil_contracts = @mobil_simulation.sort_contracts(@mobil_simulation.join_table_mobil_contracts.length)
     end
   end
 end
