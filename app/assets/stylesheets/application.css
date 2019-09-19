@@ -290,13 +290,8 @@ li.button-group{
 }
 
 .txt-user-nav{
-	font-size: 18px;
+	font-size: 16px;
 	margin: 3px 0;
-}
-
-.txt-user-nav-prem{
-	font-size: 18px;
-	margin: 30px 0 2px 0;
 }
 
 #nav-user-collapse:hover {
