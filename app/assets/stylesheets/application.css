@@ -28,6 +28,17 @@
     overflow-x: hidden;
 }
 
+header{
+	margin-bottom: 53px;
+}
+
+#footer{
+	padding: 0 90px;	
+}
+.test-nav{
+	margin-top: 90;
+}
+
 .title{
 	padding: 60px 0 70px 0;
 }
@@ -53,12 +64,17 @@ li.button-group{
 /* NAVBAR */
 
 
- .logo-nav{
+.logo-nav{
  	width: 200px;
  	margin-right: 30px;
  }
 
-
+.nav-fix{
+	position: fixed;
+	right: 0;
+	left: 0;
+	z-index: 1030;
+}
 
 /* JUMBOTRON */
 
@@ -288,13 +304,8 @@ li.button-group{
 }
 
 .txt-user-nav{
-	font-size: 18px;
+	font-size: 16px;
 	margin: 3px 0;
-}
-
-.txt-user-nav-prem{
-	font-size: 18px;
-	margin: 30px 0 2px 0;
 }
 
 #nav-user-collapse:hover {
@@ -306,13 +317,13 @@ li.button-group{
 
 /* USER PROFILE */
 
-.profile-section{
-	margin-bottom: 50px;
+#body_content_user{
+	margin: 90px 0 150px 0;
+	padding: 0 40px;
 }
 
-#body_content_user{
-	margin: 30px 0 120px 0;
-	padding: 0 40px;
+.profile-list{
+	margin-left: -40px;
 }
 
 /* SIMULATION INDEX */
@@ -328,6 +339,12 @@ li.button-group{
 .simu-section-bottom{
 	margin-bottom: 100px;
 	margin-top: 20px;
+}
+
+/* FULL_SIMULATION#NEW */
+
+.full-simu-new{
+	margin: 50px 0 70px 0;
 }
 
 /* FULL-SIMULATIONS#SHOW */
@@ -425,7 +442,7 @@ li.button-group{
 /*  FULL_SIMULATION#SHOW AFTER VALIDATED FULL_SIMULATIONS */
 
 #simulation-list{
-	margin-top: -50px;
+	margin-top: 70px;
 	margin-bottom: 50px;
 }
 
