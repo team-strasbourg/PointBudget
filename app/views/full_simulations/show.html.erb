@@ -51,7 +51,7 @@
 
   <!-- btn energy JAVASCRIPT -->
   <div class="container-fluid row justify-content-center" id="energy-categories" style="display:none;">
-    <div class="col-md-4 d-flex justify-content-around">
+    <div class="col-md-4 d-flex justify-content-center justify-content-md-around">
       <% if @full_simulation.only_one_gas_simulation %>
         <!-- gas_simulation disbled btn -->
         <%= render partial: 'button_categories', locals: {category: 'gas', sub_category: 'gas', bg:'secondary', animate: 'disabled mx-2', style:'cursor:not-allowed', icon: "fas fa-burn", name:'Gaz', disabled:true, title: 'Vous avez déjà simulé cette catégorie'} %>
@@ -293,6 +293,5 @@
     <% end %>
 	</div>
 <% end %>
-
 
 <%= render partial: 'shared/back' %>
