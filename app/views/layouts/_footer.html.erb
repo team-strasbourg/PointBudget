@@ -23,7 +23,7 @@
 
       <div class="col-md-3"> 
         <div class="row justify-content-center mt-3">
-          <div class="col-md-12  mb-md-0 mb-4 d-flex justify-content-md-around align-items-around my-sm-4">
+          <div class="col-md-12  mb-md-0 mb-4 d-flex justify-content-around align-items-center my-sm-4">
             <!--                INSTAGRAM-->
             <div>
               <%= link_to "https://www.instagram.com/pointbudget/", class:'fb-ic mr-3', target: :_blank do %>
@@ -48,24 +48,12 @@
       </div>
 
 
-<!--      NAVIGATION SECTION-->
-      <div class="col-md-2 mb-md-0 mb-4 d-flex flex-column justify-content-center align-items-center logs-button">
-        <ul class="list-unstyled mb-0 text-center">
-          <li>
-            <%= link_to "Haut de page", {:anchor => "navbar"} %>
-          </li>
-          <li>
-            <%= link_to "Se connecter", new_user_session_path %>
-          </li>
-          <li>
-            <%= link_to "S'inscrire", new_user_registration_path %>
-          </li>
-        </ul>
-      </div>
-
 <!--      OTHER LINKS-->
       <div class="col-md-2 mb-md-0 mb-4 d-flex flex-column justify-content-center align-items-md-end align-items-center">
         <ul class="list-unstyled text-md-right mb-0 text-sm-center" >
+          <li>
+            <%= link_to "Haut de page", {:anchor => "navbar"} %>
+          </li>
           <li>
             <%= link_to "Mentions légales", static_pages_legal_information_path %>
           </li>
