@@ -5,16 +5,12 @@
       <p class="lead">La meilleure façon de gérer son budget est de l'évaluer.</p>
     </div>
     <div class="col-md-12 mt-5">
-    <!-- <div class="col-md-12"> -->
       <h3>Payez-vous le juste prix pour vos factures?</h3> 
-    <!-- </div> -->
-    <div class="col-md-12"><br>
       <% if user_signed_in? %>
-        <%=link_to "Lancer une simulation", new_user_full_simulation_path(current_user), class: "btn mr-2 mb-2 btn-pill btn-primary btn-lg"%>
+        <%=link_to "Lancer une simulation", new_user_full_simulation_path(current_user), class: "btn mr-2 mb-2 btn-pill btn-primary btn-lg mt-3"%>
       <%else%>
-        <%=link_to "Je m'inscris et lance ma première simulation", new_user_session_path, class: "btn mr-2 mb-2 btn-pill btn-primary btn-lg"%>
+        <%=link_to "Je m'inscris et lance ma première simulation", new_user_session_path, class: "btn mr-2 mb-2 btn-pill btn-primary btn-lg mt-3"%>
       <%end%>
-    </div>
     </div>
   </div>
 </div>
