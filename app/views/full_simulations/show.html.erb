@@ -150,9 +150,10 @@
 			    <div class="content">
 			      <h4 class="text-center">D'après nos comparateurs, vous pourriez économiser</h4><br>
 			    </div>
-			    <div class="price-position d-flex justify-content-center">
-			      <h4 class="price-simu bg-secondary text-white"><%= @full_simulation.total_cost_saved %>€</h4><br>
-			    </div>
+          <div class="price-position display-1 text-secondary font-weight-bold">
+              <p class="align-top font-medium pr-5"></p><%= @full_simulation.total_cost_saved %>€
+          <span class="font-medium">/ an</span>
+          </div>
 			    <div class="content">
 			      <h4 class="text-justify">Validez sans plus tarder votre simulation afin d'accéder à vos différents domaines d'économie!</h4><br>
 			    </div>
@@ -189,9 +190,12 @@
     <div class="content">
 		  <h4 class="text-center">D'après nos comparateurs, selon vos simulations, vous pourriez économiser</h4><br>
 		</div>
-	  <div class="price-position d-flex justify-content-center">
-	    <h4 class="price-simu bg-secondary text-white"><%= @full_simulation.total_cost_saved %>€</h4><br>
-    </div>
+    <!-- <header class="card-header bg-white text-center d-flex flex-column"> -->
+      <div class="display-1 text-center text-primary font-weight-bold mt-5">
+          <p class="align-top font-medium pr-5"></p><%= @full_simulation.total_cost_saved %>€
+      <span class="font-medium">/ an</span>
+      </div>
+    <!-- </header> -->
   <% end %>
 	</div>
     <%= mail_to "pointbudget@hotmail.com", class: 'btn btn-primary btn-simu mb-5 d-flex justify-content-center align-items-center' do %>
