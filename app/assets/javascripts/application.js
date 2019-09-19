@@ -103,10 +103,10 @@ $(document).ready(function () {
             energyDeployStatus = false;
             if(bankDeployStatus === false){
                 $("#finalize").hide(400);
-                bankDeployStatus = true
+                bankDeployStatus = true;
             }else{
                 $("#finalize").show(400);
-                bankDeployStatus = false
+                bankDeployStatus = false;
             }
 
 
