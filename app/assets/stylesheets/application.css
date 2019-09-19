@@ -474,3 +474,16 @@ li.button-group{
 #energy-categories, #numeric-categories{
 	margin-bottom: 80px;
 }
+
+
+/* LEGAL PAGE */
+
+.legal-page{
+	margin-top: 30px;
+	margin-bottom: 90px;
+}
+
+.terms-page{
+	margin-top: 50px;
+	margin-bottom: 90px;
+}
