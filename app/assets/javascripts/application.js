@@ -101,6 +101,13 @@ $(document).ready(function () {
             $("#energy-categories").hide(600);
             $("#energy-categories").removeClass("d-flex");
             energyDeployStatus = false;
+            if(bankDeployStatus === false){
+                $("#finalize").hide(400);
+                bankDeployStatus = true
+            }else{
+                $("#finalize").show(400);
+                bankDeployStatus = false
+            }
 
 
         });
@@ -120,6 +127,7 @@ $(document).ready(function () {
             $("#numeric-categories").hide(600);
             $("#numeric-categories").removeClass("d-flex");
             numericDeployStatus = false;
+            bankDeployStatus = false
             if (energyDeployStatus == false) {
               $("#energy-categories").addClass("d-flex");
               $("#energy-categories").show(500);
@@ -127,11 +135,13 @@ $(document).ready(function () {
               $("#elec-simu").hide(500);
               gasDeployStatus = false;
               energyDeployStatus = true;
+              $("#finalize").hide(400);
             }
             else if (energyDeployStatus == true) {
               $("#energy-categories").removeClass("d-flex");
               $("#energy-categories").hide(500);
               energyDeployStatus = false;
+              $("#finalize").show(400);
             }
           });
 
@@ -151,6 +161,7 @@ $(document).ready(function () {
             $("#energy-categories").hide(600);
             $("#energy-categories").removeClass("d-flex");
             energyDeployStatus = false;
+            bankDeployStatus = false
             if (numericDeployStatus == false) {
                 $("#numeric-categories").addClass("d-flex");
                 $("#numeric-categories").show(500);
@@ -159,11 +170,13 @@ $(document).ready(function () {
                 boxDeployStatus = false;
                 mobilDeployStatus = false;
                 numericDeployStatus = true;
+                $("#finalize").hide(400);
             }
             else if (numericDeployStatus == true) {
                 $("#numeric-categories").removeClass("d-flex");
                 $("#numeric-categories").hide(500);
                 numericDeployStatus = false;
+                $("#finalize").show(400);
             }
         });
 
