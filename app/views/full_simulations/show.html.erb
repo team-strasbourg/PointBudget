@@ -190,18 +190,16 @@
     <div class="content">
 		  <h4 class="text-center">D'après nos comparateurs, selon vos simulations, vous pourriez économiser</h4><br>
 		</div>
-    <!-- <header class="card-header bg-white text-center d-flex flex-column"> -->
       <div class="display-1 text-center text-primary font-weight-bold mt-5">
           <p class="align-top font-medium pr-5"></p><%= @full_simulation.total_cost_saved %>€
       <span class="font-medium">/ an</span>
       </div>
-    <!-- </header> -->
   <% end %>
 	</div>
 
     <%= link_to "Contacter un conseiller", send_email_counselour_path, class: 'btn btn-primary btn-simu mb-5 d-flex justify-content-center align-items-center' %>
 
-	<div id="simulation-list" class="container mt-5">
+	<div id="simulation-list" class="container">
     <div class="content categ-choice">
       <h5>Ci-dessous, les domaines que vous avez choisis:</h5>
     </div>
