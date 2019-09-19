@@ -8,7 +8,7 @@ class BankSimulation < ApplicationRecord
             numericality: { greater_than_or_equal_to: 0.00 }
 
 
-  def comparison(accounting_fees, price_cheque,insurance_payment)
+  def comparison(accounting_fees, price_cheque, insurance_payment)
     price_paid = accounting_fees + price_cheque + insurance_payment
     first_filter = BankContract.all.select {|contract|
       contract.accounting_fees.to_f + contract.price_cheque.to_f + contract.insurance_payment.to_f < price_paid
