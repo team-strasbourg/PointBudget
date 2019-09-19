@@ -32,6 +32,9 @@ header{
 	margin-bottom: 53px;
 }
 
+#footer{
+	padding: 0 90px;	
+}
 .test-nav{
 	margin-top: 90;
 }
