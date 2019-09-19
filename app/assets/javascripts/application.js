@@ -33,8 +33,10 @@
 $(document).ready(function () {
 
     if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show" && document.body.contains(document.getElementById('full-simu-not-validated'))) {
-        radioYes = document.getElementById("answer_yes")
-        radioNo = document.getElementById("answer_no")
+        radioYes = document.getElementById("answer_yes");
+        radioNo = document.getElementById("answer_no");
+
+        // it show the two differents form of the gas simulation
 
         radioYes.addEventListener('click', function () {
             $('#consumption').show(500);
@@ -55,8 +57,8 @@ $(document).ready(function () {
     }
 
     if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "new") {
-      clickToDisplayDomains = document.getElementById("btn-click-1")
-      domainDeploySatus = false
+      clickToDisplayDomains = document.getElementById("btn-click-1");
+      domainDeploySatus = false;
 
       clickToDisplayDomains.addEventListener('click', function(){
         $("#domain-list").toggle(600);
@@ -64,6 +66,8 @@ $(document).ready(function () {
     };
 
     if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show" && document.body.contains(document.getElementById('full-simu-not-validated'))) {
+
+        // GET the differents button of the simulation
 
         clickToDisplayNumerics = document.getElementById("btn-numeric");
         numericDeployStatus = false;
@@ -91,7 +95,7 @@ $(document).ready(function () {
 
 
         });
-        // ENERGIE
+        // ENERGy
         clickToDisplayGasSimu.addEventListener('click', function(){
             $("#gas-simu").toggle(600);
             $("#elec-simu").hide(500);
