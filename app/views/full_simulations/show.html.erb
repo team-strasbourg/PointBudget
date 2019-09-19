@@ -182,9 +182,7 @@
   <% if @full_simulation.total_cost_saved <= 0 %>
     <div class="content container row d-flex justify-content-center">
       <h4 class="text-center">D'après nos comparateurs et selon vos simulations, nous ne pouvons vous proposer mieux!<br><br>Avez-vous faits toutes les simulations que nous vous proposons?</h4><br>
-      <div class="col-md-5 ">
-        <%= link_to 'Lancer une nouvelle simulation', new_user_full_simulation_path(current_user), class: "btn animate-up-3 btn-primary btn-block mx-5 btn-full"%>
-      </div>
+        <%= link_to 'Lancer une nouvelle simulation', new_user_full_simulation_path(current_user), class: "btn animate-up-3 btn-primary btn-block mx-5 btn-full w-25"%>
     </div>
   <% else %>
     <div class="content">
