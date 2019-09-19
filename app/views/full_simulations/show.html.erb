@@ -194,10 +194,12 @@
           <p class="align-top font-medium pr-5"></p><%= @full_simulation.total_cost_saved %>€
       <span class="font-medium">/ an</span>
       </div>
+      <div class="d-flex justify-content-center align-items-center mt-5">
+        <%= link_to "Contacter un conseiller", send_email_counselour_path, class: 'btn btn-primary btn-simu mb-5 d-flex justify-content-center align-items-center w-50' %>
+      </div>
   <% end %>
 	</div>
 
-    <%= link_to "Contacter un conseiller", send_email_counselour_path, class: 'btn btn-primary btn-simu mb-5 d-flex justify-content-center align-items-center' %>
 
 	<div id="simulation-list" class="container">
     <div class="content categ-choice">
