@@ -9,13 +9,13 @@
               <%= link_to "Point Budget", root_path, class: "nav-item"%>
             </div>
             <div class="col-6 collapse-close">
-              <i class="fas fa-times" data-toggle="collapse" role="button" data-target="#navbar-primary" aria-controls="navbar-primary" aria-expanded="false" aria-label="Toggle navigation"></i>
+              <i class="fas fa-times" id="toggler" data-toggle="collapse" role="button" data-target="#navbar-primary" aria-controls="navbar-primary" aria-expanded="false" aria-label="Toggle navigation"></i>
             </div>
           </div>
         </div>
         <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
           <li class="nav-item"><%= link_to "A propos", static_pages_about_path, class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Contact", {:anchor => "footer"}, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Contact", {:anchor => "footer"}, data:{trigger_button:"#toggler"}, class: "nav-link" %></li>
         </ul>
         <ul class="navbar-nav navbar-nav-hover align-items-lg-end ml-auto">
           <% if user_signed_in? %>

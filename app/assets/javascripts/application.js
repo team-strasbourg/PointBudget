@@ -32,6 +32,15 @@
 
 $(document).ready(function () {
 
+
+    $("body").on("click", "[data-trigger-button]", function() {
+        if (window.matchMedia("(max-width: 767px)").matches) {
+            var $this = $(this),
+                cNavButton = $this.data("trigger-button");
+            $(cNavButton).trigger('click');
+        }
+    });
+
     if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show" && document.body.contains(document.getElementById('full-simu-not-validated'))) {
         radioYes = document.getElementById("answer_yes");
         radioNo = document.getElementById("answer_no");
