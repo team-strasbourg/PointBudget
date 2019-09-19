@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'static_pages/terms_and_conditions'
   get 'static_pages/legal_information'
   get 'static_pages/privacy_policy'
+  get 'full_simulations/send_email_counselour', as: :send_email_counselour
 
   namespace :admin do
     root to: 'users#index'
