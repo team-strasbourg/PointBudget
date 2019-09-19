@@ -82,11 +82,17 @@ class User < ApplicationRecord
 
   # send an email when sign up
   def welcome_send
+    begin
     UserMailer.welcome_email(self).deliver_now
+    rescue
+    end
   end
 
   # send an email when cancel the account
   def goodbye_send
+    begin
     UserMailer.goodbye_email(self).deliver_now
+    rescue
+    end
   end
 end

@@ -66,8 +66,12 @@ class FullSimulationsController < ApplicationController
   end
 
   def send_email_counselour
+    begin
     UserMailer.contact_counselour_email(current_user).deliver_now
     flash[:success] = 'Votre conseiller vous contactera dans les plus bref délais'
+    rescue
+    flash[:error] = 'Une erreur interne s\'est produite, veuillez réitérer ultérieurement'
+    end
     redirect_to new_user_full_simulation_path(current_user)
   end
 
