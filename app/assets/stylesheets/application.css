@@ -221,6 +221,17 @@ li.button-group{
 	margin-right:30px;
 }
 
+/* FACEBOOK BUTTON*/
+
+#spinner {
+	background: #4267b2;
+	border-radius: 5px;
+	color: white;
+	height: 40px;
+	text-align: center;
+	width: 250px;
+}
+
 
 /* DASHBOARD ADMIN */
 
