@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
   rescue_from ActionController::RoutingError, with: :render_404
 
+  # Redirect after the sign in
   def after_sign_in_path_for(resource)
     if current_user.is_admin?
       stored_location_for(resource) || admin_root_path
@@ -25,6 +26,7 @@ class ApplicationController < ActionController::Base
     render file: "#{Rails.root}/public/404", status: :not_found
   end
 
+  # This method allows us to know a user is connected or not to avoid errors in js
   def set_cookie_user
     cookies[:username] = current_user.nil? ? 'guest' : current_user.email
   end
@@ -44,28 +46,28 @@ class ApplicationController < ActionController::Base
   end
 
   def not_other_users_full_simulations
-    # This method prevents users from going to pages associated with another user, namely the simulations
+    # This method prevents users from going to pages associated with another user, namely the full simulations
     return unless current_user != FullSimulation.find(params[:id]).user && current_user.has_full_simulations(params[:id])
   rescue
     error_connected
   end
 
   def not_other_users_gas_simulations
-    # This method prevents users from going to pages associated with another user, namely the simulations
+    # This method prevents users from going to pages associated with another user, namely the gas simulations
     return unless current_user != GasSimulation.find(params[:id]).user && current_user.has_gas_simulations(params[:id])
   rescue
     error_connected
   end
 
   def not_other_users_box_simulations
-    # This method prevents users from going to pages associated with another user, namely the simulations
+    # This method prevents users from going to pages associated with another user, namely the box simulations
     return unless current_user != BoxSimulation.find(params[:id]).user && current_user.has_box_simulations(params[:id])
   rescue
     error_connected
   end
 
   def not_other_users_bank_simulations
-    # This method prevents users from going to pages associated with another user, namely the simulations
+    # This method prevents users from going to pages associated with another user, namely the bank simulations
     return unless current_user != BankSimulation.find(params[:id]).user && current_user.has_bank_simulations(params[:id])
 
   rescue
@@ -73,10 +75,8 @@ class ApplicationController < ActionController::Base
   end
 
   def not_other_users_mobil_simulations
-    # This method prevents users from going to pages associated with another user, namely the simulations
+    # This method prevents users from going to pages associated with another user, namely the mobile simulations
     return unless current_user != MobilSimulation.find(params[:id]).user && current_user.has_mobil_simulations(params[:id])
-
-
   rescue
     error_connected
   end
