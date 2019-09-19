@@ -20,23 +20,11 @@
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+    <div id="spinner">
+      <i class=" fa-2x fa-facebook-f fa-lg fab white-text pt-2 pr-2"> </i>
+      <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider),  id:"spinner" %>
+    </div><br>
   <% end %>
-  <div id="spinner"
-    style="
-        background: #4267b2;
-        border-radius: 5px;
-        color: white;
-        height: 40px;
-        text-align: center;
-        width: 250px;">
-    Sign in with Facebook
-    <div
-    class="fb-login-button"
-    data-max-rows="1"
-    data-size="large"
-    data-button-type="continue_with"
-    data-use-continue-as="true"
-    ></div>
-</div>
 <% end %>
+
+
