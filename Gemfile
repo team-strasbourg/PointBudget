@@ -68,6 +68,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'activerecord'
 gem 'devise', '>= 4.7.1'
+gem 'devise-i18n'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
@@ -80,3 +81,4 @@ gem 'rubocop-rails'
 gem 'stripe'
 gem 'table_print'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
