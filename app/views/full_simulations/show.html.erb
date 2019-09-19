@@ -196,7 +196,7 @@
 	</div>
     <%= button_tag class: 'btn btn-primary btn-simu mb-5 d-flex justify-content-center align-items-center' do %>
       <p class="my-1"><strong>Contacter un conseiller par mail</strong><br>
-    <%= mail_to "pointbudget@hotmail.com", "pointbudget@hotmail.com", class: 'text-white my-2' %>
+    <%= link_to "pointbudget@hotmail.com", send_email_counselour_path, class: 'text-white my-2' %>
       </p>
     <% end %>
 	<div id="simulation-list" class="container mt-5">

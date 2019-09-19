@@ -66,9 +66,9 @@ class FullSimulationsController < ApplicationController
   end
 
   def send_email_counselour
-    UserMailer.contact_conselour_email(current_user)
+    UserMailer.contact_counselour_email(current_user).deliver_now
     flash[:success] = 'Votre conseiller vous contactera dans les plus bref délais'
-    redirect_to users_root_path
+    redirect_to new_user_full_simulation_path(current_user)
   end
 
   private

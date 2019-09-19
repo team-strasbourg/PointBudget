@@ -21,7 +21,7 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Vous venez de valider une simulation de budget !')
   end
 
-  def contact_conselour_email(user)
+  def contact_counselour_email(user)
     @user = user
     mail(to: 'pointbudget.thp@gmail.com', subject: 'Un utilisateur demande un rdv')
   end
