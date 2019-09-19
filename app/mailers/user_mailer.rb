@@ -20,4 +20,9 @@ class UserMailer < ApplicationMailer
     @url = 'https://point-budget.herokuapp.com/users/sign_in'
     mail(to: @user.email, subject: 'Vous venez de valider une simulation de budget !')
   end
+
+  def contact_conselour_email(user)
+    @user = user
+    mail(to: 'pointbudget.thp@gmail.com', subject: 'Un utilisateur demande un rdv')
+  end
 end

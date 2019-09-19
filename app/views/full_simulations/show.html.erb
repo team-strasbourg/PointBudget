@@ -194,8 +194,10 @@
     </div>
   <% end %>
 	</div>
-    <%= mail_to "pointbudget@hotmail.com", class: 'btn btn-primary btn-simu mb-5 d-flex justify-content-center align-items-center' do %>
-      <p><strong>Contacter un conseiller par mail</strong></p>
+    <%= button_tag class: 'btn btn-primary btn-simu mb-5 d-flex justify-content-center align-items-center' do %>
+      <p class="my-1"><strong>Contacter un conseiller par mail</strong><br>
+    <%= mail_to "pointbudget@hotmail.com", "pointbudget@hotmail.com", class: 'text-white my-2' %>
+      </p>
     <% end %>
 	<div id="simulation-list" class="container mt-5">
     <div class="content categ-choice">
