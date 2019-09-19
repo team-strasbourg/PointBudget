@@ -16,9 +16,10 @@
     <%unless admin? %>
       <%= render 'layouts/navbar' %>
     <%end %>
-    <%= render 'layouts/flash'%>
+   
   </header>
   <body class="d-flex flex-column justify-content-between">
+     <%= render 'layouts/flash'%>
 
     <%if admin? %>
       <%= render 'layouts/admin_navbar' %>
