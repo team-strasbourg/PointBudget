@@ -28,6 +28,14 @@
     overflow-x: hidden;
 }
 
+header{
+	margin-bottom: 50px;
+}
+
+.test-nav{
+	margin-top: 90;
+}
+
 .title{
 	padding: 60px 0 70px 0;
 }
@@ -53,12 +61,17 @@ li.button-group{
 /* NAVBAR */
 
 
- .logo-nav{
+.logo-nav{
  	width: 200px;
  	margin-right: 30px;
  }
 
-
+.nav-fix{
+	position: fixed;
+	right: 0;
+	left: 0;
+	z-index: 1030;
+}
 
 /* JUMBOTRON */
 
