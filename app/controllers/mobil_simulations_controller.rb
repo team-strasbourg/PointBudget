@@ -16,6 +16,12 @@ class MobilSimulationsController < ApplicationController
 
   def new
     @mobil_simulation = MobilSimulation.new
+    if @full_simulation.only_one_mobil_simulation
+      flash[:error] = 'Vous avez déjà comparé le mobile dans cette simulation'
+      redirect_to user_full_simulation_path(current_user, @full_simulation)
+    else
+      @mobile_simulation = MobileSimulation.new
+    end
   end
 
   def create
