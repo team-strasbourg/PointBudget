@@ -69,16 +69,16 @@
 
         <%= f.hidden_field :reset_password_token %>
         <div class="form-group">
-          <%= f.label :password, "New password" %><br />
+          <%= f.label :password, "Nouveau mot de passe" %><br />
           <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+            <em>(<%= @minimum_password_length %> charactères minimum)</em><br />
           <% end %>
-          <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class:"form-control" %>
+          <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: 'Nouveau mot de passe', class:"form-control" %>
         </div>
 
         <div class="form-group">
           <%= f.label :password_confirmation, "Confirm new password" %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Confirmer le mot de passe', class:"form-control" %>
         </div>
 
 <!-- EDIT REGISTRATION FORM-->
@@ -86,29 +86,29 @@
         <%when 'edit_registration'%>
         <div class="form-group">
           <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:'Email', class:"form-control" %>
         </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <div>Actuellement en attente de confirmation pour: <%= resource.unconfirmed_email %></div>
         <% end %>
 
         <div class="form-group">
-          <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+          <%= f.label 'Mot de passe'%> <i>(Laisser vide si vous ne voulez pas le changer)</i><br />
           <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
           <% if @minimum_password_length %>
             <br />
-            <em><%= @minimum_password_length %> characters minimum</em>
+            <em><%= @minimum_password_length %> charactères minimum</em>
           <% end %>
         </div>
 
         <div class="form-group">
-          <%= f.label :password_confirmation %><br />
+          <%= f.label 'Confirmation de mot de passe' %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :current_password %> <i>(to confirm your changes)</i><br />
+          <%= f.label 'Mot de passe actuel' %> <i>(Pour confirmer vos changements)</i><br />
           <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control" %>
         </div>
 
