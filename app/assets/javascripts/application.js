@@ -95,7 +95,7 @@ $(document).ready(function () {
 
 
         });
-        // ENERGy
+        // ENERGY
         clickToDisplayGasSimu.addEventListener('click', function(){
             $("#gas-simu").toggle(600);
             $("#elec-simu").hide(500);
