@@ -221,6 +221,17 @@ li.button-group{
 	margin-right:30px;
 }
 
+/* FACEBOOK BUTTON*/
+
+#spinner {
+	background: #4267b2;
+	border-radius: 5px;
+	color: white;
+	height: 40px;
+	text-align: center;
+	width: 250px;
+}
+
 
 /* DASHBOARD ADMIN */
 
@@ -366,28 +377,12 @@ li.button-group{
 	width: 170px;
 }
 
-.btn-simu-assur{
-	width: 210px;
-}
-
-.btn-simu-bank{
-	width: 190px;
-}
-
-.btn-simu-num{
+.btn-simu-cat{
 	width: 200px;
 }
 
-.btn-simu-box{
-	width: 150px;
-}
-
-.btn-simu-mobil{
-	width: 170px;
-}
-
-.btn-simu-mut{
-	width: 180px;
+.btn-simu-numeric{
+	width: 190px;
 }
 
 .title-simu{
@@ -478,4 +473,17 @@ li.button-group{
 
 #energy-categories, #numeric-categories{
 	margin-bottom: 80px;
+}
+
+
+/* LEGAL PAGE */
+
+.legal-page{
+	margin-top: 30px;
+	margin-bottom: 90px;
+}
+
+.terms-page{
+	margin-top: 50px;
+	margin-bottom: 90px;
 }

@@ -8,28 +8,28 @@
     <!-- energy -->
     <% if @full_simulation.only_one_gas_simulation && @full_simulation.only_one_ele_simulation %>
 
-      <%= render partial: 'button_categories', locals: {category: 'energy', sub_category: 'elec', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-sun", name:'Energie', disabled: true, title: 'Vous avez déjà simulé cette catégorie'} %>
+      <%= render partial: 'button_categories', locals: {category: 'energy', sub_category: 'cat', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-sun", name:'Energie', disabled: true, title: 'Vous avez déjà simulé cette catégorie'} %>
     <%else%>
       <!-- energy -->
-      <%= render partial: 'button_categories', locals: {category: 'energy', sub_category: 'elec', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-sun", name:'Energie', disabled: false, title: ''} %>
+      <%= render partial: 'button_categories', locals: {category: 'energy', sub_category: 'cat', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-sun", name:'Energie', disabled: false, title: ''} %>
     <%end%>
 
 		<!-- numeric -->
     <% if @full_simulation.only_one_box_simulation && @full_simulation.only_one_mobil_simulation %>
       <!-- numeric disabled -->
-      <%= render partial: 'button_categories', locals: {category: 'numeric', sub_category: 'num', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-mobile-alt", name:'Numérique',disabled:true, title: 'Vous avez déjà simulé cette catégorie'} %>
+      <%= render partial: 'button_categories', locals: {category: 'numeric', sub_category: 'cat', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-mobile-alt", name:'Numérique',disabled:true, title: 'Vous avez déjà simulé cette catégorie'} %>
     <%else %>
       <!-- numeric btn -->
-      <%= render partial: 'button_categories', locals: {category: 'numeric', sub_category: 'num', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-mobile-alt", name:'Numérique',disabled:false, title: ''} %>
+      <%= render partial: 'button_categories', locals: {category: 'numeric', sub_category: 'cat', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-mobile-alt", name:'Numérique',disabled:false, title: ''} %>
     <% end %>
 
     <!-- bank -->
     <% if @full_simulation.only_one_bank_simulation %>
       <!-- bank -->
-      <%= render partial: 'button_categories', locals: {category: 'bank', sub_category: 'bank', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-money-check-alt", name:'Banque', disabled: true, title: 'Vous avez déjà simulé cette catégorie'} %>
+      <%= render partial: 'button_categories', locals: {category: 'bank', sub_category: 'cat', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-money-check-alt", name:'Banque', disabled: true, title: 'Vous avez déjà simulé cette catégorie'} %>
     <%else%>
       <!-- bank -->
-      <%= render partial: 'button_categories', locals: {category: 'bank', sub_category: 'bank', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-money-check-alt", name:'Banque', disabled: false, title: ''} %>
+      <%= render partial: 'button_categories', locals: {category: 'bank', sub_category: 'cat', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-money-check-alt", name:'Banque', disabled: false, title: ''} %>
     <%end%>
 	</div>
 
@@ -94,17 +94,17 @@
   <div class="container-fluid row justify-content-center" id="numeric-categories" style="display:none;">
     <div class="col-md-4 d-flex justify-content-around">
       <% if @full_simulation.only_one_box_simulation %>
-        <%= render partial: 'button_categories', locals: {category: 'box', sub_category: 'box', bg:'secondary', animate: 'disabled mx-2', style:'cursor:not-allowed', icon: "fas fa-signal", name:'Box', disabled: true, title: 'Vous avez déjà simulé cette catégorie'} %>
+        <%= render partial: 'button_categories', locals: {category: 'box', sub_category: 'numeric', bg:'secondary', animate: 'disabled mx-2', style:'cursor:not-allowed', icon: "fas fa-signal", name:'Box', disabled: true, title: 'Vous avez déjà simulé cette catégorie'} %>
       <% else %>
        <!-- box_simulation btn -->
-        <%= render partial: 'button_categories', locals: {category: 'box', sub_category: 'box', bg:'primary', animate: 'animate-up-3 mx-2', style:'', icon: "fas fa-signal", name:'Box', disabled: false, title: ''} %>
+        <%= render partial: 'button_categories', locals: {category: 'box', sub_category: 'numeric', bg:'primary', animate: 'animate-up-3 mx-2', style:'', icon: "fas fa-signal", name:'Box', disabled: false, title: ''} %>
       <% end %>
       <% if @full_simulation.only_one_mobil_simulation %>
       <!-- mobil_simulation disabled btn -->
-        <%= render partial: 'button_categories', locals: {category: 'mobil', sub_category: 'mobil', bg:'secondary', animate: 'disabled mx-2', style:'cursor:not-allowed', icon: "fas fa-mobile-alt", name:'Mobile', disabled: true, title: 'Vous avez déjà simulé cette catégorie'} %>
+        <%= render partial: 'button_categories', locals: {category: 'mobil', sub_category: 'numeric', bg:'secondary', animate: 'disabled mx-2', style:'cursor:not-allowed', icon: "fas fa-mobile-alt", name:'Mobile', disabled: true, title: 'Vous avez déjà simulé cette catégorie'} %>
       <% else %>
       <!--   mobil_simulation btn -->
-        <%= render partial: 'button_categories', locals: {category: 'mobil', sub_category: 'mobil', bg:'primary', animate: 'animate-up-3 mx-2', style:'', icon: "fas fa-mobile-alt", name:'Mobile', disabled: false, title: ''} %>
+        <%= render partial: 'button_categories', locals: {category: 'mobil', sub_category: 'numeric', bg:'primary', animate: 'animate-up-3 mx-2', style:'', icon: "fas fa-mobile-alt", name:'Mobile', disabled: false, title: ''} %>
       <% end %>
     </div>
      <!-- Box Simulation JS -->
