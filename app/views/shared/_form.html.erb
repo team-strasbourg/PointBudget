@@ -14,8 +14,8 @@
         <%case action %>
         <%when 'new_session' %>
           <div class="form-group">
-            <%= f.label :email %>
-            <%= f.email_field :email, autofocus: true, autocomplete: :email, placeholder: :email, class: "form-control" %>
+            <%= f.label "Email" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: :email, placeholder: 'Email', class: "form-control" %>
           </div>
 
           <div class="form-group">
@@ -58,8 +58,8 @@
 <!--        NEW PASSWORD FORM -->
         <%when 'new_password' %>
           <div class="form-group">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+            <%= f.label 'Email' %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: 'Email', class:"form-control" %>
           </div>
 
 
@@ -85,7 +85,7 @@
 
         <%when 'edit_registration'%>
         <div class="form-group">
-          <%= f.label :email %><br />
+          <%= f.label 'Email' %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:'Email', class:"form-control" %>
         </div>
 
@@ -116,15 +116,15 @@
 <!-- UNLOCKS NEW FORM-->
         <%when 'new_unlocks'%>
           <div class="form-group">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+            <%= f.label 'Email' %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:'Email', class:"form-control" %>
           </div>
 
 
 <!-- CONFIRMATION INSTRUCTIONS -->
         <%when 'new_confirmation'%>
           <div class="form-group">
-            <%= f.label :email %><br />
+            <%= f.label 'Email' %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class:"form-control" %>
           </div>
 
