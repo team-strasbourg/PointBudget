@@ -8,10 +8,16 @@
         <div class="card shadow-soft border-light p-4">
           <!-- Header -->
           <header class="card-header border-bottom bg-white text-center d-flex flex-column">
-            <div class="display-1 text-secondary font-weight-bold">
-                <p class="align-top font-medium pr-5">Vous pouvez épargner</p><%= (@gas_sim.gas_cost_saved).round(2)%> €
-            <span class="font-medium">/ an</span>
-            </div>
+            <% if @gas_sim.gas_cost_saved <= 0 %>
+              <div class="display-1 text-secondary font-weight-bold">
+                  <p class="align-top font-medium pr-5">Résumé des données rentrées lors de votre simulation</p>
+              </div>
+            <% else %>
+              <div class="display-1 text-secondary font-weight-bold">
+                  <p class="align-top font-medium pr-5">Vous pouvez épargner</p><%= (@gas_sim.gas_cost_saved).round(2)%> €
+              <span class="font-medium">/ an</span>
+              </div>
+            <% end %>
           </header>
           <!-- Content -->
           <div class="card-body">
