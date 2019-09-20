@@ -9,7 +9,7 @@
       <% if user_signed_in? %>
         <%=link_to "Lancer une simulation", new_user_full_simulation_path(current_user), class: "btn mr-2 mb-2 btn-pill btn-primary btn-lg mt-3"%>
       <%else%>
-        <%=link_to "Je m'inscris et lance ma première simulation", new_user_session_path, class: "btn mr-2 mb-2 btn-pill btn-primary btn-lg mt-3"%>
+        <%=link_to "Je m'inscris et lance ma première simulation", new_user_registration_path, class: "btn mr-2 mb-2 btn-pill btn-primary btn-lg mt-3"%>
       <%end%>
     </div>
   </div>
