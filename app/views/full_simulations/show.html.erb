@@ -144,18 +144,27 @@
             <span aria-hidden="true">×</span>
           <%end %>
         </div>
-        <div class="modal-body container">
-			    <div class="content">
-			      <h4 class="text-center">D'après nos comparateurs, vous pourriez économiser</h4><br>
-			    </div>
-          <div class="price-position display-1 text-secondary font-weight-bold">
-              <p class="align-top font-medium pr-5"></p><%= @full_simulation.total_cost_saved %>€
-          <span class="font-medium">/ an</span>
+        
+        <% if @full_simulation.total_cost_saved <= 0 %>
+          <div class="modal-body container row d-flex justify-content-center">
+            <h4 class="text-center">D'après nos comparateurs et selon vos simulations, nous ne pouvons vous proposer mieux!<br><br>Avez-vous faits toutes les simulations que nous vous proposons?
+            </h4><br>
           </div>
-			    <div class="content">
-			      <h4 class="text-justify">Validez sans plus tarder votre simulation afin d'accéder à vos différents domaines d'économie!</h4><br>
-			    </div>
-				</div>
+        <% else %>
+          <div class="modal-body container">
+  			    <div class="content">
+  			      <h4 class="text-center">D'après nos comparateurs, vous pourriez économiser</h4><br>
+  			    </div>
+            <div class="price-position display-1 text-secondary font-weight-bold">
+                <p class="align-top font-medium pr-5"></p><%= @full_simulation.total_cost_saved %>€
+            <span class="font-medium">/ an</span>
+            </div>
+  			    <div class="content">
+  			      <h4 class="text-justify">Validez sans plus tarder votre simulation afin d'accéder à vos différents domaines d'économie!</h4><br>
+  			    </div>
+  				</div>
+        <% end %>
+
         <div class="modal-footer">
         		<%= render partial: "shared/form",
                 locals:{resource: @full_simulation,
