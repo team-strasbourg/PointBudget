@@ -220,7 +220,11 @@
 	        <div class="collapse" id="panel-1">
 	          <div class="pt-3">
               <p class="mb-0">
-                  Vous pouvez économiser <strong><%= @full_simulation.gas_simulation.gas_cost_saved %>€</strong>
+                <% if @full_simulation.gas_simulation.gas_cost_saved <= 0 %>
+                  Aucunes économies à réaliser dans ce domaine
+                  <% else %>
+                    Vous pouvez économiser <strong><%= @full_simulation.gas_simulation.gas_cost_saved %>€</strong>
+                  <% end %>
               </p>
               <%=link_to 'Voir en détails', user_full_simulation_gas_simulation_path(current_user,@full_simulation, @full_simulation.gas_simulation) %>
             </div>
@@ -238,7 +242,11 @@
 					<div class="collapse" id="panel-2">
 						<div class="pt-3">
 							<p class="mb-0">
-								Vous pouvez économiser <strong><%= @full_simulation.ele_simulation.ele_cost_saved %>€</strong>
+								<% if @full_simulation.ele_simulation.ele_cost_saved <= 0 %>
+                  Aucunes économies à réaliser dans ce domaine
+                  <% else %>
+                    Vous pouvez économiser <strong><%= @full_simulation.ele_simulation.ele_cost_saved %>€</strong>
+                  <% end %>
 							</p>
 							<%=link_to 'Voir en détails', user_full_simulation_ele_simulation_path(current_user,@full_simulation, @full_simulation.ele_simulation) %>
 						</div>
@@ -256,7 +264,11 @@
 	        <div class="collapse" id="panel-3">
 	          <div class="pt-3">
               <p class="mb-0">
-                  Vous pouvez économiser <strong><%= @full_simulation.box_simulation.box_cost_saved %>€</strong>
+                <% if @full_simulation.box_simulation.box_cost_saved <= 0 %>
+                  Aucunes économies à réaliser dans ce domaine
+                  <% else %>
+                    Vous pouvez économiser <strong><%= @full_simulation.box_simulation.box_cost_saved %>€</strong>
+                  <% end %>
               </p>
               <%=link_to 'Voir en détails', user_full_simulation_box_simulation_path(current_user,@full_simulation, @full_simulation.box_simulation) %>
             </div>
@@ -274,7 +286,11 @@
           <div class="collapse" id="panel-4">
             <div class="pt-3">
               <p class="mb-0">
-                Vous pouvez économiser <strong><%= @full_simulation.mobil_simulation.mobil_cost_saved %>€</strong>
+                <% if @full_simulation.mobil_simulation.mobil_cost_saved <= 0 %>
+                  Aucunes économies à réaliser dans ce domaine
+                  <% else %>
+                    Vous pouvez économiser <strong><%= @full_simulation.mobil_simulation.mobil_cost_saved %>€</strong>
+                  <% end %>
               </p>
               <%=link_to 'Voir en détails', user_full_simulation_mobil_simulation_path(current_user,@full_simulation, @full_simulation.mobil_simulation) %>
             </div>
@@ -292,7 +308,11 @@
           <div class="collapse" id="panel-5">
             <div class="pt-3">
               <p class="mb-0">
-                Vous pouvez économiser <strong><%= @full_simulation.bank_simulation.bank_cost_saved %>€</strong>
+                <% if @full_simulation.bank_simulation.bank_cost_saved <= 0 %>
+                  Aucunes économies à réaliser dans ce domaine
+                  <% else %>
+                    Vous pouvez économiser <strong><%= @full_simulation.bank_simulation.bank_cost_saved %>€</strong>
+                  <% end %>
               </p>
               <%=link_to 'Voir en détails', user_full_simulation_bank_simulation_path(current_user,@full_simulation, @full_simulation.bank_simulation) %>
             </div>
