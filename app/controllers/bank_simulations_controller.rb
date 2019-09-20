@@ -4,21 +4,10 @@ class BankSimulationsController < ApplicationController
   before_action :authenticate_user!
   before_action :user_signed_in?
   before_action :not_other_users_bank_simulations, only: [:show]
-  before_action :not_other_user_index, only: [:index]
 
   def show
     @bank_sim = BankSimulation.find(params[:id])
     @bank_contracts = @bank_sim.sort_contracts(3)
-  end
-
-  def new
-    @full_simulation = FullSimulation.find(params[:full_simulation_id])
-    if @full_simulation.only_one_bank_simulation
-      flash[:error] = 'Vous avez déjà comparé la banque dans cette simulation'
-      redirect_to user_full_simulation_path(current_user, @full_simulation)
-    else
-      @bank_simulation = BankSimulation.new
-    end
   end
 
   def create
