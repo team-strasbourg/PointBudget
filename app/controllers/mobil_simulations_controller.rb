@@ -2,7 +2,6 @@ class MobilSimulationsController < ApplicationController
   before_action :authenticate_user!
   before_action :user_signed_in?
   before_action :not_other_users_mobil_simulations, only: [:show]
-  before_action :not_other_user_index, only: [:index]
 
   def show
     @mobil_simulation = MobilSimulation.find(params[:id])
@@ -14,15 +13,6 @@ class MobilSimulationsController < ApplicationController
     @mobil_contracts = @mobil_simulation.sort_contracts(3)
   end
 
-  def new
-    @mobil_simulation = MobilSimulation.new
-    if @full_simulation.only_one_mobil_simulation
-      flash[:error] = 'Vous avez déjà comparé le mobile dans cette simulation'
-      redirect_to user_full_simulation_path(current_user, @full_simulation)
-    else
-      @mobile_simulation = MobileSimulation.new
-    end
-  end
 
   def create
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
