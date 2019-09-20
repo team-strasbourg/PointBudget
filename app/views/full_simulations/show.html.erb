@@ -1,6 +1,6 @@
 <% unless @full_simulation.validated == true %>
 	<div class="title-simu container-fluid" id="full-simu-not-validated">
-	  <h2 class="text-center">Vous désirez economiser un maximum? <br>Explorez toutes nos catégories!</h2>
+	  <h2 class="text-center">Vous désirez économiser un maximum? <br>Explorez toutes nos catégories!</h2>
 	</div>
 
 	<div id="categories" class="row container-fluid d-flex justify-content-center">
@@ -51,7 +51,7 @@
 
   <!-- btn energy JAVASCRIPT -->
   <div class="container-fluid row justify-content-center" id="energy-categories" style="display:none;">
-    <div class="col-md-4 d-flex justify-content-around">
+    <div class="col-md-4 d-flex justify-content-center justify-content-md-around">
       <% if @full_simulation.only_one_gas_simulation %>
         <!-- gas_simulation disbled btn -->
         <%= render partial: 'button_categories', locals: {category: 'gas', sub_category: 'gas', bg:'secondary', animate: 'disabled mx-2', style:'cursor:not-allowed', icon: "fas fa-burn", name:'Gaz', disabled:true, title: 'Vous avez déjà simulé cette catégorie'} %>
@@ -130,7 +130,7 @@
   </div>
 
 	<!-- Button Modal -->
-	<div class="container-fluid row justify-content-center simulation-result">
+	<div class="container-fluid row justify-content-center simulation-result" id='finalize'>
     <%=button_tag 'Je finalise ma simulation', class:'btn btn-block btn-secondary mb-3 col-md-3 btn-result', data:{toggle:'modal', target:("#modal-default")} %>
 	</div>
 	<!-- Modal Content -->
@@ -172,7 +172,7 @@
 
 <% else %>
 
-	<div id="context" class="container">
+	<div id="context" class="container mb-1">
     <div class="title-context">
       <h2>Voici le résultat de votre simulation!</h2>
     </div>
@@ -180,7 +180,7 @@
   <% if @full_simulation.total_cost_saved <= 0 %>
     <div class="content container row d-flex justify-content-center">
       <h4 class="text-center">D'après nos comparateurs et selon vos simulations, nous ne pouvons vous proposer mieux!<br><br>Avez-vous faits toutes les simulations que nous vous proposons?</h4><br>
-        <%= link_to 'Lancer une nouvelle simulation', new_user_full_simulation_path(current_user), class: "btn animate-up-3 btn-primary btn-block mx-5 btn-full w-25"%>
+        <%= link_to 'Lancer une nouvelle simulation', new_user_full_simulation_path(current_user), class: "btn animate-up-3 btn-primary btn-full mx-5"%>
     </div>
   <% else %>
     <div class="content">
@@ -293,6 +293,5 @@
     <% end %>
 	</div>
 <% end %>
-
 
 <%= render partial: 'shared/back' %>

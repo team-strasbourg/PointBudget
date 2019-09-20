@@ -13,16 +13,16 @@ RSpec.describe 'the sign in process', type: :feature do
 
   scenario 'with invalid email' do
     sign_in 'invalid_email', 'password'
-    expect(page).to have_content('Log in')
+    expect(page).to have_content('Se connecter')
   end
 
   scenario 'with blank password' do
     sign_in 'valid@example.com', ''
-    expect(page).to have_content('Log in')
+    expect(page).to have_content('Se connecter')
   end
 
   scenario 'with 4 letters password' do
     sign_in 'valid@example.com', 'azer'
-    expect(page).to have_content('Log in')
+    expect(page).to have_content('Se connecter')
   end
 end

@@ -14,19 +14,19 @@
         <%case action %>
         <%when 'new_session' %>
           <div class="form-group">
-            <%= f.label :email %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Email", class: "form-control" %>
+            <%= f.label "Email" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: :email, placeholder: 'Email', class: "form-control" %>
           </div>
 
           <div class="form-group">
-            <%= f.label :password %>
-            <%= f.password_field :password, autocomplete: "current-password", placeholder:"Password", class: "form-control" %>
+            <%= f.label 'Mot de passe' %>
+            <%= f.password_field :password, autocomplete: :password, placeholder: "Mot de passe", class: "form-control" %>
           </div>
 
           <% if devise_mapping.rememberable? %>
             <div class="form-group">
-              <%= f.check_box :remember_me%><br>
-              <%= f.label :remember_me%>
+              <%= f.check_box :remember_me%>
+              <%= f.label 'Se souvenir de moi'%>
             </div>
           <% end %>
 
@@ -38,11 +38,11 @@
           </div>
 
           <div class="form-group">
-            <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "form-control" %>
+            <%= f.password_field :password, autocomplete: "new-password", placeholder: "Mot de passe", class: "form-control" %>
           </div>
 
           <div class="form-group">
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm your password", class: "form-control" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirmer votre mot de passe", class: "form-control" %>
           </div>
 
 <!--          CANCEL MY ACCOUNT-->
@@ -51,15 +51,15 @@
           <div class="form-group">
           </div>
           <div class="form-group">
-            <p>Pas content? </p>
+            <p>Désireux de nous quitter? </p>
           </div>
 
 
 <!--        NEW PASSWORD FORM -->
         <%when 'new_password' %>
           <div class="form-group">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+            <%= f.label 'Email' %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: 'Email', class:"form-control" %>
           </div>
 
 
@@ -69,36 +69,36 @@
 
         <%= f.hidden_field :reset_password_token %>
         <div class="form-group">
-          <%= f.label :password, "New password" %><br />
+          <%= f.label :password %><br />
           <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+            <em>(<%= @minimum_password_length %> caractères minimum)</em><br />
           <% end %>
-          <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class:"form-control" %>
+          <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: 'Nouveau mot de passe', class:"form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :password_confirmation, "Confirm new password" %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Confirmer le mot de passe', class:"form-control" %>
         </div>
 
 <!-- EDIT REGISTRATION FORM-->
 
         <%when 'edit_registration'%>
         <div class="form-group">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+          <%= f.label 'Email' %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:'Email', class:"form-control" %>
         </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <div>Actuellement en attente de confirmation pour: <%= resource.unconfirmed_email %></div>
         <% end %>
 
         <div class="form-group">
-          <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+          <%= f.label :password%> <i>(Laisser vide si vous ne voulez pas le changer)</i><br />
           <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
           <% if @minimum_password_length %>
             <br />
-            <em><%= @minimum_password_length %> characters minimum</em>
+            <em><%= @minimum_password_length %> caractères minimum</em>
           <% end %>
         </div>
 
@@ -108,7 +108,7 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :current_password %> <i>(to confirm your changes)</i><br />
+          <%= f.label :current_password %> <i>(Pour confirmer vos changements)</i><br />
           <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control" %>
         </div>
 
@@ -116,15 +116,15 @@
 <!-- UNLOCKS NEW FORM-->
         <%when 'new_unlocks'%>
           <div class="form-group">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+            <%= f.label 'Email' %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:'Email', class:"form-control" %>
           </div>
 
 
 <!-- CONFIRMATION INSTRUCTIONS -->
         <%when 'new_confirmation'%>
           <div class="form-group">
-            <%= f.label :email %><br />
+            <%= f.label 'Email' %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class:"form-control" %>
           </div>
 
@@ -267,6 +267,7 @@
               <%= number_field_tag "monthly_cost",nil, in: 0.00..200.00 ,step: 0.01, placeholder: 0, class: "form-control"%>
             </p>
             <p>Combien votre forfait possède-t-il de Go?<br>
+              (Rentrer 100 si illimité) <br>
               <%= number_field_tag "bundle_go",nil, in: 0.00..200.00 ,step: 0.01, placeholder: 0,class: "form-control"  %>
             </p>
           </div>
