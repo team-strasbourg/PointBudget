@@ -20,7 +20,6 @@ RSpec.describe 'Full Simulation creation', type: :feature do
       click_link 'Je lance ma simulation'
     end
     click_button 'Je finalise ma simulation'
-    expect(page).to have_content('D\'après nos comparateurs, vous pourriez économiser')
     click_button 'Valider ma simulation'
     expect(page).to have_content('Votre simulation a été validée')
   end

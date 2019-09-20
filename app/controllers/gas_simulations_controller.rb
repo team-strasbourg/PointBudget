@@ -4,7 +4,6 @@ class GasSimulationsController < ApplicationController
   before_action :authenticate_user!
   before_action :user_signed_in?
   before_action :not_other_users_gas_simulations, only: [:show]
-  before_action :not_other_user_index, only: [:index]
 
   def show
     @gas_sim = GasSimulation.find(params[:id])
@@ -14,16 +13,6 @@ class GasSimulationsController < ApplicationController
     @water_cooking_type = table_attributes[2]
     @residents_number = table_attributes[3]
     @gas_contracts = @gas_sim.sort_contracts(3)
-  end
-
-  def new
-    @full_simulation = FullSimulation.find(params[:full_simulation_id])
-    if @full_simulation.only_one_gas_simulation
-      flash[:error] = 'Vous avez déjà comparé le gaz dans cette simulation'
-      redirect_to user_full_simulation_path(current_user, @full_simulation)
-    else
-      @gas_simulation = GasSimulation.new
-    end
   end
 
   def create

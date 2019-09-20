@@ -32,9 +32,20 @@
 
 $(document).ready(function () {
 
+
+    $("body").on("click", "[data-trigger-button]", function() {
+        if (window.matchMedia("(max-width: 767px)").matches) {
+            var $this = $(this),
+                cNavButton = $this.data("trigger-button");
+            $(cNavButton).trigger('click');
+        }
+    });
+
     if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show" && document.body.contains(document.getElementById('full-simu-not-validated'))) {
-        radioYes = document.getElementById("answer_yes")
-        radioNo = document.getElementById("answer_no")
+        radioYes = document.getElementById("answer_yes");
+        radioNo = document.getElementById("answer_no");
+
+        // it show the two differents form of the gas simulation
 
         radioYes.addEventListener('click', function () {
             $('#consumption').show(500);
@@ -55,8 +66,8 @@ $(document).ready(function () {
     }
 
     if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "new") {
-      clickToDisplayDomains = document.getElementById("btn-click-1")
-      domainDeploySatus = false
+      clickToDisplayDomains = document.getElementById("btn-click-1");
+      domainDeploySatus = false;
 
       clickToDisplayDomains.addEventListener('click', function(){
         $("#domain-list").toggle(600);
@@ -65,6 +76,7 @@ $(document).ready(function () {
 
     if ($("body").data("controller") == "full_simulations" && $("body").data("action") == "show" && document.body.contains(document.getElementById('full-simu-not-validated'))) {
 
+        // GET the differents button of the simulation
 
         clickToDisplayNumerics = document.getElementById("btn-numeric");
         numericDeployStatus = false;
@@ -89,10 +101,17 @@ $(document).ready(function () {
             $("#energy-categories").hide(600);
             $("#energy-categories").removeClass("d-flex");
             energyDeployStatus = false;
+            if(bankDeployStatus === false){
+                $("#finalize").hide(400);
+                bankDeployStatus = true;
+            }else{
+                $("#finalize").show(400);
+                bankDeployStatus = false;
+            }
 
 
         });
-        // ENERGIE
+        // ENERGY
         clickToDisplayGasSimu.addEventListener('click', function(){
             $("#gas-simu").toggle(600);
             $("#elec-simu").hide(500);
@@ -108,6 +127,7 @@ $(document).ready(function () {
             $("#numeric-categories").hide(600);
             $("#numeric-categories").removeClass("d-flex");
             numericDeployStatus = false;
+            bankDeployStatus = false
             if (energyDeployStatus == false) {
               $("#energy-categories").addClass("d-flex");
               $("#energy-categories").show(500);
@@ -115,11 +135,13 @@ $(document).ready(function () {
               $("#elec-simu").hide(500);
               gasDeployStatus = false;
               energyDeployStatus = true;
+              $("#finalize").hide(400);
             }
             else if (energyDeployStatus == true) {
               $("#energy-categories").removeClass("d-flex");
               $("#energy-categories").hide(500);
               energyDeployStatus = false;
+              $("#finalize").show(400);
             }
           });
 
@@ -139,6 +161,7 @@ $(document).ready(function () {
             $("#energy-categories").hide(600);
             $("#energy-categories").removeClass("d-flex");
             energyDeployStatus = false;
+            bankDeployStatus = false
             if (numericDeployStatus == false) {
                 $("#numeric-categories").addClass("d-flex");
                 $("#numeric-categories").show(500);
@@ -147,11 +170,13 @@ $(document).ready(function () {
                 boxDeployStatus = false;
                 mobilDeployStatus = false;
                 numericDeployStatus = true;
+                $("#finalize").hide(400);
             }
             else if (numericDeployStatus == true) {
                 $("#numeric-categories").removeClass("d-flex");
                 $("#numeric-categories").hide(500);
                 numericDeployStatus = false;
+                $("#finalize").show(400);
             }
         });
 

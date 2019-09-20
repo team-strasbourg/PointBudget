@@ -1,35 +1,36 @@
 <% unless @full_simulation.validated == true %>
 	<div class="title-simu container-fluid" id="full-simu-not-validated">
-	  <h2 class="text-center">Vous désirez economiser un maximum? <br>Explorez toutes nos catégories!</h2>
+	  <h2 class="text-center">Vous désirez économiser un maximum? <br>Explorez toutes nos catégories!</h2>
 	</div>
 
 	<div id="categories" class="row container-fluid d-flex justify-content-center">
 
-		<!-- bank -->
-    <% if @full_simulation.only_one_bank_simulation %>
-      <!-- bank -->
-      <%= render partial: 'button_categories', locals: {category: 'bank', sub_category: 'bank', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-money-check-alt", name:'Banque', disabled: true} %>
-    <%else%>
-      <!-- bank -->
-      <%= render partial: 'button_categories', locals: {category: 'bank', sub_category: 'bank', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-money-check-alt", name:'Banque', disabled: false} %>
-    <%end%>
-
+    <!-- energy -->
     <% if @full_simulation.only_one_gas_simulation && @full_simulation.only_one_ele_simulation %>
-      <!-- energy -->
-      <%= render partial: 'button_categories', locals: {category: 'energy', sub_category: 'elec', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-sun", name:'Energie', disabled: true} %>
+
+      <%= render partial: 'button_categories', locals: {category: 'energy', sub_category: 'cat', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-sun", name:'Energie', disabled: true, title: 'Vous avez déjà simulé cette catégorie'} %>
     <%else%>
       <!-- energy -->
-      <%= render partial: 'button_categories', locals: {category: 'energy', sub_category: 'elec', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-sun", name:'Energie', disabled: false} %>
+      <%= render partial: 'button_categories', locals: {category: 'energy', sub_category: 'cat', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-sun", name:'Energie', disabled: false, title: ''} %>
     <%end%>
 
 		<!-- numeric -->
     <% if @full_simulation.only_one_box_simulation && @full_simulation.only_one_mobil_simulation %>
       <!-- numeric disabled -->
-      <%= render partial: 'button_categories', locals: {category: 'numeric', sub_category: 'num', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-mobile-alt", name:'Numérique',disabled:true} %>
+      <%= render partial: 'button_categories', locals: {category: 'numeric', sub_category: 'cat', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-mobile-alt", name:'Numérique',disabled:true, title: 'Vous avez déjà simulé cette catégorie'} %>
     <%else %>
       <!-- numeric btn -->
-      <%= render partial: 'button_categories', locals: {category: 'numeric', sub_category: 'num', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-mobile-alt", name:'Numérique',disabled:false} %>
+      <%= render partial: 'button_categories', locals: {category: 'numeric', sub_category: 'cat', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-mobile-alt", name:'Numérique',disabled:false, title: ''} %>
     <% end %>
+
+    <!-- bank -->
+    <% if @full_simulation.only_one_bank_simulation %>
+      <!-- bank -->
+      <%= render partial: 'button_categories', locals: {category: 'bank', sub_category: 'cat', bg:'secondary', animate: 'disabled', style:'cursor:not-allowed', icon: "fas fa-money-check-alt", name:'Banque', disabled: true, title: 'Vous avez déjà simulé cette catégorie'} %>
+    <%else%>
+      <!-- bank -->
+      <%= render partial: 'button_categories', locals: {category: 'bank', sub_category: 'cat', bg:'primary', animate: 'animate-up-3', style:'', icon: "fas fa-money-check-alt", name:'Banque', disabled: false, title: ''} %>
+    <%end%>
 	</div>
 
 <!--btn BANK JAVASCRIPT-->
@@ -50,20 +51,20 @@
 
   <!-- btn energy JAVASCRIPT -->
   <div class="container-fluid row justify-content-center" id="energy-categories" style="display:none;">
-    <div class="col-md-4 d-flex justify-content-around">
+    <div class="col-md-4 d-flex justify-content-center justify-content-md-around">
       <% if @full_simulation.only_one_gas_simulation %>
         <!-- gas_simulation disbled btn -->
-        <%= render partial: 'button_categories', locals: {category: 'gas', sub_category: 'gas', bg:'secondary', animate: 'disabled mx-2', style:'cursor:not-allowed', icon: "fas fa-burn", name:'Gaz', disabled:true} %>
+        <%= render partial: 'button_categories', locals: {category: 'gas', sub_category: 'gas', bg:'secondary', animate: 'disabled mx-2', style:'cursor:not-allowed', icon: "fas fa-burn", name:'Gaz', disabled:true, title: 'Vous avez déjà simulé cette catégorie'} %>
       <% else %>
         <!-- gas_simulation btn -->
-        <%= render partial: 'button_categories', locals: {category: 'gas', sub_category: 'gas', bg:'primary', animate: 'animate-up-3 mx-2', style:'', icon: "fas fa-burn", name:'Gaz', disabled:false} %>
+        <%= render partial: 'button_categories', locals: {category: 'gas', sub_category: 'gas', bg:'primary', animate: 'animate-up-3 mx-2', style:'', icon: "fas fa-burn", name:'Gaz', disabled:false, title: ''} %>
       <% end %>
       <% if @full_simulation.only_one_ele_simulation %>
        <!-- ele_simulation disabled btn -->
-        <%= render partial: 'button_categories', locals: {category: 'elec', sub_category: 'elec', bg:'secondary', animate: 'disabled mx-2', style:'cursor:not-allowed', icon: "fas fa-bolt", name:'Electricité', disabled:true} %>
+        <%= render partial: 'button_categories', locals: {category: 'elec', sub_category: 'elec', bg:'secondary', animate: 'disabled mx-2', style:'cursor:not-allowed', icon: "fas fa-bolt", name:'Electricité', disabled:true, title: 'Vous avez déjà simulé cette catégorie'} %>
       <%else%>
        <!--  ele_simulation btn -->
-        <%= render partial: 'button_categories', locals: {category: 'elec', sub_category: 'elec', bg:'primary', animate: 'animate-up-3 mx-2', style:'', icon: "fas fa-bolt", name:'Electricité', disabled:false} %>
+        <%= render partial: 'button_categories', locals: {category: 'elec', sub_category: 'elec', bg:'primary', animate: 'animate-up-3 mx-2', style:'', icon: "fas fa-bolt", name:'Electricité', disabled:false, title: ''} %>
       <%end%>
     </div>
 
@@ -93,17 +94,17 @@
   <div class="container-fluid row justify-content-center" id="numeric-categories" style="display:none;">
     <div class="col-md-4 d-flex justify-content-around">
       <% if @full_simulation.only_one_box_simulation %>
-        <%= render partial: 'button_categories', locals: {category: 'box', sub_category: 'box', bg:'secondary', animate: 'disabled mx-2', style:'cursor:not-allowed', icon: "fas fa-signal", name:'Box', disabled: true} %>
+        <%= render partial: 'button_categories', locals: {category: 'box', sub_category: 'numeric', bg:'secondary', animate: 'disabled mx-2', style:'cursor:not-allowed', icon: "fas fa-signal", name:'Box', disabled: true, title: 'Vous avez déjà simulé cette catégorie'} %>
       <% else %>
        <!-- box_simulation btn -->
-        <%= render partial: 'button_categories', locals: {category: 'box', sub_category: 'box', bg:'primary', animate: 'animate-up-3 mx-2', style:'', icon: "fas fa-signal", name:'Box', disabled: false} %>
+        <%= render partial: 'button_categories', locals: {category: 'box', sub_category: 'numeric', bg:'primary', animate: 'animate-up-3 mx-2', style:'', icon: "fas fa-signal", name:'Box', disabled: false, title: ''} %>
       <% end %>
       <% if @full_simulation.only_one_mobil_simulation %>
       <!-- mobil_simulation disabled btn -->
-        <%= render partial: 'button_categories', locals: {category: 'mobil', sub_category: 'mobil', bg:'secondary', animate: 'disabled mx-2', style:'cursor:not-allowed', icon: "fas fa-mobile-alt", name:'Mobile', disabled: true} %>
+        <%= render partial: 'button_categories', locals: {category: 'mobil', sub_category: 'numeric', bg:'secondary', animate: 'disabled mx-2', style:'cursor:not-allowed', icon: "fas fa-mobile-alt", name:'Mobile', disabled: true, title: 'Vous avez déjà simulé cette catégorie'} %>
       <% else %>
       <!--   mobil_simulation btn -->
-        <%= render partial: 'button_categories', locals: {category: 'mobil', sub_category: 'mobil', bg:'primary', animate: 'animate-up-3 mx-2', style:'', icon: "fas fa-mobile-alt", name:'Mobile', disabled: false} %>
+        <%= render partial: 'button_categories', locals: {category: 'mobil', sub_category: 'numeric', bg:'primary', animate: 'animate-up-3 mx-2', style:'', icon: "fas fa-mobile-alt", name:'Mobile', disabled: false, title: ''} %>
       <% end %>
     </div>
      <!-- Box Simulation JS -->
@@ -129,7 +130,7 @@
   </div>
 
 	<!-- Button Modal -->
-	<div class="container-fluid row justify-content-center simulation-result">
+	<div class="container-fluid row justify-content-center simulation-result" id='finalize'>
     <%=button_tag 'Je finalise ma simulation', class:'btn btn-block btn-secondary mb-3 col-md-3 btn-result', data:{toggle:'modal', target:("#modal-default")} %>
 	</div>
 	<!-- Modal Content -->
@@ -143,17 +144,27 @@
             <span aria-hidden="true">×</span>
           <%end %>
         </div>
-        <div class="modal-body container">
-			    <div class="content">
-			      <h4 class="text-center">D'après nos comparateurs, vous pourriez économiser</h4><br>
-			    </div>
-			    <div class="price-position d-flex justify-content-center">
-			      <h4 class="price-simu bg-secondary text-white"><%= @full_simulation.total_cost_saved %>€</h4><br>
-			    </div>
-			    <div class="content">
-			      <h4 class="text-justify">Validez sans plus tarder votre simulation afin d'accéder à vos différents domaines d'économie!</h4><br>
-			    </div>
-				</div>
+        
+        <% if @full_simulation.total_cost_saved <= 0 %>
+          <div class="modal-body container row d-flex justify-content-center">
+            <h4 class="text-center">D'après nos comparateurs et selon vos simulations, nous ne pouvons vous proposer mieux!<br><br>Avez-vous faits toutes les simulations que nous vous proposons?
+            </h4><br>
+          </div>
+        <% else %>
+          <div class="modal-body container">
+  			    <div class="content">
+  			      <h4 class="text-center">D'après nos comparateurs, vous pourriez économiser</h4><br>
+  			    </div>
+            <div class="price-position display-1 text-secondary font-weight-bold">
+                <p class="align-top font-medium pr-5"></p><%= @full_simulation.total_cost_saved %>€
+            <span class="font-medium">/ an</span>
+            </div>
+  			    <div class="content">
+  			      <h4 class="text-justify">Validez sans plus tarder votre simulation afin d'accéder à vos différents domaines d'économie!</h4><br>
+  			    </div>
+  				</div>
+        <% end %>
+
         <div class="modal-footer">
         		<%= render partial: "shared/form",
                 locals:{resource: @full_simulation,
@@ -170,7 +181,7 @@
 
 <% else %>
 
-	<div id="context" class="container">
+	<div id="context" class="container mb-1">
     <div class="title-context">
       <h2>Voici le résultat de votre simulation!</h2>
     </div>
@@ -178,23 +189,24 @@
   <% if @full_simulation.total_cost_saved <= 0 %>
     <div class="content container row d-flex justify-content-center">
       <h4 class="text-center">D'après nos comparateurs et selon vos simulations, nous ne pouvons vous proposer mieux!<br><br>Avez-vous faits toutes les simulations que nous vous proposons?</h4><br>
-      <div class="col-md-5 ">
-        <%= link_to 'Lancer une nouvelle simulation', new_user_full_simulation_path(current_user), class: "btn animate-up-3 btn-primary btn-block mx-5 btn-full"%>
-      </div>
+        <%= link_to 'Lancer une nouvelle simulation', new_user_full_simulation_path(current_user), class: "btn animate-up-3 btn-primary btn-full mx-5"%>
     </div>
   <% else %>
     <div class="content">
 		  <h4 class="text-center">D'après nos comparateurs, selon vos simulations, vous pourriez économiser</h4><br>
 		</div>
-	  <div class="price-position d-flex justify-content-center">
-	    <h4 class="price-simu bg-secondary text-white"><%= @full_simulation.total_cost_saved %>€</h4><br>
-    </div>
+      <div class="display-1 text-center text-primary font-weight-bold mt-5">
+          <p class="align-top font-medium pr-5"></p><%= @full_simulation.total_cost_saved %>€
+      <span class="font-medium">/ an</span>
+      </div>
+      <div class="d-flex justify-content-center align-items-center mt-5">
+        <%= link_to "Contacter un conseiller", send_email_counselour_path, class: 'btn btn-primary btn-simu mb-5 d-flex justify-content-center align-items-center w-50' %>
+      </div>
   <% end %>
 	</div>
-    <%= mail_to "pointbudget@hotmail.com", class: 'btn btn-primary btn-simu mb-5 d-flex justify-content-center align-items-center' do %>
-      <p><strong>Contacter un conseiller par mail</strong></p>
-    <% end %>
-	<div id="simulation-list" class="container mt-5">
+
+
+	<div id="simulation-list" class="container">
     <div class="content categ-choice">
       <h5>Ci-dessous, les domaines que vous avez choisis:</h5>
     </div>
@@ -208,7 +220,11 @@
 	        <div class="collapse" id="panel-1">
 	          <div class="pt-3">
               <p class="mb-0">
-                  Vous pouvez économiser <strong><%= @full_simulation.gas_simulation.gas_cost_saved %>€</strong>
+                <% if @full_simulation.gas_simulation.gas_cost_saved <= 0 %>
+                  Aucunes économies à réaliser dans ce domaine
+                  <% else %>
+                    Vous pouvez économiser <strong><%= @full_simulation.gas_simulation.gas_cost_saved %>€</strong>
+                  <% end %>
               </p>
               <%=link_to 'Voir en détails', user_full_simulation_gas_simulation_path(current_user,@full_simulation, @full_simulation.gas_simulation) %>
             </div>
@@ -226,7 +242,11 @@
 					<div class="collapse" id="panel-2">
 						<div class="pt-3">
 							<p class="mb-0">
-								Vous pouvez économiser <strong><%= @full_simulation.ele_simulation.ele_cost_saved %>€</strong>
+								<% if @full_simulation.ele_simulation.ele_cost_saved <= 0 %>
+                  Aucunes économies à réaliser dans ce domaine
+                  <% else %>
+                    Vous pouvez économiser <strong><%= @full_simulation.ele_simulation.ele_cost_saved %>€</strong>
+                  <% end %>
 							</p>
 							<%=link_to 'Voir en détails', user_full_simulation_ele_simulation_path(current_user,@full_simulation, @full_simulation.ele_simulation) %>
 						</div>
@@ -244,7 +264,11 @@
 	        <div class="collapse" id="panel-3">
 	          <div class="pt-3">
               <p class="mb-0">
-                  Vous pouvez économiser <strong><%= @full_simulation.box_simulation.box_cost_saved %>€</strong>
+                <% if @full_simulation.box_simulation.box_cost_saved <= 0 %>
+                  Aucunes économies à réaliser dans ce domaine
+                  <% else %>
+                    Vous pouvez économiser <strong><%= @full_simulation.box_simulation.box_cost_saved %>€</strong>
+                  <% end %>
               </p>
               <%=link_to 'Voir en détails', user_full_simulation_box_simulation_path(current_user,@full_simulation, @full_simulation.box_simulation) %>
             </div>
@@ -262,7 +286,11 @@
           <div class="collapse" id="panel-4">
             <div class="pt-3">
               <p class="mb-0">
-                Vous pouvez économiser <strong><%= @full_simulation.mobil_simulation.mobil_cost_saved %>€</strong>
+                <% if @full_simulation.mobil_simulation.mobil_cost_saved <= 0 %>
+                  Aucunes économies à réaliser dans ce domaine
+                  <% else %>
+                    Vous pouvez économiser <strong><%= @full_simulation.mobil_simulation.mobil_cost_saved %>€</strong>
+                  <% end %>
               </p>
               <%=link_to 'Voir en détails', user_full_simulation_mobil_simulation_path(current_user,@full_simulation, @full_simulation.mobil_simulation) %>
             </div>
@@ -280,7 +308,11 @@
           <div class="collapse" id="panel-5">
             <div class="pt-3">
               <p class="mb-0">
-                Vous pouvez économiser <strong><%= @full_simulation.bank_simulation.bank_cost_saved %>€</strong>
+                <% if @full_simulation.bank_simulation.bank_cost_saved <= 0 %>
+                  Aucunes économies à réaliser dans ce domaine
+                  <% else %>
+                    Vous pouvez économiser <strong><%= @full_simulation.bank_simulation.bank_cost_saved %>€</strong>
+                  <% end %>
               </p>
               <%=link_to 'Voir en détails', user_full_simulation_bank_simulation_path(current_user,@full_simulation, @full_simulation.bank_simulation) %>
             </div>
@@ -290,6 +322,5 @@
     <% end %>
 	</div>
 <% end %>
-
 
 <%= render partial: 'shared/back' %>

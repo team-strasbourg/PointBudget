@@ -1,5 +1,5 @@
 <div class="container d-flex justify-content-center align-items-center my-5">
-  <div class="row", style="margin-top:50px">
+  <div class="row" style="margin-top:50px">
     <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
 
       <%= form_for(resource, url: path, method: method) do |f| %>
@@ -14,54 +14,21 @@
         <%case action %>
         <%when 'new_session' %>
           <div class="form-group">
-            <%= f.label :email %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"Email", class: "form-control" %>
+            <%= f.label "Email" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: :email, placeholder: 'Email', class: "form-control" %>
           </div>
 
           <div class="form-group">
-            <%= f.label :password %>
-            <%= f.password_field :password, autocomplete: "current-password", placeholder:"Password", class: "form-control" %>
+            <%= f.label 'Mot de passe' %>
+            <%= f.password_field :password, autocomplete: :password, placeholder: "Mot de passe", class: "form-control" %>
           </div>
 
           <% if devise_mapping.rememberable? %>
             <div class="form-group">
-              <%= f.check_box :remember_me%><br>
-              <%= f.label :remember_me%>
+              <%= f.check_box :remember_me%>
+              <%= f.label 'Se souvenir de moi'%>
             </div>
           <% end %>
-
-<!--          EDIT REGISTRATION FORM (CHANGE PASSWORD/EMAIL) -->
-
-        <%when 'edit_registration' %>
-
-          <div class="field">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-          </div>
-
-          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-          <% end %>
-
-          <div class="field">
-            <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-            <%= f.password_field :password, autocomplete: "new-password" %>
-            <% if @minimum_password_length %>
-              <br />
-              <em><%= @minimum_password_length %> characters minimum</em>
-            <% end %>
-          </div>
-
-          <div class="field">
-            <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-            <%= f.password_field :current_password, autocomplete: "current-password" %>
-          </div>
-
 
 
 <!--          NEW REGISTRATION FORM-->
@@ -71,11 +38,11 @@
           </div>
 
           <div class="form-group">
-            <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "form-control" %>
+            <%= f.password_field :password, autocomplete: "new-password", placeholder: "Mot de passe", class: "form-control" %>
           </div>
 
           <div class="form-group">
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm your password", class: "form-control" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirmer votre mot de passe", class: "form-control" %>
           </div>
 
 <!--          CANCEL MY ACCOUNT-->
@@ -84,15 +51,15 @@
           <div class="form-group">
           </div>
           <div class="form-group">
-            <p>Pas content? </p>
+            <p>Désireux de nous quitter? </p>
           </div>
-
+        
 
 <!--        NEW PASSWORD FORM -->
         <%when 'new_password' %>
           <div class="form-group">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+            <%= f.label 'Email' %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: 'Email', class:"form-control" %>
           </div>
 
 
@@ -102,36 +69,36 @@
 
         <%= f.hidden_field :reset_password_token %>
         <div class="form-group">
-          <%= f.label :password, "New password" %><br />
+          <%= f.label :password %><br />
           <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+            <em>(<%= @minimum_password_length %> caractères minimum)</em><br />
           <% end %>
-          <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class:"form-control" %>
+          <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: 'Nouveau mot de passe', class:"form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :password_confirmation, "Confirm new password" %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Confirmer le mot de passe', class:"form-control" %>
         </div>
 
 <!-- EDIT REGISTRATION FORM-->
 
         <%when 'edit_registration'%>
         <div class="form-group">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+          <%= f.label 'Email' %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:'Email', class:"form-control" %>
         </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <div>Actuellement en attente de confirmation pour: <%= resource.unconfirmed_email %></div>
         <% end %>
 
         <div class="form-group">
-          <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+          <%= f.label :password%> <i>(Laisser vide si vous ne voulez pas le changer)</i><br />
           <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
           <% if @minimum_password_length %>
             <br />
-            <em><%= @minimum_password_length %> characters minimum</em>
+            <em><%= @minimum_password_length %> caractères minimum</em>
           <% end %>
         </div>
 
@@ -141,26 +108,23 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :current_password %> <i>(to confirm your changes)</i><br />
+          <%= f.label :current_password %> <i>(Pour confirmer vos changements)</i><br />
           <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control" %>
         </div>
-
-
-      <%= link_to "Back", :back %>
 
 
 <!-- UNLOCKS NEW FORM-->
         <%when 'new_unlocks'%>
           <div class="form-group">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+            <%= f.label 'Email' %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:'Email', class:"form-control" %>
           </div>
 
 
 <!-- CONFIRMATION INSTRUCTIONS -->
         <%when 'new_confirmation'%>
           <div class="form-group">
-            <%= f.label :email %><br />
+            <%= f.label 'Email' %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class:"form-control" %>
           </div>
 
@@ -215,14 +179,12 @@
             </div>
 
 
-
-
 <!--        GAS SIMULATION FORM-->
 
         <%when 'new_gas_simulation'%>
           <div class="form-group">
             <p>Coût annuel du gaz en €
-            <%= number_field_tag "yearly_cost", nil, step: 1 , within: 1...10000, class: 'd-flex justify-content-end' %>
+            <%= number_field_tag "yearly_cost", nil, step: 1 , within: 1...10000, placeholder:0, class: 'd-flex justify-content-end' %>
             </p>
             <p>Connaissez vous votre consommation de gaz ?
             <%= radio_button_tag(:answer, "yes")%>
@@ -256,7 +218,7 @@
         <%when 'new_box_simulation'%>
           <div class="form-group">
             <p>Coût mensuel de votre abonnement box internet en €
-              <%= number_field_tag "monthly_cost", nil, step: 1 , within: 1...10000, class: 'd-flex justify-content-end' %>
+              <%= number_field_tag "monthly_cost", nil, step: 1 , within: 1...10000, placeholder:0, class: 'd-flex justify-content-end' %>
             </p>
             <p>Avez-vous ou voulez-vous la TV?
               <%= f.radio_button(:tv, 'true')%>
@@ -279,48 +241,34 @@
 
           </div>
 
-<!--          NEW/EDIT GAS CONTRACT-->
 
-        <%when 'new_gas_contract', 'edit_gas_contract' %>
+<!--        ELEC SIMULATION-->
+        <%when 'new_ele_simulation'%>
           <div class="form-group">
-            <%= f.label :supplier %><br />
-            <%= f.text_field :supplier, autofocus: true, class: "form-control"  %>
+            <p>Coût annuel de l'electricité en €
+              <%= number_field_tag "yearly_cost", nil, step: 1 , within: 1...10000, placeholder:0, class: 'd-flex justify-content-end' %>
+            </p>
+            <p>Quelle est votre consommation d'électricité ?
+            </p>
+            <div id="consumption-elec">
+              <p>Consommation annuelle en kWh
+                <%= number_field_tag "yearly_consumption", nil, step: 1,  placeholder:0, class: 'd-flex justify-content-end' %>
+              </p>
+              <p>Quelle est la puissance de votre compteur en kVa?
+                <%= number_field_tag "kVA_power", nil, in: 6..12 , step: 3 , placeholder:0, class: 'd-flex justify-content-end' %>
+              </p>
+            </div>
           </div>
-
-          <div class="form-group">
-            <%= f.label :offer_name %><br />
-            <%= f.text_field :offer_name, class: "form-control"  %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :subscription_base_price_month %><br />
-            <%= f.number_field :subscription_base_price_month, in: 0.00..100.00, step: 0.01, class: "form-control"  %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :kwh_price_base %><br />
-            <%= f.number_field :kwh_price_base, in: 0.00001..0.1, step: 0.00001, class: "form-control"  %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :low_kw_consumption_per_year %><br />
-            <%= f.number_field :low_kw_consumption_per_year, in: 0..6 , step: 1,class: "form-control"  %>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :high_kw_consumption_per_year %><br />
-            <%= f.number_field :high_kw_consumption_per_year, in: 1..30 ,step: 1,class: "form-control"  %>
-          </div>
-
 <!--        NEW MOBILE SIMULATION  -->
 
         <%when 'new_mobil_simulation'%>
           <div class="form-group">
             <p>Combien payez-vous par mois?<br>
-              <%= number_field_tag "monthly_cost",0.00, in: 0.00..200.00 ,step: 0.01,class: "form-control"%>
+              <%= number_field_tag "monthly_cost",nil, in: 0.00..200.00 ,step: 0.01, placeholder: 0, class: "form-control"%>
             </p>
             <p>Combien votre forfait possède-t-il de Go?<br>
-              <%= number_field_tag "bundle_go", 0.00, in: 0.00..200.00 ,step: 0.01,class: "form-control"  %>
+              (Rentrer 100 si illimité) <br>
+              <%= number_field_tag "bundle_go",nil, in: 0.00..200.00 ,step: 0.01, placeholder: 0,class: "form-control"  %>
             </p>
           </div>
           <div class="form-group">
@@ -361,17 +309,15 @@
         <%when 'new_bank_simulation'%>
           <div class="form-group">
             <p>Combien payez-vous de frais de gestion de compte par mois?<br>
-              <%= f.number_field :accounting_fees, within: 0.00..1000.00 ,step: 0.10,class: "form-control"%>
+              <%= f.number_field :accounting_fees, within: 0.00..1000.00 ,step: 0.10, placeholder:0, class: "form-control"%>
             </p>
-            <p>Combien payez-vous pour votre chéquier par mois?<br>
-              <%= f.number_field :price_cheque, in: 0.00..1000.00 ,step: 0.10,class: "form-control"  %>
+            <p>Combien payez-vous votre chéquier?<br>
+              <%= f.number_field :price_cheque, in: 0.00..1000.00 ,step: 0.10, placeholder:0,class: "form-control"  %>
             </p>
             <p>Combien payez-vous pour votre assurance de vos moyen de paiements par mois?<br>
-              <%= f.number_field :insurance_payment, in: 0.00..1000.00 ,step: 0.10,class: "form-control"  %>
+              <%= f.number_field :insurance_payment, in: 0.00..1000.00 ,step: 0.10, placeholder:0,class: "form-control"  %>
             </p>
           </div>
-
-
 
 
 <!--        NEW/EDIT MOBIL CONTRACT -->
@@ -645,24 +591,41 @@
             <%= f.number_field :kVA_power, in: 6..12 , step: 3, class: "form-control"  %>
           </div>
 
-<!--        ELEC SIMULATION-->
-        <%when 'new_ele_simulation'%>
+<!--          NEW/EDIT GAS CONTRACT-->
+
+        <%when 'new_gas_contract', 'edit_gas_contract' %>
           <div class="form-group">
-            <p>Coût annuel de l'electricité en €
-            <%= number_field_tag "yearly_cost", nil, step: 1 , within: 1...10000, class: 'd-flex justify-content-end' %>
-            </p>
-            <p>Quelle est votre consommation d'électricité ?
-            </p>
-            <div id="consumption-elec">
-              <p>Consommation annuelle en kWh
-              <%= number_field_tag "yearly_consumption", nil, step: 1, class: 'd-flex justify-content-end' %>
-              </p>
-              <p>Quelle est la puissance de votre compteur en kVa?
-              <%= number_field_tag "kVA_power", nil, in: 6..12 , step: 3 , class: 'd-flex justify-content-end' %>
-              </p>
-            </div>
+            <%= f.label :supplier %><br />
+            <%= f.text_field :supplier, autofocus: true, class: "form-control"  %>
           </div>
-        <%end%>
+
+          <div class="form-group">
+            <%= f.label :offer_name %><br />
+            <%= f.text_field :offer_name, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :subscription_base_price_month %><br />
+            <%= f.number_field :subscription_base_price_month, in: 0.00..100.00, step: 0.01, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :kwh_price_base %><br />
+            <%= f.number_field :kwh_price_base, in: 0.00001..0.1, step: 0.00001, class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :low_kw_consumption_per_year %><br />
+            <%= f.number_field :low_kw_consumption_per_year, in: 0..6 , step: 1,class: "form-control"  %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :high_kw_consumption_per_year %><br />
+            <%= f.number_field :high_kw_consumption_per_year, in: 1..30 ,step: 1,class: "form-control"  %>
+          </div>
+
+
+    <%end%>
 
 <!--        FOR ALL FORMS-->
         <div class="form-group">

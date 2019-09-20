@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  # after_create :welcome_send
-  # before_destroy :goodbye_send
+  after_create :welcome_send
+  before_destroy :goodbye_send
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -82,11 +82,17 @@ class User < ApplicationRecord
 
   # send an email when sign up
   def welcome_send
+    begin
     UserMailer.welcome_email(self).deliver_now
+    rescue
+    end
   end
 
   # send an email when cancel the account
   def goodbye_send
+    begin
     UserMailer.goodbye_email(self).deliver_now
+    rescue
+    end
   end
 end

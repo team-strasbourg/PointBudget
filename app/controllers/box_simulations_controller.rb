@@ -4,7 +4,6 @@ class BoxSimulationsController < ApplicationController
   before_action :authenticate_user!
   before_action :user_signed_in?
   before_action :not_other_users_box_simulations, only: [:show]
-  before_action :not_other_user_index, only: [:index]
 
   def show
     @box_sim = BoxSimulation.find(params[:id])
@@ -15,15 +14,6 @@ class BoxSimulationsController < ApplicationController
     @box_contracts = @box_sim.sort_contracts(3)
   end
 
-  def new
-    @full_simulation = FullSimulation.find(params[:full_simulation_id])
-    if @full_simulation.only_one_box_simulation
-      flash[:error] = 'Vous avez déjà comparé la box dans cette simulation'
-      redirect_to user_full_simulation_path(current_user, @full_simulation)
-    else
-      @box_simulation = BoxSimulation.new
-    end
-  end
 
   def create
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
@@ -44,7 +34,7 @@ class BoxSimulationsController < ApplicationController
       @box_simulation.create_join_table_box(comparison[1], comparison[2])
       @full_simulation.update(total_cost_saved: (@full_simulation.total_cost_saved + @box_simulation.box_cost_saved),
                               counter: @full_simulation.counter + 1)
-      flash[:success] = 'Votre simulation de gaz a bien été enregistrée'
+      flash[:success] = 'Votre simulation de box internet a bien été enregistrée'
     else
       flash[:error] = "Veuillez remplir tous les champs pour terminer la simulation d'offre internet"
     end
