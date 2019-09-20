@@ -34,11 +34,11 @@ Rails.application.routes.draw do
   resources :users, only: %i[show edit update] do
     root to: 'full_simulations#new'
     resources :full_simulations, except: [:edit] do
-      resources :gas_simulations, except: [:index]
-      resources :mobil_simulations, except: [:index]
-      resources :box_simulations, except: [:index]
-      resources :bank_simulations, except: [:index]
-      resources :ele_simulations, except: [:index]
+      resources :gas_simulations, only: [:show, :create]
+      resources :mobil_simulations, only: [:show, :create]
+      resources :box_simulations, only: [:show, :create]
+      resources :bank_simulations, only: [:show, :create]
+      resources :ele_simulations, only: [:show, :create]
     end
   end
 end
