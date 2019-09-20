@@ -4,7 +4,6 @@ class BoxSimulationsController < ApplicationController
   before_action :authenticate_user!
   before_action :user_signed_in?
   before_action :not_other_users_box_simulations, only: [:show]
-  before_action :not_other_user_index, only: [:index]
 
   def show
     @box_sim = BoxSimulation.find(params[:id])
@@ -15,15 +14,6 @@ class BoxSimulationsController < ApplicationController
     @box_contracts = @box_sim.sort_contracts(3)
   end
 
-  def new
-    @full_simulation = FullSimulation.find(params[:full_simulation_id])
-    if @full_simulation.only_one_box_simulation
-      flash[:error] = 'Vous avez déjà comparé la box dans cette simulation'
-      redirect_to user_full_simulation_path(current_user, @full_simulation)
-    else
-      @box_simulation = BoxSimulation.new
-    end
-  end
 
   def create
     @full_simulation = FullSimulation.find(params[:full_simulation_id])
