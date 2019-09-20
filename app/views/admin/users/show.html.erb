@@ -68,11 +68,13 @@
         </thead>
         <tbody>
           <%@full_sim_valid.each do |full_sim| %>
+        <tr>
             <td><%=full_sim.total_cost_saved %></td>
             <td><%= full_sim.created_at.to_formatted_s(:short) %></td>
             <td><%= full_sim.updated_at.to_formatted_s(:short) %></td>
             <td><%= full_sim.counter %></td>
             <td><%=link_to 'Show', admin_full_simulation_path( full_sim), class: 'btn btn-primary' %></td>
+        </tr>
           <% end %>
         </tbody>
       </table>
