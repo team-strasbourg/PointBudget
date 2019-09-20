@@ -82,7 +82,7 @@ class ApplicationController < ActionController::Base
   end
 
   def not_other_users_ele_simulations
-  # This method prevents users from going to pages associated with another user, namely the simulations
+  # This method prevents users from going to pages associated with another user, namely the electricity simulations
   return unless current_user != EleSimulation.find(params[:id]).user && current_user.has_ele_simulations(params[:id])
   rescue
     error_connected
